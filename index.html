@@ -6,16 +6,90 @@
     <meta name="description" content="Acts of Service">
     <title>Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Helvetica;
+            background-color: #ffffff;
+        }
+        header {
+              font-family: times new roman;
+              font-style: italic;
+
+
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 0px 20px;
+            text-align: left;
+        }
+        footer {
+            padding: 20px;
+            text-align: left;
+            font-size: 0.6rem;
+        }
+.heart-orb {
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    margin-top: -160px;
+    margin-left: -160px;
+    background: radial-gradient(
+      circle at 50% 50%,
+      #ed8dcd 0%,
+      #ff4141 5%,
+      #ff002f 10%,
+       #f3b5eb9e 50%,
+      #ffffff00 70%
+    );
+    animation: heartbeat 10.2s infinite;
+    transform-origin: center;
+}
+
+/* thump-thump ... pause, like a fast heartbeat */
+@keyframes heartbeat {
+    0%   { transform: scale(1); }
+    1%  { transform: scale(1.15); }
+    4%  { transform: scale(1); }
+    6%  { transform: scale(1.15); }
+    10%  { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+        @media (max-width: 400px) {
+            body {
+                font-size: 16px;
+                transform: rotate(90deg);
+                transform-origin: center center;
+                padding-left: 30px;
+            }
+            header {
+                text-align: left;   
+            }
+            main {
+
+            }
+            footer {
+
+           }
+           
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Acts of Service</h1>
+        <h1>Acts of Service</h1>
     </header>
     <main>
-        <p>Your content goes here.</p>
+        <p>Our lovelanguage</p>
     </main>
+    <div class="heart-orb"></div>​
     <footer>
-        <p>&copy; 2023 Acts of Service. All rights reserved.</p>
+        <p>Sweden, Stockholm</p>
+        <p> [2026.07.19] Acts of Service © All rights reserved.</p>
     </footer>
 </body>
 </html>
