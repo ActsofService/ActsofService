@@ -6,77 +6,125 @@
     <meta name="description" content="Acts of Service">
     <title>Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ndj2ubh.css">
+
     <style>
+        html, body {
+            height: 100%;
+        }
         body {
             margin: 0;
-            font-family: Helvetica;
-            background-color: #ffffff;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
         header {
-              font-family: times new roman;
-              font-style: italic;
-
-
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-weight: 400;
+            font-size: 5.2rem;
+            font-style: italic;
+            color: rgb(221, 237, 42);
+            background-color: rgb(210, 210, 210);
             padding: 20px;
-            text-align: center;
+            text-align: left;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
         }
         main {
             padding: 0px 20px;
             text-align: left;
+            flex: 1;
+            background-color: blue;
         }
+
+        /* footer now holds two columns, like the reference image */
         footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
             padding: 20px;
-            text-align: left;
             font-size: 0.6rem;
         }
-.heart-orb {
-    width: 320px;
-    height: 320px;
-    position: absolute;
-    z-index: -1;
-    top: 50%;
-    left: 50%;
-    margin-top: -160px;
-    margin-left: -160px;
-    background: radial-gradient(
-      circle at 50% 50%,
-      #ed8dcd 0%,
-      #ff4141 5%,
-      #ff002f 10%,
-       #f3b5eb9e 50%,
-      #ffffff00 70%
-    );
-    animation: heartbeat 10.2s infinite;
-    transform-origin: center;
-}
+        footer .footer-col {
+            text-align: left;
+        }
+        footer p {
+            margin: 0 0 2px 0;
+        }
 
-/* thump-thump ... pause, like a fast heartbeat */
-@keyframes heartbeat {
-    0%   { transform: scale(1); }
-    1%  { transform: scale(1.15); }
-    4%  { transform: scale(1); }
-    6%  { transform: scale(1.15); }
-    10%  { transform: scale(1); }
-    100% { transform: scale(1); }
-}
-        @media (max-width: 400px) {
-            body {
-                font-size: 16px;
-                transform: rotate(90deg);
-                transform-origin: center center;
-                padding-left: 30px;
+        .heart-orb {
+            width: 320px;
+            height: 320px;
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            margin-top: -160px;
+            margin-left: -160px;
+            background: radial-gradient(
+              circle at 50% 50%,
+              #ed8dcd 0%,
+              #ff4141 5%,
+              #ff002f 10%,
+              #f3b5ebc7 40%,
+              #ffffff00 70%
+            );
+            animation: heartbeat 2.8s infinite;
+            transform-origin: center;
+        }
+
+        /* thump-thump ... pause, like a fast heartbeat */
+        @keyframes heartbeat {
+            0%   { transform: scale(1); }
+            8%   { transform: scale(1.15); }
+            14%  { transform: scale(1); }
+            19%  { transform: scale(1.15); }
+            40%  { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
+        @media (max-width: 600px) {
+            /* ensure layout fits exactly into the viewport when rotated */
+            html, body {
+                width: 100vh;
+                height: 100vw;
+                margin: 0;
             }
-            header {
-                text-align: left;   
+            /* use flex column so header + main + footer share the full 100vh
+               header and footer keep intrinsic height, main fills remaining space */
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 100vw;
+                width: 100vh;
+                overflow: hidden;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(90deg);
+                transform-origin: center center;
+            }
+            header h1 {
+                font-size: 2.2rem;
             }
             main {
-
+                flex: 1 1 auto; /* take remaining space */
+                min-height: 0; /* allow proper shrinking inside flex */
+                overflow: auto;
+                padding: 0px 12px;
             }
             footer {
-
-           }
-           
-        }
+                flex-direction: row;
+                gap: 20px;
+                align-items: flex-start;
+            }
+        } 
     </style>
 </head>
 <body>
@@ -86,10 +134,18 @@
     <main>
         <p>Our lovelanguage</p>
     </main>
-    <div class="heart-orb"></div>​
+    <div class="heart-orb"></div>
     <footer>
-        <p>Sweden, Stockholm</p>
-        <p> [2026.07.19] Acts of Service © All rights reserved.</p>
+        <div class="footer-col">
+            <p>Sweden, Stockholm</p>
+            <p>[2026.07.19] Acts of Service &copy; All rights reserved.</p>
+        </div>
+        <div class="footer-col">
+            <p>Our Services:</p>
+            <p>Graphic Design &</p>
+            <p>Art Direction</p>
+            <p></p>
+        </div>
     </footer>
 </body>
 </html>
