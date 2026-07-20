@@ -18,7 +18,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 100vh;
             box-sizing: border-box;
         }
         header {
@@ -26,8 +25,6 @@
             font-weight: 400;
             font-size: 5.2rem;
             font-style: italic;
-            color: rgb(221, 237, 42);
-            background-color: rgb(210, 210, 210);
             padding: 20px;
             text-align: left;
         }
@@ -39,7 +36,6 @@
             padding: 0px 20px;
             text-align: left;
             flex: 1;
-            background-color: blue;
         }
 
         /* footer now holds two columns, like the reference image */
@@ -89,42 +85,41 @@
         }
 
         /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
-        @media (max-width: 600px) {
-            /* ensure layout fits exactly into the viewport when rotated */
-            html, body {
-                width: 100vh;
-                height: 100vw;
-                margin: 0;
-            }
-            /* use flex column so header + main + footer share the full 100vh
-               header and footer keep intrinsic height, main fills remaining space */
-            body {
-                display: flex;
-                flex-direction: column;
-                height: 100vw;
-                width: 100vh;
-                overflow: hidden;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) rotate(90deg);
-                transform-origin: center center;
-            }
-            header h1 {
-                font-size: 2.2rem;
-            }
-            main {
-                flex: 1 1 auto; /* take remaining space */
-                min-height: 0; /* allow proper shrinking inside flex */
-                overflow: auto;
-                padding: 0px 12px;
-            }
-            footer {
-                flex-direction: row;
-                gap: 20px;
-                align-items: flex-start;
-            }
-        } 
+@media (max-width: 600px) {
+    html, body {
+        width: 100vh;
+        height: 100vw;
+        margin: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vw;
+        width: 100vh;
+        overflow: hidden;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center center;
+    }
+    footer {
+        flex-direction: row;
+        gap: 12px;
+        align-items: flex-start;
+        font-size: clamp(0.5rem, 2vw, 0.6rem);
+        padding: 12px;
+    }
+    header {
+        padding: 12px;
+    }
+    main {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: auto;   /* last-resort safety net if content still doesn't fit */
+        padding: 0px 12px;
+    }
+}
     </style>
 </head>
 <body>
