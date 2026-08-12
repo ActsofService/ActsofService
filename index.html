@@ -24,27 +24,27 @@
             margin: 0px 20px;
             font-family: "helvetica-neue-lt-pro", sans-serif;
             font-weight: 400;
+            line-height: 60%;
+            background-color: #43b92e12;
             font-size: 5.2rem;
             text-align: left;
-           /* background-color: #43b92e3a;*/
         }
         header h1 {
             font-size: 3rem;
             margin: 0;
-           /* font-style: italic;*/
         }
         h2 {
             font-size: 3rem;
             margin: 0;
-            color: #00000017;
+            color: #0000000b;
             mix-blend-mode: difference;
-               
         }
         main {
             margin: 0px 20px;
+            margin-right: 200px;
             text-align: left;
             flex: 1;
-            /* background-color: #2e35b93a;*/
+            background-color: #2e5ab912;
         }
 
         /* footer now holds two columns, like the reference image */
@@ -54,43 +54,13 @@
             gap: 40px;
             padding: 20px;
             font-size: 0.6rem;
+            background-color: #b92e9412;
         }
         footer .footer-col {
             text-align: left;
         }
         footer p {
             margin: 0 0 2px 0;
-        }
-
-        .heart-orb {
-            width: 320px;
-            height: 320px;
-            position: absolute;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            margin-top: -160px;
-            margin-left: -160px;
-            background: radial-gradient(
-              circle at 50% 50%,
-              #ed8dcd 0%,
-              #ff4141 5%,
-              #ff002f 10%,
-              #f3b5ebc7 40%,
-              #ffffff00 70%
-            );
-            animation: heartbeat 2.8s infinite;
-            transform-origin: center;
-        }
-
-        /* thump-thump ... pause, like a fast heartbeat */
-        @keyframes heartbeat {
-            0%   { transform: scale(1); }
-            8%   { transform: scale(1.15); }
-            14%  { transform: scale(1); }
-            19%  { transform: scale(1.15); }
-            40%  { transform: scale(1); }
-            100% { transform: scale(1); }
         }
 
         /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
@@ -134,25 +104,28 @@
 </head>
 <body>
     <header>
-        <h2>Physical Touch</h2>
-        <h1>Acts of Service</h1>
-        <h2>Words of Affirmation</h2>
         <h2>Quality time</h2>
-        <h2>Receiving Gifts</h2>
+        <h1>Acts of Service</h1>
+        <h2>Receiving gifts</h2>
+        <h2>Physical touch</h2>
+        <h2>Words of affirmation</h2>
     </header>
     <main>
-        <p>Our love language</p>
+        <p>Our love language is <italic>acts of service</italic>, a love language where we show care through helpful, practical actions that make daily life easier</p>
     </main>
-    <div class="heart-orb"></div>
     <footer>
         <div class="footer-col">
             <p>Sweden, Stockholm</p>
             <p>[2026.07.19] Acts of Service &copy; All rights reserved.</p>
         </div>
         <div class="footer-col">
+            <p>Our love language:</p>
+            <p>Acts of Service</p>
+        </div>
+        <div class="footer-col">
             <p>Our Services:</p>
             <p>Graphic Design & Art Direction</p>
-            <p></p>
+            <p><a href="arkiv.html">Arkiv</a></p>
         </div>
     </footer>
 </body>
