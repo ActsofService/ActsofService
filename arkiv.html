@@ -5,17 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subpage — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ndj2ubh.css">
+    <style>
+        html,
+    body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        header {
+            margin: 0px 20px;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-weight: 400;
+            line-height: 60%;
+            background-color: #43b92e12;
+            font-size: 5.2rem;
+            text-align: left;
+            position: fixed;
+            top: 0;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        h2 {
+            font-size: 3rem;
+            margin: 0;
+            color: #0000000b;
+            mix-blend-mode: difference;
+        }
+        main {
+            margin: 0px 20px;
+            padding-bottom: 500px;
+            text-align: left;
+            flex: 1;
+            background-color: #2e5ab912;
+            padding-top: 100px;
+            overflow: auto;
+        }
+
+        footer {
+            position: fixed;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 20px;
+            font-size: 0.6rem;
+            background-color: #b92e9412;
+            bottom: 0;
+            margin: 0px 0px;
+            width: calc(100% - 40px);
+        }
+        footer .footer-col {
+            text-align: left;
+            background-color: #482d2d39;
+        }
+        footer p {
+            margin: 0 0 2px 0;
+        }
+        .project {
+            background-color: rgba(0, 0, 0, 0.072); 
+            text-align: center;
+        }
+        .project img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
+@media (max-width: 600px) {
+    html, body {
+        width: 100vh;
+        height: 100vw;
+        margin: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vw;
+        width: 100vh;
+        overflow: hidden;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center center;
+    }
+    footer {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        font-size: clamp(0.5rem, 2vw, 0.6rem);
+        padding: 12px 80px 12px 12px;
+    }
+    header {
+        padding-left: 54px;
+        padding-top: 12px;
+    }
+    main {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: auto;   /* last-resort safety net if content still doesn't fit */
+        padding: 0px 60px;
+    }
+}
+</style>
 </head>
 <body>
+    
     <header>
-        <h1>Subpage</h1>
+        <h2>(Acts of Service)</h2>
+        <h1>Archive</h1>
     </header>
     <main>
-        <p>This is a subpage for Acts of Service.</p>
+        <p>An archive of our acts of love</p>
         <p><a href="#" onclick="history.back(); return false;">← Back</a></p>
-    </main>
+
+        <div id="projects-list">
+            <p>Loading projects…</p>
+        </div>
+
+     </main>
     <footer>
-        <p>Subpage for local testing.</p>
+         <div class="footer-col">
+            <p>Sweden, Stockholm</p>
+            <p>[2026.07.19] Acts of Service &copy; All rights reserved.</p>
+        </div>
+        <div class="footer-col">
+            <p>Previous acts of service</p>
+            <p><a href="#" onclick="history.back(); return false;">Back</a></p>
+        </div>
+        <div class="footer-col">
+            <p>Our Services:</p>
+            <p>Graphic Design & Art Direction</p>
+        
     </footer>
+
+    <script>
+    fetch('projects.json')
+        .then(res => res.json())
+        .then(projects => {
+            const container = document.getElementById('projects-list');
+            container.innerHTML = '';
+
+            if (!projects.length) {
+                container.innerHTML = '<p>No projects yet — add one in the CMS.</p>';
+                return;
+            }
+
+            projects.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'project';
+                div.innerHTML = `
+                    <h3>${p.title}</h3>
+                    ${p.image ? `<img src="${p.image}" alt="${p.title}">` : ''}
+                    <p>${p.description || ''}</p>
+                    ${p.link ? `<p><a href="${p.link}" target="_blank">View project →</a></p>` : ''}
+                `;
+                container.appendChild(div);
+            });
+        })
+        .catch(err => {
+            console.error('Could not load projects.json', err);
+            document.getElementById('projects-list').innerHTML =
+                '<p>Could not load projects right now.</p>';
+        });
+    </script>
 </body>
 </html>
