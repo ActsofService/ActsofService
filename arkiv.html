@@ -169,17 +169,21 @@ fetch('projects.json')
             const div = document.createElement('div');
             div.className = 'project';
 
+            const coverHtml = p.image
+                ? `<img class="project-img" src="${p.image}" alt="${p.title}">`
+                : '';
+
             const galleryHtml = (p.gallery && p.gallery.length)
-                ? `<div class="project-gallery">
-                     ${p.gallery.map(imgPath => `<img src="${imgPath}" alt="${p.title}">`).join('')}
-                   </div>`
+                ? p.gallery.map(imgPath => `<img class="project-img" src="${imgPath}" alt="${p.title}">`).join('')
                 : '';
 
             div.innerHTML = `
                 <h3>${p.title}</h3>
-                ${p.image ? `<img class="project-cover" src="${p.image}" alt="${p.title}">` : ''}
+                <div class="project-images">
+                    ${coverHtml}
+                    ${galleryHtml}
+                </div>
                 <p>${p.description || ''}</p>
-                ${galleryHtml}
                 ${p.link ? `<p><a href="${p.link}" target="_blank">View project →</a></p>` : ''}
             `;
             container.appendChild(div);
