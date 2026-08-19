@@ -171,7 +171,7 @@ fetch('projects.json')
 
             const galleryHtml = (p.gallery && p.gallery.length)
                 ? `<div class="project-gallery">
-                     ${p.gallery.map(item => `<img src="${item.image}" alt="${p.title}">`).join('')}
+                     ${p.gallery.map(imgPath => `<img src="${imgPath}" alt="${p.title}">`).join('')}
                    </div>`
                 : '';
 
