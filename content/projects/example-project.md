@@ -1,7 +1,7 @@
 ---
-title: "Example Project"
-description: "A short description of this project."
-image: "/images/uploads/example.jpg"
+title: Example Project
+description: Lejon
+image: /images/uploads/lejon.png
 date: 2026-08-13
 link: ""
 ---
