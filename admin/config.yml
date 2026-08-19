@@ -15,6 +15,11 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Cover Image", name: "image", widget: "image" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Image", name: "image", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Link", name: "link", widget: "string", required: false }
