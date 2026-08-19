@@ -147,35 +147,43 @@
         
     </footer>
 
-    <script>
-    fetch('projects.json')
-        .then(res => res.json())
-        .then(projects => {
-            const container = document.getElementById('projects-list');
-            container.innerHTML = '';
+<script>
+fetch('projects.json')
+    .then(res => res.json())
+    .then(projects => {
+        const container = document.getElementById('projects-list');
+        container.innerHTML = '';
 
-            if (!projects.length) {
-                container.innerHTML = '<p>No projects yet — add one in the CMS.</p>';
-                return;
-            }
+        if (!projects.length) {
+            container.innerHTML = '<p>No projects yet — add one in the CMS.</p>';
+            return;
+        }
 
-            projects.forEach(p => {
-                const div = document.createElement('div');
-                div.className = 'project';
-                div.innerHTML = `
-                    <h3>${p.title}</h3>
-                    ${p.image ? `<img src="${p.image}" alt="${p.title}">` : ''}
-                    <p>${p.description || ''}</p>
-                    ${p.link ? `<p><a href="${p.link}" target="_blank">View project →</a></p>` : ''}
-                `;
-                container.appendChild(div);
-            });
-        })
-        .catch(err => {
-            console.error('Could not load projects.json', err);
-            document.getElementById('projects-list').innerHTML =
-                '<p>Could not load projects right now.</p>';
+        projects.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'project';
+
+            const galleryHtml = (p.gallery && p.gallery.length)
+                ? `<div class="project-gallery">
+                     ${p.gallery.map(item => `<img src="${item.image}" alt="${p.title}">`).join('')}
+                   </div>`
+                : '';
+
+            div.innerHTML = `
+                <h3>${p.title}</h3>
+                ${p.image ? `<img class="project-cover" src="${p.image}" alt="${p.title}">` : ''}
+                <p>${p.description || ''}</p>
+                ${galleryHtml}
+                ${p.link ? `<p><a href="${p.link}" target="_blank">View project →</a></p>` : ''}
+            `;
+            container.appendChild(div);
         });
-    </script>
+    })
+    .catch(err => {
+        console.error('Could not load projects.json', err);
+        document.getElementById('projects-list').innerHTML =
+            '<p>Could not load projects right now.</p>';
+    });
+</script>
 </body>
 </html>
