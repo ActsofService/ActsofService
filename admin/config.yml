@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: yourusername/your-repo-name # TODO: replace with e.g. "janedoe/acts-of-service"
+  name: git-gateway
   branch: main
 
 media_folder: "images/uploads"
