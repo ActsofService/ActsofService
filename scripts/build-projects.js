@@ -16,6 +16,7 @@ const projects = files.map(filename => {
     title: data.title,
     description: data.description,
     image: data.image,
+    gallery: data.gallery || [],
     date: data.date,
     link: data.link || null,
     body: content
