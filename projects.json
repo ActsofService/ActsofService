@@ -1,8 +1,18 @@
 [
   {
+    "title": "hej olle och emmy <3",
+    "description": "testiluring!",
+    "image": "/images/uploads/3ba31cbc16d8dfba7555cf1cc53ed846.jpeg",
+    "gallery": [],
+    "date": "2026-08-19T10:20:00.000Z",
+    "link": null,
+    "body": "skriver lite texr\n"
+  },
+  {
     "title": "Test 19 aug 11:57",
     "description": "jag testar ett till projekt",
     "image": "/images/uploads/2artboard-1.png",
+    "gallery": [],
     "date": "2026-08-19T09:57:00.000Z",
     "link": null,
     "body": "att utvecklas inom design handlar om...\n"
@@ -11,6 +21,7 @@
     "title": "Frukost projekt",
     "description": "testar och idag åt jag frukost",
     "image": "https://www.lokalnytt.se/upload/artikelbilder/2343/kaffe_med_hjarta.jpg",
+    "gallery": [],
     "date": "2026-08-19T09:09:00.000Z",
     "link": null,
     "body": "Klockan 11 har jag lyckats ladda upp mitt första projekt om frukost. Det var gott och ska bli spänande att se om det fungerar. <3\n"
@@ -19,6 +30,7 @@
     "title": "Example Project",
     "description": "A short description of this project.",
     "image": "/images/uploads/example.jpg",
+    "gallery": [],
     "date": "2026-08-13T00:00:00.000Z",
     "link": null,
     "body": "\nLonger body text about the project goes here. This is written and edited\nthrough the Decap CMS \"Body\" field.\n"
