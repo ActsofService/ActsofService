@@ -1,6 +1,6 @@
 ---
 title: Frukost projekt
-description: testar och ifag åt jag frukost
+description: testar och idag åt jag frukost
 image: https://www.lokalnytt.se/upload/artikelbilder/2343/kaffe_med_hjarta.jpg
 date: 2026-08-19T11:09:00.000+02:00
 ---
