@@ -1,5 +1,5 @@
 ---
-title: hej olle och emmy <3
+title: ESSENCE
 description: >
   Redaktionellt arbete från andra året på Beckmans i samarbete med Emina Iman
   från Juice Studios, i grupp med Edda Eliasson, Emmy Seeger och Wilma
