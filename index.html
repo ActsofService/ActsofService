@@ -24,7 +24,6 @@
             font-family: "helvetica-neue-lt-pro", sans-serif;
             font-weight: 400;
             line-height: 60%;
-            background-color: #43b92e12;
             font-size: 5.2rem;
             text-align: left;
             position: flex;
@@ -44,24 +43,36 @@
             padding-right: calc(100% - 450px);
             text-align: left;
             flex: 1;
-            background-color: #2e5ab912;
+            font-size: 1rem;
         }
 
         /* footer now holds two columns, like the reference image */
         footer {
             position: fixed;
             display: flex;
-            justify-content: space-evenly;
-            padding: 20px;
+            justify-content: space-between;
+            padding: 20px 0;
             font-size: 0.6rem;
-            background-color: #b92e9412;
             bottom: 0;
             margin: 0px 0px;
-            width: calc(100% - 40px);
+            width: 100%;
         }
         footer .footer-col {
             text-align: left;
-            background-color: #482d2d39;
+
+        }
+        footer .footer-col:first-child {
+            margin-left: 20px;
+        }
+        footer .footer-col:last-child {
+            margin-right: 20px;
+        }
+        footer .footer-col:nth-child(2) {
+            flex: 1;
+            margin: 0 20px;
+        }
+        footer p {
+            margin: 0 0 2px 0;
         }
         footer p {
             margin: 0 0 2px 0;
@@ -75,7 +86,7 @@
         }
 
         /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     html, body {
         width: 100vh;
         height: 100vw;
@@ -107,10 +118,10 @@
     main {
         flex: 1 1 auto;
         min-height: 0;
-        overflow: auto;   /* last-resort safety net if content still doesn't fit */
-        padding: 0px 60px;
-    }
-}
+        overflow: auto; 
+    } 
+    
+}*/
     </style>
 </head>
 <body>
@@ -131,8 +142,8 @@
             <p>[2026.07.19] Acts of Service &copy; All rights reserved.</p>
         </div>
         <div class="footer-col">
-            <p>Previous acts of service</p>
-            <p><a href="arkiv.html">Archive</a></p>
+            <p>Previous acts of service:</p>
+            <p><a href="archive.html">Archive</a></p>
         </div>
         <div class="footer-col">
             <p>Our Services:</p>

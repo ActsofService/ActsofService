@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subpage — Acts of Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ndj2ubh.css">
+    <style>
+        html,
+    body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        header {
+            margin: 0px 20px;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-weight: 400;
+            line-height: 60%;
+            font-size: 5.2rem;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            width: calc(100% - 40px);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header .header-back {
+            margin: 0;
+            font-size: 0.6rem;
+            line-height: 1.4;
+            align-self: flex-end;
+            margin-top: 0.8rem;
+        }
+        h2 {
+            font-size: 3rem;
+            margin: 0;
+            color: #8a20200b;
+            mix-blend-mode: difference;
+        }
+        main {
+            margin: 0px 20px;
+            padding-bottom: 100px;
+            text-align: left;
+            flex: 1;
+            padding-top: 120px;
+            overflow: auto;
+            font-size: 1rem;
+        }
+
+        footer {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            font-size: 0.6rem;
+            bottom: 0;
+            margin: 0px 0px;
+            width: 100%;
+        }
+        footer .footer-col {
+            text-align: left;
+        }
+        footer .footer-col:first-child {
+            margin-left: 20px;
+        }
+        footer .footer-col:last-child {
+            margin-right: 20px;
+        }
+        footer .footer-col:nth-child(2) {
+            flex: 1;
+            margin: 0 20px;
+        }
+        footer p {
+            margin: 0 0 2px 0;
+        }
+        .project {
+            text-align: center;
+          font-family: "helvetica-neue-lt-pro", sans-serif;
+
+        }
+
+        .project.collapsed .project-images,
+        .project.collapsed .project-description,
+        .project.collapsed .project-link {
+            display: none;
+        }
+
+        .project.expanded .project-cover {
+            display: none;
+        }
+
+        .carousel-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 110px 0 20px 0;
+            width: 100vw;
+            max-width: 100vw;
+        }
+
+        .carousel-modal {
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            position: relative;
+            padding: 0px;
+            width: 100vw;
+            max-width: 100vw;
+            max-height: 100vh;
+            z-index: 1000;
+            text-align: left;
+        }
+
+        .carousel-modal h3 {
+            text-align: left;
+            padding-left: 200px;
+        }
+
+        .carousel-modal .project-images {
+            margin-top: 0;
+        }
+
+        .project-cover {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 200px minmax(0, 1fr);
+            align-items: stretch;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .project-cover .cover-info-left,
+        .project-cover .cover-info-right {
+            height: 100%;
+            display: flex;
+            font-size: 0.8rem;
+        }
+
+        .project-cover .cover-info-left {
+            justify-content: flex-start;
+            padding-left: 0px;
+            text-align: right;
+        }
+
+        .project-cover .cover-info-right {
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding-right: 0px;
+            text-align: right;
+            font-size: 0.6rem;
+        }
+
+        .project-cover .cover-info-right span {
+            display: inline-flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 0.25rem;
+            text-align: right;
+            margin-left: 60px;
+        }
+
+        .project-cover img {
+            display: block;
+            margin: 0 auto;
+            height: auto;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .cover-cursor-label,
+        .carousel-close-cursor {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 2000;
+            cursor: pointer;
+            pointer-events: none;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-size: 0.6rem;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            mix-blend-mode: difference;
+            color: #ffffff;
+            transform: translate(12px, 12px);
+            opacity: 0;
+            transition: opacity 0.1s ease;
+        }
+
+        .cover-cursor-label.visible,
+        .carousel-close-cursor.visible {
+            opacity: 1;
+        }
+
+        .project-cover h3 {
+            margin: 0;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            text-align: left;
+            transition: opacity 0s linear;
+        }
+
+        .project-cover h3.fading {
+            opacity: 0;
+        }
+ 
+        .project-images {
+            display: flex;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            gap: 10px;
+            align-items: flex-start;
+            margin-top: 8px;
+            scroll-behavior: smooth;
+            padding: 8px 0;
+            /* Hide scrollbar while keeping functionality */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .project-images::-webkit-scrollbar {
+            display: none;
+        }
+ 
+        .project-img {
+            height: 70vh;
+            width: auto;
+            flex-shrink: 0;
+        }
+        .project-description-slide {
+            height: 70vh;
+            width: 300px;
+            flex-shrink: 0;
+            padding-left: 20px;
+            text-align: left;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            white-space: normal;
+        }
+
+        .project-description-word {
+            opacity: 0;
+            display: inline-block;
+            transition: opacity 0.08s ease;
+        }
+
+        .project-description-word.visible {
+            opacity: 1;
+        }
+        .project-description,
+        .project-link {
+            margin-top: 100px;
+        }
+
+        /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
+/* @media (max-width: 600px) {
+    html, body {
+        width: 100vh;
+        height: 100vw;
+        margin: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vw;
+        width: 100vh;
+        overflow: hidden;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center center;
+    }
+    footer {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        font-size: clamp(0.5rem, 2vw, 0.6rem);
+        padding: 12px 80px 12px 12px;
+    }
+    header {
+        padding-left: 54px;
+        padding-top: 12px;
+    }
+    main {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: auto;  
+        padding: 0px 60px;
+    }
+    
+} */
+</style>
+</head>
+<body>
+    
+    <header>
+        <div>
+            <h2>(Acts of Service)</h2>
+            <h1>Archive</h1>
+        </div>
+        <p class="header-back"><a href="#" onclick="history.back(); return false;">← Back</a></p>
+    </header>
+    <main>
+        <div id="projects-list">
+            <p>Loading projects…</p>
+        </div>
+
+     </main>
+    <footer>
+         <div class="footer-col">
+            <p>Sweden, Stockholm</p>
+            <p>[2026.07.19] Acts of Service &copy; All rights reserved.</p>
+        </div>
+        <div class="footer-col">
+            <p>Previous acts of service:</p>
+            <p><a href="index.html">Homepage</a></p>
+        </div>
+        <div class="footer-col">
+            <p>Our Services:</p>
+            <p>Graphic Design & Art Direction</p>
+        
+    </footer>
+<script>
+let currentModal = null;
+
+const archiveHeading = document.querySelector('header h1');
+const defaultArchiveTitle = 'Archive';
+
+fetch('projects.json')
+    .then(res => res.json())
+    .then(projects => {
+        const container = document.getElementById('projects-list');
+        container.innerHTML = '';
+
+        if (!projects.length) {
+            container.innerHTML = '<p>No projects yet — add one in the CMS.</p>';
+            return;
+        }
+
+        projects.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'project collapsed';
+
+            // Combine cover image and gallery images
+            const allImages = [];
+            if (p.image) {
+                allImages.push(p.image);
+            }
+            if (p.gallery && p.gallery.length) {
+                allImages.push(...p.gallery);
+            }
+
+            // Cover image section
+            const coverHtml = p.image
+                ? `<div class="project-cover">
+                    <div class="cover-info-left"><h3>${p.title}</h3></div>
+                    <img src="${p.image}" alt="${p.title}">
+                    <div class="cover-info-right"><span>Archive entry <span>[${projects.length - projects.indexOf(p)}]</span></span></div>
+                   </div>`
+                : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right">[${projects.length - projects.indexOf(p)}]</div></div>`;
+
+            div.innerHTML = coverHtml;
+
+            // Add click event to the cover image to open modal
+            const coverImg = div.querySelector('.project-cover img');
+            if (coverImg) {
+                const openCursor = document.createElement('div');
+                openCursor.className = 'cover-cursor-label';
+                openCursor.textContent = 'open';
+                document.body.appendChild(openCursor);
+
+                const positionOpenCursor = (e) => {
+                    openCursor.style.left = `${e.clientX}px`;
+                    openCursor.style.top = `${e.clientY}px`;
+                    openCursor.classList.add('visible');
+                };
+
+                coverImg.addEventListener('pointermove', positionOpenCursor);
+                coverImg.addEventListener('pointerenter', positionOpenCursor);
+                coverImg.addEventListener('pointerleave', () => {
+                    openCursor.classList.remove('visible');
+                });
+
+                coverImg.addEventListener('click', () => {
+                    document.querySelectorAll('.project-cover h3').forEach((title) => {
+                        title.classList.add('fading');
+                    });
+                    archiveHeading.textContent = p.title;
+
+                    // Close any existing modal
+                    if (currentModal) {
+                        currentModal.remove();
+                    }
+
+                    openCursor.classList.remove('visible');
+
+                    // Create overlay
+                    const overlay = document.createElement('div');
+                    overlay.className = 'carousel-modal-overlay';
+                    overlay.style.cursor = 'pointer';
+
+                    const closeCursor = document.createElement('div');
+                    closeCursor.className = 'carousel-close-cursor';
+                    closeCursor.textContent = 'close';
+                    overlay.appendChild(closeCursor);
+
+                    const positionCloseCursor = (e) => {
+                        closeCursor.style.left = `${e.clientX}px`;
+                        closeCursor.style.top = `${e.clientY}px`;
+                        closeCursor.classList.add('visible');
+                    };
+
+                    overlay.addEventListener('pointermove', positionCloseCursor);
+                    overlay.addEventListener('pointerenter', positionCloseCursor);
+                    overlay.addEventListener('pointerleave', () => {
+                        closeCursor.classList.remove('visible');
+                    });
+
+                    const initialPointerX = window.innerWidth / 2;
+                    const initialPointerY = window.innerHeight / 2;
+                    closeCursor.style.left = `${initialPointerX}px`;
+                    closeCursor.style.top = `${initialPointerY}px`;
+                    closeCursor.classList.add('visible');
+
+                    // Create modal
+                    const modal = document.createElement('div');
+                    modal.className = 'carousel-modal';
+
+                    // Carousel section with description as first slide
+                    const descriptionText = p.description || '';
+                    const words = descriptionText.split(/\s+/).filter(Boolean);
+                    const descriptionHtml = words.length
+                        ? `<div class="project-description-slide">${words.map((word, index) => `<span class="project-description-word" style="transition-delay:${index * 50}ms">${word}</span>`).join(' ')}</div>`
+                        : '';
+
+                    const descriptionSlide = descriptionHtml;
+
+                    const carouselHtml = allImages.length > 0 || p.description
+                        ? `<div class="project-images" data-carousel>
+                            ${descriptionSlide}
+                            ${allImages.map(imgPath => `<img class="project-img" src="${imgPath}" alt="${p.title}">`).join('')}
+                           </div>`
+                        : '';
+
+                    const linkHtml = p.link
+                        ? `<p class="project-link"><a href="${p.link}" target="_blank">View project →</a></p>`
+                        : '';
+
+                    modal.innerHTML = `
+                        ${carouselHtml}
+                        ${linkHtml}
+                    `;
+
+                    overlay.appendChild(modal);
+                    document.body.appendChild(overlay);
+                    currentModal = overlay;
+
+                    requestAnimationFrame(() => {
+                        const descriptionWords = modal.querySelectorAll('.project-description-word');
+                        descriptionWords.forEach((word, index) => {
+                            setTimeout(() => {
+                                word.classList.add('visible');
+                            }, index * 50);
+                        });
+                    });
+
+                    // Close modal on overlay click
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay || e.target === closeCursor) {
+                            overlay.remove();
+                            currentModal = null;
+                            archiveHeading.textContent = defaultArchiveTitle;
+                            closeCursor.classList.remove('visible');
+                            document.querySelectorAll('.project-cover h3').forEach((title) => {
+                                title.classList.remove('fading');
+                            });
+                        }
+                    });
+
+                    // Close modal on any click inside (except links)
+                    modal.addEventListener('click', (e) => {
+                        if (e.target.tagName !== 'A') {
+                            overlay.remove();
+                            currentModal = null;
+                            archiveHeading.textContent = defaultArchiveTitle;
+                            closeCursor.classList.remove('visible');
+                            document.querySelectorAll('.project-cover h3').forEach((title) => {
+                                title.classList.remove('fading');
+                            });
+                        }
+                    });
+                });
+            }
+
+            container.appendChild(div);
+        });
+    })
+    .catch(err => {
+        console.error('Could not load projects.json', err);
+        document.getElementById('projects-list').innerHTML =
+            '<p>Could not load projects right now.</p>';
+    });
+</script>
+</body>
+</html>
