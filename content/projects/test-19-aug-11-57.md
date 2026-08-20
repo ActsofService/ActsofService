@@ -1,5 +1,5 @@
 ---
-title: Test 19 aug 11:57
+title: "Artwork "
 description: Visuell identitet från andra året på Beckmans. Uppgiften var att
   göra om en visuell identitet från ett nedlagt företag och tänka om vad
   företagets nya syfte kunde vara idag. Min idé var att göra om den omtalade
