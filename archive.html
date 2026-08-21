@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subpage — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="screensaver.css">
     <link rel="stylesheet" href="https://use.typekit.net/ndj2ubh.css">
     <style>
         html,
@@ -158,20 +159,33 @@
         }
 
         .project-cover .cover-info-right {
-            justify-content: flex-end;
-            align-items: flex-start;
-            padding-right: 0px;
+            display: flex;
+            flex-direction: column; /* stack items vertically */
+            justify-content: flex-start;
+            align-items: flex-end; /* keep content right-aligned */
+            padding-right: 0px; /* match footer right gutter */
             text-align: right;
             font-size: 0.6rem;
+            gap: 6px;
         }
 
+        /* Archive entry and number on same row; change --archive-number-margin to adjust spacing */
         .project-cover .cover-info-right span {
             display: inline-flex;
-            align-items: flex-start;
+            align-items: ;
             justify-content: flex-end;
             gap: 0.25rem;
             text-align: right;
-            margin-left: 60px;
+            --archive-number-margin: 12px;
+            margin-left: var(--archive-number-margin);
+            white-space: nowrap; /* keep label and number on same row */
+        }
+
+        .project-cover .cover-info-right .project-date {
+            margin-top: 6px;
+            font-size: 0.6rem;
+            opacity: 0.85;
+            margin: 0;
         }
 
         .project-cover img {
@@ -337,6 +351,7 @@
             <p>Graphic Design & Art Direction</p>
         
     </footer>
+<script src="screensaver.js"></script>
 <script>
 let currentModal = null;
 
@@ -368,13 +383,30 @@ fetch('projects.json')
             }
 
             // Cover image section
-            const coverHtml = p.image
-                ? `<div class="project-cover">
-                    <div class="cover-info-left"><h3>${p.title}</h3></div>
-                    <img src="${p.image}" alt="${p.title}">
-                    <div class="cover-info-right"><span>Archive entry <span>[${projects.length - projects.indexOf(p)}]</span></span></div>
-                   </div>`
-                : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right">[${projects.length - projects.indexOf(p)}]</div></div>`;
+            let coverHtml = p.image
+                    ? `<div class="project-cover">
+                        <div class="cover-info-left"><h3>${p.title}</h3></div>
+                        <img src="${p.image}" alt="${p.title}">
+                        <div class="cover-info-right"><span>Archive entry <span>[${projects.length - projects.indexOf(p)}]</span></span></div>
+                       </div>`
+                    : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right">[${projects.length - projects.indexOf(p)}]</div></div>`;
+
+                // Insert date display (if provided by CMS)
+                const dateStr = p.date ? new Date(p.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+                // Inject date into coverHtml by adding a .project-date into the right column
+                if (dateStr) {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = coverHtml;
+                    const right = temp.querySelector('.cover-info-right');
+                    if (right) {
+                        const dateEl = document.createElement('p');
+                        dateEl.className = 'project-date';
+                        dateEl.textContent = dateStr;
+                        // place date one row under the "Archive entry" span
+                        right.appendChild(dateEl);
+                        coverHtml = temp.innerHTML;
+                    }
+                }
 
             div.innerHTML = coverHtml;
 
@@ -447,7 +479,7 @@ fetch('projects.json')
                     const descriptionText = p.description || '';
                     const words = descriptionText.split(/\s+/).filter(Boolean);
                     const descriptionHtml = words.length
-                        ? `<div class="project-description-slide">${words.map((word, index) => `<span class="project-description-word" style="transition-delay:${index * 50}ms">${word}</span>`).join(' ')}</div>`
+                        ? `<div class="project-description-slide">${words.map((word, index) => `<span class="project-description-word" style="transition-delay:${index * 10}ms">${word}</span>`).join(' ')}</div>`
                         : '';
 
                     const descriptionSlide = descriptionHtml;

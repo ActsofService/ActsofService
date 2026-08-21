@@ -1,0 +1,52 @@
+/* Screensaver overlay styles */
+.screensaver {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(254, 254, 254);
+  mix-blend-mode: saturation;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99999;
+  cursor: none;
+}
+
+.screensaver.showing {
+  pointer-events: auto;
+  animation: screensaverFadeIn 1s linear forwards;
+}
+
+.screensaver.fading-out {
+  animation: screensaverFadeOut 2s linear forwards !important;
+}
+
+/* circles are removed instantly via JS; no fade-out class needed */
+
+@keyframes screensaverFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes screensaverFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Circles container is above the main screensaver so circles appear in front */
+.screensaver-circles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100000; /* above .screensaver (99999) */
+}
+
+.screensaver-circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
