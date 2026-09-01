@@ -131,6 +131,10 @@
         .carousel-modal h3 {
             text-align: left;
             padding-left: 200px;
+            font-size: 0.6rem;
+            font-weight: 400;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            line-height: 1;
         }
 
         .carousel-modal .project-images {
@@ -143,49 +147,70 @@
             align-items: stretch;
             width: 100%;
             margin-bottom: 20px;
+            font-size: 0.6rem;
         }
 
         .project-cover .cover-info-left,
         .project-cover .cover-info-right {
             height: 100%;
             display: flex;
-            font-size: 0.8rem;
         }
 
         .project-cover .cover-info-left {
-            justify-content: flex-start;
-            padding-left: 0px;
+            justify-content: flex-end;
+            padding-right: 24px;
             text-align: right;
+            
         }
 
         .project-cover .cover-info-right {
             display: flex;
             flex-direction: column; /* stack items vertically */
             justify-content: flex-start;
-            align-items: flex-end; /* keep content right-aligned */
+            align-items: flex-start; /* keep content right-aligned */
             padding-right: 0px; /* match footer right gutter */
-            text-align: right;
-            font-size: 0.6rem;
+            text-align: left;
             gap: 6px;
+            --archive-number-margin: 12px; /* shared margin for right-column items */
+            margin-left: var(--archive-number-margin);
         }
 
         /* Archive entry and number on same row; change --archive-number-margin to adjust spacing */
         .project-cover .cover-info-right span {
             display: inline-flex;
-            align-items: ;
             justify-content: flex-end;
             gap: 0.25rem;
-            text-align: right;
-            --archive-number-margin: 12px;
+            text-align: left;
             margin-left: var(--archive-number-margin);
+            
             white-space: nowrap; /* keep label and number on same row */
         }
 
-        .project-cover .cover-info-right .project-date {
-            margin-top: 6px;
+        .project-cover .project-meta-grid {
+            display: flex;
+            gap: 12px;
+            text-align: left;
+            align-items: flex-start;
+            justify-content: flex-end;
+            
+        }
+
+        .project-cover .project-meta-grid .meta-labels,
+        .project-cover .project-meta-grid .meta-values {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            width: auto;
+            margin-left: var(--archive-number-margin);
+            
+
+        }
+
+        .project-cover .project-meta-grid p {
+            margin: 0;
             font-size: 0.6rem;
             opacity: 0.85;
-            margin: 0;
+            
         }
 
         .project-cover img {
@@ -222,15 +247,21 @@
 
         .project-cover h3 {
             margin: 0;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
-            font-size: 1rem;
-            font-weight: 400;
             text-align: left;
-            transition: opacity 0s linear;
+            display: block;
+            background: none;
+            color: inherit;
+            padding: 0;
+            text-decoration: none;
+            font-size: 0.6rem;
+            font-weight: 400;
+            font-family: "helvetica-neue-lt-pro", sans-serif;
+            line-height: 1;
         }
 
-        .project-cover h3.fading {
-            opacity: 0;
+        /* Project text (description) shown in the modal: draw a per-line strikethrough using text-decoration */
+        .project-description-slide {
+
         }
  
         .project-images {
@@ -270,12 +301,23 @@
 
         .project-description-word {
             opacity: 0;
-            display: inline-block;
+            display: inline; /* allow text-decoration to cross words and wrap per line */
             transition: opacity 0.08s ease;
         }
 
         .project-description-word.visible {
             opacity: 1;
+        }
+        
+        /* Per-line highlight wrapper to allow box-shadow 'bands' per wrapped line */
+        .desc-highlight {
+            display: inline; /* keep as inline so it breaks across lines */
+            padding: 0; /* vertical padding for band */
+            background-color: #ffffff;
+            box-shadow: 1em 0 0 #ffffff, -1em 0 0 #ffffff;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+
         }
         .project-description,
         .project-link {
@@ -326,8 +368,7 @@
     
     <header>
         <div>
-            <h2>(Acts of Service)</h2>
-            <h1>Archive</h1>
+            <h1><br>Archive</h1>
         </div>
         <p class="header-back"><a href="#" onclick="history.back(); return false;">← Back</a></p>
     </header>
@@ -345,6 +386,7 @@
         <div class="footer-col">
             <p>Previous acts of service:</p>
             <p><a href="index.html">Homepage</a></p>
+            <p><a href="about.html">About</a></p>
         </div>
         <div class="footer-col">
             <p>Our Services:</p>
@@ -356,7 +398,7 @@
 let currentModal = null;
 
 const archiveHeading = document.querySelector('header h1');
-const defaultArchiveTitle = 'Archive';
+const defaultArchiveHTML = archiveHeading.innerHTML; // preserve any existing <br> or markup
 
 fetch('projects.json')
     .then(res => res.json())
@@ -383,27 +425,78 @@ fetch('projects.json')
             }
 
             // Cover image section
-            let coverHtml = p.image
+                let coverHtml = p.image
                     ? `<div class="project-cover">
-                        <div class="cover-info-left"><h3>${p.title}</h3></div>
-                        <img src="${p.image}" alt="${p.title}">
-                        <div class="cover-info-right"><span>Archive entry <span>[${projects.length - projects.indexOf(p)}]</span></span></div>
+                    <div class="cover-info-left"><h3>${p.title}</h3></div>
+                    <img src="${p.image}" alt="${p.title}">
+                    <div class="cover-info-right"></div>
                        </div>`
-                    : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right">[${projects.length - projects.indexOf(p)}]</div></div>`;
+                    : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right"></div></div>`;
 
-                // Insert date display (if provided by CMS)
+                // Insert meta fields (Date, Commissioner, Category) if provided by the CMS
                 const dateStr = p.date ? new Date(p.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
-                // Inject date into coverHtml by adding a .project-date into the right column
-                if (dateStr) {
+                const commissionerStr = p.commissioner || '';
+                const categoryStr = p.category || '';
+
+                const entryNumber = projects.length - projects.indexOf(p);
+                if (dateStr || commissionerStr || categoryStr || entryNumber) {
                     const temp = document.createElement('div');
                     temp.innerHTML = coverHtml;
                     const right = temp.querySelector('.cover-info-right');
                     if (right) {
-                        const dateEl = document.createElement('p');
-                        dateEl.className = 'project-date';
-                        dateEl.textContent = dateStr;
-                        // place date one row under the "Archive entry" span
-                        right.appendChild(dateEl);
+                        // simple two-column container: left = labels, right = values
+                        const grid = document.createElement('div');
+                        grid.className = 'project-meta-grid';
+
+                        const labels = document.createElement('div');
+                        labels.className = 'meta-labels';
+                        const values = document.createElement('div');
+                        values.className = 'meta-values';
+
+                        // Archive entry first
+                        const lpEntry = document.createElement('p');
+                        lpEntry.textContent = 'Archive entry:';
+                        labels.appendChild(lpEntry);
+                        const vpEntry = document.createElement('p');
+                        vpEntry.textContent = `[${entryNumber}]`;
+                        values.appendChild(vpEntry);
+
+                        // add an empty row (like a <br>) after the archive entry for spacing
+                        const lpSpacer = document.createElement('p');
+                        lpSpacer.innerHTML = '&nbsp;';
+                        labels.appendChild(lpSpacer);
+                        const vpSpacer = document.createElement('p');
+                        vpSpacer.innerHTML = '&nbsp;';
+                        values.appendChild(vpSpacer);
+
+                        if (dateStr) {
+                            const lp = document.createElement('p');
+                            lp.textContent = 'Date:';
+                            labels.appendChild(lp);
+                            const vp = document.createElement('p');
+                            vp.textContent = dateStr;
+                            values.appendChild(vp);
+                        }
+                        if (commissionerStr) {
+                            const lp = document.createElement('p');
+                            lp.textContent = 'Commissioner:';
+                            labels.appendChild(lp);
+                            const vp = document.createElement('p');
+                            vp.textContent = commissionerStr;
+                            values.appendChild(vp);
+                        }
+                        if (categoryStr) {
+                            const lp = document.createElement('p');
+                            lp.textContent = 'Category:';
+                            labels.appendChild(lp);
+                            const vp = document.createElement('p');
+                            vp.textContent = categoryStr;
+                            values.appendChild(vp);
+                        }
+
+                        grid.appendChild(labels);
+                        grid.appendChild(values);
+                        right.appendChild(grid);
                         coverHtml = temp.innerHTML;
                     }
                 }
@@ -431,10 +524,14 @@ fetch('projects.json')
                 });
 
                 coverImg.addEventListener('click', () => {
-                    document.querySelectorAll('.project-cover h3').forEach((title) => {
-                        title.classList.add('fading');
-                    });
-                    archiveHeading.textContent = p.title;
+                    // removed fading effect on titles — keep titles visible with readable background
+                    // Ensure there is always a <br> before the title for consistent spacing
+                    const titleHtml = (p.title || '');
+                    if (/<br\s*\/?\s*>/i.test(titleHtml)) {
+                        archiveHeading.innerHTML = titleHtml;
+                    } else {
+                        archiveHeading.innerHTML = '<br>' + titleHtml;
+                    }
 
                     // Close any existing modal
                     if (currentModal) {
@@ -479,7 +576,7 @@ fetch('projects.json')
                     const descriptionText = p.description || '';
                     const words = descriptionText.split(/\s+/).filter(Boolean);
                     const descriptionHtml = words.length
-                        ? `<div class="project-description-slide">${words.map((word, index) => `<span class="project-description-word" style="transition-delay:${index * 10}ms">${word}</span>`).join(' ')}</div>`
+                        ? `<div class="project-description-slide"><span class="desc-highlight">${words.map((word, index) => `<span class="project-description-word" style="transition-delay:${index * 10}ms">${word}</span>`).join(' ')}</span></div>`
                         : '';
 
                     const descriptionSlide = descriptionHtml;
@@ -518,11 +615,8 @@ fetch('projects.json')
                         if (e.target === overlay || e.target === closeCursor) {
                             overlay.remove();
                             currentModal = null;
-                            archiveHeading.textContent = defaultArchiveTitle;
+                            archiveHeading.innerHTML = defaultArchiveHTML;
                             closeCursor.classList.remove('visible');
-                            document.querySelectorAll('.project-cover h3').forEach((title) => {
-                                title.classList.remove('fading');
-                            });
                         }
                     });
 
@@ -531,7 +625,7 @@ fetch('projects.json')
                         if (e.target.tagName !== 'A') {
                             overlay.remove();
                             currentModal = null;
-                            archiveHeading.textContent = defaultArchiveTitle;
+                            archiveHeading.innerHTML = defaultArchiveHTML;
                             closeCursor.classList.remove('visible');
                             document.querySelectorAll('.project-cover h3').forEach((title) => {
                                 title.classList.remove('fading');

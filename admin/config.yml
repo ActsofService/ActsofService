@@ -21,5 +21,7 @@ collections:
         required: false
         field: { label: "Image", name: "image", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Commissioner", name: "commissioner", widget: "string", required: false }
+      - { label: "Category", name: "category", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Link", name: "link", widget: "string", required: false }
