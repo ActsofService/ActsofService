@@ -14,10 +14,13 @@ const projects = files.map(filename => {
   const { data, content } = matter(raw);
   return {
     title: data.title,
-    description: data.description,
+    descriptionEnglish: data.descriptionEnglish || data.description || '',
+    descriptionSwedish: data.descriptionSwedish || '',
     image: data.image,
     gallery: data.gallery || [],
     date: data.date,
+    commissioner: data.commissioner || '',
+    category: data.category || '',
     link: data.link || null,
     body: content
   };
