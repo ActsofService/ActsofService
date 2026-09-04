@@ -7,38 +7,36 @@
     <title>Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="screensaver.css">
-    <link rel="stylesheet" href="https://use.typekit.net/ndj2ubh.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <style>
         html, body {
             height: 100%;
         }
         body {
             margin: 0;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        header {
-            margin: 0px 20px;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+
+        footer {
+            margin: 0px 20px ;
+            font-family: Arial, sans-serif;
             font-weight: 400;
             line-height: 60%;
-            font-size: 5.2rem;
+            font-size: 2.2rem;
             text-align: left;
-            position: flex;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
         }
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-        h2 {
-            font-size: 3rem;
-            margin: 0;
-            color: #0000000b;
-            mix-blend-mode: difference;
-        }
+
         main {
             margin: 0px 20px;
             padding-right: calc(100% - 450px);
@@ -46,112 +44,34 @@
             flex: 1;
             font-size: 1rem;
         }
-
-        /* footer now holds two columns, like the reference image */
-        footer {
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 0;
-            font-size: 0.6rem;
-            bottom: 0;
-            margin: 0px 0px;
-            width: 100%;
+        .titel {
+            font-size: 5.2rem;
+            font-weight: 800;
+            line-height: 60%;
         }
-        footer .footer-col {
-            text-align: left;
-
+        a {
+            color: inherit;
+            text-decoration: none;
         }
-        footer .footer-col:first-child {
-            margin-left: 20px;
+        a:hover {
+            color: greenyellow;
         }
-        footer .footer-col:last-child {
-            margin-right: 20px;
-        }
-        footer .footer-col:nth-child(2) {
-            flex: 1;
-            margin: 0 20px;
-        }
-        footer p {
-            margin: 0 0 2px 0;
-        }
-        footer p {
-            margin: 0 0 2px 0;
-        }
-        .hero-image {
-            position:fixed;
-            object-position: top right;
-            margin-top: -100px;
-            width: 70%;
-            height: auto;
-        }
-
-        /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
-/* @media (max-width: 600px) {
-    html, body {
-        width: 100vh;
-        height: 100vw;
-        margin: 0;
-    }
-    body {
-        display: flex;
-        flex-direction: column;
-        height: 100vw;
-        width: 100vh;
-        overflow: hidden;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(90deg);
-        transform-origin: center center;
-    }
-    footer {
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        font-size: clamp(0.5rem, 2vw, 0.6rem);
-        padding: 12px 80px 12px 12px;
-    }
-    header {
-        padding-left: 54px;
-        padding-top: 12px;
-    }
-    main {
-        flex: 1 1 auto;
-        min-height: 0;
-        overflow: auto; 
-    } 
-    
-}*/
     </style>
 </head>
 <body>
     <header>
-        <h2>Quality time</h2>
-        <h1>Acts of Service</h1>
-        <h2>Receiving gifts</h2>
-        <h2>Physical touch</h2>
-        <h2>Words of affirmation</h2>
+ 
     </header>
     <main>
         <p>Our love language is <em>acts of service</em>, a love language where we show care through helpful, practical actions that make daily life easier</p>
-         <img class="hero-image" src="https://www.gronsaksmastarna.se/media/1660/flowersprout-web.png?anchor=center&mode=crop&width=500&rnd=131352485240000000" alt="Your Image">
+        <div class="titel"> <p>Acts of service</p></div>
     </main>
     <footer>
-        <div class="footer-col">
-            <p>Sweden, Stockholm</p>
-            <p>[2026.07.19] Acts of Service &copy; All rights reserved.</p>
-        </div>
-        <div class="footer-col">
-            <p>Previous acts of service:</p>
+            <p><a href="index.html">Acts of Service</a></p>
+            <p><a href="about.html">About us</a></p>
             <p><a href="archive.html">Archive</a></p>
-            <p><a href="about.html">About</a></p>
-        </div>
-        <div class="footer-col">
-            <p>Our Services:</p>
-            <p>Graphic Design & Art Direction</p>
-        
-        </div>
+            <p><a href="contact.html">Contact</a></p>
+
     </footer>
 <script src="screensaver.js"></script>
 </body>

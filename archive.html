@@ -6,92 +6,87 @@
     <title>Subpage — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="screensaver.css">
-    <link rel="stylesheet" href="https://use.typekit.net/ndj2ubh.css">
-    <style>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+      <style>
         html,
     body {
             height: 100%;
         }
         body {
             margin: 0;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-family: "IBM Plex Mono", monospace;
+            font-variation-settings: "wght" 400;
+            font-weight: 400;
+            font-style: normal;
             display: flex;
+            font-variation-settings: "wght" 100;
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
             overflow: hidden;
         }
-        header {
-            margin: 0px 20px;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+        footer {
+            position: fixed;
+            left: 20px;
+            right: 20px;
+            bottom: 0;
+            z-index: 10;
+            margin: 0;
+            font-family: Arial, sans-serif;
             font-weight: 400;
             line-height: 60%;
-            font-size: 5.2rem;
+            font-size: 2.2rem;
             text-align: left;
-            position: fixed;
-            top: 0;
-            width: calc(100% - 40px);
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
         }
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
+        header {
+            position: fixed;
+            z-index: 1001;
+            font-family: Arial, sans-serif;
+            font-size: 2.2rem;
+            line-height: 1;
+            text-align: left;
+            pointer-events: none;
         }
-        header .header-back {
-            margin: 0;
-            font-size: 0.6rem;
-            line-height: 1.4;
-            align-self: flex-end;
-            margin-top: 0.8rem;
+        header h1{
+            margin: 20px 0px 0px 20px;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
         }
-        h2 {
-            font-size: 3rem;
-            margin: 0;
-            color: #8a20200b;
-            mix-blend-mode: difference;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        a:hover {
+            color: greenyellow;
         }
         main {
             margin: 0px 20px;
-            padding-bottom: 100px;
-            text-align: left;
+            padding: 100px 0;
+            text-align: center;
             flex: 1;
-            padding-top: 120px;
-            overflow: auto;
             font-size: 1rem;
+            overflow-y: auto;
         }
 
-        footer {
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 0;
-            font-size: 0.6rem;
-            bottom: 0;
-            margin: 0px 0px;
+        #projects-list {
             width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        footer .footer-col {
-            text-align: left;
-        }
-        footer .footer-col:first-child {
-            margin-left: 20px;
-        }
-        footer .footer-col:last-child {
-            margin-right: 20px;
-        }
-        footer .footer-col:nth-child(2) {
-            flex: 1;
-            margin: 0 20px;
-        }
-        footer p {
-            margin: 0 0 2px 0;
-        }
+
+        
         .project {
             text-align: center;
-          font-family: "helvetica-neue-lt-pro", sans-serif;
+            margin: 0 auto;
+            font-family: "IBM Plex Mono", monospace;
 
         }
 
@@ -118,7 +113,7 @@
         }
 
         .carousel-modal {
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-family: "IBM Plex Mono", monospace;
             position: relative;
             padding: 0px;
             width: 100vw;
@@ -133,7 +128,7 @@
             padding-left: 200px;
             font-size: 0.6rem;
             font-weight: 400;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-family: "IBM Plex Mono", monospace;
             line-height: 1;
         }
 
@@ -229,7 +224,7 @@
             z-index: 2000;
             cursor: pointer;
             pointer-events: none;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-family: "IBM Plex Mono", monospace;
             font-size: 0.6rem;
             line-height: 1;
             letter-spacing: 0.02em;
@@ -255,15 +250,10 @@
             text-decoration: none;
             font-size: 0.6rem;
             font-weight: 400;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-family: "IBM Plex Mono", monospace;
             line-height: 1;
         }
 
-        /* Project text (description) shown in the modal: draw a per-line strikethrough using text-decoration */
-        .project-description-slide {
-
-        }
- 
         .project-images {
             display: flex;
             overflow-x: scroll;
@@ -292,6 +282,9 @@
             width: 300px;
             flex-shrink: 0;
             padding-left: 20px;
+            padding-top: 1.4rem;
+            box-sizing: border-box;
+            position: relative;
             text-align: left;
             font-family: "helvetica-neue-lt-pro", sans-serif;
             font-size: 1rem;
@@ -299,10 +292,41 @@
             white-space: normal;
         }
 
+        .description-language-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            display: flex;
+            gap: 0.2em;
+            align-items: baseline;
+            font: inherit;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .description-language-toggle button {
+            padding: 0;
+            border: 0;
+            background: none;
+            color: rgba(0, 0, 0, 0.5);
+            font: inherit;
+            line-height: inherit;
+            cursor: pointer;
+        }
+
+        .description-language-toggle button.active {
+            color: #000000;
+        }
+
+        .description-language-toggle .language-slash {
+            color: #000000;
+        }
+
         .project-description-word {
             opacity: 0;
             display: inline; /* allow text-decoration to cross words and wrap per line */
-            transition: opacity 0.08s ease;
+            transition: opacity 0.04s ease;
         }
 
         .project-description-word.visible {
@@ -314,7 +338,7 @@
             display: inline; /* keep as inline so it breaks across lines */
             padding: 0; /* vertical padding for band */
             background-color: #ffffff;
-            box-shadow: 1em 0 0 #ffffff, -1em 0 0 #ffffff;
+            box-shadow: 0.5em 0 0 #ffffff, -1em 0 0 #ffffff;
             -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
 
@@ -324,53 +348,12 @@
             margin-top: 100px;
         }
 
-        /* --- Mobile: rotate the whole page 90deg, like the reference image --- */
-/* @media (max-width: 600px) {
-    html, body {
-        width: 100vh;
-        height: 100vw;
-        margin: 0;
-    }
-    body {
-        display: flex;
-        flex-direction: column;
-        height: 100vw;
-        width: 100vh;
-        overflow: hidden;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(90deg);
-        transform-origin: center center;
-    }
-    footer {
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        font-size: clamp(0.5rem, 2vw, 0.6rem);
-        padding: 12px 80px 12px 12px;
-    }
-    header {
-        padding-left: 54px;
-        padding-top: 12px;
-    }
-    main {
-        flex: 1 1 auto;
-        min-height: 0;
-        overflow: auto;  
-        padding: 0px 60px;
-    }
-    
-} */
 </style>
 </head>
 <body>
     
     <header>
-        <div>
-            <h1><br>Archive</h1>
-        </div>
-        <p class="header-back"><a href="#" onclick="history.back(); return false;">← Back</a></p>
+        <h1></h1>
     </header>
     <main>
         <div id="projects-list">
@@ -379,26 +362,18 @@
 
      </main>
     <footer>
-         <div class="footer-col">
-            <p>Sweden, Stockholm</p>
-            <p>[2026.07.19] Acts of Service &copy; All rights reserved.</p>
-        </div>
-        <div class="footer-col">
-            <p>Previous acts of service:</p>
-            <p><a href="index.html">Homepage</a></p>
-            <p><a href="about.html">About</a></p>
-        </div>
-        <div class="footer-col">
-            <p>Our Services:</p>
-            <p>Graphic Design & Art Direction</p>
-        
+            <p><a href="index.html">Acts of Service</a></p>
+            <p><a href="about.html">About us</a></p>
+            <p><a href="archive.html">Archive</a></p>
+            <p><a href="contact.html">Contact</a></p>
+
     </footer>
 <script src="screensaver.js"></script>
 <script>
 let currentModal = null;
 
 const archiveHeading = document.querySelector('header h1');
-const defaultArchiveHTML = archiveHeading.innerHTML; // preserve any existing <br> or markup
+const defaultArchiveHTML = archiveHeading ? archiveHeading.innerHTML : '';
 
 fetch('projects.json')
     .then(res => res.json())
@@ -461,13 +436,7 @@ fetch('projects.json')
                         vpEntry.textContent = `[${entryNumber}]`;
                         values.appendChild(vpEntry);
 
-                        // add an empty row (like a <br>) after the archive entry for spacing
-                        const lpSpacer = document.createElement('p');
-                        lpSpacer.innerHTML = '&nbsp;';
-                        labels.appendChild(lpSpacer);
-                        const vpSpacer = document.createElement('p');
-                        vpSpacer.innerHTML = '&nbsp;';
-                        values.appendChild(vpSpacer);
+                
 
                         if (dateStr) {
                             const lp = document.createElement('p');
@@ -524,14 +493,8 @@ fetch('projects.json')
                 });
 
                 coverImg.addEventListener('click', () => {
-                    // removed fading effect on titles — keep titles visible with readable background
-                    // Ensure there is always a <br> before the title for consistent spacing
-                    const titleHtml = (p.title || '');
-                    if (/<br\s*\/?\s*>/i.test(titleHtml)) {
-                        archiveHeading.innerHTML = titleHtml;
-                    } else {
-                        archiveHeading.innerHTML = '<br>' + titleHtml;
-                    }
+
+                    archiveHeading.innerHTML = p.title || '';
 
                     // Close any existing modal
                     if (currentModal) {
@@ -573,15 +536,31 @@ fetch('projects.json')
                     modal.className = 'carousel-modal';
 
                     // Carousel section with description as first slide
-                    const descriptionText = p.description || '';
-                    const words = descriptionText.split(/\s+/).filter(Boolean);
-                    const descriptionHtml = words.length
-                        ? `<div class="project-description-slide"><span class="desc-highlight">${words.map((word, index) => `<span class="project-description-word" style="transition-delay:${index * 10}ms">${word}</span>`).join(' ')}</span></div>`
+                    const descriptions = {
+                        ENG: p.descriptionEnglish || p.description || '',
+                        SWE: p.descriptionSwedish || p.descriptionEnglish || p.description || ''
+                    };
+                    let selectedLanguage = 'ENG';
+
+                    const createDescriptionMarkup = (language) => {
+                        const descriptionText = descriptions[language];
+                        const words = descriptionText.split(/\s+/).filter(Boolean);
+                        const wordsHtml = words.map((word, index) =>
+                            `<span class="project-description-word" style="transition-delay:${index * 10}ms">${word}</span>`
+                        ).join(' ');
+
+                        return `<div class="description-language-toggle" aria-label="Description language">
+                            <button type="button" class="${language === 'ENG' ? 'active' : ''}" data-language="ENG" aria-pressed="${language === 'ENG'}">ENG</button>
+                            <span class="language-slash">/</span>
+                            <button type="button" class="${language === 'SWE' ? 'active' : ''}" data-language="SWE" aria-pressed="${language === 'SWE'}">SWE</button>
+                        </div><span class="desc-highlight">${wordsHtml}</span>`;
+                    };
+
+                    const descriptionSlide = descriptions.ENG || descriptions.SWE
+                        ? `<div class="project-description-slide">${createDescriptionMarkup(selectedLanguage)}</div>`
                         : '';
 
-                    const descriptionSlide = descriptionHtml;
-
-                    const carouselHtml = allImages.length > 0 || p.description
+                    const carouselHtml = allImages.length > 0 || descriptions.ENG || descriptions.SWE
                         ? `<div class="project-images" data-carousel>
                             ${descriptionSlide}
                             ${allImages.map(imgPath => `<img class="project-img" src="${imgPath}" alt="${p.title}">`).join('')}
@@ -601,21 +580,39 @@ fetch('projects.json')
                     document.body.appendChild(overlay);
                     currentModal = overlay;
 
-                    requestAnimationFrame(() => {
-                        const descriptionWords = modal.querySelectorAll('.project-description-word');
+                    const descriptionElement = modal.querySelector('.project-description-slide');
+                    const animateDescription = () => {
+                        const descriptionWords = descriptionElement.querySelectorAll('.project-description-word');
                         descriptionWords.forEach((word, index) => {
+                            word.classList.remove('visible');
                             setTimeout(() => {
                                 word.classList.add('visible');
-                            }, index * 50);
+                            }, index * 10);
                         });
-                    });
+                    };
+
+                    const renderDescription = (language) => {
+                        selectedLanguage = language;
+                        descriptionElement.innerHTML = createDescriptionMarkup(language);
+                        descriptionElement.querySelectorAll('[data-language]').forEach((button) => {
+                            button.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                renderDescription(button.dataset.language);
+                            });
+                        });
+                        animateDescription();
+                    };
+
+                    if (descriptionElement) {
+                        renderDescription('ENG');
+                    }
 
                     // Close modal on overlay click
                     overlay.addEventListener('click', (e) => {
                         if (e.target === overlay || e.target === closeCursor) {
                             overlay.remove();
                             currentModal = null;
-                            archiveHeading.innerHTML = defaultArchiveHTML;
+                            if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
                             closeCursor.classList.remove('visible');
                         }
                     });
@@ -625,7 +622,7 @@ fetch('projects.json')
                         if (e.target.tagName !== 'A') {
                             overlay.remove();
                             currentModal = null;
-                            archiveHeading.innerHTML = defaultArchiveHTML;
+                            if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
                             closeCursor.classList.remove('visible');
                             document.querySelectorAll('.project-cover h3').forEach((title) => {
                                 title.classList.remove('fading');

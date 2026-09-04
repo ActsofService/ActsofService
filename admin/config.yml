@@ -13,7 +13,16 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - label: "Description (English)"
+        name: "descriptionEnglish"
+        widget: "text"
+        required: false
+        hint: "English description shown when ENG is selected in the archive."
+      - label: "Description (Swedish)"
+        name: "descriptionSwedish"
+        widget: "text"
+        required: false
+        hint: "Swedish description shown when SWE is selected in the archive."
       - { label: "Cover Image", name: "image", widget: "image" }
       - label: "Gallery"
         name: "gallery"
