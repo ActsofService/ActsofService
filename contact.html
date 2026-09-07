@@ -19,6 +19,7 @@
             display:flex; 
             flex-direction:column; 
             justify-content:space-between; 
+            position: fixed;
         }
         main {
             margin: 0px 20px;
@@ -29,9 +30,15 @@
             overflow: hidden;         
         }
         footer {
-            margin: 0px 20px ;
-            line-height: 60%;
+            position: fixed;
+            left: 20px;
+            right: 20px;
+            bottom: 0;
+            z-index: 10;
+            margin: 0;
             font-family: Arial, sans-serif;
+            font-weight: 400;
+            line-height: 60%;
             font-size: 2.2rem;
             text-align: left;
             display: flex;
