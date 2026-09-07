@@ -146,6 +146,7 @@
             width: 100%;
             margin-bottom: 20px;
             font-size: 0.6rem;
+            cursor: pointer;
         }
 
         .project-cover .cover-info-left,
@@ -211,31 +212,7 @@
             height: auto;
             width: 100%;
             max-width: 100%;
-            cursor: pointer;
-        }
-
-        .cover-cursor-label,
-        .carousel-close-cursor {
-            position: fixed;
-            left: 0;
-            top: 0;
-            z-index: 2000;
-            cursor: pointer;
-            pointer-events: none;
-            font-family: "IBM Plex Mono", monospace;
-            font-size: 0.6rem;
-            line-height: 1;
-            letter-spacing: 0.02em;
-            mix-blend-mode: difference;
-            color: #ffffff;
-            transform: translate(12px, 12px);
-            opacity: 0;
-            transition: opacity 0.1s ease;
-        }
-
-        .cover-cursor-label.visible,
-        .carousel-close-cursor.visible {
-            opacity: 1;
+            cursor: inherit;
         }
 
         .project-cover h3 {
@@ -523,24 +500,7 @@ fetch('projects.json')
             // Add click event to the cover image to open modal
             const coverImg = div.querySelector('.project-cover img');
             if (coverImg) {
-                const openCursor = document.createElement('div');
-                openCursor.className = 'cover-cursor-label';
-                openCursor.textContent = 'open';
-                document.body.appendChild(openCursor);
-
-                const positionOpenCursor = (e) => {
-                    openCursor.style.left = `${e.clientX}px`;
-                    openCursor.style.top = `${e.clientY}px`;
-                    openCursor.classList.add('visible');
-                };
-
-                coverImg.addEventListener('pointermove', positionOpenCursor);
-                coverImg.addEventListener('pointerenter', positionOpenCursor);
-                coverImg.addEventListener('pointerleave', () => {
-                    openCursor.classList.remove('visible');
-                });
-
-                coverImg.addEventListener('click', () => {
+                div.addEventListener('click', () => {
 
                     archiveHeading.innerHTML = p.title || '';
 
@@ -548,36 +508,9 @@ fetch('projects.json')
                     if (currentModal) {
                         currentModal.remove();
                     }
-
-                    openCursor.classList.remove('visible');
-
                     // Create overlay
                     const overlay = document.createElement('div');
                     overlay.className = 'carousel-modal-overlay';
-                    overlay.style.cursor = 'pointer';
-
-                    const closeCursor = document.createElement('div');
-                    closeCursor.className = 'carousel-close-cursor';
-                    closeCursor.textContent = 'close';
-                    overlay.appendChild(closeCursor);
-
-                    const positionCloseCursor = (e) => {
-                        closeCursor.style.left = `${e.clientX}px`;
-                        closeCursor.style.top = `${e.clientY}px`;
-                        closeCursor.classList.add('visible');
-                    };
-
-                    overlay.addEventListener('pointermove', positionCloseCursor);
-                    overlay.addEventListener('pointerenter', positionCloseCursor);
-                    overlay.addEventListener('pointerleave', () => {
-                        closeCursor.classList.remove('visible');
-                    });
-
-                    const initialPointerX = window.innerWidth / 2;
-                    const initialPointerY = window.innerHeight / 2;
-                    closeCursor.style.left = `${initialPointerX}px`;
-                    closeCursor.style.top = `${initialPointerY}px`;
-                    closeCursor.classList.add('visible');
 
                     // Create modal
                     const modal = document.createElement('div');
@@ -657,11 +590,10 @@ fetch('projects.json')
 
                     // Close modal on overlay click
                     overlay.addEventListener('click', (e) => {
-                        if (e.target === overlay || e.target === closeCursor) {
+                        if (e.target === overlay) {
                             overlay.remove();
                             currentModal = null;
                             if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
-                            closeCursor.classList.remove('visible');
                         }
                     });
 
@@ -671,7 +603,6 @@ fetch('projects.json')
                             overlay.remove();
                             currentModal = null;
                             if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
-                            closeCursor.classList.remove('visible');
                             document.querySelectorAll('.project-cover h3').forEach((title) => {
                                 title.classList.remove('fading');
                             });
