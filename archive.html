@@ -112,6 +112,37 @@
             padding: 110px 0 20px 0;
             width: 100vw;
             max-width: 100vw;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            animation: modalOverlayFadeIn 0.28s ease forwards;
+        }
+
+        @keyframes modalOverlayFadeIn {
+            from {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+            }
+            to {
+                opacity: 1;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+        }
+
+        @keyframes modalOverlayFadeOut {
+            from {
+                opacity: 1;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+            to {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+            }
         }
 
         .carousel-modal {
@@ -128,7 +159,6 @@
         .carousel-modal h3 {
             text-align: left;
             padding-left: 200px;
-            font-size: 0.6rem;
             font-weight: 400;
             font-family: "IBM Plex Mono", monospace;
             line-height: 1;
@@ -140,11 +170,11 @@
 
         .project-cover {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 20vw) minmax(0, 1fr);
+            grid-template-columns: minmax(0, 1fr) minmax(0, 30vw) minmax(0, 1fr);
             column-gap: 20px;
             align-items: stretch;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 60px;
             font-size: 0.6rem;
             cursor: pointer;
         }
@@ -233,11 +263,11 @@
             display: flex;
             overflow-x: scroll;
             overflow-y: hidden;
-            gap: 10px;
+            gap: 20px;
             align-items: flex-start;
             margin-top: 8px;
             scroll-behavior: smooth;
-            padding: 8px 0;
+            padding: 8px 30vw 8px 0;
             /* Hide scrollbar while keeping functionality */
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -247,10 +277,14 @@
             display: none;
         }
  
-        .project-img {
+        .project-img,
+        .project-video {
             height: 70vh;
             width: auto;
             flex-shrink: 0;
+            display: block;
+            object-fit: contain;
+            background: #f4f4f4;
         }
         .project-description-slide {
             height: 70vh;
@@ -323,7 +357,7 @@
             margin-top: 100px;
         }
 
-        @media (max-width: 1500px) {
+        @media (max-width: 1000px) {
             main {
                 padding: 100px 20px;
                 margin: 0;
@@ -388,8 +422,8 @@
      </main>
     <footer>
             <p><a href="index.html">Home</a></p>
-            <p><a href="about.html">About</a></p>
             <p><a href="archive.html">Archive</a></p>
+            <p><a href="about.html">About</a></p>
             <p><a href="contact.html">Contact</a></p>
 
     </footer>
@@ -415,14 +449,30 @@ fetch('projects.json')
             const div = document.createElement('div');
             div.className = 'project collapsed';
 
-            // Combine cover image and gallery images
-            const allImages = [];
-            if (p.image) {
-                allImages.push(p.image);
-            }
-            if (p.gallery && p.gallery.length) {
-                allImages.push(...p.gallery);
-            }
+            const getGalleryMedia = (project) => {
+                const media = [];
+                if (project.image) media.push({ type: 'image', src: project.image });
+
+                if (Array.isArray(project.gallery)) {
+                    project.gallery.forEach(item => {
+                        if (!item) return;
+                        if (typeof item === 'string') {
+                            media.push({ type: 'image', src: item });
+                            return;
+                        }
+
+                        const mediaType = (item.mediaType || '').toLowerCase();
+
+                        if (item.image) media.push({ type: mediaType === 'gif' ? 'gif' : 'image', src: item.image });
+                        if (item.gif) media.push({ type: 'gif', src: item.gif });
+                        if (item.video) media.push({ type: 'video', src: item.video });
+                    });
+                }
+
+                return media;
+            };
+
+            const galleryMedia = getGalleryMedia(p);
 
             // Cover image section
                 let coverHtml = p.image
@@ -541,20 +591,23 @@ fetch('projects.json')
                         ? `<div class="project-description-slide">${createDescriptionMarkup(selectedLanguage)}</div>`
                         : '';
 
-                    const carouselHtml = allImages.length > 0 || descriptions.ENG || descriptions.SWE
+                    const renderMediaSlide = (media) => {
+                        if (!media || !media.src) return '';
+                        if (media.type === 'video') {
+                            return `<video class="project-video" src="${media.src}" controls playsinline muted loop></video>`;
+                        }
+                        return `<img class="project-img" src="${media.src}" alt="${p.title}">`;
+                    };
+
+                    const carouselHtml = galleryMedia.length > 0 || descriptions.ENG || descriptions.SWE
                         ? `<div class="project-images" data-carousel>
                             ${descriptionSlide}
-                            ${allImages.map(imgPath => `<img class="project-img" src="${imgPath}" alt="${p.title}">`).join('')}
+                            ${galleryMedia.map(renderMediaSlide).join('')}
                            </div>`
-                        : '';
-
-                    const linkHtml = p.link
-                        ? `<p class="project-link"><a href="${p.link}" target="_blank">View project →</a></p>`
                         : '';
 
                     modal.innerHTML = `
                         ${carouselHtml}
-                        ${linkHtml}
                     `;
 
                     overlay.appendChild(modal);
@@ -588,21 +641,28 @@ fetch('projects.json')
                         renderDescription('ENG');
                     }
 
+                    const closeModal = () => {
+                        modal.style.opacity = '0';
+                        modal.style.transition = 'opacity 0s linear';
+                        if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
+                        overlay.style.animation = 'modalOverlayFadeOut 0.22s ease forwards';
+                        setTimeout(() => {
+                            overlay.remove();
+                            currentModal = null;
+                        }, 220);
+                    };
+
                     // Close modal on overlay click
                     overlay.addEventListener('click', (e) => {
                         if (e.target === overlay) {
-                            overlay.remove();
-                            currentModal = null;
-                            if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
+                            closeModal();
                         }
                     });
 
                     // Close modal on any click inside (except links)
                     modal.addEventListener('click', (e) => {
                         if (e.target.tagName !== 'A') {
-                            overlay.remove();
-                            currentModal = null;
-                            if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
+                            closeModal();
                             document.querySelectorAll('.project-cover h3').forEach((title) => {
                                 title.classList.remove('fading');
                             });
