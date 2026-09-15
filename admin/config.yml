@@ -15,22 +15,56 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - label: "Description (English)"
         name: "descriptionEnglish"
-        widget: "text"
+        widget: "markdown"
         required: false
-        hint: "English description shown when ENG is selected in the archive."
+        buttons: ["bold", "italic", "link", "quote", "bulleted-list", "numbered-list"]
+        pattern: ['^[\s\S]{0,1140}$', 'Maximum 1,140 characters, including spaces.']
+        hint: "Use the toolbar for bold and italic. Use ++text++ for underline and ~~text~~ for strikethrough. Tabs become line breaks in the archive."
       - label: "Description (Swedish)"
         name: "descriptionSwedish"
-        widget: "text"
+        widget: "markdown"
         required: false
-        hint: "Swedish description shown when SWE is selected in the archive."
+        buttons: ["bold", "italic", "link", "quote", "bulleted-list", "numbered-list"]
+        pattern: ['^[\s\S]{0,1140}$', 'Maximum 1,140 characters, including spaces.']
+        hint: "Use the toolbar for bold and italic. Use ++text++ for underline and ~~text~~ for strikethrough. Tabs become line breaks in the archive."
       - { label: "Cover Image", name: "image", widget: "image" }
       - label: "Gallery"
         name: "gallery"
         widget: "list"
         required: false
-        field: { label: "Image", name: "image", widget: "image" }
-      - { label: "Date", name: "date", widget: "datetime" }
+        fields:
+          - { label: "Media Type", name: "mediaType", widget: "select", options: ["image", "gif", "video"], default: "image" }
+          - { label: "Image", name: "image", widget: "image", required: false, hint: "Images and GIFs show an image preview in the CMS." }
+          - { label: "GIF", name: "gif", widget: "image", required: false, hint: "Use the image picker for a GIF so the CMS can show its preview." }
+          - { label: "Video", name: "video", widget: "file", required: false }
+          - { label: "Video Preview Image", name: "poster", widget: "image", required: false, hint: "Optional thumbnail shown in the CMS workflow and on the archive before the video plays." }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM", time_format: false, picker_utc: true }
       - { label: "Commissioner", name: "commissioner", widget: "string", required: false }
       - { label: "Category", name: "category", widget: "string", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons: ["bold", "italic", "link", "quote", "bulleted-list", "numbered-list"]
       - { label: "Link", name: "link", widget: "string", required: false }
+
+  - name: "contact"
+    label: "Contact page"
+    file: "contact.json"
+    fields:
+      - label: "Sections"
+        name: "sections"
+        widget: "list"
+        hint: "Add, remove, or reorder contact sections."
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Entry layout"
+            name: "format"
+            widget: "select"
+            options:
+              - { label: "Comma-separated list", value: "comma" }
+              - { label: "One entry per line", value: "lines" }
+            default: "lines"
+          - label: "Entries"
+            name: "entries"
+            widget: "list"
+            field: { label: "Entry", name: "entry", widget: "string" }

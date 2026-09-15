@@ -1,0 +1,44 @@
+{
+  "sections": [
+    {
+      "title": "Clients",
+      "format": "comma",
+      "entries": [
+        "PLX",
+        "Sverigesradio",
+        "Freja Södermalm"
+      ]
+    },
+    {
+      "title": "Education",
+      "format": "lines",
+      "entries": [
+        "Beckmans - 2026"
+      ]
+    },
+    {
+      "title": "Awards",
+      "format": "lines",
+      "entries": [
+        "Magnets Awards - 2026",
+        "Beckmans student graduation scholarship - 2026"
+      ]
+    },
+    {
+      "title": "Exhibitions",
+      "format": "lines",
+      "entries": [
+        "Stockholm Design Week - 2026",
+        "PLX festival - 2025",
+        "Malmö Design Days - 2022"
+      ]
+    },
+    {
+      "title": "Lecture",
+      "format": "lines",
+      "entries": [
+        "Konstfack - 2026"
+      ]
+    }
+  ]
+}

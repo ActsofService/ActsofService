@@ -7,9 +7,15 @@
     <title>Subpage — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="screensaver.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: "ABC Areal";
+            src: url("fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 100 1000;
+            font-display: swap;
+        }
+    </style>
       <style>
         html,
     body {
@@ -17,12 +23,12 @@
         }
         body {
             margin: 0;
-            font-family: "IBM Plex Mono", monospace;
-            font-variation-settings: "wght" 400;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "wght" 400, "slnt" 0, "DRKM" 0, "MONO" 100;
             font-weight: 400;
             font-style: normal;
             display: flex;
-            font-variation-settings: "wght" 100;
+            font-variation-settings: "wght" 100, "slnt" 0, "DRKM" 0, "MONO" 100;
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
@@ -35,7 +41,8 @@
             bottom: 0;
             z-index: 10;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             font-weight: 400;
             line-height: 60%;
             font-size: 2.2rem;
@@ -48,7 +55,8 @@
         header {
             position: fixed;
             z-index: 1001;
-            font-family: Arial, sans-serif;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             font-size: 2.2rem;
             line-height: 1;
             text-align: left;
@@ -88,7 +96,8 @@
         .project {
             text-align: center;
             margin: 0 auto;
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 100;
 
         }
 
@@ -146,7 +155,8 @@
         }
 
         .carousel-modal {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 100;
             position: relative;
             padding: 0px;
             width: 100vw;
@@ -160,7 +170,8 @@
             text-align: left;
             padding-left: 200px;
             font-weight: 400;
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 100;
             line-height: 1;
         }
 
@@ -255,7 +266,8 @@
             text-decoration: none;
             font-size: 0.6rem;
             font-weight: 400;
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 100;
             line-height: 1;
         }
 
@@ -288,14 +300,15 @@
         }
         .project-description-slide {
             height: 70vh;
-            width: 300px;
+            width: 370px;
             flex-shrink: 0;
             padding-left: 20px;
             padding-top: 1.4rem;
             box-sizing: border-box;
             position: relative;
             text-align: left;
-            font-family: "helvetica-neue-lt-pro", sans-serif;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             font-size: 1rem;
             font-weight: 400;
             white-space: normal;
@@ -449,23 +462,28 @@ fetch('projects.json')
             const div = document.createElement('div');
             div.className = 'project collapsed';
 
+            const resolveMediaSrc = (src) => {
+                if (!src || /^(https?:|data:|\/)/.test(src)) return src;
+                return `/images/uploads/${src}`;
+            };
+
             const getGalleryMedia = (project) => {
                 const media = [];
-                if (project.image) media.push({ type: 'image', src: project.image });
+                if (project.image) media.push({ type: 'image', src: resolveMediaSrc(project.image) });
 
                 if (Array.isArray(project.gallery)) {
                     project.gallery.forEach(item => {
                         if (!item) return;
                         if (typeof item === 'string') {
-                            media.push({ type: 'image', src: item });
+                            media.push({ type: 'image', src: resolveMediaSrc(item) });
                             return;
                         }
 
                         const mediaType = (item.mediaType || '').toLowerCase();
 
-                        if (item.image) media.push({ type: mediaType === 'gif' ? 'gif' : 'image', src: item.image });
-                        if (item.gif) media.push({ type: 'gif', src: item.gif });
-                        if (item.video) media.push({ type: 'video', src: item.video });
+                        if (item.image) media.push({ type: mediaType === 'gif' ? 'gif' : 'image', src: resolveMediaSrc(item.image) });
+                        if (item.gif) media.push({ type: 'gif', src: resolveMediaSrc(item.gif) });
+                        if (item.video) media.push({ type: 'video', src: resolveMediaSrc(item.video), poster: resolveMediaSrc(item.poster) });
                     });
                 }
 
@@ -478,13 +496,13 @@ fetch('projects.json')
                 let coverHtml = p.image
                     ? `<div class="project-cover">
                     <div class="cover-info-left"><h3>${p.title}</h3></div>
-                    <img src="${p.image}" alt="${p.title}">
+                    <img src="${resolveMediaSrc(p.image)}" alt="${p.title}">
                     <div class="cover-info-right"></div>
                        </div>`
                     : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right"></div></div>`;
 
                 // Insert meta fields (Date, Commissioner, Category) if provided by the CMS
-                const dateStr = p.date ? new Date(p.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+                const dateStr = p.date ? new Date(p.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', timeZone: 'UTC' }) : '';
                 const commissionerStr = p.commissioner || '';
                 const categoryStr = p.category || '';
 
@@ -573,18 +591,29 @@ fetch('projects.json')
                     };
                     let selectedLanguage = 'ENG';
 
+                    const escapeHtml = (value) => value
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#039;');
+
+                    const markdownToHtml = (value) => escapeHtml(value)
+                        .replace(/\t/g, '<br>')
+                        .replace(/\r?\n/g, '<br>')
+                        .replace(/\+\+(.+?)\+\+/g, '<u>$1</u>')
+                        .replace(/~~(.+?)~~/g, '<s>$1</s>')
+                        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+
                     const createDescriptionMarkup = (language) => {
-                        const descriptionText = descriptions[language];
-                        const words = descriptionText.split(/\s+/).filter(Boolean);
-                        const wordsHtml = words.map((word, index) =>
-                            `<span class="project-description-word" style="transition-delay:${index * 10}ms">${word}</span>`
-                        ).join(' ');
+                        const descriptionHtml = markdownToHtml(descriptions[language]);
 
                         return `<div class="description-language-toggle" aria-label="Description language">
                             <button type="button" class="${language === 'ENG' ? 'active' : ''}" data-language="ENG" aria-pressed="${language === 'ENG'}">ENG</button>
                             <span class="language-slash">/</span>
                             <button type="button" class="${language === 'SWE' ? 'active' : ''}" data-language="SWE" aria-pressed="${language === 'SWE'}">SWE</button>
-                        </div><span class="desc-highlight">${wordsHtml}</span>`;
+                        </div><span class="desc-highlight">${descriptionHtml}</span>`;
                     };
 
                     const descriptionSlide = descriptions.ENG || descriptions.SWE
@@ -594,7 +623,7 @@ fetch('projects.json')
                     const renderMediaSlide = (media) => {
                         if (!media || !media.src) return '';
                         if (media.type === 'video') {
-                            return `<video class="project-video" src="${media.src}" controls playsinline muted loop></video>`;
+                            return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} controls playsinline muted loop></video>`;
                         }
                         return `<img class="project-img" src="${media.src}" alt="${p.title}">`;
                     };
@@ -615,16 +644,6 @@ fetch('projects.json')
                     currentModal = overlay;
 
                     const descriptionElement = modal.querySelector('.project-description-slide');
-                    const animateDescription = () => {
-                        const descriptionWords = descriptionElement.querySelectorAll('.project-description-word');
-                        descriptionWords.forEach((word, index) => {
-                            word.classList.remove('visible');
-                            setTimeout(() => {
-                                word.classList.add('visible');
-                            }, index * 10);
-                        });
-                    };
-
                     const renderDescription = (language) => {
                         selectedLanguage = language;
                         descriptionElement.innerHTML = createDescriptionMarkup(language);
@@ -634,7 +653,6 @@ fetch('projects.json')
                                 renderDescription(button.dataset.language);
                             });
                         });
-                        animateDescription();
                     };
 
                     if (descriptionElement) {
