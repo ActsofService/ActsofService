@@ -55,7 +55,16 @@
     "descriptionEnglish": "Visuell identitet bestående av trycksak, rumslighet och hemsida för utställning med Svenskt tenn, Beckmanscollegeofdesign och Beijerinstitutet. \n\nDen snabba uppvärmningen av Arktis just nu är en del av ett större, cirkulärt sammanhang. Konsekvenserna av våra hand­lingar cirkulerar i sin tur tillbaka till oss. Genom att se på naturens kretslopp, vår påverkan inom polcirkeln som omsluter Arktis, lyfter vi fram hur allt hänger samman och att ingenting existerar isolerat. Miljöförändringarna tvingar människorna i Arktis att ställa om för att bevara sina samhällen, något vi alla måste göra.\n\nUtställningen består av sju tolkningar av forskning om Arktis, fram­tagna i dialog mellan studenter vid Beckmans Designhögskola och forskare vid Beijerinstitutet, Kungl. Vetenskapsakademien och Stockholms Universitet tillsammans med Svenskt Tenn.\n",
     "descriptionSwedish": "",
     "image": "/images/uploads/skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-34-32.jpeg",
-    "gallery": [],
+    "gallery": [
+      {
+        "mediaType": "gif",
+        "gif": "/images/uploads/1.-main-poster_1080x1350.gif"
+      },
+      {
+        "mediaType": "video",
+        "video": "/images/uploads/olle_ljung_video_2.mp4"
+      },
+    ],
     "date": "2025-05-04T11:54:00.000Z",
     "commissioner": "",
     "category": "",
