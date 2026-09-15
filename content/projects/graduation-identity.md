@@ -1,5 +1,5 @@
 ---
-title: Avtryck
+title: "Avtryck: Graduation Identity"
 description: >-
   The graduating show is a place to make a mark (avtryck), a chance to take
   place and position one self for the future with competence and self-assertion.
