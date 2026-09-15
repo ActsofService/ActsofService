@@ -15,6 +15,25 @@
     "body": "hej\n"
   },
   {
+    "title": "Process, Material, Craft",
+    "descriptionEnglish": "Process, Material, Craft - studies in furniture, interior and objects, a three-part exhibition with Beckmans, Konstfack and Malmstens at Moderna Dansteatern. Posters, signage, catalogue, invitation and social media. \n\nCreated together with Edda Eliasson, Mika Hyvönen,\nand Olle Svensson \n\nPhotographer: Madeleine Sjöberg\n\nDocumentation: Jesper Smeding. \n",
+    "descriptionSwedish": "",
+    "image": "/images/uploads/1.-main-poster_1080x1350.jpg",
+    "gallery": [
+      "/images/uploads/2.png",
+      "/images/uploads/3.png",
+      "/images/uploads/4.png",
+      "/images/uploads/5.png",
+      "/images/uploads/6.png",
+      "/images/uploads/7.jpg"
+    ],
+    "date": "2026-02-03T18:00:00.000Z",
+    "commissioner": "",
+    "category": "",
+    "link": null,
+    "body": "hej\n"
+  },
+  {
     "title": "NewPlatforms.txt, Re:action Workshop and Re:action Exhibition",
     "descriptionEnglish": "NewPlatforms.txt \n\nNewPlatforms.txt is a publication made to broaden the subject of alternative and new possible platforms. We learn more about this subject through invited writers, who each bring an interesting point of view. To add some fun to a topic that can feel difficult and overwhelming we issued an open call to anyone who was willing to answer, and got some very personal replies. People on the internet are very generous in what they share with each other, which might be rare to see in the real world. The current state of established digital platforms and its influence on visual communication is under scrutiny by us as students, teachers and human beings.\n\n\nRe:action Workshop\n\nNew platforms are created as a reaction to what came before. Think of this workshop as an analogue internet platform. Where you can playfully engage, create and react to your surroundings. In this workshop we want you to react to what you've seen at the festival, for example the exhibitions, lectures or anything else. Use the tools provided: the stamps, papers and pictures and start creating.\n\n\nRe:action Exhibition\n\nThere is a longing for the internet as it was when it was a new platform full of endless possibilities. The internet and the new operating systems were tied to a belief in the future and created a space that allowed you to be creative, joyful, curious, and active. It was a place for people to connect, and it became a new platform for organizing, learning, and socializing.\n\nThis exhibition is the result of a workshop our class completed together. We wanted to show our collective creativity and reduce the pressure of performance. To achieve less pressure and a unified expression, we wanted to use limited tools and shapes. From these thoughts came the idea of Re:action Workshop.\n\n\nCreated together with Phoebe Crookes and Hanna Hedberg\n\nDocumentation: Jonas Hermlin \n",
     "descriptionSwedish": "",
@@ -36,20 +55,7 @@
     "descriptionEnglish": "Visuell identitet bestående av trycksak, rumslighet och hemsida för utställning med Svenskt tenn, Beckmanscollegeofdesign och Beijerinstitutet. \n\nDen snabba uppvärmningen av Arktis just nu är en del av ett större, cirkulärt sammanhang. Konsekvenserna av våra hand­lingar cirkulerar i sin tur tillbaka till oss. Genom att se på naturens kretslopp, vår påverkan inom polcirkeln som omsluter Arktis, lyfter vi fram hur allt hänger samman och att ingenting existerar isolerat. Miljöförändringarna tvingar människorna i Arktis att ställa om för att bevara sina samhällen, något vi alla måste göra.\n\nUtställningen består av sju tolkningar av forskning om Arktis, fram­tagna i dialog mellan studenter vid Beckmans Designhögskola och forskare vid Beijerinstitutet, Kungl. Vetenskapsakademien och Stockholms Universitet tillsammans med Svenskt Tenn.\n",
     "descriptionSwedish": "",
     "image": "/images/uploads/skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-34-32.jpeg",
-    "gallery": [
-      {
-        "mediaType": "gif",
-        "gif": "1.-main-poster_1080x1350.gif"
-      },
-      {
-        "mediaType": "video",
-        "video": "olle_ljung_video_2.mp4"
-      },
-      {
-        "mediaType": "image",
-        "image": "filminspelning.jpg"
-      }
-    ],
+    "gallery": [],
     "date": "2025-05-04T11:54:00.000Z",
     "commissioner": "",
     "category": "",
