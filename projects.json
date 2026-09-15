@@ -2,7 +2,7 @@
   {
     "title": "Graduation Identity",
     "descriptionEnglish": "hejhej",
-    "descriptionSwedish": "",
+    "descriptionSwedish": "Hello",
     "image": "/images/uploads/august.jpg",
     "gallery": [
       "/images/uploads/ringar_test-topaz-gigapixel-4x.jpg",
@@ -10,8 +10,8 @@
       "/images/uploads/avtryckvinyl.jpg"
     ],
     "date": "2026-09-15T07:59:00.000Z",
-    "commissioner": "",
-    "category": "",
+    "commissioner": "Beckmans",
+    "category": "Identity",
     "link": null,
     "body": "ooopsie\n"
   },
