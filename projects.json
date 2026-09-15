@@ -4,7 +4,11 @@
     "descriptionEnglish": "hejhej",
     "descriptionSwedish": "",
     "image": "/images/uploads/august.jpg",
-    "gallery": [],
+    "gallery": [
+      "/images/uploads/ringar_test-topaz-gigapixel-4x.jpg",
+      "/images/uploads/filminspelning.jpg",
+      "/images/uploads/avtryckvinyl.jpg"
+    ],
     "date": "2026-09-15T07:59:00.000Z",
     "commissioner": "",
     "category": "",
