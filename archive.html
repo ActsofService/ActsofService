@@ -420,6 +420,44 @@
             }
         }
 
+        @media (max-width: 700px) {
+            .carousel-modal-overlay {
+                overflow-y: auto;
+                align-items: flex-start;
+            }
+
+            .carousel-modal {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .carousel-modal .project-images {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow-x: hidden;
+                overflow-y: visible;
+                gap: 20px;
+                padding: 8px 0 30px;
+            }
+
+            .project-description-slide {
+                width: 90vw;
+                height: auto;
+                min-height: 0;
+                flex-shrink: 0;
+                padding: 1.4rem 0 0;
+            }
+
+            .project-img,
+            .project-video {
+                width: 90vw;
+                max-width: 90vw;
+                height: auto;
+                flex-shrink: 0;
+            }
+        }
+
 </style>
 </head>
 <body>
