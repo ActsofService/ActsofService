@@ -1,5 +1,5 @@
 ---
-title: NewPlatforms
+title: New Platforms
 description: >
   “The current state of established digital platforms and its influence on
   visual communication is under scrutiny by us students, teachers and human
