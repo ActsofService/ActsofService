@@ -1,5 +1,5 @@
 ---
-title: NewPlatforms.txt, Re:action Workshop and Re:action Exhibition
+title: NewPlatforms
 description: >
   “The current state of established digital platforms and its influence on
   visual communication is under scrutiny by us students, teachers and human
