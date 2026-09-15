@@ -15,7 +15,7 @@ description: >
 
 
   Documentation: Jesper Smeding. 
-image: /images/uploads/1.-main-poster_1080x1350.gif
+image: /images/uploads/1.-main-poster_1080x1350.jpg
 gallery:
   - /images/uploads/2.png
   - /images/uploads/3.png
