@@ -81,7 +81,7 @@
             padding: 100px 0;
             text-align: center;
             flex: 1;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             overflow-y: auto;
         }
 
@@ -90,6 +90,38 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        #project-filters {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.15rem;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+            margin: 0;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
+            font-size: 1.15rem;
+            line-height: 1.1;
+        }
+
+        #project-filters button {
+            padding: 0;
+            border: 0;
+            background: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            opacity: 0.45;
+        }
+
+        #project-filters button.active {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
         }
 
         
@@ -186,7 +218,7 @@
             align-items: stretch;
             width: 100%;
             margin-bottom: 60px;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             cursor: pointer;
         }
 
@@ -227,6 +259,9 @@
             text-align: left;
             align-items: flex-start;
             justify-content: flex-end;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
+            font-size: 1.15rem;
             
         }
 
@@ -242,7 +277,7 @@
 
         .project-cover .project-meta-grid p {
             margin: 0;
-            font-size: 0.6rem;
+            font: inherit;
             opacity: 0.85;
             
         }
@@ -264,7 +299,7 @@
             color: inherit;
             padding: 0;
             text-decoration: none;
-            font-size: 0.6rem;
+            font-size: inherit;
             font-weight: 400;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
@@ -309,7 +344,7 @@
             text-align: left;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 400;
             white-space: normal;
         }
@@ -377,7 +412,7 @@
             }
 
             footer {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
         }
 
             #projects-list {
@@ -421,6 +456,21 @@
         }
 
         @media (max-width: 700px) {
+            #project-filters {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                right: auto;
+                width: 100vw;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.15rem 0.8rem;
+                overflow-x: visible;
+                white-space: normal;
+                padding: 0 20px 4px;
+                box-sizing: border-box;
+            }
+
             .carousel-modal-overlay {
                 overflow-y: auto;
                 align-items: flex-start;
@@ -466,6 +516,17 @@
         <h1></h1>
     </header>
     <main>
+        <nav id="project-filters" aria-label="Filter projects">
+            <button type="button" data-filter="favorites" class="active">Favorites</button>
+            <button type="button" data-filter="all">All</button>
+            <button type="button" data-filter="art direction">Art direction</button>
+            <button type="button" data-filter="visual identity">Visual identity</button>
+            <button type="button" data-filter="print">Print</button>
+            <button type="button" data-filter="web">Web</button>
+            <button type="button" data-filter="photography">Photography</button>
+            <button type="button" data-filter="exhibition design">Exhibition design</button>
+            <button type="button" data-filter="other">Other</button>
+        </nav>
         <div id="projects-list">
             <p>Loading projects…</p>
         </div>
@@ -496,7 +557,29 @@ fetch('projects.json')
             return;
         }
 
-        projects.forEach(p => {
+        const projectOrder = [...projects].sort((a, b) => {
+            const dateA = a.date ? new Date(a.date).getTime() : 0;
+            const dateB = b.date ? new Date(b.date).getTime() : 0;
+            return dateB - dateA;
+        });
+        const filterContainer = document.getElementById('project-filters');
+        let activeMode = 'favorites';
+        const selectedCategories = new Set();
+
+        const renderProjects = () => {
+            container.innerHTML = '';
+            const visibleProjects = activeMode === 'all'
+                ? projectOrder
+                : activeMode === 'favorites'
+                    ? projectOrder.filter(project => project.favorite === true)
+                    : projectOrder.filter(project => selectedCategories.has(String(project.category || '').toLowerCase()));
+
+            if (!visibleProjects.length) {
+                container.innerHTML = '<p>No projects matches these filters yet</p>';
+                return;
+            }
+
+            visibleProjects.forEach(p => {
             const div = document.createElement('div');
             div.className = 'project collapsed';
 
@@ -544,8 +627,7 @@ fetch('projects.json')
                 const commissionerStr = p.commissioner || '';
                 const categoryStr = p.category || '';
 
-                const entryNumber = projects.length - projects.indexOf(p);
-                if (dateStr || commissionerStr || categoryStr || entryNumber) {
+                if (dateStr || commissionerStr || categoryStr) {
                     const temp = document.createElement('div');
                     temp.innerHTML = coverHtml;
                     const right = temp.querySelector('.cover-info-right');
@@ -558,16 +640,6 @@ fetch('projects.json')
                         labels.className = 'meta-labels';
                         const values = document.createElement('div');
                         values.className = 'meta-values';
-
-                        // Archive entry first
-                        const lpEntry = document.createElement('p');
-                        lpEntry.textContent = 'Archive entry:';
-                        labels.appendChild(lpEntry);
-                        const vpEntry = document.createElement('p');
-                        vpEntry.textContent = `[${entryNumber}]`;
-                        values.appendChild(vpEntry);
-
-                
 
                         if (dateStr) {
                             const lp = document.createElement('p');
@@ -728,7 +800,34 @@ fetch('projects.json')
             }
 
             container.appendChild(div);
+            });
+        };
+
+        filterContainer.querySelectorAll('[data-filter]').forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                if (filter === 'favorites' || filter === 'all') {
+                    activeMode = filter;
+                    selectedCategories.clear();
+                } else {
+                    activeMode = 'categories';
+                    if (selectedCategories.has(filter)) {
+                        selectedCategories.delete(filter);
+                    } else {
+                        selectedCategories.add(filter);
+                    }
+                }
+
+                filterContainer.querySelectorAll('button').forEach(item => {
+                    const itemFilter = item.dataset.filter;
+                    const isActive = itemFilter === activeMode || (activeMode === 'categories' && selectedCategories.has(itemFilter));
+                    item.classList.toggle('active', isActive);
+                });
+                renderProjects();
+            });
         });
+
+        renderProjects();
     })
     .catch(err => {
         console.error('Could not load projects.json', err);

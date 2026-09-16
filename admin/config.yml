@@ -40,7 +40,19 @@ collections:
           - { label: "Video Preview Image", name: "poster", widget: "image", required: false, hint: "Optional thumbnail shown in the CMS workflow and on the archive before the video plays." }
       - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM", time_format: false, picker_utc: true }
       - { label: "Commissioner", name: "commissioner", widget: "string", required: false }
-      - { label: "Category", name: "category", widget: "string", required: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        required: false
+        options:
+          - "art direction"
+          - "visual identity"
+          - "print"
+          - "web"
+          - "photography"
+          - "exhibition design"
+          - "other"
+      - { label: "Favorite", name: "favorite", widget: "boolean", default: false, required: false }
       - label: "Body"
         name: "body"
         widget: "markdown"
