@@ -65,7 +65,7 @@ collections:
     files:
       - name: "contact"
         label: "Contact page"
-        file: "content/contact.json"
+        file: "contact.json"
         fields:
           - label: "Sections"
             name: "sections"
