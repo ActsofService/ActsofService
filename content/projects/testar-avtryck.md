@@ -9,6 +9,6 @@ gallery:
 date: 2026-09
 commissioner: Beckmans
 category: ["visual identity", "Print"]
-favorite: true,
+favorite: true
 ---
 Avtryck
