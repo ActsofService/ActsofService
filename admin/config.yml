@@ -61,22 +61,25 @@ collections:
 
   - name: "contact"
     label: "Contact page"
-    file: "contact.json"
-    fields:
-      - label: "Sections"
-        name: "sections"
-        widget: "list"
-        hint: "Add, remove, or reorder contact sections."
+    files:
+      - name: "contact"
+        label: "Contact page"
+        file: "content/contact.json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - label: "Entry layout"
-            name: "format"
-            widget: "select"
-            options:
-              - { label: "Comma-separated list", value: "comma" }
-              - { label: "One entry per line", value: "lines" }
-            default: "lines"
-          - label: "Entries"
-            name: "entries"
+          - label: "Sections"
+            name: "sections"
             widget: "list"
-            field: { label: "Entry", name: "entry", widget: "string" }
+            hint: "Add, remove, or reorder contact sections."
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Entry layout"
+                name: "format"
+                widget: "select"
+                options:
+                  - { label: "Comma-separated list", value: "comma" }
+                  - { label: "One entry per line", value: "lines" }
+                default: "lines"
+              - label: "Entries"
+                name: "entries"
+                widget: "list"
+                field: { label: "Entry", name: "entry", widget: "string" }
