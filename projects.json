@@ -1,5 +1,22 @@
 [
   {
+    "title": "TESTAR avtryck ",
+    "descriptionEnglish": "Engelska **TEST** *TEST* TEST",
+    "descriptionSwedish": "SVenska",
+    "image": "/images/uploads/filminspelning.jpg",
+    "gallery": [
+      {
+        "mediaType": "gif",
+        "image": "/images/uploads/1.-main-poster_1080x1350.gif"
+      }
+    ],
+    "date": "2026-09",
+    "commissioner": "Beckmans",
+    "category": "visual identity",
+    "link": null,
+    "body": "Avtryck\n"
+  },
+  {
     "title": "Avtryck: Graduation Identity",
     "descriptionEnglish": "The graduating show is a place to make a mark (avtryck), a chance to take place and position one self for the future with competence and self-assertion. We have made the choice to portray this year's theme with a seal as a stamp of quality and with a signet ring as a symbol for belonging and community: We are the graduating bachelor class at Beckmans College of Design 2026. The seal is a ceremonial and bold/daring way to make one's mark with and is the soul of the graduating show’s campaign. \n\nThe campaign was created together with Linn Sehlstedt and Phoebe Crookes.",
     "descriptionSwedish": "",
