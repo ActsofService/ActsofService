@@ -25,4 +25,4 @@ gallery:
 date: 2025-05-04T10:00:00.000+02:00
 link: https://beckmans.college/Arctic/
 ---
-hej
+hej HEJ
