@@ -20,7 +20,12 @@ const projects = files.map(filename => {
     gallery: data.gallery || [],
     date: data.date,
     commissioner: data.commissioner || '',
-    category: data.category || '',
+    category: Array.isArray(data.category)
+      ? data.category
+      : data.category
+        ? [data.category]
+        : [],
+    favorite: data.favorite === true || data.favorite === 'true',
     link: data.link || null,
     body: content
   };

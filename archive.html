@@ -90,6 +90,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+
         }
 
         #project-filters {
@@ -571,8 +572,13 @@ fetch('projects.json')
             const visibleProjects = activeMode === 'all'
                 ? projectOrder
                 : activeMode === 'favorites'
-                    ? projectOrder.filter(project => project.favorite === true)
-                    : projectOrder.filter(project => selectedCategories.has(String(project.category || '').toLowerCase()));
+                    ? projectOrder.filter(project => project.favorite === true || project.favorite === 'true')
+                    : projectOrder.filter(project => {
+                        const categories = Array.isArray(project.category)
+                            ? project.category
+                            : project.category ? [project.category] : [];
+                        return categories.some(category => selectedCategories.has(String(category).toLowerCase()));
+                    });
 
             if (!visibleProjects.length) {
                 container.innerHTML = '<p>No projects matches these filters yet</p>';
@@ -625,7 +631,10 @@ fetch('projects.json')
                 // Insert meta fields (Date, Commissioner, Category) if provided by the CMS
                 const dateStr = p.date ? new Date(p.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', timeZone: 'UTC' }) : '';
                 const commissionerStr = p.commissioner || '';
-                const categoryStr = p.category || '';
+                const categoryValues = Array.isArray(p.category)
+                    ? p.category
+                    : p.category ? [p.category] : [];
+                const categoryStr = categoryValues.join(', ');
 
                 if (dateStr || commissionerStr || categoryStr) {
                     const temp = document.createElement('div');
