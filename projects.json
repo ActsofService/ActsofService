@@ -12,7 +12,11 @@
     ],
     "date": "2026-09",
     "commissioner": "Beckmans",
-    "category": "visual identity","Print"
+    "category": [
+      "visual identity",
+      "Print"
+    ],
+    "favorite": false,
     "link": null,
     "body": "Avtryck\n"
   },
@@ -27,7 +31,8 @@
     ],
     "date": "2026-05-21T08:05:00.000Z",
     "commissioner": "",
-    "category": "",
+    "category": [],
+    "favorite": false,
     "link": null,
     "body": "hej\n"
   },
@@ -46,7 +51,8 @@
     ],
     "date": "2026-02-03T18:00:00.000Z",
     "commissioner": "",
-    "category": "",
+    "category": [],
+    "favorite": false,
     "link": null,
     "body": "hej\n"
   },
@@ -63,7 +69,8 @@
     ],
     "date": "2025-10-20T17:00:00.000Z",
     "commissioner": "",
-    "category": "",
+    "category": [],
+    "favorite": false,
     "link": null,
     "body": "hej\n"
   },
@@ -81,7 +88,8 @@
     ],
     "date": "2025-05-04T08:00:00.000Z",
     "commissioner": "",
-    "category": "",
+    "category": [],
+    "favorite": false,
     "link": "https://beckmans.college/Arctic/",
     "body": "hej HEJ\n"
   }
