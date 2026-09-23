@@ -10,6 +10,10 @@ gallery:
     gif: /images/uploads/kungsgatan_stående-1-1-.gif
   - mediaType: image
     gif: /images/uploads/august-1-2-.gif
+  - mediaType: image
+    image: /images/uploads/vepa.jpg
+  - mediaType: image
+    image: /images/uploads/brev-innehåll.jpg
 date: 2026-09
 category:
   - art direction
