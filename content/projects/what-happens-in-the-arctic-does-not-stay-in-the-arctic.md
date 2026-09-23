@@ -12,14 +12,14 @@ descriptionEnglish: >
 
   What Happens In the Arctic Does Not Stay In the Arctic consists of seven interpretations of Arctic research, developed in dialogue between students at Beckmans College of Design and researchers from the Beijer Institute, in collaboration with Svenskt Tenn.
 descriptionSwedish: >
-  Det som händer i Arktis just nu är en del av ett större, cirkulärt
-  sammanhang. Konsekvenserna av våra handlingar återvänder i sin tur till oss.
-  Genom naturens kretslopp, vår påverkan och den polcirkel som omger Arktis
-  belyser vi hur allt hänger samman och hur ingenting existerar isolerat. De
-  snabba klimatförändringarna tvingar människorna i Arktis att anpassa sig för
-  att bevara sina samhällen – något vi alla måste göra. Med den här
-  utställningen visualiserar vi hur olika delar av Arktis påverkas av
-  klimatförändringarna – och varför det spelar roll för oss alla.
+  Det som händer i Arktis just nu är en del av ett större, cirkulärt sammanhang.
+  Konsekvenserna av våra handlingar återvänder i sin tur till oss. Genom
+  naturens kretslopp, vår påverkan och den polcirkel som omger Arktis belyser vi
+  hur allt hänger samman och hur ingenting existerar isolerat. De snabba
+  klimatförändringarna tvingar människorna i Arktis att anpassa sig för att
+  bevara sina samhällen – något vi alla måste göra. Med den här utställningen
+  visualiserar vi hur olika delar av Arktis påverkas av klimatförändringarna –
+  och varför det spelar roll för oss alla.
 
   What Happens In the Arctic Does Not Stay In the Arctic består av sju tolkningar av arktisk forskning, framtagna i dialog mellan studenter på Beckmans Designhögskola och forskare från Beijerinstitutet, i samarbete med Svenskt Tenn.
 image: /images/uploads/1.-svenskttennverni_select-12.jpg
@@ -38,7 +38,7 @@ date: 2025-05
 commissioner: Svenskt Tenn
 category:
   - exhibition design
-favorite: false
+favorite: true
 link: https://beckmans.college/Arctic/
 ---
 hej HEJ
