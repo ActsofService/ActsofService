@@ -5,8 +5,7 @@ descriptionEnglish: >
   three-part exhibition with Beckmans, Konstfack and Malmstens at Moderna
   Dansteatern. Posters, signage, catalogue, invitation and social media.
 
-  Created together with Edda Eliasson, Mika Hyvönen,
-  and Olle Svensson
+  Created together with Edda Eliasson, Mika Hyvönen, and Olle Svensson
 
   Photographer: Madeleine Sjöberg
 
@@ -16,8 +15,7 @@ descriptionSwedish: >
   tredelad utställning med Beckmans, Konstfack och Malmstens på Moderna
   Dansteatern. Affischer, skyltning, katalog, inbjudan och sociala medier.
 
-  Skapad tillsammans med Edda Eliasson, Mika Hyvönen
-  och Olle Svensson
+  Skapad tillsammans med Edda Eliasson, Mika Hyvönen och Olle Svensson
 
   Fotograf: Madeleine Sjöberg
 
@@ -41,6 +39,6 @@ commissioner: Beckmans, Konstfack & Malmstens
 category:
   - exhibition design
   - print
-favorite: false
+favorite: true
 ---
 hej
