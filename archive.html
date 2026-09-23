@@ -472,6 +472,10 @@
                 overflow: visible;
             }
 
+            body.modal-open {
+                overflow: hidden;
+            }
+
             header {
                 display: none;
             }
@@ -496,14 +500,13 @@
 
 
             .carousel-modal-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: auto;
-                min-height: 100vh;
-                min-height: 100dvh;
-                overflow: visible;
+                position: fixed;
+                inset: 0;
+                height: 100vh;
+                height: 100dvh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior-y: contain;
                 align-items: flex-start;
                 padding-top: env(safe-area-inset-top, 0px);
                 padding-bottom: env(safe-area-inset-bottom, 0px);
