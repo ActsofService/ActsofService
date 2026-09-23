@@ -16,7 +16,7 @@ descriptionSwedish: >-
 
 
   Projekt andra året på Beckmans i samarbete med Juice Studios, Edda Eliasson och Wilma Reichardt.
-image: /images/uploads/essence1-1-.gif
+image: /images/uploads/hög_2.png
 gallery:
   - mediaType: image
     image: /images/uploads/fotograf_24.png
