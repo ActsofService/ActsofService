@@ -415,7 +415,7 @@
                 left: auto;
                 right: auto;
                 bottom: auto;
-                margin: 60px 20px 0;
+                margin: 20px 20px 0;
                 padding-bottom: 0px;
                 font-size: 1.05rem;
             }
@@ -490,6 +490,8 @@
             .carousel-modal-overlay {
                 overflow-y: auto;
                 align-items: flex-start;
+                padding-bottom: env(safe-area-inset-bottom, 0px);
+                box-sizing: border-box;
             }
 
             .carousel-modal {
@@ -504,7 +506,7 @@
                 overflow-x: hidden;
                 overflow-y: visible;
                 gap: 20px;
-                padding: 8px 0 calc(30px + env(safe-area-inset-bottom, 0px));
+                padding: calc(110px + env(safe-area-inset-top, 0px)) 0 30px;
             }
 
             .project-description-slide {
@@ -512,7 +514,7 @@
                 height: auto;
                 min-height: 0;
                 flex-shrink: 0;
-                padding: calc(110px + env(safe-area-inset-top, 0px)) 20px 0;
+                padding: 0 20px;
             }
 
             .project-img,
