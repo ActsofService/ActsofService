@@ -178,7 +178,7 @@
     "title": "Essence of Emina",
     "descriptionEnglish": "Emina Iman is a creative whose art and expression revolve around freedom, individuality, presence, and creativity. By exploring the specific qualities that define us, she highlights what connects us through dance, imagery, poetry, and conversation.\n\nSecond-year project at Beckmans in collaboration with Juice Studios, Edda Eliasson, and Wilma Reichardt.",
     "descriptionSwedish": "Emina Iman är en kreatör vars konst och uttryck kretsar kring frihet, individualitet, pondus och kreativitet. Genom att fördjupa sig i det specifika som definierar oss, lyfter hon fram det som förenar oss genom dans, bild, poesi och samtal.\n\nProjekt andra året på Beckmans i samarbete med Juice Studios, Edda Eliasson och Wilma Reichardt.",
-    "image": "/images/uploads/hög_2.png",
+    "image": "/images/uploads/essence2.png",
     "gallery": [
       {
         "mediaType": "image",
@@ -186,7 +186,7 @@
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/fotograf_23.png"
+        "image": "/images/uploads/essence1-1-.gif"
       },
       {
         "mediaType": "image",
@@ -227,6 +227,25 @@
     "category": [
       "photography",
       "print"
+    ],
+    "favorite": false,
+    "link": null,
+    "body": "hej\n"
+  },
+  {
+    "title": "Landscapes",
+    "descriptionEnglish": "An electronic track produced by Vilmar Janson became a classic knight-and-dragon drama. With no limitations on the content, we drew inspiration from the music and from each other. The result was a 3D-animated video presented at Wisdome at the National Museum of Science and Technology. In collaboration with the Royal College of Music, working in a group with Phoebe Crookes.",
+    "descriptionSwedish": "En elektronisk låt producerad av Vilmar Janson blev till ett klassiskt riddare-och-drake-drama. Utan begränsningar för innehållet hämtade vi inspiration från musiken och varandra. Resultatet blev en 3D-animerad video som visades i Wisdome på Tekniska museet. I samarbete med Kungliga musikhögskolan, i grupp med Phoebe Crookes",
+    "image": "/images/uploads/landscapes3.png",
+    "gallery": [
+      {
+        "mediaType": "image"
+      }
+    ],
+    "date": "2024-03",
+    "commissioner": "Beckmans College of Design, Tekniska Museet",
+    "category": [
+      "other"
     ],
     "favorite": false,
     "link": null,
