@@ -187,6 +187,10 @@
       {
         "mediaType": "image",
         "image": "/images/uploads/fotograf_23.png"
+      },
+      {
+        "mediaType": "image",
+        "gif": "/images/uploads/Olle_Essence.gif"
       }
     ],
     "date": "2025-01",
