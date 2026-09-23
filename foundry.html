@@ -1,93 +1,2043 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="aos-icon.svg">
-    <title>AOS Foundry — Acts of Service</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="screensaver.css">
-    <style>
-        @font-face {
-            font-family: "ABC Areal";
-            src: url("fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
-            font-style: normal;
-            font-weight: 100 1000;
-            font-display: swap;
-        }
-    </style>
-    <style>
-        html, body { height: 100%; }
-        body { 
-            margin: 0; 
-            font-family: "ABC Areal", sans-serif;
-            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
-            font-weight: 400;
-            display:flex; 
-            flex-direction:column; 
-            justify-content:space-between; 
-        }
-        main { 
-            margin: 0px 20px;
-            padding-right: calc(100% - 450px);
-            text-align: left;
-            font-size: 1.15rem;
-            overflow: hidden;
-            position: fixed;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AOS Foundry — typefaces</title>
+  <link rel="icon" href="images/uploads/favicon.ico" sizes="any">
+  <link rel="icon" href="/images/uploads/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/ActsofService-Sans.otf" as="font" type="font/otf">
+  <link rel="preload" href="fonts/ActsofService-Regular.otf" as="font" type="font/otf">
+  <script>
+    (function () {
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      function scrollTopNow() {
+        window.scrollTo(0, 0);
+      }
+      scrollTopNow();
+      window.addEventListener("load", function () {
+        scrollTopNow();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(scrollTopNow);
+        });
+      });
+    })();
+  </script>
+  <style>
+    @font-face {
+      font-family: "Acts of Service";
+      src: url("fonts/ActsofService-Regular.otf") format("opentype"),
+        url("/fonts/ActsofService-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Acts of Service";
+      src: url("fonts/ActsofService-Medium.otf") format("opentype"),
+        url("/fonts/ActsofService-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Acts of Service";
+      src: url("fonts/ActsofService-Mediumitalic.otf") format("opentype"),
+        url("/fonts/ActsofService-Mediumitalic.otf") format("opentype");
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Acts of Service Sans";
+      src: url("fonts/ActsofService-Sans.otf") format("opentype"),
+        url("/fonts/ActsofService-Sans.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Acts of Service Sans";
+      src: url("fonts/ActsofService-SansItalic.otf") format("opentype"),
+        url("/fonts/ActsofService-SansItalic.otf") format("opentype");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Skeleton";
+      src: url("fonts/fractal-skeleton-thin.otf") format("opentype"),
+        url("/fonts/fractal-skeleton-thin.otf") format("opentype");
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Skeleton";
+      src: url("fonts/fractal-skeleton-book.otf") format("opentype"),
+        url("/fonts/fractal-skeleton-book.otf") format("opentype");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Skeleton";
+      src: url("fonts/fractal-skeleton-regular.otf") format("opentype"),
+        url("/fonts/fractal-skeleton-regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Skeleton";
+      src: url("fonts/fractal-skeleton-medium.otf") format("opentype"),
+        url("/fonts/fractal-skeleton-medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Skeleton";
+      src: url("fonts/fractal-skeleton-semibold.otf") format("opentype"),
+        url("/fonts/fractal-skeleton-semibold.otf") format("opentype");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Skeleton";
+      src: url("fonts/fractal-skeleton-bold.otf") format("opentype"),
+        url("/fonts/fractal-skeleton-bold.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Skeleton";
+      src: url("fonts/fractal-skeleton-black.otf") format("opentype"),
+        url("/fonts/fractal-skeleton-black.otf") format("opentype");
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Plant";
+      src: url("fonts/fractal-plant-thin.otf") format("opentype"),
+        url("/fonts/fractal-plant-thin.otf") format("opentype");
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Plant";
+      src: url("fonts/fractal-plant-book.otf") format("opentype"),
+        url("/fonts/fractal-plant-book.otf") format("opentype");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Plant";
+      src: url("fonts/fractal-plant-regular.otf") format("opentype"),
+        url("/fonts/fractal-plant-regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Plant";
+      src: url("fonts/fractal-plant-medium.otf") format("opentype"),
+        url("/fonts/fractal-plant-medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Plant";
+      src: url("fonts/fractal-plant-semibold.otf") format("opentype"),
+        url("/fonts/fractal-plant-semibold.otf") format("opentype");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Plant";
+      src: url("fonts/fractal-plant-bold.otf") format("opentype"),
+        url("/fonts/fractal-plant-bold.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fractal Plant";
+      src: url("fonts/fractal-plant-black.otf") format("opentype"),
+        url("/fonts/fractal-plant-black.otf") format("opentype");
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
 
-         }
-        footer {
-            position: fixed;
-            left: 20px;
-            right: 20px;
-            bottom: 0;
-            z-index: 10;
-            margin: 0;
-            font-family: "ABC Areal", sans-serif;
-            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            font-weight: 400;
-            line-height: 60%;
-            font-size: 2.2rem;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #ff993a;
-        }
-        img {
-            width: auto;
-            height: 50vh;
-            margin-top: 20px;
-        }
-        
-        @media (max-width: 1100px) {
-        footer {
-            font-size: 1.15rem;
-        }
-        }
+    :root {
+      --ink: #0a0a0a;
+      --letter-cycle: 22s;
+      /* Accent = bakgrund från bild. All text är svart (--ink). */
+      --accent: #8a8a8a;
+      --paper: var(--accent);
+      --hero-bg: var(--accent);
+      --slider-track: rgba(10, 10, 10, 0.32);
+      --accent-soft: rgba(10, 10, 10, 0.14);
+      --accent-border: rgba(10, 10, 10, 0.2);
+      --body-font: "IBM Plex Mono", ui-monospace, monospace;
+    }
 
-    </style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    html {
+      scroll-padding-top: 1.25rem;
+      overflow-anchor: none;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--body-font);
+      font-weight: 400;
+      background: var(--accent);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.35s ease;
+    }
+
+    /* --- Helskärm hero --- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 4vw, 2.5rem);
+      overflow: hidden;
+      background: var(--accent);
+    }
+
+    .hero-float-img {
+      position: absolute;
+      z-index: 0;
+      width: clamp(18rem, 56vw, 46rem);
+      height: clamp(11.5rem, 30vw, 26rem);
+      object-fit: cover;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border: 2px solid rgba(10, 10, 10, 0.4);
+      pointer-events: none;
+      box-shadow: none;
+      transform-origin: center center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      -webkit-mask-image: radial-gradient(
+        ellipse 92% 84% at 50% 50%,
+        #000 36%,
+        rgba(0, 0, 0, 0.62) 56%,
+        rgba(0, 0, 0, 0.15) 72%,
+        transparent 86%
+      );
+      mask-image: radial-gradient(
+        ellipse 92% 84% at 50% 50%,
+        #000 36%,
+        rgba(0, 0, 0, 0.62) 56%,
+        rgba(0, 0, 0, 0.15) 72%,
+        transparent 86%
+      );
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+
+    .hero-float-img.is-visible {
+      opacity: 1;
+    }
+
+    @keyframes weightShift {
+      0%, 100% {
+        font-family: "Acts of Service", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      33.33% {
+        font-family: "Acts of Service", serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+      66.66% {
+        font-family: "Acts of Service Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    }
+
+    .wordmark {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--ink);
+    }
+
+    .about-avtryck {
+      font-family: var(--body-font);
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .wordmark-lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.02em;
+    }
+
+    .wordmark-lines > .word-line:first-child {
+      margin-bottom: 0.125em;
+    }
+
+    .word-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      line-height: 0.9;
+      letter-spacing: 0.035em;
+      font-size: clamp(4rem, 19vw, 14rem);
+    }
+
+    .word-line.mid {
+      font-size: clamp(2.85rem, 12vw, 9rem);
+      margin: 0.04em 0;
+      letter-spacing: 0.055em;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .wordmark-lines {
+        gap: 0.05em;
+      }
+
+      .word-line {
+        flex-wrap: nowrap;
+        max-width: 100%;
+        font-size: clamp(2.85rem, 13.8vw, 8.9rem);
+        letter-spacing: 0.03em;
+      }
+
+      .word-line.mid {
+        font-size: clamp(2.2rem, 9.2vw, 6.2rem);
+        letter-spacing: 0.052em;
+      }
+
+      .hero-float-img {
+        width: clamp(13.5rem, 62vw, 22rem);
+        height: clamp(8.6rem, 40vw, 14.5rem);
+        opacity: 0.72;
+      }
+    }
+
+    .letter {
+      display: inline-block;
+      animation: weightShift var(--letter-cycle) cubic-bezier(0.45, 0, 0.55, 1) infinite;
+      animation-delay: var(--letter-delay, 0s);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .letter {
+        animation: none;
+        font-family: "Acts of Service", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+    }
+
+    /* --- Showcase: helbredd --- */
+    .panel {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      border-top: none;
+      background: color-mix(in srgb, var(--accent) 94%, #fff 6%);
+    }
+
+    .project-intro {
+      width: 100%;
+      padding: clamp(2.35rem, 6vw, 4.4rem) clamp(1.25rem, 6vw, 5rem) clamp(1.4rem, 3vw, 2rem);
+      background: var(--paper);
+      border-bottom: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1.4rem, 3.5vw, 2rem);
+    }
+
+    .project-intro p {
+      margin: 0;
+      max-width: min(62ch, 94vw);
+      font-family: var(--body-font);
+      font-weight: 400;
+      font-style: normal;
+      font-size: clamp(1.08rem, 1.85vw, 1.35rem);
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .family-filter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem 0.65rem;
+    }
+
+    .family-filter-btn {
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      padding: 0.42rem 0.88rem 0.4rem;
+      background: color-mix(in srgb, var(--accent) 70%, #fff 30%);
+      color: var(--ink);
+      font-family: var(--body-font);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .family-filter-btn:hover {
+      opacity: 0.86;
+      transform: translateY(-1px);
+    }
+
+    .family-filter-btn.is-active {
+      background: var(--ink);
+      color: var(--accent);
+    }
+
+    .family-filter-btn:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .back-link {
+      position: fixed;
+      top: clamp(0.8rem, 2.5vw, 1.4rem);
+      left: clamp(0.8rem, 2.5vw, 1.4rem);
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      padding: 0;
+      background: color-mix(in srgb, var(--accent) 70%, #fff 30%);
+      color: var(--ink);
+      font-family: var(--body-font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.86;
+      transform: translateY(-1px);
+    }
+
+    .back-link:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .back-link {
+        top: 0.7rem;
+        left: 0.7rem;
+      }
+    }
+
+    .family-section[hidden] {
+      display: none;
+    }
+
+    body:not(.is-family-focus) .family-section {
+      display: none;
+    }
+
+    .family-heading {
+      width: 100%;
+      padding: clamp(2rem, 5vw, 3.4rem) clamp(1.25rem, 6vw, 5rem) clamp(1rem, 2.5vw, 1.4rem);
+      background: color-mix(in srgb, var(--paper) 84%, #fff 16%);
+      border-top: 1px solid var(--accent-soft);
+      border-bottom: 1px solid var(--accent-soft);
+    }
+
+    .family-heading h2 {
+      margin: 0;
+      font-family: var(--body-font);
+      font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .glyph-panel {
+      width: 100%;
+      padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1.25rem, 6vw, 5rem) clamp(1.6rem, 4vw, 2.4rem);
+      background: color-mix(in srgb, var(--accent) 92%, #fff 8%);
+      border-bottom: 1px solid var(--accent-soft);
+    }
+
+    .glyph-panel-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.2rem;
+      margin-bottom: clamp(0.9rem, 2.5vw, 1.25rem);
+    }
+
+    .glyph-panel-label {
+      margin: 0;
+      font-family: var(--body-font);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.64;
+    }
+
+    .glyph-weight-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.4rem;
+    }
+
+    .glyph-weight-btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--body-font);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.55rem;
+      border-radius: 999px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .glyph-weight-btn:hover {
+      opacity: 0.85;
+    }
+
+    .glyph-weight-btn.is-active {
+      opacity: 1;
+      border-color: var(--ink);
+      background: rgba(10, 10, 10, 0.05);
+      font-weight: 700;
+    }
+
+    .glyph-weight-btn:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    .glyph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(2.4rem, 1fr));
+      gap: 0.35rem 0.25rem;
+      max-width: 52rem;
+    }
+
+    .glyph-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.6rem;
+      font-size: clamp(1.15rem, 2.4vw, 1.65rem);
+      line-height: 1;
+      color: var(--ink);
+      border: 1px solid var(--accent-soft);
+      background: color-mix(in srgb, var(--paper) 70%, #fff 30%);
+      user-select: none;
+    }
+
+    .showcase-about {
+      display: none;
+      width: 100%;
+      padding: clamp(2.2rem, 6vw, 4rem) clamp(1.25rem, 6vw, 5rem) clamp(3rem, 8vw, 5.5rem);
+      background: color-mix(in srgb, var(--paper) 88%, #fff 12%);
+      border-top: 1px solid var(--accent-soft);
+    }
+
+    body.is-family-focus .family-section:not([hidden]) .showcase-about {
+      display: block;
+    }
+
+    .showcase-about-label {
+      margin: 0 0 0.95rem;
+      font-family: var(--body-font);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.72;
+    }
+
+    .showcase-about-content {
+      display: grid;
+      grid-template-columns: minmax(16rem, 30rem) minmax(20rem, 1fr);
+      gap: clamp(1.1rem, 3.5vw, 2.6rem);
+      align-items: start;
+    }
+
+    .showcase-about-image-wrap {
+      position: relative;
+      padding: 0;
+      background: var(--paper);
+    }
+
+    .showcase-about-image {
+      width: 100%;
+      border: 1px solid var(--accent-soft);
+      border-radius: 0;
+      background: var(--paper);
+      object-fit: cover;
+      display: block;
+    }
+
+    .showcase-about-text {
+      margin: 0;
+      font-family: var(--body-font);
+      font-weight: 400;
+      font-style: normal;
+      font-size: clamp(1.02rem, 1.6vw, 1.28rem);
+      line-height: 1.52;
+      letter-spacing: 0.01em;
+      max-width: 64ch;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .showcase-about-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .type-strip {
+      width: 100%;
+      padding: clamp(2.8rem, 8vw, 6.1rem) clamp(1.25rem, 6vw, 5rem);
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .strip-inner {
+      margin: 0 auto;
+    }
+
+    .strip-label {
+      font-family: var(--body-font);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.64;
+      margin: 0 0 clamp(1rem, 2.5vw, 1.5rem);
+    }
+
+    .specimen-hero {
+      font-size: clamp(3.5rem, 14vw, 12rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin: 0;
+      max-width: none;
+    }
+
+    .specimen-preview {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      hyphens: none;
+      -webkit-hyphens: none;
+      caret-color: var(--ink);
+      cursor: text;
+      min-height: 0.25em;
+    }
+
+    .specimen-preview:hover {
+      cursor: text;
+    }
+
+    .specimen-preview:focus {
+      outline: none;
+    }
+
+    .specimen-preview:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 6px;
+    }
+
+    .specimen-group + .specimen-group {
+      border-top: 1px solid var(--accent-soft);
+    }
+
+    .specimen-controls {
+      width: 100%;
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(1.25rem, 6vw, 5rem);
+      background: color-mix(in srgb, var(--paper) 84%, #fff 16%);
+      border-bottom: 1px solid var(--accent-soft);
+    }
+
+    .specimen-controls .field-label {
+      display: block;
+      font-family: var(--body-font);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.68;
+      margin-bottom: 0.45rem;
+    }
+
+    .specimen-size-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem 1rem;
+      max-width: 32rem;
+    }
+
+    .specimen-pt-value {
+      font-size: 0.8rem;
+      letter-spacing: 0.07em;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+      opacity: 0.8;
+    }
+
+    .specimen-pt-slider {
+      display: block;
+      width: 100%;
+      max-width: 32rem;
+      margin-top: 0.45rem;
+      height: 28px;
+      background: transparent;
+      -webkit-appearance: none;
+      appearance: none;
+      accent-color: var(--ink);
+    }
+
+    .specimen-pt-slider:focus {
+      outline: none;
+    }
+
+    .specimen-pt-slider:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 6px;
+      border-radius: 2px;
+    }
+
+    .specimen-pt-slider::-webkit-slider-runnable-track {
+      height: 2px;
+      background: var(--slider-track);
+      border-radius: 0;
+    }
+
+    /* Tumgrepp: kvadrat roterad 45° ↔ diamant (kontrast mot accentbakgrund) */
+    .specimen-pt-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 13px;
+      height: 13px;
+      margin-top: -5.5px;
+      border: none;
+      border-radius: 0;
+      background-color: var(--ink);
+      transform: rotate(45deg);
+      cursor: ew-resize;
+      box-shadow: none;
+    }
+
+    .specimen-pt-slider::-moz-range-track {
+      height: 2px;
+      background: var(--slider-track);
+      border-radius: 0;
+    }
+
+    .specimen-pt-slider::-moz-range-thumb {
+      width: 13px;
+      height: 13px;
+      border: none;
+      border-radius: 0;
+      background-color: var(--ink);
+      transform: rotate(45deg);
+      cursor: ew-resize;
+      box-shadow: none;
+    }
+
+    /* Snitt */
+    .serif-regular {
+      font-family: "Acts of Service", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .serif-medium {
+      font-family: "Acts of Service", serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .sans-regular {
+      font-family: "Acts of Service Sans", system-ui, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 0.08em;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-variant-ligatures: common-ligatures discretionary-ligatures historical-ligatures contextual;
+      font-feature-settings:
+        "kern" 1,
+        "liga" 1,
+        "clig" 1,
+        "calt" 1,
+        "dlig" 1,
+        "hlig" 1,
+        "rlig" 1;
+    }
+
+    .fractal-thin {
+      font-family: "Fractal Skeleton", system-ui, sans-serif;
+      font-weight: 100;
+      font-style: normal;
+    }
+
+    .fractal-book {
+      font-family: "Fractal Skeleton", system-ui, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .fractal-regular {
+      font-family: "Fractal Skeleton", system-ui, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .fractal-medium {
+      font-family: "Fractal Skeleton", system-ui, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .fractal-semibold {
+      font-family: "Fractal Skeleton", system-ui, sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .fractal-bold {
+      font-family: "Fractal Skeleton", system-ui, sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .fractal-black {
+      font-family: "Fractal Skeleton", system-ui, sans-serif;
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    .plant-thin {
+      font-family: "Fractal Plant", system-ui, sans-serif;
+      font-weight: 100;
+      font-style: normal;
+    }
+
+    .plant-book {
+      font-family: "Fractal Plant", system-ui, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .plant-regular {
+      font-family: "Fractal Plant", system-ui, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .plant-medium {
+      font-family: "Fractal Plant", system-ui, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .plant-semibold {
+      font-family: "Fractal Plant", system-ui, sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .plant-bold {
+      font-family: "Fractal Plant", system-ui, sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .plant-black {
+      font-family: "Fractal Plant", system-ui, sans-serif;
+      font-weight: 900;
+      font-style: normal;
+    }
+
+  </style>
 </head>
 <body>
-    <main>
-            <p>FONTS</p>
+  <a class="back-link" href="index.html" aria-label="Back to portfolio">←</a>
+  <section class="hero" aria-labelledby="brand-heading">
+    <img id="hero-float-img" class="hero-float-img" alt="" decoding="async" width="400" height="400" aria-hidden="true" />
+    <h1 class="wordmark" id="brand-heading">
+      <span class="sr-only">AOS Foundry</span>
+      <span class="wordmark-lines" aria-hidden="true">
+        <span class="word-line">
+          <span class="letter">A</span><span class="letter">O</span><span class="letter">S</span>
+        </span>
+        <span class="word-line">
+          <span class="letter">F</span><span class="letter">O</span><span class="letter">U</span><span class="letter">N</span><span class="letter">D</span><span class="letter">R</span><span class="letter">Y</span>
+        </span>
+      </span>
+    </h1>
+  </section>
 
-    </main>
-    <footer>
-            <p><a href="index.html">Home</a></p>
-            <p><a href="archive.html">Archive</a></p>
-            <p><a href="foundry.html">Foundry</a></p>
-            <p><a href="contact.html">Contact</a></p>
+  <div class="panel" aria-label="Typeface showcase">
+    <section class="project-intro" aria-label="About the typefaces">
+      <p id="project-intro-text">
+        Typefaces made by us (Acts of Service). Some are strange, some are illegible and some are surprisingly useful.<br>
+        Try them out!
+      </p>
+      <div class="family-filter" role="group" aria-label="Focus a typeface family">
+        <button type="button" class="family-filter-btn" data-family="aos" aria-pressed="false">Acts of Service</button>
+        <button type="button" class="family-filter-btn" data-family="skeleton" aria-pressed="false">Fractal Skeleton</button>
+        <button type="button" class="family-filter-btn" data-family="plant" aria-pressed="false">Fractal Plant</button>
+      </div>
+    </section>
 
-    </footer>
+    <section class="family-section" id="family-aos" data-family="aos" hidden>
+      <header class="family-heading">
+        <h2>Acts of Service</h2>
+      </header>
+      <div class="glyph-panel" data-family="aos">
+        <div class="glyph-panel-head">
+          <p class="glyph-panel-label">Character set</p>
+          <div class="glyph-weight-picker" role="group" aria-label="Acts of Service character set style"></div>
+        </div>
+        <div class="glyph-grid" aria-label="Acts of Service glyphs"></div>
+      </div>
+    <div class="specimen-group" id="snitt-regular">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-regular-lab">Regular — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-regular-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-regular" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-regular-lab spec-pt-regular-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-regular">Acts of Service · Regular</p>
+          <p
+            class="specimen-hero serif-regular specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-regular">Could someone cover my shift on Saturday? That would be so kind.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-medium">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-medium-lab">Medium — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-medium-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-medium" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-medium-lab spec-pt-medium-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-medium">Acts of Service · Medium</p>
+          <p
+            class="specimen-hero serif-medium specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-medium">I am so sorry, I can offer you some peanuts as compensation.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-sans">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-sans-lab">Sans — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-sans-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-sans" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-sans-lab spec-pt-sans-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-sans">Acts of Service · Sans</p>
+          <p
+            class="specimen-hero sans-regular specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-sans">ORDER READY · PICK UP AT COUNTER (+46)72351890 Thank you, welcome back!</p>
+        </div>
+      </section>
+    </div>
 
-    <script src="screensaver.js"></script>
+      <article class="showcase-about" aria-labelledby="showcase-emmy-label">
+        <p class="showcase-about-label" id="showcase-emmy-label">Acts of Service — Emmy Seeger</p>
+        <div class="showcase-about-content">
+          <div class="showcase-about-image-wrap">
+            <img class="showcase-about-image" src="images/uploads/AOS_emmyseeger.jpeg" alt="Acts of Service process and material exploration." onerror="this.onerror=null;this.src='/images/uploads/AOS_emmyseeger.jpeg';" />
+          </div>
+          <p class="showcase-about-text">
+            ACTS OF SERVICE typeface is part of Emmy Seegers bachelor’s thesis at Beckmans College of Design, 2026, Stockholm.<br><br>
+            Acts of Service is a typeface family developed from traces of service work. The fonts are not drawn from predefined forms, but generated from collected material such as stains, marks and repetitive gestures observed in a restaurant environment. The project explores how knowledge that is usually invisible, relational, collective and bodily, can be translated into typography. They are not designed for clarity, but for presence.<br><br>
+            To this project there is an artist book (in Swedish), exhibited 21&nbsp;&mdash;&nbsp;25&nbsp;May at
+            <span class="about-avtryck">Avtryck</span>, Beckmans College of Design graduation show.<br><br>
+            Special thanks to<br>
+            Peter Ström and Lisa Ehlin
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="family-section" id="family-skeleton" data-family="skeleton" hidden>
+      <header class="family-heading">
+        <h2>Fractal Skeleton</h2>
+      </header>
+      <div class="glyph-panel" data-family="skeleton">
+        <div class="glyph-panel-head">
+          <p class="glyph-panel-label">Character set</p>
+          <div class="glyph-weight-picker" role="group" aria-label="Fractal Skeleton character set style"></div>
+        </div>
+        <div class="glyph-grid" aria-label="Fractal Skeleton glyphs"></div>
+      </div>
+    <div class="specimen-group" id="snitt-fractal-thin">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-fractal-thin-lab">Thin — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-fractal-thin-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-fractal-thin" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-fractal-thin-lab spec-pt-fractal-thin-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-fractal-thin">Fractal Skeleton · Thin</p>
+          <p
+            class="specimen-hero fractal-thin specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-fractal-thin">Light structures carry heavy ideas across open space.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-fractal-book">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-fractal-book-lab">Book — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-fractal-book-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-fractal-book" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-fractal-book-lab spec-pt-fractal-book-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-fractal-book">Fractal Skeleton · Book</p>
+          <p
+            class="specimen-hero fractal-book specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-fractal-book">Reading between the lines of a broken pattern.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-fractal-regular">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-fractal-regular-lab">Regular — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-fractal-regular-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-fractal-regular" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-fractal-regular-lab spec-pt-fractal-regular-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-fractal-regular">Fractal Skeleton · Regular</p>
+          <p
+            class="specimen-hero fractal-regular specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-fractal-regular">Every branch splits again until the form finds rest.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-fractal-medium">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-fractal-medium-lab">Medium — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-fractal-medium-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-fractal-medium" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-fractal-medium-lab spec-pt-fractal-medium-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-fractal-medium">Fractal Skeleton · Medium</p>
+          <p
+            class="specimen-hero fractal-medium specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-fractal-medium">Bones of letters under a thin skin of ink.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-fractal-semibold">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-fractal-semibold-lab">Semibold — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-fractal-semibold-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-fractal-semibold" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-fractal-semibold-lab spec-pt-fractal-semibold-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-fractal-semibold">Fractal Skeleton · Semibold</p>
+          <p
+            class="specimen-hero fractal-semibold specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-fractal-semibold">Signal louder than the silence around it.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-fractal-bold">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-fractal-bold-lab">Bold — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-fractal-bold-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-fractal-bold" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-fractal-bold-lab spec-pt-fractal-bold-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-fractal-bold">Fractal Skeleton · Bold</p>
+          <p
+            class="specimen-hero fractal-bold specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-fractal-bold">Hard edges drawn from soft beginnings.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-fractal-black">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-fractal-black-lab">Black — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-fractal-black-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-fractal-black" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-fractal-black-lab spec-pt-fractal-black-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-fractal-black">Fractal Skeleton · Black</p>
+          <p
+            class="specimen-hero fractal-black specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-fractal-black">MAXIMUM WEIGHT · MINIMUM COMPROMISE</p>
+        </div>
+      </section>
+    </div>
+
+      <article class="showcase-about" aria-labelledby="showcase-olle-label-skeleton">
+        <p class="showcase-about-label" id="showcase-olle-label-skeleton">Fractal Skeleton &amp; Fractal Plant — Olle Ljung</p>
+        <div class="showcase-about-content">
+          <div class="showcase-about-image-wrap">
+            <img class="showcase-about-image" src="images/uploads/olle_about.png" alt="Fractal Skeleton and Fractal Plant process and material exploration." onerror="this.onerror=null;this.src='/images/uploads/olle_about.png';" />
+          </div>
+          <p class="showcase-about-text">
+            FRACTAL SKELETON and FRACTAL PLANT is part of Olle Ljungs bachelor’s thesis at Beckmans College of Design, 2026, Stockholm.<br><br>
+            I want to challenge a design culture that places a very high value on legibility. Clarity is, of course, often important, but through this project I want to show that ambiguity does not have to be a failure, and that other values such as interpretation, aesthetics, atmosphere, and allowing something to take time can also be given high priority.<br><br>
+            I have been inspired by the music genre noise, which makes use of sounds that are conventionally considered unwanted. In a similarly subversive way, I have deliberately introduced noise onto my typography.<br><br>
+            Special thanks to<br>
+            Laslo Strong, Lisa Ehlin och redaktionen på Anomi
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="family-section" id="family-plant" data-family="plant" hidden>
+      <header class="family-heading">
+        <h2>Fractal Plant</h2>
+      </header>
+      <div class="glyph-panel" data-family="plant">
+        <div class="glyph-panel-head">
+          <p class="glyph-panel-label">Character set</p>
+          <div class="glyph-weight-picker" role="group" aria-label="Fractal Plant character set style"></div>
+        </div>
+        <div class="glyph-grid" aria-label="Fractal Plant glyphs"></div>
+      </div>
+    <div class="specimen-group" id="snitt-plant-thin">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-plant-thin-lab">Thin — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-plant-thin-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-plant-thin" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-plant-thin-lab spec-pt-plant-thin-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-plant-thin">Fractal Plant · Thin</p>
+          <p
+            class="specimen-hero plant-thin specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-plant-thin">Tendrils of type reaching toward the light.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-plant-book">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-plant-book-lab">Book — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-plant-book-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-plant-book" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-plant-book-lab spec-pt-plant-book-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-plant-book">Fractal Plant · Book</p>
+          <p
+            class="specimen-hero plant-book specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-plant-book">Leaves that write themselves into language.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-plant-regular">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-plant-regular-lab">Regular — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-plant-regular-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-plant-regular" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-plant-regular-lab spec-pt-plant-regular-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-plant-regular">Fractal Plant · Regular</p>
+          <p
+            class="specimen-hero plant-regular specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-plant-regular">Growth is a letterform learning its shape.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-plant-medium">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-plant-medium-lab">Medium — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-plant-medium-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-plant-medium" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-plant-medium-lab spec-pt-plant-medium-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-plant-medium">Fractal Plant · Medium</p>
+          <p
+            class="specimen-hero plant-medium specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-plant-medium">Roots below, canopy of characters above.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-plant-semibold">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-plant-semibold-lab">Semibold — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-plant-semibold-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-plant-semibold" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-plant-semibold-lab spec-pt-plant-semibold-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-plant-semibold">Fractal Plant · Semibold</p>
+          <p
+            class="specimen-hero plant-semibold specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-plant-semibold">Blooming where the sentence needs weight.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-plant-bold">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-plant-bold-lab">Bold — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-plant-bold-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-plant-bold" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-plant-bold-lab spec-pt-plant-bold-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-plant-bold">Fractal Plant · Bold</p>
+          <p
+            class="specimen-hero plant-bold specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-plant-bold">Dense foliage, clear silhouette.</p>
+        </div>
+      </section>
+    </div>
+    <div class="specimen-group" id="snitt-plant-black">
+      <div class="specimen-controls">
+        <div class="specimen-size-head">
+          <span class="field-label" id="spec-pt-plant-black-lab">Black — point size</span>
+          <span class="specimen-pt-value" id="spec-pt-plant-black-val" aria-live="polite">120 pt</span>
+        </div>
+        <input type="range" id="spec-pt-plant-black" class="specimen-pt-slider" min="32" max="220" value="120" step="1" aria-labelledby="spec-pt-plant-black-lab spec-pt-plant-black-val" />
+      </div>
+      <section class="type-strip">
+        <div class="strip-inner">
+          <p class="strip-label" id="caption-plant-black">Fractal Plant · Black</p>
+          <p
+            class="specimen-hero plant-black specimen-preview"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            tabindex="0"
+            aria-multiline="true"
+            aria-labelledby="caption-plant-black">FULL CANOPY · FULL PRESENCE</p>
+        </div>
+      </section>
+    </div>
+
+      <article class="showcase-about" aria-labelledby="showcase-olle-label-plant">
+        <p class="showcase-about-label" id="showcase-olle-label-plant">Fractal Skeleton &amp; Fractal Plant — Olle Ljung</p>
+        <div class="showcase-about-content">
+          <div class="showcase-about-image-wrap">
+            <img class="showcase-about-image" src="images/uploads/olle_about.png" alt="Fractal Skeleton and Fractal Plant process and material exploration." onerror="this.onerror=null;this.src='/images/uploads/olle_about.png';" />
+          </div>
+          <p class="showcase-about-text">
+            FRACTAL SKELETON and FRACTAL PLANT is part of Olle Ljungs bachelor’s thesis at Beckmans College of Design, 2026, Stockholm.<br><br>
+            I want to challenge a design culture that places a very high value on legibility. Clarity is, of course, often important, but through this project I want to show that ambiguity does not have to be a failure, and that other values such as interpretation, aesthetics, atmosphere, and allowing something to take time can also be given high priority.<br><br>
+            I have been inspired by the music genre noise, which makes use of sounds that are conventionally considered unwanted. In a similarly subversive way, I have deliberately introduced noise onto my typography.<br><br>
+            Special thanks to<br>
+            Laslo Strong, Lisa Ehlin och redaktionen på Anomi
+          </p>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      function rgbToHsl(r, g, b) {
+        r /= 255;
+        g /= 255;
+        b /= 255;
+        var max = Math.max(r, g, b);
+        var min = Math.min(r, g, b);
+        var h = 0;
+        var s = 0;
+        var l = (max + min) / 2;
+        if (max !== min) {
+          var d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r:
+              h = (g - b) / d + (g < b ? 6 : 0);
+              break;
+            case g:
+              h = (b - r) / d + 2;
+              break;
+            default:
+              h = (r - g) / d + 4;
+              break;
+          }
+          h /= 6;
+        }
+        return { h: h, s: s, l: l };
+      }
+
+      function hslToRgb(h, s, l) {
+        var r;
+        var g;
+        var b;
+        if (s === 0) {
+          r = g = b = l;
+        } else {
+          var hue2rgb = function (p, q, t) {
+            if (t < 0) {
+              t += 1;
+            }
+            if (t > 1) {
+              t -= 1;
+            }
+            if (t < 1 / 6) {
+              return p + (q - p) * 6 * t;
+            }
+            if (t < 1 / 2) {
+              return q;
+            }
+            if (t < 2 / 3) {
+              return p + (q - p) * (2 / 3 - t) * 6;
+            }
+            return p;
+          };
+          var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+          var p = 2 * l - q;
+          r = hue2rgb(p, q, h + 1 / 3);
+          g = hue2rgb(p, q, h);
+          b = hue2rgb(p, q, h - 1 / 3);
+        }
+        return {
+          r: Math.round(r * 255),
+          g: Math.round(g * 255),
+          b: Math.round(b * 255)
+        };
+      }
+
+      /** Viktar mättade pixlar — “starkaste” kromatiska tonen */
+      function extractAccentRgb(img) {
+        var canvas = document.createElement("canvas");
+        var sz = 72;
+        canvas.width = sz;
+        canvas.height = sz;
+        var ctx = canvas.getContext("2d", { willReadFrequently: true });
+        try {
+          ctx.drawImage(img, 0, 0, sz, sz);
+        } catch (err) {
+          return { r: 120, g: 120, b: 120 };
+        }
+        var d = ctx.getImageData(0, 0, sz, sz).data;
+        var wr = 0;
+        var wg = 0;
+        var wb = 0;
+        var wsum = 0;
+        var i;
+        var r;
+        var g;
+        var b;
+        var hsl;
+        var w;
+        for (i = 0; i < d.length; i += 4) {
+          r = d[i];
+          g = d[i + 1];
+          b = d[i + 2];
+          hsl = rgbToHsl(r, g, b);
+          if (hsl.s < 0.1 || hsl.l < 0.06 || hsl.l > 0.96) {
+            continue;
+          }
+          w = hsl.s * hsl.s * (0.35 + 0.65 * (1 - Math.abs(hsl.l - 0.5) * 1.4));
+          wr += r * w;
+          wg += g * w;
+          wb += b * w;
+          wsum += w;
+        }
+        if (wsum < 0.5) {
+          var best = 0;
+          var br = 110;
+          var bg = 110;
+          var bb = 110;
+          for (i = 0; i < d.length; i += 8) {
+            r = d[i];
+            g = d[i + 1];
+            b = d[i + 2];
+            hsl = rgbToHsl(r, g, b);
+            if (hsl.s > best) {
+              best = hsl.s;
+              br = r;
+              bg = g;
+              bb = b;
+            }
+          }
+          r = br;
+          g = bg;
+          b = bb;
+        } else {
+          r = Math.round(wr / wsum);
+          g = Math.round(wg / wsum);
+          b = Math.round(wb / wsum);
+        }
+        hsl = rgbToHsl(r, g, b);
+        hsl.s = Math.min(1, hsl.s * 1.08 + 0.06);
+        hsl.l = Math.min(0.55, Math.max(0.26, hsl.l * 0.98 + 0.02));
+        var out = hslToRgb(hsl.h, hsl.s, hsl.l);
+        return { r: out.r, g: out.g, b: out.b };
+      }
+
+      /** Fasta accentfärger för utvalda motiv (övriga: extraheras ur bilden). */
+      var ACCENT_HEX_BY_AOS = {
+        1: "#617571",
+        3: "#fbfcac",
+        9: "#ff8aa6",
+        12: "#8159f4",
+        16: "#ffffff",
+        17: "#bd8c95",
+        18: "#ff2e13"
+      };
+
+      /** AOS6: lyfter mättnad och ljushet så sidaccenten känns fräschare. */
+      function boostAos6Accent(rgb) {
+        var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+        hsl.s = Math.min(1, hsl.s * 1.4 + 0.15);
+        hsl.l = Math.min(0.78, Math.max(0.46, hsl.l * 1.16 + 0.11));
+        var out = hslToRgb(hsl.h, hsl.s, hsl.l);
+        return { r: out.r, g: out.g, b: out.b };
+      }
+
+      function applyAccentFromImage(img, aosIndex) {
+        var root = document.documentElement;
+        var hex = ACCENT_HEX_BY_AOS[aosIndex];
+        if (hex) {
+          root.style.setProperty("--accent", hex);
+        } else {
+          var rgb = extractAccentRgb(img);
+          if (aosIndex === 6) {
+            rgb = boostAos6Accent(rgb);
+          }
+          root.style.setProperty("--accent", "rgb(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ")");
+        }
+        root.style.setProperty("--accent-soft", "rgba(10, 10, 10, 0.14)");
+        root.style.setProperty("--accent-border", "rgba(10, 10, 10, 0.2)");
+      }
+
+      function placeHeroFloatImg(img) {
+        var isMobile = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+        var spots;
+        if (isMobile) {
+          spots = [
+            /* Undre positioner */
+            { top: "auto", left: "8%", right: "auto", bottom: "7%" },
+            { top: "auto", left: "auto", right: "8%", bottom: "7%" },
+            { top: "auto", left: "14%", right: "auto", bottom: "14%" },
+            { top: "auto", left: "auto", right: "14%", bottom: "14%" },
+            { top: "auto", left: "26%", right: "auto", bottom: "10%" },
+            /* Ovansida, men i horn for att inte ligga over ordmarken */
+            { top: "5%", left: "5%", right: "auto", bottom: "auto" },
+            { top: "5%", left: "auto", right: "5%", bottom: "auto" },
+            { top: "18%", left: "3%", right: "auto", bottom: "auto" },
+            { top: "18%", left: "auto", right: "3%", bottom: "auto" }
+          ];
+        } else {
+          spots = [
+            { top: "8%", left: "4%", right: "auto", bottom: "auto" },
+            { top: "10%", left: "auto", right: "5%", bottom: "auto" },
+            { top: "auto", left: "6%", right: "auto", bottom: "14%" },
+            { top: "auto", left: "auto", right: "6%", bottom: "12%" },
+            { top: "38%", left: "3%", right: "auto", bottom: "auto" },
+            { top: "40%", left: "auto", right: "4%", bottom: "auto" },
+            { top: "auto", left: "4%", right: "auto", bottom: "38%" },
+            { top: "auto", left: "auto", right: "5%", bottom: "36%" }
+          ];
+        }
+        var spot = spots[Math.floor(Math.random() * spots.length)];
+        img.style.top = spot.top;
+        img.style.left = spot.left;
+        img.style.right = spot.right;
+        img.style.bottom = spot.bottom;
+        if (isMobile || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          img.style.transform = "none";
+        } else {
+          var rot = (Math.random() * 26 - 13).toFixed(2);
+          img.style.transform = "rotate(" + rot + "deg)";
+        }
+      }
+
+      var heroImg = document.getElementById("hero-float-img");
+      if (heroImg) {
+        /** Fast ordning 1–20 (blandad men beständig). Nästa bild vid varje sidladdning / cykel. */
+        var HERO_LOOP_ORDER = [
+          3, 11, 7, 19, 2, 15, 9, 4, 20, 1, 8, 14, 6, 12, 17, 5, 13, 16, 10, 18
+        ];
+        /** Utställning: samma skifte som vid refresh, automatiskt var 10:e minut. */
+        var HERO_AUTO_CYCLE_MS = 10 * 60 * 1000;
+        var heroReady = false;
+
+        function readHeroLoopPos() {
+          var loopStr = sessionStorage.getItem("aosHeroLoopIdx");
+          var loopPos = loopStr !== null ? parseInt(loopStr, 10) : 0;
+          if (isNaN(loopPos) || loopPos < 0 || loopPos >= HERO_LOOP_ORDER.length) {
+            loopPos = 0;
+          }
+          return loopPos;
+        }
+
+        function advanceHeroLoopSession() {
+          var loopPos = readHeroLoopPos();
+          sessionStorage.setItem(
+            "aosHeroLoopIdx",
+            String((loopPos + 1) % HERO_LOOP_ORDER.length)
+          );
+          return loopPos;
+        }
+
+        function showHeroFromLoopPos(loopPos) {
+          var heroIdx = HERO_LOOP_ORDER[loopPos];
+          var pending = false;
+
+          function onHeroImgReady() {
+            if (pending) {
+              return;
+            }
+            pending = true;
+            heroReady = true;
+            applyAccentFromImage(heroImg, heroIdx);
+            requestAnimationFrame(function () {
+              placeHeroFloatImg(heroImg);
+            });
+            heroImg.classList.add("is-visible");
+          }
+
+          var imageBase = "images/uploads/";
+          function setHeroSrc(idx) {
+            var relative = imageBase + "AOS" + idx + ".jpeg";
+            var absolute = "/" + relative;
+            heroImg.onerror = function () {
+              if (heroImg.src.indexOf(absolute) === -1) {
+                heroImg.onerror = function () {
+                  heroImg.remove();
+                };
+                heroImg.src = absolute;
+              } else {
+                heroImg.remove();
+              }
+            };
+            heroImg.src = relative;
+          }
+
+          heroImg.classList.remove("is-visible");
+          heroImg.addEventListener("load", onHeroImgReady, { once: true });
+          setHeroSrc(heroIdx);
+          if (heroImg.complete) {
+            onHeroImgReady();
+          }
+        }
+
+        showHeroFromLoopPos(advanceHeroLoopSession());
+
+        window.addEventListener("resize", function () {
+          if (heroReady) {
+            placeHeroFloatImg(heroImg);
+          }
+        });
+
+        setInterval(function () {
+          if (!heroImg.isConnected) {
+            return;
+          }
+          showHeroFromLoopPos(advanceHeroLoopSession());
+        }, HERO_AUTO_CYCLE_MS);
+      }
+
+      var raw = getComputedStyle(document.documentElement).getPropertyValue("--letter-cycle").trim();
+      var cycleSec = parseFloat(raw);
+      if (!cycleSec || cycleSec <= 0) {
+        cycleSec = 22;
+      }
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.querySelectorAll(".wordmark-lines .letter").forEach(function (el) {
+          el.style.setProperty("--letter-delay", -Math.random() * cycleSec + "s");
+        });
+      }
+
+      var mobileViewportMq = window.matchMedia("(hover: none) and (pointer: coarse)");
+
+      function listenMq(mq, fn) {
+        if (mq.addEventListener) {
+          mq.addEventListener("change", fn);
+        } else if (mq.addListener) {
+          mq.addListener(fn);
+        }
+      }
+
+      function applyMobileSpecimenPtDefault() {
+        if (!mobileViewportMq.matches) {
+          return;
+        }
+        document.querySelectorAll(".specimen-pt-slider").forEach(function (slider) {
+          slider.value = "40";
+        });
+        document.querySelectorAll(".specimen-pt-value").forEach(function (label) {
+          label.textContent = "40 pt";
+        });
+      }
+
+      applyMobileSpecimenPtDefault();
+
+      (function setupGlyphPanels() {
+        var FAMILY_GLYPH_STYLES = {
+          aos: [
+            { id: "regular", label: "Regular", className: "serif-regular" },
+            { id: "medium", label: "Medium", className: "serif-medium" },
+            { id: "sans", label: "Sans", className: "sans-regular" }
+          ],
+          skeleton: [
+            { id: "thin", label: "Thin", className: "fractal-thin" },
+            { id: "book", label: "Book", className: "fractal-book" },
+            { id: "regular", label: "Regular", className: "fractal-regular" },
+            { id: "medium", label: "Medium", className: "fractal-medium" },
+            { id: "semibold", label: "Semibold", className: "fractal-semibold" },
+            { id: "bold", label: "Bold", className: "fractal-bold" },
+            { id: "black", label: "Black", className: "fractal-black" }
+          ],
+          plant: [
+            { id: "thin", label: "Thin", className: "plant-thin" },
+            { id: "book", label: "Book", className: "plant-book" },
+            { id: "regular", label: "Regular", className: "plant-regular" },
+            { id: "medium", label: "Medium", className: "plant-medium" },
+            { id: "semibold", label: "Semibold", className: "plant-semibold" },
+            { id: "bold", label: "Bold", className: "plant-bold" },
+            { id: "black", label: "Black", className: "plant-black" }
+          ]
+        };
+
+        var GLYPH_CHARS =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+          "abcdefghijklmnopqrstuvwxyz" +
+          "0123456789";
+
+        var ALL_GLYPH_CLASSES = [];
+        Object.keys(FAMILY_GLYPH_STYLES).forEach(function (key) {
+          FAMILY_GLYPH_STYLES[key].forEach(function (style) {
+            if (ALL_GLYPH_CLASSES.indexOf(style.className) === -1) {
+              ALL_GLYPH_CLASSES.push(style.className);
+            }
+          });
+        });
+
+        function findStyle(styles, styleId) {
+          var i;
+          for (i = 0; i < styles.length; i++) {
+            if (styles[i].id === styleId) {
+              return styles[i];
+            }
+          }
+          return styles[0] || null;
+        }
+
+        function renderGlyphGrid(grid, className) {
+          grid.textContent = "";
+          ALL_GLYPH_CLASSES.forEach(function (cls) {
+            grid.classList.remove(cls);
+          });
+          if (className) {
+            grid.classList.add(className);
+          }
+          Array.prototype.forEach.call(GLYPH_CHARS, function (ch) {
+            var cell = document.createElement("span");
+            cell.className = "glyph-cell";
+            cell.textContent = ch;
+            grid.appendChild(cell);
+          });
+        }
+
+        function applyGlyphStyle(panel, styleId) {
+          var familyKey = panel.getAttribute("data-family");
+          var styles = FAMILY_GLYPH_STYLES[familyKey];
+          var style = findStyle(styles || [], styleId);
+          if (!style) {
+            return;
+          }
+          var grid = panel.querySelector(".glyph-grid");
+          var picker = panel.querySelector(".glyph-weight-picker");
+          if (grid) {
+            renderGlyphGrid(grid, style.className);
+          }
+          if (picker) {
+            picker.querySelectorAll(".glyph-weight-btn").forEach(function (btn) {
+              var on = btn.getAttribute("data-style") === style.id;
+              btn.classList.toggle("is-active", on);
+              btn.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+          }
+          panel.setAttribute("data-active-style", style.id);
+        }
+
+        document.querySelectorAll(".glyph-panel").forEach(function (panel) {
+          var familyKey = panel.getAttribute("data-family");
+          var styles = FAMILY_GLYPH_STYLES[familyKey];
+          var picker = panel.querySelector(".glyph-weight-picker");
+          if (!styles || !picker) {
+            return;
+          }
+          picker.textContent = "";
+          styles.forEach(function (style) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "glyph-weight-btn";
+            btn.setAttribute("data-style", style.id);
+            btn.setAttribute("aria-pressed", "false");
+            btn.textContent = style.label;
+            btn.addEventListener("click", function () {
+              applyGlyphStyle(panel, style.id);
+            });
+            picker.appendChild(btn);
+          });
+          applyGlyphStyle(panel, "regular");
+        });
+      })();
+
+      (function setupFamilyFilter() {
+        var buttons = Array.prototype.slice.call(
+          document.querySelectorAll(".family-filter-btn")
+        );
+        var sections = Array.prototype.slice.call(
+          document.querySelectorAll(".family-section")
+        );
+        if (!buttons.length || !sections.length) {
+          return;
+        }
+
+        var activeFamily = null;
+
+        function applyFilter(familyKey) {
+          activeFamily = familyKey;
+          buttons.forEach(function (btn) {
+            var on = familyKey !== null && btn.getAttribute("data-family") === familyKey;
+            btn.classList.toggle("is-active", on);
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          sections.forEach(function (section) {
+            if (familyKey === null) {
+              section.hidden = true;
+              return;
+            }
+            section.hidden = section.getAttribute("data-family") !== familyKey;
+          });
+          document.body.classList.toggle("is-family-focus", familyKey !== null);
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var key = btn.getAttribute("data-family");
+            if (activeFamily === key) {
+              applyFilter(null);
+              return;
+            }
+            applyFilter(key);
+            var target = document.getElementById("family-" + key);
+            if (target) {
+              requestAnimationFrame(function () {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+              });
+            }
+          });
+        });
+
+        applyFilter(null);
+      })();
+
+      /** CSS px vid standard 96 dpi: 1 pt = 96/72 px */
+      function ptToPx(pt) {
+        return pt * (96 / 72);
+      }
+
+      function sanitizeSpecimenText(text) {
+        if (!text) {
+          return "";
+        }
+        var normalized = String(text).replace(/\r\n?/g, "\n");
+        return normalized.replace(/[^0-9A-Za-zÀ-ÖØ-öø-ÿÅÄÖåäö .,;:!?'"“”‘’()\[\]{}\-–—_+\/\\&@#%*=|<>~^`·…§°\n]/g, "");
+      }
+
+      function syncAllSpecimenSizes() {
+        document.querySelectorAll(".specimen-group").forEach(function (group) {
+          var slider = group.querySelector(".specimen-pt-slider");
+          var ptLabel = group.querySelector(".specimen-pt-value");
+          var previews = group.querySelectorAll(".specimen-preview[contenteditable]");
+          if (!slider || previews.length === 0) {
+            return;
+          }
+          var pt = parseFloat(slider.value, 10);
+          if (isNaN(pt)) {
+            return;
+          }
+          var px = ptToPx(pt);
+          previews.forEach(function (p) {
+            p.style.fontSize = px + "px";
+          });
+          if (ptLabel) {
+            ptLabel.textContent = Math.round(pt) + " pt";
+          }
+        });
+      }
+
+      function bindSpecimenGroup(group) {
+        var slider = group.querySelector(".specimen-pt-slider");
+        var ptLabel = group.querySelector(".specimen-pt-value");
+        var previews = group.querySelectorAll(".specimen-preview[contenteditable]");
+        if (!slider || previews.length === 0) {
+          return;
+        }
+
+        function mirrorFrom(source) {
+          var text = sanitizeSpecimenText(source.innerText);
+          if (source.innerText !== text) {
+            source.innerText = text;
+          }
+          previews.forEach(function (p) {
+            if (p !== source && p.innerText !== text) {
+              p.innerText = text;
+            }
+          });
+        }
+
+        previews.forEach(function (p) {
+          p.addEventListener("beforeinput", function (e) {
+            if (e.inputType && e.inputType.indexOf("insert") === 0) {
+              var data = e.data || "";
+              if (!data && e.inputType === "insertLineBreak") {
+                return;
+              }
+              var clean = sanitizeSpecimenText(data);
+              if (clean !== data) {
+                e.preventDefault();
+                if (clean) {
+                  document.execCommand("insertText", false, clean);
+                }
+              }
+            }
+          });
+          p.addEventListener("input", function () {
+            mirrorFrom(p);
+          });
+          p.addEventListener("paste", function (e) {
+            e.preventDefault();
+            var plain = e.clipboardData && e.clipboardData.getData("text/plain");
+            if (!plain) {
+              return;
+            }
+            var clean = sanitizeSpecimenText(plain);
+            if (!clean) {
+              return;
+            }
+            document.execCommand("insertText", false, clean);
+          });
+        });
+
+        function syncSize() {
+          var pt = parseFloat(slider.value, 10);
+          if (isNaN(pt)) {
+            return;
+          }
+          var px = ptToPx(pt);
+          previews.forEach(function (p) {
+            p.style.fontSize = px + "px";
+          });
+          if (ptLabel) {
+            ptLabel.textContent = Math.round(pt) + " pt";
+          }
+        }
+
+        slider.addEventListener("input", syncSize);
+        syncSize();
+      }
+
+      document.querySelectorAll(".specimen-group").forEach(bindSpecimenGroup);
+      listenMq(mobileViewportMq, syncAllSpecimenSizes);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(syncAllSpecimenSizes);
+      }
+    })();
+  </script>
 </body>
 </html>
