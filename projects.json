@@ -80,7 +80,7 @@
       "exhibition design",
       "print"
     ],
-    "favorite": false,
+    "favorite": true,
     "link": null,
     "body": "hej\n"
   },
@@ -113,7 +113,7 @@
       "print",
       "exhibition design"
     ],
-    "favorite": false,
+    "favorite": true,
     "link": null,
     "body": "hej\n"
   },
@@ -149,7 +149,7 @@
     "category": [
       "exhibition design"
     ],
-    "favorite": false,
+    "favorite": true,
     "link": "https://beckmans.college/Arctic/",
     "body": "hej HEJ\n"
   }
