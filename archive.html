@@ -45,19 +45,20 @@
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             font-weight: 400;
             line-height: 60%;
-            font-size: 2.2rem;
+            font-size: 2.05rem;
             text-align: left;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
+            mix-blend-mode: difference;
         }
         header {
             position: fixed;
             z-index: 1001;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            font-size: 2.2rem;
+            font-size: 2.05rem;
             line-height: 1;
             text-align: left;
             pointer-events: none;
@@ -81,7 +82,6 @@
             padding: 100px 0;
             text-align: center;
             flex: 1;
-            font-size: 1.15rem;
             overflow-y: auto;
         }
 
@@ -105,7 +105,7 @@
             margin: 0;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
-            font-size: 1.15rem;
+            font-size: 0.8rem;
             line-height: 1.1;
         }
 
@@ -219,7 +219,7 @@
             align-items: stretch;
             width: 100%;
             margin-bottom: 60px;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             cursor: pointer;
         }
 
@@ -262,7 +262,7 @@
             justify-content: flex-end;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             
         }
 
@@ -345,7 +345,7 @@
             text-align: left;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 400;
             white-space: normal;
         }
@@ -391,16 +391,7 @@
             opacity: 1;
         }
         
-        /* Per-line highlight wrapper to allow box-shadow 'bands' per wrapped line */
-        .desc-highlight {
-            display: inline; /* keep as inline so it breaks across lines */
-            padding: 0; /* vertical padding for band */
-            background-color: #ffffff;
-            box-shadow: 0.5em 0 0 #ffffff, -1em 0 0 #ffffff;
-            -webkit-box-decoration-break: clone;
-            box-decoration-break: clone;
-
-        }
+    
         .project-description,
         .project-link {
             margin-top: 100px;
@@ -538,6 +529,7 @@
             <p><a href="archive.html">Archive</a></p>
             <p><a href="contact.html">Contact</a></p>
             <p><a href="foundry.html">Foundry</a></p>
+            
 
     </footer>
 <script src="screensaver.js"></script>
@@ -565,7 +557,7 @@ fetch('projects.json')
         });
         const filterContainer = document.getElementById('project-filters');
         let activeMode = 'favorites';
-        const selectedCategories = new Set();
+        let activeCategory = null;
 
         const renderProjects = () => {
             container.innerHTML = '';
@@ -577,7 +569,7 @@ fetch('projects.json')
                         const categories = Array.isArray(project.category)
                             ? project.category
                             : project.category ? [project.category] : [];
-                        return categories.some(category => selectedCategories.has(String(category).toLowerCase()));
+                        return categories.some(category => String(category).toLowerCase() === activeCategory);
                     });
 
             if (!visibleProjects.length) {
@@ -817,19 +809,16 @@ fetch('projects.json')
                 const filter = button.dataset.filter;
                 if (filter === 'favorites' || filter === 'all') {
                     activeMode = filter;
-                    selectedCategories.clear();
+                    activeCategory = null;
                 } else {
                     activeMode = 'categories';
-                    if (selectedCategories.has(filter)) {
-                        selectedCategories.delete(filter);
-                    } else {
-                        selectedCategories.add(filter);
-                    }
+                    activeCategory = activeCategory === filter ? null : filter;
+                    if (!activeCategory) activeMode = 'favorites';
                 }
 
                 filterContainer.querySelectorAll('button').forEach(item => {
                     const itemFilter = item.dataset.filter;
-                    const isActive = itemFilter === activeMode || (activeMode === 'categories' && selectedCategories.has(itemFilter));
+                    const isActive = itemFilter === activeMode || (activeMode === 'categories' && itemFilter === activeCategory);
                     item.classList.toggle('active', isActive);
                 });
                 renderProjects();
