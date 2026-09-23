@@ -11,7 +11,17 @@ descriptionEnglish: >-
 
 
   The campaign was created together with Linn Sehlstedt and Phoebe Crookes.
-descriptionSwedish: hej
+descriptionSwedish: >-
+  Examensutställningen är en plats att göra avtryck på, en chans att ta plats
+  och positionera sig själv inför framtiden med kompetens och självsäkerhet. Vi
+  har valt att gestalta årets tema med ett sigill som en kvalitetsstämpel och
+  med en signetring som en symbol för tillhörighet och gemenskap: Vi är den
+  examinerande kandidatklassen på Beckmans Designhögskola 2026. Sigillet är ett
+  högtidligt och djärvt sätt att göra sitt avtryck på och är själva själen i
+  examensutställningens kampanj.
+
+
+  Kampanjen skapades tillsammans med Linn Sehlstedt och Phoebe Crookes.
 image: /images/uploads/alla-1-.gif
 gallery:
   - mediaType: image
