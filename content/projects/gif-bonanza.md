@@ -9,6 +9,7 @@ gallery:
   - mediaType: image
     gif: /images/uploads/kungsgatan_stående-1-1-.gif
   - mediaType: image
+    gif: /images/uploads/alla-1-.gif
 date: 2026-09
 category:
   - art direction
