@@ -11,7 +11,7 @@ descriptionSwedish: En elektronisk låt producerad av Vilmar Janson blev till et
   vi inspiration från musiken och varandra. Resultatet blev en 3D-animerad video
   som visades i Wisdome på Tekniska museet. I samarbete med Kungliga
   musikhögskolan, i grupp med Phoebe Crookes
-image: /images/uploads/landscapes3.png
+image: /images/uploads/landscapes_3.gif
 gallery:
   - mediaType: image
     gif: /images/uploads/landscapes_2.gif
