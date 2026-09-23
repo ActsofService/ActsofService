@@ -356,6 +356,10 @@
             white-space: normal;
         }
 
+        .slide-title {
+            display: none;
+        }
+
         .description-language-toggle {
             position: absolute;
             top: 0;
@@ -468,6 +472,10 @@
                 overflow: visible;
             }
 
+            header {
+                display: none;
+            }
+
             main {
                 flex: none;
                 overflow: visible;
@@ -522,7 +530,21 @@
                 height: auto;
                 min-height: 0;
                 flex-shrink: 0;
-                padding: 110px 20px 0;
+                padding: 20px 20px 0;
+            }
+
+            .slide-title {
+                display: block;
+                margin: 0 0 12px;
+                font-size: 1.3rem;
+                font-weight: 400;
+                line-height: 1.1;
+            }
+
+            .description-language-toggle {
+                position: static;
+                justify-content: flex-end;
+                margin: 0 0 12px;
             }
 
             .project-img,
@@ -792,7 +814,7 @@ fetch('projects.json')
                         temp.innerHTML = descriptionHtml;
                         wrapWordsInNode(temp);
 
-                        return `<div class="description-language-toggle" aria-label="Description language">
+                        return `<h2 class="slide-title">${p.title}</h2><div class="description-language-toggle" aria-label="Description language">
                             <button type="button" class="${language === 'ENG' ? 'active' : ''}" data-language="ENG" aria-pressed="${language === 'ENG'}">ENG</button>
                             <span class="language-slash">/</span>
                             <button type="button" class="${language === 'SWE' ? 'active' : ''}" data-language="SWE" aria-pressed="${language === 'SWE'}">SWE</button>
