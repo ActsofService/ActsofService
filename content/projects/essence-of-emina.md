@@ -22,6 +22,8 @@ gallery:
     image: /images/uploads/fotograf_24.png
   - mediaType: image
     image: /images/uploads/fotograf_23.png
+  - mediaType: image
+    gif: /images/uploads/Olle_Essence.gif
 date: 2025-01
 commissioner: Beckmans College of Design, Juice Studios
 category:
