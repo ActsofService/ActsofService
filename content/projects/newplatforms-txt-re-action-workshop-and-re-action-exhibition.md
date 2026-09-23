@@ -35,6 +35,8 @@ gallery:
     image: /images/uploads/4.-img_5936.jpg
   - mediaType: image
     image: /images/uploads/5.-img_6030.jpg
+  - mediaType: gif
+    gif: /images/uploads/Olle_Essence.gif
 date: 2025-10
 commissioner: Beckmans College of Design
 category:
