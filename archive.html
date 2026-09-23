@@ -356,7 +356,7 @@
             white-space: normal;
         }
 
-        .slide-title {
+        .description-title {
             display: none;
         }
 
@@ -472,14 +472,6 @@
                 overflow: visible;
             }
 
-            body.modal-open {
-                overflow: hidden;
-            }
-
-            header {
-                display: none;
-            }
-
             main {
                 flex: none;
                 overflow: visible;
@@ -500,13 +492,14 @@
 
 
             .carousel-modal-overlay {
-                position: fixed;
-                inset: 0;
-                height: 100vh;
-                height: 100dvh;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                overscroll-behavior-y: contain;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: auto;
+                min-height: 100vh;
+                min-height: 100dvh;
+                overflow: visible;
                 align-items: flex-start;
                 padding-top: env(safe-area-inset-top, 0px);
                 padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -536,18 +529,22 @@
                 padding: 20px 20px 0;
             }
 
-            .slide-title {
+            body.modal-open header h1 {
+                display: none;
+            }
+
+            .description-title {
                 display: block;
-                margin: 0 0 12px;
-                font-size: 1.3rem;
+                margin: 0 0 1rem;
+                font-size: 2.05rem;
                 font-weight: 400;
-                line-height: 1.1;
+                line-height: 1;
             }
 
             .description-language-toggle {
                 position: static;
                 justify-content: flex-end;
-                margin: 0 0 12px;
+                margin: 0 0 1rem;
             }
 
             .project-img,
@@ -817,7 +814,7 @@ fetch('projects.json')
                         temp.innerHTML = descriptionHtml;
                         wrapWordsInNode(temp);
 
-                        return `<h2 class="slide-title">${p.title}</h2><div class="description-language-toggle" aria-label="Description language">
+                        return `<h2 class="description-title">${p.title || ''}</h2><div class="description-language-toggle" aria-label="Description language">
                             <button type="button" class="${language === 'ENG' ? 'active' : ''}" data-language="ENG" aria-pressed="${language === 'ENG'}">ENG</button>
                             <span class="language-slash">/</span>
                             <button type="button" class="${language === 'SWE' ? 'active' : ''}" data-language="SWE" aria-pressed="${language === 'SWE'}">SWE</button>
