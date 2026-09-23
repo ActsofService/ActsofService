@@ -38,6 +38,11 @@ date: 2026-09
 commissioner: Beckmans College of Design
 category:
   - art direction
+  - exhibition design
+  - visual identity
+  - print
+  - web
+  - photography
 favorite: true
 ---
 hej
