@@ -14,8 +14,13 @@ descriptionSwedish: En elektronisk låt producerad av Vilmar Janson blev till et
 image: /images/uploads/landscapes3.png
 gallery:
   - mediaType: image
+    gif: /images/uploads/landscapes_2.gif
+  - mediaType: image
+    gif: /images/uploads/landscapes_4.gif
+  - mediaType: image
+    gif: /images/uploads/landscapes_5-1-.gif
 date: 2024-03
-commissioner: Beckmans College of Design, Tekniska Museet
+commissioner: Beckmans, Tekniska Museet
 category:
   - other
 favorite: false
