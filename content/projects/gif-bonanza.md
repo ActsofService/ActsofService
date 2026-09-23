@@ -5,6 +5,8 @@ descriptionSwedish: hej
 image: /images/uploads/august-1-2-.gif
 gallery:
   - mediaType: image
+  - mediaType: image
+    gif: /images/uploads/kungsgatan_stående-1-1-.gif
 date: 2026-09
 category:
   - art direction
