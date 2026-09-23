@@ -16,9 +16,12 @@ descriptionSwedish: >-
 
 
   Projekt andra året på Beckmans i samarbete med Juice Studios, Edda Eliasson och Wilma Reichardt.
-image: ""
+image: /images/uploads/essence1-1-.gif
 gallery:
   - mediaType: image
+    image: /images/uploads/fotograf_24.png
+  - mediaType: image
+    image: /images/uploads/fotograf_23.png
 date: 2025-01
 commissioner: Beckmans College of Design, Juice Studios
 category:
