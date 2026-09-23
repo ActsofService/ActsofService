@@ -1,5 +1,5 @@
 ---
-title: Gif Bonanza
+title: "Avtryck: Graduation Identity"
 descriptionEnglish: >-
   The graduating show is a place to make a mark (avtryck), a chance to take
   place and position one self for the future with competence and self-assertion.
@@ -35,6 +35,7 @@ gallery:
   - mediaType: image
     image: /images/uploads/brev-innehåll.jpg
 date: 2026-09
+commissioner: Beckmans College of Design
 category:
   - art direction
 favorite: true
