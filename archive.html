@@ -222,7 +222,7 @@
             align-items: stretch;
             width: 100%;
             margin-bottom: 60px;
-            font-size: 1.05rem;
+            font-size: 0.8rem;
             cursor: pointer;
         }
 
@@ -265,7 +265,7 @@
             justify-content: flex-end;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
-            font-size: 1.05rem;
+            font-size: 0.8rem;
             
         }
 
@@ -409,8 +409,14 @@
             }
 
             footer {
-            font-size: 1.2rem;
-        }
+                position: static;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin: 60px 20px 0;
+                padding-bottom: 0px;
+                font-size: 1.05rem;
+            }
 
             #projects-list {
                 max-width: 700px;
@@ -477,14 +483,6 @@
                 box-sizing: border-box;
             }
 
-            footer {
-                position: static;
-                left: auto;
-                right: auto;
-                bottom: auto;
-                margin: 60px 20px 0;
-                padding-bottom: 20px;
-            }
 
             .carousel-modal-overlay {
                 overflow-y: auto;
@@ -511,7 +509,7 @@
                 height: auto;
                 min-height: 0;
                 flex-shrink: 0;
-                padding: 1.4rem 0 0;
+                padding: 70px 20px 0;
             }
 
             .project-img,
