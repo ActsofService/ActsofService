@@ -24,11 +24,10 @@
         body {
             margin: 0;
             font-family: "ABC Areal", sans-serif;
-            font-variation-settings: "wght" 400, "slnt" 0, "DRKM" 0, "MONO" 50;
+            font-variation-settings: "wght" 400, "slnt" 0, "DRKM" 0, "MONO" 0;
             font-weight: 400;
             font-style: normal;
             display: flex;
-            font-variation-settings: "wght" 100, "slnt" 0, "DRKM" 0, "MONO" 50;
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
@@ -85,11 +84,26 @@
             overflow-y: auto;
         }
 
+        footer {
+            transition: filter 0.28s ease;
+        }
+
+        #project-filters {
+            transition: filter 0.28s ease;
+        }
+
+        body.modal-open #projects-list,
+        body.modal-open footer,
+        body.modal-open #project-filters {
+            filter: blur(8px);
+        }
+
 
         #projects-list {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            transition: filter 0.28s ease;
 
         }
 
@@ -149,14 +163,11 @@
             inset: 0;
             z-index: 999;
             display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding: 110px 0 20px 0;
+            align-items: center;
+            justify-content: center;
             width: 100vw;
             max-width: 100vw;
             background-color: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             opacity: 0;
             animation: modalOverlayFadeIn 0.28s ease forwards;
         }
@@ -164,26 +175,18 @@
         @keyframes modalOverlayFadeIn {
             from {
                 opacity: 0;
-                backdrop-filter: blur(0px);
-                -webkit-backdrop-filter: blur(0px);
             }
             to {
                 opacity: 1;
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
             }
         }
 
         @keyframes modalOverlayFadeOut {
             from {
                 opacity: 1;
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
             }
             to {
                 opacity: 0;
-                backdrop-filter: blur(0px);
-                -webkit-backdrop-filter: blur(0px);
             }
         }
 
@@ -313,6 +316,7 @@
             overflow-y: hidden;
             gap: 20px;
             align-items: flex-start;
+            justify-content: safe center;
             margin-top: 8px;
             scroll-behavior: smooth;
             padding: 8px 30vw 8px 0;
@@ -361,6 +365,7 @@
             font: inherit;
             line-height: 1;
             white-space: nowrap;
+            font-variation-settings: "MONO" 50;
         }
 
         .description-language-toggle button {
@@ -404,7 +409,7 @@
             }
 
             footer {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
         }
 
             #projects-list {
@@ -448,19 +453,37 @@
         }
 
         @media (max-width: 700px) {
+            body {
+                height: auto;
+                min-height: 100%;
+                overflow: visible;
+            }
+
+            main {
+                flex: none;
+                overflow: visible;
+                padding: 20px 20px 40px;
+            }
+
             #project-filters {
-                position: absolute;
-                top: 20px;
-                left: 0;
-                right: auto;
-                width: 100vw;
+                position: static;
+                width: auto;
                 flex-direction: row;
                 flex-wrap: wrap;
                 gap: 0.15rem 0.8rem;
                 overflow-x: visible;
                 white-space: normal;
-                padding: 0 20px 4px;
+                padding: 0 0 20px;
                 box-sizing: border-box;
+            }
+
+            footer {
+                position: static;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin: 60px 20px 0;
+                padding-bottom: 20px;
             }
 
             .carousel-modal-overlay {
@@ -538,6 +561,40 @@ let currentModal = null;
 
 const archiveHeading = document.querySelector('header h1');
 const defaultArchiveHTML = archiveHeading ? archiveHeading.innerHTML : '';
+
+const wrapWordsInNode = (root) => {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    const textNodes = [];
+    let current;
+    while ((current = walker.nextNode())) {
+        textNodes.push(current);
+    }
+    textNodes.forEach((textNode) => {
+        const parts = textNode.textContent.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+        parts.forEach((part) => {
+            if (part === '') return;
+            if (/^\s+$/.test(part)) {
+                fragment.appendChild(document.createTextNode(part));
+            } else {
+                const span = document.createElement('span');
+                span.className = 'project-description-word';
+                span.textContent = part;
+                fragment.appendChild(span);
+            }
+        });
+        textNode.replaceWith(fragment);
+    });
+};
+
+const animateDescriptionWords = (container) => {
+    const words = container.querySelectorAll('.project-description-word');
+    words.forEach((word, index) => {
+        setTimeout(() => {
+            word.classList.add('visible');
+        }, index * 15);
+    });
+};
 
 fetch('projects.json')
     .then(res => res.json())
@@ -687,6 +744,7 @@ fetch('projects.json')
                     if (currentModal) {
                         currentModal.remove();
                     }
+                    document.body.classList.add('modal-open');
                     // Create overlay
                     const overlay = document.createElement('div');
                     overlay.className = 'carousel-modal-overlay';
@@ -719,12 +777,15 @@ fetch('projects.json')
 
                     const createDescriptionMarkup = (language) => {
                         const descriptionHtml = markdownToHtml(descriptions[language]);
+                        const temp = document.createElement('div');
+                        temp.innerHTML = descriptionHtml;
+                        wrapWordsInNode(temp);
 
                         return `<div class="description-language-toggle" aria-label="Description language">
                             <button type="button" class="${language === 'ENG' ? 'active' : ''}" data-language="ENG" aria-pressed="${language === 'ENG'}">ENG</button>
                             <span class="language-slash">/</span>
                             <button type="button" class="${language === 'SWE' ? 'active' : ''}" data-language="SWE" aria-pressed="${language === 'SWE'}">SWE</button>
-                        </div><span class="desc-highlight">${descriptionHtml}</span>`;
+                        </div><span class="desc-highlight">${temp.innerHTML}</span>`;
                     };
 
                     const descriptionSlide = descriptions.ENG || descriptions.SWE
@@ -764,6 +825,7 @@ fetch('projects.json')
                                 renderDescription(button.dataset.language);
                             });
                         });
+                        animateDescriptionWords(descriptionElement);
                     };
 
                     if (descriptionElement) {
@@ -774,6 +836,7 @@ fetch('projects.json')
                         modal.style.opacity = '0';
                         modal.style.transition = 'opacity 0s linear';
                         if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
+                        document.body.classList.remove('modal-open');
                         overlay.style.animation = 'modalOverlayFadeOut 0.22s ease forwards';
                         setTimeout(() => {
                             overlay.remove();

@@ -59,7 +59,6 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
-            mix-blend-mode: difference;
         }
         img {
             width: auto;
@@ -88,21 +87,36 @@
         }
         @media (max-width: 1100px) {
         footer {
-            font-size: 1.05rem;
-        }
+                position: static;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin: 60px 20px 0;
+                padding-bottom: 20px;
+                font-size: 1.05rem;
+            }
         }
         @media (max-width: 700px) {
+            body {
+                position: static;
+                height: auto;
+                min-height: 100%;
+                overflow: visible;
+            }
+
             main {
                 grid-template-columns: 1fr;
                 gap: 20px;
-                overflow: auto;
+                flex: none;
+                overflow: visible;
             }
 
             .contact-extra {
                 width: auto;
                 max-width: none;
-                margin-bottom: 100px;    
+                margin-bottom: 20px;
             }
+
         }
 
     </style>
