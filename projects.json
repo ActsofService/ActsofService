@@ -204,14 +204,14 @@
   },
   {
     "title": "Hemfärden ",
-    "descriptionEnglish": "",
+    "descriptionEnglish": "Hemfärden is a magazine about photographer Adam Ahmed Pihlgren the photos he took on his trip to Ethiopia. The magazine is about exploring identity and heritage.\n\nCreated together with Linn Sehlstedt, Olle Svensson and Stephanie Holmén.",
     "descriptionSwedish": "",
-    "image": "/images/uploads/2-3.gif",
+    "image": "/images/uploads/501a9414.png",
     "gallery": [
       {
-        "mediaType": "image",
-        "image": "/images/uploads/501a9414.png",
-        "gif": ""
+        "mediaType": "gif",
+        "image": "",
+        "gif": "/images/uploads/2-3.gif"
       },
       {
         "mediaType": "image",
