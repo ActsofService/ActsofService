@@ -40,6 +40,6 @@ commissioner: Beckmans College of Design
 category:
   - print
   - exhibition design
-favorite: false
+favorite: true
 ---
 hej
