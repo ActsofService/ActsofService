@@ -10,6 +10,6 @@ date: 2026-09
 commissioner: Beckmans
 category:
   - print
-favorite: true
+favorite: false
 ---
 Avtryck
