@@ -32,6 +32,6 @@ date: 2026-05
 commissioner: Beckmans College of Design
 category:
   - visual identity
-favorite: false
+favorite: true
 ---
 hej
