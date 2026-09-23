@@ -21,73 +21,134 @@
   },
   {
     "title": "Avtryck: Graduation Identity",
-    "descriptionEnglish": "The graduating show is a place to make a mark (avtryck), a chance to take place and position one self for the future with competence and self-assertion. We have made the choice to portray this year's theme with a seal as a stamp of quality and with a signet ring as a symbol for belonging and community: We are the graduating bachelor class at Beckmans College of Design 2026. The seal is a ceremonial and bold/daring way to make one's mark with and is the soul of the graduating show’s campaign. \n\nThe campaign was created together with Linn Sehlstedt and Phoebe Crookes.",
-    "descriptionSwedish": "",
+    "descriptionEnglish": "The graduating show is a place to make a mark (avtryck), a chance to take place and position one self for the future with competence and self-assertion. We have made the choice to portray this year's theme with a seal as a stamp of quality and with a signet ring as a symbol for belonging and community: We are the graduating bachelor class at Beckmans College of Design 2026. The seal is a ceremonial and bold/daring way to make one's mark with and is the soul of the graduating show's campaign.\n\nThe campaign was created together with Linn Sehlstedt and Phoebe Crookes.",
+    "descriptionSwedish": "Examensutställningen är en plats att göra avtryck på, en chans att ta plats och positionera sig själv inför framtiden med kompetens och självsäkerhet. Vi har valt att gestalta årets tema med ett sigill som en kvalitetsstämpel och med en signetring som en symbol för tillhörighet och gemenskap: Vi är den examinerande kandidatklassen på Beckmans Designhögskola 2026. Sigillet är ett högtidligt och djärvt sätt att göra sitt avtryck på och är själva själen i examensutställningens kampanj.\n\nKampanjen skapades tillsammans med Linn Sehlstedt och Phoebe Crookes.",
     "image": "/images/uploads/ringar_test-topaz-gigapixel-4x.jpg",
     "gallery": [
-      "/images/uploads/filminspelning.jpg",
-      "/images/uploads/bord.jpg"
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/filminspelning.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/bord.jpg"
+      }
     ],
-    "date": "2026-05-21T08:05:00.000Z",
-    "commissioner": "",
-    "category": [],
+    "date": "2026-05",
+    "commissioner": "Beckmans College of Design",
+    "category": [
+      "visual identity"
+    ],
     "favorite": false,
     "link": null,
     "body": "hej\n"
   },
   {
     "title": "Process, Material, Craft",
-    "descriptionEnglish": "Process, Material, Craft - studies in furniture, interior and objects, a three-part exhibition with Beckmans, Konstfack and Malmstens at Moderna Dansteatern. Posters, signage, catalogue, invitation and social media. \n\nCreated together with Edda Eliasson, Mika Hyvönen,\nand Olle Svensson \n\nPhotographer: Madeleine Sjöberg\n\nDocumentation: Jesper Smeding. \n",
-    "descriptionSwedish": "",
+    "descriptionEnglish": "Process, Material, Craft - studies in furniture, interior and objects, a three-part exhibition with Beckmans, Konstfack and Malmstens at Moderna Dansteatern. Posters, signage, catalogue, invitation and social media.\nCreated together with Edda Eliasson, Mika Hyvönen, and Olle Svensson\nPhotographer: Madeleine Sjöberg\nDocumentation: Jesper Smeding.\n",
+    "descriptionSwedish": "Process, Material, Hantverk – studier inom möbler, inredning och objekt, en tredelad utställning med Beckmans, Konstfack och Malmstens på Moderna Dansteatern. Affischer, skyltning, katalog, inbjudan och sociala medier.\nSkapad tillsammans med Edda Eliasson, Mika Hyvönen och Olle Svensson\nFotograf: Madeleine Sjöberg\nDokumentation: Jesper Smeding.\n",
     "image": "/images/uploads/1.-main-poster_1080x1350.jpg",
     "gallery": [
-      "/images/uploads/2.png",
-      "/images/uploads/3.png",
-      "/images/uploads/4.png",
-      "/images/uploads/5.png",
-      "/images/uploads/6.png",
-      "/images/uploads/7.jpg"
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/2.png"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/3.png"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/4.png"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/5.png"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/6.png"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/7.jpg"
+      }
     ],
-    "date": "2026-02-03T18:00:00.000Z",
-    "commissioner": "",
-    "category": [],
+    "date": "2026-02",
+    "commissioner": "Beckmans, Konstfack & Malmstens",
+    "category": [
+      "exhibition design",
+      "print"
+    ],
     "favorite": false,
     "link": null,
     "body": "hej\n"
   },
   {
     "title": "New Platforms",
-    "descriptionEnglish": "“The current state of established digital platforms and its influence on visual communication is under scrutiny by us students, teachers and human beings. Because frankly, we’re disappointed with the current state of affairs.” \n\nThree parts created for New Platforms, an design festival at Beckmans Collage of Design. \nNewPlatforms.txt is a publication made to broaden the subject of alternative and new possible platforms. We learn more about this subject through invited writers, who each bring an interesting point of view. Re:action Workshop is a workshop presented as an analogue internet platform. Where you can playfully engage, create and react to your surroundings. Re:action Exhibition is the result of a workshop our class completed together. We wanted to show our collective creativity and reduce the pressure of performance. To achieve less pressure and a unified expression, we wanted to use limited tools and shapes. From these thoughts came the idea of Re:action Workshop.\n\nCreated together with Phoebe Crookes and Hanna Hedberg\n\nDocumentation: Jonas Hermlin \n",
-    "descriptionSwedish": "",
+    "descriptionEnglish": "\"The current state of established digital platforms and its influence on visual communication is under scrutiny by us students, teachers and human beings. Because frankly, we're disappointed with the current state of affairs.\"\nThree parts created for New Platforms, an design festival at Beckmans Collage of Design.\nNewPlatforms.txt is a publication made to broaden the subject of alternative and new possible platforms. We learn more about this subject through invited writers, who each bring an interesting point of view. Re:action Workshop is a workshop presented as an analogue internet platform. Where you can playfully engage, create and react to your surroundings. Re:action Exhibition is the result of a workshop our class completed together. We wanted to show our collective creativity and reduce the pressure of performance. To achieve less pressure and a unified expression, we wanted to use limited tools and shapes. From these thoughts came the idea of Re:action Workshop.\nCreated together with Phoebe Crookes and Hanna Hedberg\nDocumentation: Jonas Hermlin\n",
+    "descriptionSwedish": "\"Det nuvarande tillståndet hos etablerade digitala plattformar och dess inverkan på visuell kommunikation granskas av oss studenter, lärare och människor. För helt ärligt, vi är besvikna på hur läget ser ut just nu.\"\nTre delar skapade för New Platforms, en designfestival på Beckmans Designhögskola.\nNewPlatforms.txt är en publikation gjord för att bredda ämnet kring alternativa och nya möjliga plattformar. Vi lär oss mer om ämnet genom inbjudna skribenter, som var och en bidrar med ett intressant perspektiv. Re:action Workshop är en workshop presenterad som en analog internetplattform, där man lekfullt kan engagera sig, skapa och reagera på sin omgivning. Re:action Exhibition är resultatet av en workshop som vår klass genomförde tillsammans. Vi ville visa vår kollektiva kreativitet och minska prestationspressen. För att uppnå mindre press och ett enat uttryck ville vi använda begränsade verktyg och former. Ur dessa tankar föddes idén till Re:action Workshop.\nSkapad tillsammans med Phoebe Crookes och Hanna Hedberg\nDokumentation: Jonas Hermlin\n",
     "image": "/images/uploads/1.-img_5923.jpg",
     "gallery": [
-      "/images/uploads/2.-img_5947.jpg",
-      "/images/uploads/3.img_5740.jpg",
-      "/images/uploads/4.-img_5936.jpg",
-      "/images/uploads/5.-img_6030.jpg"
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/2.-img_5947.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/3.img_5740.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/4.-img_5936.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/5.-img_6030.jpg"
+      }
     ],
-    "date": "2025-10-20T17:00:00.000Z",
-    "commissioner": "",
-    "category": [],
+    "date": "2025-10",
+    "commissioner": "Beckmans College of Design",
+    "category": [
+      "print",
+      "exhibition design"
+    ],
     "favorite": false,
     "link": null,
     "body": "hej\n"
   },
   {
     "title": "What Happens In the Arctic Does Not Stay In the Arctic",
-    "descriptionEnglish": "What's happening in the Arctic right now is part of a larger, circular context. The consequences of our actions, in turn, circle back to us. Through nature's cycles, our impact, and the polar circle that surrounds the Arctic, we highlight how everything is connected and how nothing exists in isolation. The rapid climate changes are forcing people in the Arctic to adapt in order to preserve their communities – something we all must do. With this exhibition, we visualise how different parts of the Arctic are affected by climate change – and why it matters to all of us.\n\nWhat Happens In the Arctic Does Not Stay In the Arctic consists of seven interpretations of Arctic research, developed in dialogue between students at Beckmans College of Design and researchers from the Beijer Institute, in collaboration with Svenskt Tenn.\n\nhttps://beckmans.college/Arctic/\n",
-    "descriptionSwedish": "",
+    "descriptionEnglish": "What's happening in the Arctic right now is part of a larger, circular context. The consequences of our actions, in turn, circle back to us. Through nature's cycles, our impact, and the polar circle that surrounds the Arctic, we highlight how everything is connected and how nothing exists in isolation. The rapid climate changes are forcing people in the Arctic to adapt in order to preserve their communities – something we all must do. With this exhibition, we visualise how different parts of the Arctic are affected by climate change – and why it matters to all of us.\nWhat Happens In the Arctic Does Not Stay In the Arctic consists of seven interpretations of Arctic research, developed in dialogue between students at Beckmans College of Design and researchers from the Beijer Institute, in collaboration with Svenskt Tenn.\n",
+    "descriptionSwedish": "Det som händer i Arktis just nu är en del av ett större, cirkulärt sammanhang. Konsekvenserna av våra handlingar återvänder i sin tur till oss. Genom naturens kretslopp, vår påverkan och den polcirkel som omger Arktis belyser vi hur allt hänger samman och hur ingenting existerar isolerat. De snabba klimatförändringarna tvingar människorna i Arktis att anpassa sig för att bevara sina samhällen – något vi alla måste göra. Med den här utställningen visualiserar vi hur olika delar av Arktis påverkas av klimatförändringarna – och varför det spelar roll för oss alla.\nWhat Happens In the Arctic Does Not Stay In the Arctic består av sju tolkningar av arktisk forskning, framtagna i dialog mellan studenter på Beckmans Designhögskola och forskare från Beijerinstitutet, i samarbete med Svenskt Tenn.\n",
     "image": "/images/uploads/1.-svenskttennverni_select-12.jpg",
     "gallery": [
-      "/images/uploads/2.-svenskttennverni_select-17.jpg",
-      "/images/uploads/3.-svenskttennverni_select-01.jpg",
-      "/images/uploads/4.-skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-37-17.jpeg",
-      "/images/uploads/5.-svenskttennverni_select-20.jpg",
-      "/images/uploads/6.-skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-40-25.jpeg"
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/2.-svenskttennverni_select-17.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/3.-svenskttennverni_select-01.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/4.-skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-37-17.jpeg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/5.-svenskttennverni_select-20.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/6.-skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-40-25.jpeg"
+      }
     ],
-    "date": "2025-05-04T08:00:00.000Z",
-    "commissioner": "",
-    "category": [],
+    "date": "2025-05",
+    "commissioner": "Svenskt Tenn",
+    "category": [
+      "exhibition design"
+    ],
     "favorite": false,
     "link": "https://beckmans.college/Arctic/",
     "body": "hej HEJ\n"
