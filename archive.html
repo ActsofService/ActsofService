@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/svg+xml" href="aos-icon.svg">
     <title>Subpage — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
@@ -20,6 +20,7 @@
         html,
     body {
             height: 100%;
+            background: #ffffff;
         }
         body {
             margin: 0;
@@ -54,6 +55,7 @@
         header {
             position: fixed;
             z-index: 1001;
+            padding-top: env(safe-area-inset-top, 0px);
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             font-size: 2.05rem;
@@ -197,6 +199,7 @@
             width: 100vw;
             max-width: 100vw;
             max-height: 100vh;
+            max-height: 100dvh;
             z-index: 1000;
             text-align: left;
         }
@@ -442,8 +445,9 @@
             .project-cover .cover-info-right {
                 order: 3;
                 justify-content: flex-start;
-                align-items: center;
+                align-items: left;
                 text-align: center;
+                padding-right: 20px;
             }
 
             .project-cover .project-meta-grid {
@@ -500,7 +504,7 @@
                 overflow-x: hidden;
                 overflow-y: visible;
                 gap: 20px;
-                padding: 8px 0 30px;
+                padding: 8px 0 calc(30px + env(safe-area-inset-bottom, 0px));
             }
 
             .project-description-slide {
@@ -508,7 +512,7 @@
                 height: auto;
                 min-height: 0;
                 flex-shrink: 0;
-                padding: 110px 20px 0;
+                padding: calc(110px + env(safe-area-inset-top, 0px)) 20px 0;
             }
 
             .project-img,
@@ -529,8 +533,7 @@
     </header>
     <main>
         <nav id="project-filters" aria-label="Filter projects">
-            <button type="button" data-filter="favorites" class="active">Favorites</button>
-            <button type="button" data-filter="all">All</button>
+            <button type="button" data-filter="all" class="active">All</button>
             <button type="button" data-filter="art direction">Art direction</button>
             <button type="button" data-filter="visual identity">Visual identity</button>
             <button type="button" data-filter="print">Print</button>
@@ -605,26 +608,27 @@ fetch('projects.json')
         }
 
         const projectOrder = [...projects].sort((a, b) => {
+            const aFavorite = a.favorite === true || a.favorite === 'true';
+            const bFavorite = b.favorite === true || b.favorite === 'true';
+            if (aFavorite !== bFavorite) return aFavorite ? -1 : 1;
             const dateA = a.date ? new Date(a.date).getTime() : 0;
             const dateB = b.date ? new Date(b.date).getTime() : 0;
             return dateB - dateA;
         });
         const filterContainer = document.getElementById('project-filters');
-        let activeMode = 'favorites';
+        let activeMode = 'all';
         let activeCategory = null;
 
         const renderProjects = () => {
             container.innerHTML = '';
             const visibleProjects = activeMode === 'all'
                 ? projectOrder
-                : activeMode === 'favorites'
-                    ? projectOrder.filter(project => project.favorite === true || project.favorite === 'true')
-                    : projectOrder.filter(project => {
-                        const categories = Array.isArray(project.category)
-                            ? project.category
-                            : project.category ? [project.category] : [];
-                        return categories.some(category => String(category).toLowerCase() === activeCategory);
-                    });
+                : projectOrder.filter(project => {
+                    const categories = Array.isArray(project.category)
+                        ? project.category
+                        : project.category ? [project.category] : [];
+                    return categories.some(category => String(category).toLowerCase() === activeCategory);
+                });
 
             if (!visibleProjects.length) {
                 container.innerHTML = '<p>No projects matches these filters yet</p>';
@@ -867,13 +871,13 @@ fetch('projects.json')
         filterContainer.querySelectorAll('[data-filter]').forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.dataset.filter;
-                if (filter === 'favorites' || filter === 'all') {
-                    activeMode = filter;
+                if (filter === 'all') {
+                    activeMode = 'all';
                     activeCategory = null;
                 } else {
                     activeMode = 'categories';
                     activeCategory = activeCategory === filter ? null : filter;
-                    if (!activeCategory) activeMode = 'favorites';
+                    if (!activeCategory) activeMode = 'all';
                 }
 
                 filterContainer.querySelectorAll('button').forEach(item => {
