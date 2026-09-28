@@ -4,6 +4,8 @@
     "descriptionEnglish": "The graduating show is a place to make a mark (avtryck), a chance to take place and position one self for the future with competence and self-assertion. We have made the choice to portray this year's theme with a seal as a stamp of quality and with a signet ring as a symbol for belonging and community: We are the graduating bachelor class at Beckmans College of Design 2026. The seal is a ceremonial and bold/daring way to make one's mark with and is the soul of the graduating show's campaign.\n\nThe campaign was created together with Linn Sehlstedt and Phoebe Crookes.",
     "descriptionSwedish": "Examensutställningen är en plats att göra avtryck på, en chans att ta plats och positionera sig själv inför framtiden med kompetens och självsäkerhet. Vi har valt att gestalta årets tema med ett sigill som en kvalitetsstämpel och med en signetring som en symbol för tillhörighet och gemenskap: Vi är den examinerande kandidatklassen på Beckmans Designhögskola 2026. Sigillet är ett högtidligt och djärvt sätt att göra sitt avtryck på och är själva själen i examensutställningens kampanj.\n\nKampanjen skapades tillsammans med Linn Sehlstedt och Phoebe Crookes.",
     "image": "/images/uploads/alla-1-.gif",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
@@ -41,10 +43,12 @@
     "body": "hej\n"
   },
   {
-    "title": "VIDEO TEST",
+    "title": "VIDEO TEST 15:45",
     "descriptionEnglish": "TEST",
     "descriptionSwedish": "TESTING",
-    "image": "",
+    "image": "/images/uploads/2.-svenskttennverni_select-17.jpg",
+    "coverMediaType": "video",
+    "coverVideo": "/images/uploads/olle_ljung_video_2.mp4",
     "gallery": [
       {
         "mediaType": "looping video",
@@ -64,6 +68,8 @@
     "descriptionEnglish": "",
     "descriptionSwedish": "Flaggad är en visuell studie av relationen mellan form, betraktare och kontext genom flaggan som medium.\n\nLänge har jag haft ett intresse för flaggor. Det visuella språket tilltalar mig som formgivare. Jag dras till de starka färgerna och grafiska formerna men även de begränsningarna som en flagga har. Det är fascinerande att ett tygstycke kan få en sådan komplex betydelse.\n\nUnder tusentals år har flaggan haft som funktion att samla människor kring en symbol för att skapa en gemensam identitet. Den kan vara politisk, ideologisk, existentiell eller praktisk. Det handlar i hög grad om grafisk design, och flaggor är ett bra exempel på symbolers roll i samhället, makten de har och makten vi tillskriver dem.",
     "image": "/images/uploads/molly_schedin_foto_3-1-.png",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
@@ -94,6 +100,8 @@
     "descriptionEnglish": "Process, Material, Craft - studies in furniture, interior and objects, a three-part exhibition with Beckmans, Konstfack and Malmstens at Moderna Dansteatern. Posters, signage, catalogue, invitation and social media.\nCreated together with Edda Eliasson, Mika Hyvönen, and Olle Svensson\nPhotographer: Madeleine Sjöberg\nDocumentation: Jesper Smeding.\n",
     "descriptionSwedish": "Process, Material, Hantverk – studier inom möbler, inredning och objekt, en tredelad utställning med Beckmans, Konstfack och Malmstens på Moderna Dansteatern. Affischer, skyltning, katalog, inbjudan och sociala medier.\nSkapad tillsammans med Edda Eliasson, Mika Hyvönen och Olle Svensson\nFotograf: Madeleine Sjöberg\nDokumentation: Jesper Smeding.\n",
     "image": "/images/uploads/2.png",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "gif",
@@ -136,6 +144,8 @@
     "descriptionEnglish": "\"The current state of established digital platforms and its influence on visual communication is under scrutiny by us students, teachers and human beings. Because frankly, we're disappointed with the current state of affairs.\"\nThree parts created for New Platforms, an design festival at Beckmans Collage of Design.\nNewPlatforms.txt is a publication made to broaden the subject of alternative and new possible platforms. We learn more about this subject through invited writers, who each bring an interesting point of view. Re:action Workshop is a workshop presented as an analogue internet platform. Where you can playfully engage, create and react to your surroundings. Re:action Exhibition is the result of a workshop our class completed together. We wanted to show our collective creativity and reduce the pressure of performance. To achieve less pressure and a unified expression, we wanted to use limited tools and shapes. From these thoughts came the idea of Re:action Workshop.\nCreated together with Phoebe Crookes and Hanna Hedberg\nDocumentation: Jonas Hermlin\n",
     "descriptionSwedish": "\"Det nuvarande tillståndet hos etablerade digitala plattformar och dess inverkan på visuell kommunikation granskas av oss studenter, lärare och människor. För helt ärligt, vi är besvikna på hur läget ser ut just nu.\"\nTre delar skapade för New Platforms, en designfestival på Beckmans Designhögskola.\nNewPlatforms.txt är en publikation gjord för att bredda ämnet kring alternativa och nya möjliga plattformar. Vi lär oss mer om ämnet genom inbjudna skribenter, som var och en bidrar med ett intressant perspektiv. Re:action Workshop är en workshop presenterad som en analog internetplattform, där man lekfullt kan engagera sig, skapa och reagera på sin omgivning. Re:action Exhibition är resultatet av en workshop som vår klass genomförde tillsammans. Vi ville visa vår kollektiva kreativitet och minska prestationspressen. För att uppnå mindre press och ett enat uttryck ville vi använda begränsade verktyg och former. Ur dessa tankar föddes idén till Re:action Workshop.\nSkapad tillsammans med Phoebe Crookes och Hanna Hedberg\nDokumentation: Jonas Hermlin\n",
     "image": "/images/uploads/1.-img_5923.jpg",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
@@ -169,6 +179,8 @@
     "descriptionEnglish": "What's happening in the Arctic right now is part of a larger, circular context. The consequences of our actions, in turn, circle back to us. Through nature's cycles, our impact, and the polar circle that surrounds the Arctic, we highlight how everything is connected and how nothing exists in isolation. The rapid climate changes are forcing people in the Arctic to adapt in order to preserve their communities – something we all must do. With this exhibition, we visualise how different parts of the Arctic are affected by climate change – and why it matters to all of us.\nWhat Happens In the Arctic Does Not Stay In the Arctic consists of seven interpretations of Arctic research, developed in dialogue between students at Beckmans College of Design and researchers from the Beijer Institute, in collaboration with Svenskt Tenn.\n",
     "descriptionSwedish": "Det som händer i Arktis just nu är en del av ett större, cirkulärt sammanhang. Konsekvenserna av våra handlingar återvänder i sin tur till oss. Genom naturens kretslopp, vår påverkan och den polcirkel som omger Arktis belyser vi hur allt hänger samman och hur ingenting existerar isolerat. De snabba klimatförändringarna tvingar människorna i Arktis att anpassa sig för att bevara sina samhällen – något vi alla måste göra. Med den här utställningen visualiserar vi hur olika delar av Arktis påverkas av klimatförändringarna – och varför det spelar roll för oss alla.\nWhat Happens In the Arctic Does Not Stay In the Arctic består av sju tolkningar av arktisk forskning, framtagna i dialog mellan studenter på Beckmans Designhögskola och forskare från Beijerinstitutet, i samarbete med Svenskt Tenn.\n",
     "image": "/images/uploads/1.-svenskttennverni_select-12.jpg",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
@@ -205,6 +217,8 @@
     "descriptionEnglish": "Emina Iman is a creative whose art and expression revolve around freedom, individuality, presence, and creativity. By exploring the specific qualities that define us, she highlights what connects us through dance, imagery, poetry, and conversation.\n\nSecond-year project at Beckmans in collaboration with Juice Studios, Edda Eliasson, and Wilma Reichardt.",
     "descriptionSwedish": "Emina Iman är en kreatör vars konst och uttryck kretsar kring frihet, individualitet, pondus och kreativitet. Genom att fördjupa sig i det specifika som definierar oss, lyfter hon fram det som förenar oss genom dans, bild, poesi och samtal.\n\nProjekt andra året på Beckmans i samarbete med Juice Studios, Edda Eliasson och Wilma Reichardt.",
     "image": "/images/uploads/essence2.png",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
@@ -233,6 +247,8 @@
     "descriptionEnglish": "A commission for Freyja restaurant. The brief was to create a new menu, drinks menu, text cards and note holders, guided by the idea of *personal expression*.\n\nWe wanted to highlight our individual artistic expressions by drawing inspiration from our own influences and personal “archives”. Together, we weave our distinct styles into a shared visual language and a collaborative project.",
     "descriptionSwedish": "Uppdrag för Freyja restaurang. Brief: Att skapa en ny meny till Freyja samt drinkmeny, textkort och nothållare, med ingång *personligt uttryck*. \n\nVi ville lyfta fram våra konstnärliga uttryck genom att hämta inspiration från våra egna influenser och personliga 'arkiv'. Tillsammans flätar vi samman våra unika stilar till ett gemensamt projekt.",
     "image": "/images/uploads/ny_freyja_gif.gif",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
@@ -253,6 +269,8 @@
     "descriptionEnglish": "Hemfärden is a magazine about photographer Adam Ahmed Pihlgren the photos he took on his trip to Ethiopia. The magazine is about exploring identity and heritage.\n\nCreated together with Linn Sehlstedt, Olle Svensson and Stephanie Holmén.",
     "descriptionSwedish": "",
     "image": "/images/uploads/501a9414.png",
+    "coverMediaType": "image",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "gif",
@@ -283,6 +301,8 @@
     "descriptionEnglish": "Animation to music by Alvin Cronberg under Hans Wohlfarth, in collaboration with the Royal College of Music.",
     "descriptionSwedish": "",
     "image": "",
+    "coverMediaType": "video",
+    "coverVideo": "/images/uploads/1.mp4",
     "gallery": [
       {
         "mediaType": "looping video",
@@ -301,6 +321,8 @@
     "descriptionEnglish": "An electronic track produced by Vilmar Janson became a classic knight-and-dragon drama. With no limitations on the content, we drew inspiration from the music and from each other. The result was a 3D-animated [video](https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK) presented at Wisdome at the National Museum of Science and Technology. In collaboration with the Royal College of Music, working in a group with Phoebe Crookes.",
     "descriptionSwedish": "En elektronisk låt producerad av Vilmar Janson blev till ett klassiskt riddare-och-drake-drama. Utan begränsningar för innehållet hämtade vi inspiration från musiken och varandra. Resultatet blev en 3D-animerad [video](https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK) som visades i Wisdome på Tekniska museet. I samarbete med Kungliga musikhögskolan, i grupp med Phoebe Crookes.",
     "image": "/images/uploads/landscapes_3.gif",
+    "coverMediaType": "gif",
+    "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
