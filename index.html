@@ -60,13 +60,17 @@
             z-index: 0;
             pointer-events: none;
         }
-        #bg-slideshow img {
+        #bg-slideshow img,
+        #bg-slideshow video {
             display: block;
             width: 100%;
             height: auto;
             max-height: 85vh;
             object-fit: cover;
             object-position: center;
+        }
+        #bg-slideshow [hidden] {
+            display: none;
         }
         header, main {
             position: relative;
@@ -118,7 +122,7 @@
     </style>
 </head>
 <body>
-    <div id="bg-slideshow" aria-hidden="true"><img alt=""></div>
+    <div id="bg-slideshow" aria-hidden="true"><img alt=""><video muted loop playsinline disablepictureinpicture hidden></video></div>
     <header>
 
     </header>
@@ -144,22 +148,43 @@ fetch('projects.json')
     .then(res => res.json())
     .then(projects => {
         const resolveSrc = (src) => (!src || /^(https?:|data:|\/)/.test(src)) ? src : `/images/uploads/${src}`;
-        const images = projects.map(p => resolveSrc(p.image)).filter(Boolean);
-        if (!images.length) return;
+        const items = projects.map(p => (p.coverMediaType === 'video' && p.coverVideo)
+            ? { type: 'video', src: resolveSrc(p.coverVideo) }
+            : { type: 'image', src: resolveSrc(p.image) }
+        ).filter(item => item.src);
+        if (!items.length) return;
 
         const img = document.querySelector('#bg-slideshow img');
+        const video = document.querySelector('#bg-slideshow video');
         let index = 0;
 
         const show = () => {
-            const src = images[index];
-            index = (index + 1) % images.length;
-            const loader = new Image();
-            loader.onload = () => { img.src = src; };
-            loader.src = src;
+            const item = items[index];
+            index = (index + 1) % items.length;
+            if (item.type === 'video') {
+                video.oncanplay = () => {
+                    video.oncanplay = null;
+                    img.hidden = true;
+                    video.hidden = false;
+                    video.play().catch(() => {});
+                };
+                video.src = item.src;
+                video.muted = true;
+                video.load();
+            } else {
+                const loader = new Image();
+                loader.onload = () => {
+                    img.src = item.src;
+                    img.hidden = false;
+                    video.hidden = true;
+                    video.pause();
+                };
+                loader.src = item.src;
+            }
         };
 
         show();
-        if (images.length > 1) setInterval(show, 4000);
+        if (items.length > 1) setInterval(show, 4000);
     })
     .catch(err => console.error('Could not load projects.json', err));
 </script>
