@@ -288,7 +288,8 @@
             
         }
 
-        .project-cover img {
+        .project-cover img,
+        .project-cover video {
             display: block;
             margin: 0 auto;
             height: auto;
@@ -440,7 +441,8 @@
                 text-align: center;
             }
 
-            .project-cover img {
+            .project-cover img,
+            .project-cover video {
                 order: 2;
                 width: min(70vw, 500px);
                 max-width: 100%;
@@ -679,7 +681,11 @@ fetch('projects.json')
 
             const getGalleryMedia = (project) => {
                 const media = [];
-                if (project.image) media.push({ type: 'image', src: resolveMediaSrc(project.image) });
+                if (project.coverMediaType === 'video' && project.coverVideo) {
+                    media.push({ type: 'video', loop: true, src: resolveMediaSrc(project.coverVideo), poster: resolveMediaSrc(project.image) });
+                } else if (project.image) {
+                    media.push({ type: 'image', src: resolveMediaSrc(project.image) });
+                }
 
                 if (Array.isArray(project.gallery)) {
                     project.gallery.forEach(item => {
@@ -703,10 +709,16 @@ fetch('projects.json')
             const galleryMedia = getGalleryMedia(p);
 
             // Cover image section
-                let coverHtml = p.image
+                const coverIsVideo = p.coverMediaType === 'video' && p.coverVideo;
+                const coverMediaHtml = coverIsVideo
+                    ? `<video src="${resolveMediaSrc(p.coverVideo)}"${p.image ? ` poster="${resolveMediaSrc(p.image)}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`
+                    : p.image
+                        ? `<img src="${resolveMediaSrc(p.image)}" alt="${p.title}">`
+                        : '';
+                let coverHtml = coverMediaHtml
                     ? `<div class="project-cover">
                     <div class="cover-info-left"><h3>${p.title}</h3></div>
-                    <img src="${resolveMediaSrc(p.image)}" alt="${p.title}">
+                    ${coverMediaHtml}
                     <div class="cover-info-right"></div>
                        </div>`
                     : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right"></div></div>`;
@@ -768,8 +780,12 @@ fetch('projects.json')
             div.innerHTML = coverHtml;
 
             // Add click event to the cover image to open modal
-            const coverImg = div.querySelector('.project-cover img');
-            if (coverImg) {
+            const coverMedia = div.querySelector('.project-cover img, .project-cover video');
+            div.querySelectorAll('.project-cover video').forEach((video) => {
+                video.muted = true;
+                video.play().catch(() => {});
+            });
+            if (coverMedia) {
                 div.addEventListener('click', () => {
 
                     archiveHeading.innerHTML = p.title || '';
