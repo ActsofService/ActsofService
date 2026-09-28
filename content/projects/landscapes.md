@@ -19,11 +19,13 @@ gallery:
     gif: /images/uploads/landscapes_4.gif
   - mediaType: image
     gif: /images/uploads/landscapes_5-1-.gif
+  - mediaType: image
+    poster: https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK
 date: 2024-03
 commissioner: Beckmans, Tekniska Museet
 category:
   - other
 favorite: false
-link: https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK
+link: ""
 ---
 hej
