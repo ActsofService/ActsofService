@@ -3,7 +3,7 @@ title: VIDEO TEST 15:45
 descriptionEnglish: TEST
 descriptionSwedish: TESTING
 coverMediaType: video
-image: ""
+image: /images/uploads/2.-svenskttennverni_select-17.jpg
 coverVideo: /images/uploads/olle_ljung_video_2.mp4
 gallery:
   - mediaType: looping video
