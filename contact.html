@@ -3,36 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Contact — Acts of Service</title>
-
+    <link rel="icon" type="image/svg+xml" href="aos-icon.svg">
+    <title>About — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="screensaver.css">
 
     <style>
         @font-face {
-            font-family: 'ABC Areal';
-            src: url('fonts/ABCArealSuperfamilyVariable.woff2') format('woff2');
-            font-weight: 100 900;
+            font-family: "ABC Areal";
+            src: url("fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
             font-style: normal;
+            font-weight: 100 1000;
+            font-display: swap;
         }
 
-        * {
-            box-sizing: border-box;
+        html, body { 
+            height: 100%; 
         }
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            font-family: 'ABC Areal', Arial, sans-serif;
-            font-size: 1.05rem;
-            line-height: 1.15;
+        body { 
+            margin: 0; 
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+            font-weight: 400; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            position: fixed;
             overflow: hidden;
         }
 
@@ -43,17 +40,21 @@
             gap: 40px;
             text-align: left;
             flex: 1;
+            font-size: 1.05rem;
             overflow: hidden;
         }
 
-        .contact-left {
+        /* Vänster sida */
+        .contact-content {
             min-width: 0;
         }
 
         .intro {
-            margin: 0;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+            max-width: 510px;
         }
 
+        /* Profilbilder */
         .profile-images {
             display: flex;
             gap: 20px;
@@ -74,67 +75,18 @@
             display: block;
         }
 
-        /*
-         * This moves the right column down so that
-         * "CLIENTS" lines up with the top of the images.
-         */
-        .contact-extra {
-            width: 510px;
-            align-self: start;
-            margin-top: 1.05rem;
-        }
-
-        .contact-extra section {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-extra h3 {
-            margin: 0;
-            font-size: inherit;
-            font-weight: normal;
-        }
-
-        .contact-extra p {
-            margin: 0;
-        }
-
-        .contact-extra ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .contact-extra li {
-            margin: 0;
-        }
-
-        footer {
-            margin: 20px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.05rem;
-        }
-
-        footer a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Custom name cursor */
-
+        /* Namnet som följer muspekaren */
         .name-cursor {
             position: fixed;
-            left: 0;
             top: 0;
-            transform: translate(10px, 10px);
+            left: 0;
             pointer-events: none;
-            opacity: 0;
             z-index: 9999;
+            opacity: 0;
+            transform: translate(12px, 12px);
+            font-family: "ABC Areal", sans-serif;
             font-size: 1.05rem;
+            font-weight: 700;
             line-height: 1;
             white-space: nowrap;
             transition: opacity 0.1s ease;
@@ -144,13 +96,55 @@
             opacity: 1;
         }
 
+        /* Höger sida – börjar i linje med bilderna */
+        .contact-extra {
+            width: 510px;
+            padding-top: 1.05rem;
+        }
+
+        .contact-section-entries {
+            white-space: normal;
+        }
+
+        .titel {
+            font-weight: 700;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+            line-height: inherit;
+        }
+
+        /* Länkar */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #f872be;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            left: 20px;
+            right: 20px;
+            bottom: 0;
+            z-index: 10;
+            margin: 0;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+            font-weight: 400;
+            line-height: 60%;
+            font-size: 2.05rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
         /* Tablet */
-
         @media (max-width: 1100px) {
-            body {
-                overflow: auto;
-            }
-
             main {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -159,45 +153,53 @@
 
             .contact-extra {
                 width: auto;
-                margin-top: 0;
+                padding-top: 0;
             }
 
             footer {
                 position: static;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin: 20px 20px 0;
+                padding-bottom: 0;
+                font-size: 1.05rem;
             }
         }
 
-        /* Mobile */
-
+        /* Mobil */
         @media (max-width: 700px) {
             body {
-                overflow: auto;
+                position: static;
+                height: auto;
+                min-height: 100%;
+                overflow: visible;
             }
 
             main {
                 grid-template-columns: 1fr;
-                margin: 0 20px;
+                gap: 20px;
+                flex: none;
+                overflow: visible;
+            }
+
+            .contact-extra {
+                width: auto;
+                max-width: none;
+                margin-bottom: 20px;
             }
 
             .profile-images {
+                gap: 10px;
                 flex-wrap: wrap;
             }
 
-            .profile-image img {
+            .profile-images img {
                 height: 30vh;
             }
 
             .profile-image {
-                cursor: auto;
-            }
-
-            .name-cursor {
-                display: none;
-            }
-
-            footer {
-                margin: 20px;
-                font-size: 1rem;
+                cursor: default;
             }
         }
     </style>
@@ -205,14 +207,18 @@
 
 <body>
 
+    <header>
+    </header>
+
     <main>
 
-        <div class="contact-left">
+        <!-- VÄNSTER SIDA -->
+        <div class="contact-content">
 
             <p class="intro">
-                Acts of Service is a design studio based in Stockholm, Sweden.
-                We work across graphic design, art direction, typography and
-                visual identities.
+                We are a studio that focus on doing great stuff that makes you happy.
+                We specialize in graphic design, art direction, web development,
+                photography and more...
             </p>
 
             <div class="profile-images">
@@ -231,99 +237,91 @@
 
             </div>
 
+            <p>
+                Contact us at 
+                <a href="mailto:studio@actsofservice.se">
+                    studio@actsofservice.se
+                </a>
+            </p>
+
+            <p>
+                <a href="https://www.instagram.com/actsofservice/" target="_blank">
+                    @actsofservice
+                </a>
+            </p>
+
+            <p>
+                <a href="tel:+15551234567">
+                    Emmy Seeger +46 70 123 45 67
+                </a><br>
+
+                <a href="tel:+15551234567">
+                    Molly Schedin +46 70 123 45 67
+                </a><br>
+
+                <a href="tel:+15551234567">
+                    Olle Ljung +46 70 123 45 67
+                </a>
+            </p>
+
         </div>
 
 
-        <div class="contact-extra" id="contact-extra">
-            <!-- Content from contact.json will appear here -->
-        </div>
+        <!-- HÖGER SIDA -->
+        <div class="contact-extra" id="contact-sections"></div>
 
     </main>
 
 
     <footer>
-        <div>
-            <a href="index.html">Home</a>
-        </div>
-
-        <div>
-            <a href="archive.html">Archive</a>
-        </div>
-
-        <div>
-            <a href="contact.html">Contact</a>
-        </div>
-
-        <div>
-            <a href="foundry.html">Foundry</a>
-        </div>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="archive.html">Archive</a></p>
+        <p><a href="contact.html">Contact</a></p>
+        <p><a href="foundry.html">Foundry</a></p>
     </footer>
 
 
-    <!-- Name cursor -->
-
+    <!-- Custom cursor -->
     <div class="name-cursor" id="name-cursor"></div>
 
 
     <script src="screensaver.js"></script>
 
     <script>
-        /*
-         * Load contact information from contact.json
-         */
+        const escapeContactText = (value) => String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
 
         fetch('contact.json')
             .then(response => response.json())
             .then(data => {
+                const container = document.getElementById('contact-sections');
 
-                const contactExtra = document.getElementById('contact-extra');
+                container.innerHTML = (data.sections || []).map(section => {
+                    const separator = section.format === 'comma' ? ', ' : '<br>';
+                    const entries = (section.entries || [])
+                        .map(escapeContactText)
+                        .join(separator);
 
-                contactExtra.innerHTML = '';
-
-                Object.entries(data).forEach(([section, content]) => {
-
-                    const sectionElement = document.createElement('section');
-
-                    const heading = document.createElement('h3');
-                    heading.textContent = section;
-
-                    sectionElement.appendChild(heading);
-
-                    if (Array.isArray(content)) {
-
-                        const list = document.createElement('ul');
-
-                        content.forEach(item => {
-
-                            const li = document.createElement('li');
-                            li.textContent = item;
-
-                            list.appendChild(li);
-
-                        });
-
-                        sectionElement.appendChild(list);
-
-                    } else {
-
-                        const paragraph = document.createElement('p');
-                        paragraph.textContent = content;
-
-                        sectionElement.appendChild(paragraph);
-                    }
-
-                    contactExtra.appendChild(sectionElement);
-                });
-
+                    return `<p>
+                        <span class="titel">
+                            ${escapeContactText(section.title)}
+                        </span><br>
+                        <span class="contact-section-entries">
+                            ${entries}
+                        </span>
+                    </p>`;
+                }).join('');
             })
             .catch(error => {
-                console.error('Could not load contact.json:', error);
+                console.error('Could not load contact sections', error);
             });
 
 
-        /*
-         * Custom cursor for profile images
-         */
+        /* NAME CURSOR */
 
         const nameCursor = document.getElementById('name-cursor');
         const profileImages = document.querySelectorAll('.profile-image');
@@ -335,11 +333,9 @@
                 nameCursor.classList.add('visible');
             });
 
-            profile.addEventListener('mousemove', event => {
-
+            profile.addEventListener('mousemove', (event) => {
                 nameCursor.style.left = event.clientX + 'px';
                 nameCursor.style.top = event.clientY + 'px';
-
             });
 
             profile.addEventListener('mouseleave', () => {
