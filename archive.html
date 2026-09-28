@@ -571,6 +571,7 @@
             <button type="button" data-filter="print">Print</button>
             <button type="button" data-filter="web">Web</button>
             <button type="button" data-filter="photography">Photography</button>
+            <button type="button" data-filter="video">Video</button>
             <button type="button" data-filter="exhibition design">Exhibition design</button>
             <button type="button" data-filter="other">Other</button>
         </nav>
@@ -692,7 +693,7 @@ fetch('projects.json')
 
                         if (item.image) media.push({ type: mediaType === 'gif' ? 'gif' : 'image', src: resolveMediaSrc(item.image) });
                         if (item.gif) media.push({ type: 'gif', src: resolveMediaSrc(item.gif) });
-                        if (item.video) media.push({ type: 'video', src: resolveMediaSrc(item.video), poster: resolveMediaSrc(item.poster) });
+                        if (item.video) media.push({ type: 'video', loop: mediaType === 'looping video', src: resolveMediaSrc(item.video), poster: resolveMediaSrc(item.poster) });
                     });
                 }
 
@@ -827,6 +828,9 @@ fetch('projects.json')
 
                     const renderMediaSlide = (media) => {
                         if (!media || !media.src) return '';
+                        if (media.type === 'video' && media.loop) {
+                            return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`;
+                        }
                         if (media.type === 'video') {
                             return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} controls playsinline muted loop></video>`;
                         }
@@ -847,6 +851,11 @@ fetch('projects.json')
                     overlay.appendChild(modal);
                     document.body.appendChild(overlay);
                     currentModal = overlay;
+
+                    modal.querySelectorAll('video[autoplay]').forEach((video) => {
+                        video.muted = true;
+                        video.play().catch(() => {});
+                    });
 
                     const descriptionElement = modal.querySelector('.project-description-slide');
                     const renderDescription = (language) => {
