@@ -54,18 +54,16 @@
 
         #bg-slideshow {
             position: fixed;
-            inset: 0;
+            top: 0;
+            right: 0;
+            width: calc(100% - 500px);
             z-index: 0;
-            overflow: hidden;
             pointer-events: none;
         }
         #bg-slideshow img {
-            position: absolute;
-            top: 50%;
-            left: 0;
+            display: block;
             width: 100%;
             height: auto;
-            transform: translateY(-50%);
         }
         header, main {
             position: relative;
