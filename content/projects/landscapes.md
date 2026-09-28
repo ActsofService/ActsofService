@@ -12,7 +12,9 @@ descriptionSwedish: En elektronisk låt producerad av Vilmar Janson blev till et
   [video](https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK) som visades i
   Wisdome på Tekniska museet. I samarbete med Kungliga musikhögskolan, i grupp
   med Phoebe Crookes.
-image: /images/uploads/landscapes_3.gif
+coverMediaType: video
+image: ""
+coverVideo: /images/uploads/landscapes_1.mp4
 gallery:
   - mediaType: image
     gif: /images/uploads/landscapes_2.gif
