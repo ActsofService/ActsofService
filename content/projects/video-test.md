@@ -2,7 +2,9 @@
 title: VIDEO TEST
 descriptionEnglish: TEST
 descriptionSwedish: TEST
-image: /images/uploads/2.png
+coverMediaType: video
+image: ""
+coverVideo: /images/uploads/olle_ljung_video_2.mp4
 gallery:
   - mediaType: looping video
     video: /images/uploads/olle_ljung_video_2.mp4
