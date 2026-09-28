@@ -7,7 +7,6 @@
     <title>About — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="screensaver.css">
-
     <style>
         @font-face {
             font-family: "ABC Areal";
@@ -16,114 +15,33 @@
             font-weight: 100 1000;
             font-display: swap;
         }
-
-        html, body { 
-            height: 100%; 
-        }
-
+    </style>
+       <style>
+        html, body { height: 100%; }
         body { 
             margin: 0; 
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             font-weight: 400; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
+            display:flex; 
+            flex-direction:column; 
+            justify-content:space-between; 
             position: fixed;
             overflow: hidden;
         }
-
         main {
-            margin: 0 20px;
+            margin: 0px 20px;
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 510px;
+            grid-template-columns: 410px 510px;
             gap: 40px;
             text-align: left;
             flex: 1;
             font-size: 1.05rem;
-            overflow: hidden;
+            overflow: hidden;         
         }
-
-        /* Vänster sida */
-        .contact-content {
-            min-width: 0;
-        }
-
-        .intro {
-            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            max-width: 510px;
-        }
-
-        /* Profilbilder */
-        .profile-images {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-            align-items: flex-start;
-        }
-
-        .profile-image {
-            position: relative;
-            display: block;
-            cursor: none;
-        }
-
-        .profile-image img {
-            width: auto;
-            height: 35vh;
-            margin-top: 0;
-            display: block;
-        }
-
-        /* Namnet som följer muspekaren */
-        .name-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0;
-            transform: translate(12px, 12px);
-            font-family: "ABC Areal", sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            line-height: 1;
-            white-space: nowrap;
-            transition: opacity 0.1s ease;
-        }
-
-        .name-cursor.visible {
-            opacity: 1;
-        }
-
-        /* Höger sida – börjar i linje med bilderna */
         .contact-extra {
             width: 510px;
-            padding-top: 1.05rem;
         }
-
-        .contact-section-entries {
-            white-space: normal;
-        }
-
-        .titel {
-            font-weight: 700;
-            font-family: "ABC Areal", sans-serif;
-            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            line-height: inherit;
-        }
-
-        /* Länkar */
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            color: #f872be;
-        }
-
-        /* Footer */
         footer {
             position: fixed;
             left: 20px;
@@ -142,32 +60,37 @@
             align-items: flex-start;
             gap: 20px;
         }
-
-        /* Tablet */
+        img {
+            width: auto;
+            height: 50vh;
+            max-height: 530px;
+            margin-top: 20px;
+        }
+        .titel {
+            font-weight: 700;
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+            line-height: inherit;
+        }
+        .intro {
+      font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+        }
+        .contact-section-entries {
+            white-space: normal;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #f872be;
+        }
         @media (max-width: 1100px) {
-            main {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                overflow: visible;
-            }
-
-            .contact-extra {
-                width: auto;
-                padding-top: 0;
-            }
-
-            footer {
-                position: static;
-                left: auto;
-                right: auto;
-                bottom: auto;
-                margin: 20px 20px 0;
-                padding-bottom: 0;
+        footer {
                 font-size: 1.05rem;
             }
         }
-
-        /* Mobil */
         @media (max-width: 700px) {
             body {
                 position: static;
@@ -181,6 +104,7 @@
                 gap: 20px;
                 flex: none;
                 overflow: visible;
+                padding-bottom: 80px;
             }
 
             .contact-extra {
@@ -189,104 +113,38 @@
                 margin-bottom: 20px;
             }
 
-            .profile-images {
-                gap: 10px;
-                flex-wrap: wrap;
-            }
-
-            .profile-images img {
-                height: 30vh;
-            }
-
-            .profile-image {
-                cursor: default;
-            }
         }
+
     </style>
 </head>
-
 <body>
-
     <header>
+
     </header>
-
     <main>
-
-        <!-- VÄNSTER SIDA -->
         <div class="contact-content">
+            <p class="intro">We are a studio that focus on doing great stuff that makes you happy. We specialize in graphic design, art direction, web development, photography and more...</p>
+            <img src="https://cache.getarchive.net/Prod/thumb/cdn16/L3Bob3RvLzIwMjAvMDkvMTYvZ3J1cHBiaWxkLXRyZS1wZXJzb25lci1hNWU3MWMtNjQwLmpwZw%3D%3D/320/421/jpg" alt="About Us">
 
-            <p class="intro">
-                We are a studio that focus on doing great stuff that makes you happy.
-                We specialize in graphic design, art direction, web development,
-                photography and more...
-            </p>
-
-            <div class="profile-images">
-
-                <div class="profile-image" data-name="EMMY">
-                    <img src="images/uploads/Emmy_profil.png" alt="Emmy">
-                </div>
-
-                <div class="profile-image" data-name="OLLE">
-                    <img src="images/uploads/Olle_profil.png" alt="Olle">
-                </div>
-
-                <div class="profile-image" data-name="MOLLY">
-                    <img src="images/uploads/Molly_profil.png" alt="Molly">
-                </div>
-
-            </div>
-
-            <p>
-                Contact us at 
-                <a href="mailto:studio@actsofservice.se">
-                    studio@actsofservice.se
-                </a>
-            </p>
-
-            <p>
-                <a href="https://www.instagram.com/actsofservice/" target="_blank">
-                    @actsofservice
-                </a>
-            </p>
-
-            <p>
-                <a href="tel:+15551234567">
-                    Emmy Seeger +46 70 123 45 67
-                </a><br>
-
-                <a href="tel:+15551234567">
-                    Molly Schedin +46 70 123 45 67
-                </a><br>
-
-                <a href="tel:+15551234567">
-                    Olle Ljung +46 70 123 45 67
-                </a>
-            </p>
-
+            <p>Contact us at <a href="mailto:studio@actsofservice.se">studio@actsofservice.se</a></p>
+            <p><a href="https://www.instagram.com/actsofservice/" target="_blank">@actsofservice</a></p>
+            <p>  <a href="tel:+15551234567">Emmy Seeger +46 70 123 45 67</a><br>
+                 <a href="tel:+15551234567">Molly Schedin +46 70 123 45 67</a><br>
+                 <a href="tel:+15551234567">Olle Ljung +46 70 123 45 67</a></p>
         </div>
 
-
-        <!-- HÖGER SIDA -->
         <div class="contact-extra" id="contact-sections"></div>
 
     </main>
-
-
     <footer>
-        <p><a href="index.html">Home</a></p>
-        <p><a href="archive.html">Archive</a></p>
-        <p><a href="contact.html">Contact</a></p>
-        <p><a href="foundry.html">Foundry</a></p>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="archive.html">Archive</a></p>
+            <p><a href="contact.html">Contact</a></p>
+            <p><a href="foundry.html">Foundry</a></p>
+
     </footer>
 
-
-    <!-- Custom cursor -->
-    <div class="name-cursor" id="name-cursor"></div>
-
-
     <script src="screensaver.js"></script>
-
     <script>
         const escapeContactText = (value) => String(value)
             .replace(/&/g, '&amp;')
@@ -299,51 +157,13 @@
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('contact-sections');
-
                 container.innerHTML = (data.sections || []).map(section => {
                     const separator = section.format === 'comma' ? ', ' : '<br>';
-                    const entries = (section.entries || [])
-                        .map(escapeContactText)
-                        .join(separator);
-
-                    return `<p>
-                        <span class="titel">
-                            ${escapeContactText(section.title)}
-                        </span><br>
-                        <span class="contact-section-entries">
-                            ${entries}
-                        </span>
-                    </p>`;
+                    const entries = (section.entries || []).map(escapeContactText).join(separator);
+                    return `<p><span class="titel">${escapeContactText(section.title)}</span><br><span class="contact-section-entries">${entries}</span></p>`;
                 }).join('');
             })
-            .catch(error => {
-                console.error('Could not load contact sections', error);
-            });
-
-
-        /* NAME CURSOR */
-
-        const nameCursor = document.getElementById('name-cursor');
-        const profileImages = document.querySelectorAll('.profile-image');
-
-        profileImages.forEach(profile => {
-
-            profile.addEventListener('mouseenter', () => {
-                nameCursor.textContent = profile.dataset.name;
-                nameCursor.classList.add('visible');
-            });
-
-            profile.addEventListener('mousemove', (event) => {
-                nameCursor.style.left = event.clientX + 'px';
-                nameCursor.style.top = event.clientY + 'px';
-            });
-
-            profile.addEventListener('mouseleave', () => {
-                nameCursor.classList.remove('visible');
-            });
-
-        });
+            .catch(error => console.error('Could not load contact sections', error));
     </script>
-
 </body>
 </html>
