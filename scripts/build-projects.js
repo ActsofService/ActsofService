@@ -17,6 +17,8 @@ const projects = files.map(filename => {
     descriptionEnglish: data.descriptionEnglish || data.description || '',
     descriptionSwedish: data.descriptionSwedish || '',
     image: data.image,
+    coverMediaType: data.coverMediaType || 'image',
+    coverVideo: data.coverVideo || '',
     gallery: data.gallery || [],
     date: data.date,
     commissioner: data.commissioner || '',
