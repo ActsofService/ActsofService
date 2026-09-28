@@ -1,7 +1,7 @@
 ---
 title: VIDEO TEST
 descriptionEnglish: TEST
-descriptionSwedish: TEST
+descriptionSwedish: TESTING
 coverMediaType: video
 image: ""
 coverVideo: /images/uploads/olle_ljung_video_2.mp4
