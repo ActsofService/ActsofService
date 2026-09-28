@@ -79,7 +79,6 @@
             text-align: left;
             flex: 1;
             font-size: 1.05rem;
-            height: 10vh;
         }
         .titel {
             font-size: 16rem;
@@ -93,9 +92,12 @@
             width: calc(100vw - 40px);
             padding-right: -500px;
             position:fixed;
-            bottom: 0;
+            bottom: 15vh;
             left: 0;
             z-index: 0;
+        }
+        .titel p {
+            margin: 0;
         }
         a {
             color: inherit;
@@ -146,18 +148,11 @@ fetch('projects.json')
         if (!images.length) return;
 
         const img = document.querySelector('#bg-slideshow img');
-        let last = -1;
-
-        const pickNext = () => {
-            if (images.length === 1) return 0;
-            let next;
-            do { next = Math.floor(Math.random() * images.length); } while (next === last);
-            return next;
-        };
+        let index = 0;
 
         const show = () => {
-            last = pickNext();
-            const src = images[last];
+            const src = images[index];
+            index = (index + 1) % images.length;
             const loader = new Image();
             loader.onload = () => { img.src = src; };
             loader.src = src;
