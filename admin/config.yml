@@ -33,10 +33,10 @@ collections:
         widget: "list"
         required: false
         fields:
-          - { label: "Media Type", name: "mediaType", widget: "select", options: ["image", "gif", "video"], default: "image" }
+          - { label: "Media Type", name: "mediaType", widget: "select", options: ["image", "gif", "video", "looping video"], default: "image" }
           - { label: "Image", name: "image", widget: "image", required: false, hint: "Images and GIFs show an image preview in the CMS." }
           - { label: "GIF", name: "gif", widget: "image", required: false, hint: "Use the image picker for a GIF so the CMS can show its preview." }
-          - { label: "Video", name: "video", widget: "file", required: false }
+          - { label: "Video", name: "video", widget: "file", required: false, hint: "Used for both Media Types \"video\" (with player controls) and \"looping video\" (autoplays, muted, loops forever, no controls - like a GIF). Use an MP4." }
           - { label: "Video Preview Image", name: "poster", widget: "image", required: false, hint: "Optional thumbnail shown in the CMS workflow and on the archive before the video plays." }
       - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM", time_format: false, picker_utc: true }
       - { label: "Commissioner", name: "commissioner", widget: "string", required: false }
@@ -51,6 +51,7 @@ collections:
           - "print"
           - "web"
           - "photography"
+          - "video"
           - "exhibition design"
           - "other"
       - { label: "Favorite", name: "favorite", widget: "boolean", default: false, required: false }
