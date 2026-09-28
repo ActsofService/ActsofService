@@ -48,7 +48,8 @@
     "gallery": [
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/olle_ljung_video_2.mp4"
+        "video": "/images/uploads/olle_ljung_video_2.mp4",
+        "poster": "/images/uploads/1.-svenskttennverni_select-12.jpg"
       }
     ],
     "date": "2026-09",
@@ -223,6 +224,25 @@
     ],
     "date": "2025-01",
     "commissioner": "Beckmans College of Design, Juice Studios",
+    "category": [
+      "print"
+    ],
+    "favorite": false,
+    "link": null,
+    "body": "hej\n"
+  },
+  {
+    "title": "Freyja + Söder",
+    "descriptionEnglish": "mat mat",
+    "descriptionSwedish": "mat mat",
+    "image": "/images/uploads/ny_freyja_gif.gif",
+    "gallery": [
+      {
+        "mediaType": "image"
+      }
+    ],
+    "date": "2025-01",
+    "commissioner": "Freyja + Söder",
     "category": [
       "print"
     ],
