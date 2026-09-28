@@ -5,6 +5,8 @@ descriptionSwedish: TEST
 image: /images/uploads/1.-img_5923.jpg
 gallery:
   - mediaType: image
+    video: /images/uploads/olle_ljung_video_2.mp4
+    poster: /images/uploads/2.png
 date: 2026-09
 favorite: false
 ---
