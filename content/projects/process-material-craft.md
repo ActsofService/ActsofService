@@ -20,10 +20,12 @@ descriptionSwedish: >
   Fotograf: Madeleine Sjöberg
 
   Dokumentation: Jesper Smeding.
-image: /images/uploads/1.-main-poster_1080x1350.jpg
+coverMediaType: image
+image: /images/uploads/2.png
 gallery:
-  - mediaType: image
-    image: /images/uploads/2.png
+  - mediaType: gif
+    image: ""
+    gif: /images/uploads/1.-main-poster_1080x1350.gif
   - mediaType: image
     image: /images/uploads/3.png
   - mediaType: image
