@@ -25,7 +25,7 @@ gallery:
 date: 2024-03
 commissioner: Beckmans, Tekniska Museet
 category:
-  - other
+  - video
 favorite: false
 link: ""
 ---
