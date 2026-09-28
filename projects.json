@@ -259,6 +259,10 @@
       {
         "mediaType": "image",
         "gif": "/images/uploads/landscapes_5-1-.gif"
+      },
+      {
+        "mediaType": "image",
+        "poster": "https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK"
       }
     ],
     "date": "2024-03",
@@ -267,7 +271,7 @@
       "other"
     ],
     "favorite": false,
-    "link": "https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK",
+    "link": null,
     "body": "hej\n"
   }
 ]
