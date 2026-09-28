@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <title>About — Acts of Service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="screensaver.css">
+
     <style>
         @font-face {
             font-family: "ABC Areal";
@@ -16,19 +18,24 @@
             font-display: swap;
         }
     </style>
-       <style>
-        html, body { height: 100%; }
+
+    <style>
+        html, body { 
+            height: 100%; 
+        }
+
         body { 
             margin: 0; 
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             font-weight: 400; 
-            display:flex; 
-            flex-direction:column; 
-            justify-content:space-between; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
             position: fixed;
             overflow: hidden;
         }
+
         main {
             margin: 0px 20px;
             display: grid;
@@ -39,9 +46,11 @@
             font-size: 1.05rem;
             overflow: hidden;         
         }
+
         .contact-extra {
             width: 510px;
         }
+
         footer {
             position: fixed;
             left: 20px;
@@ -60,23 +69,36 @@
             align-items: flex-start;
             gap: 20px;
         }
-        img {
-            width: auto;
-            height: 50vh;
+
+        /* Profilbilder */
+        .profile-images {
+            display: flex;
+            gap: 20px;
             margin-top: 20px;
         }
+
+        .profile-images img {
+            width: auto;
+            height: 35vh;
+            margin-top: 0;
+            display: block;
+        }
+
         .titel {
             font-weight: 700;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
             line-height: inherit;
         }
+
         .intro {
-      font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
         }
+
         .contact-section-entries {
             white-space: normal;
         }
+
         a {
             color: inherit;
             text-decoration: none;
@@ -85,8 +107,9 @@
         a:hover {
             color: #f872be;
         }
+
         @media (max-width: 1100px) {
-        footer {
+            footer {
                 position: static;
                 left: auto;
                 right: auto;
@@ -96,6 +119,7 @@
                 font-size: 1.05rem;
             }
         }
+
         @media (max-width: 700px) {
             body {
                 position: static;
@@ -117,38 +141,72 @@
                 margin-bottom: 20px;
             }
 
+            .profile-images {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .profile-images img {
+                height: 30vh;
+            }
         }
 
     </style>
 </head>
+
 <body>
+
     <header>
-
     </header>
-    <main>
-        <div class="contact-content">
-            <p class="intro">We are a studio that focus on doing great stuff that makes you happy. We specialize in graphic design, art direction, web development, photography and more...</p>
-            <img src="https://cache.getarchive.net/Prod/thumb/cdn16/L3Bob3RvLzIwMjAvMDkvMTYvZ3J1cHBiaWxkLXRyZS1wZXJzb25lci1hNWU3MWMtNjQwLmpwZw%3D%3D/320/421/jpg" alt="About Us">
 
-            <p>Contact us at <a href="mailto:studio@actsofservice.se">studio@actsofservice.se</a></p>
-            <p><a href="https://www.instagram.com/actsofservice/" target="_blank">@actsofservice</a></p>
-            <p>  <a href="tel:+15551234567">Emmy Seeger +46 70 123 45 67</a><br>
-                 <a href="tel:+15551234567">Molly Schedin +46 70 123 45 67</a><br>
-                 <a href="tel:+15551234567">Olle Ljung +46 70 123 45 67</a></p>
+    <main>
+
+        <div class="contact-content">
+
+            <p class="intro">
+                We are a studio that focus on doing great stuff that makes you happy.
+                We specialize in graphic design, art direction, web development,
+                photography and more...
+            </p>
+
+            <div class="profile-images">
+                <img src="images/Emmy_profil.png" alt="Emmy">
+                <img src="images/Olle_profil.png" alt="Olle">
+                <img src="images/Molly_profil.png" alt="Molly">
+            </div>
+
+            <p>
+                Contact us at 
+                <a href="mailto:studio@actsofservice.se">studio@actsofservice.se</a>
+            </p>
+
+            <p>
+                <a href="https://www.instagram.com/actsofservice/" target="_blank">
+                    @actsofservice
+                </a>
+            </p>
+
+            <p>
+                <a href="tel:+15551234567">Emmy Seeger +46 70 123 45 67</a><br>
+                <a href="tel:+15551234567">Molly Schedin +46 70 123 45 67</a><br>
+                <a href="tel:+15551234567">Olle Ljung +46 70 123 45 67</a>
+            </p>
+
         </div>
 
         <div class="contact-extra" id="contact-sections"></div>
 
     </main>
-    <footer>
-            <p><a href="index.html">Home</a></p>
-            <p><a href="archive.html">Archive</a></p>
-            <p><a href="contact.html">Contact</a></p>
-            <p><a href="foundry.html">Foundry</a></p>
 
+    <footer>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="archive.html">Archive</a></p>
+        <p><a href="contact.html">Contact</a></p>
+        <p><a href="foundry.html">Foundry</a></p>
     </footer>
 
     <script src="screensaver.js"></script>
+
     <script>
         const escapeContactText = (value) => String(value)
             .replace(/&/g, '&amp;')
@@ -161,13 +219,22 @@
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('contact-sections');
+
                 container.innerHTML = (data.sections || []).map(section => {
                     const separator = section.format === 'comma' ? ', ' : '<br>';
-                    const entries = (section.entries || []).map(escapeContactText).join(separator);
-                    return `<p><span class="titel">${escapeContactText(section.title)}</span><br><span class="contact-section-entries">${entries}</span></p>`;
+                    const entries = (section.entries || [])
+                        .map(escapeContactText)
+                        .join(separator);
+
+                    return `<p>
+                        <span class="titel">${escapeContactText(section.title)}</span><br>
+                        <span class="contact-section-entries">${entries}</span>
+                    </p>`;
                 }).join('');
             })
             .catch(error => console.error('Could not load contact sections', error));
     </script>
+
 </body>
 </html>
+```
