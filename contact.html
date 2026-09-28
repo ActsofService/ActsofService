@@ -1,3 +1,4 @@
+```html id="d4r9x2"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,6 @@
             overflow: hidden;
         }
 
-        /* Huvudinnehåll */
         main {
             margin: 0 20px;
             display: grid;
@@ -97,9 +97,10 @@
             opacity: 1;
         }
 
-        /* Kontaktinformationen till höger */
+        /* Höger sida – börjar i linje med bilderna */
         .contact-extra {
             width: 510px;
+            padding-top: 1.05rem;
         }
 
         .contact-section-entries {
@@ -153,6 +154,7 @@
 
             .contact-extra {
                 width: auto;
+                padding-top: 0;
             }
 
             footer {
@@ -197,7 +199,6 @@
                 height: 30vh;
             }
 
-            /* På touch-enheter behövs ingen custom cursor */
             .profile-image {
                 cursor: default;
             }
@@ -288,10 +289,6 @@
     <script src="screensaver.js"></script>
 
     <script>
-        /* --------------------------------
-           CONTACT.JSON
-        -------------------------------- */
-
         const escapeContactText = (value) => String(value)
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
@@ -325,9 +322,7 @@
             });
 
 
-        /* --------------------------------
-           NAME CURSOR
-        -------------------------------- */
+        /* NAME CURSOR */
 
         const nameCursor = document.getElementById('name-cursor');
         const profileImages = document.querySelectorAll('.profile-image');
@@ -353,3 +348,4 @@
 
 </body>
 </html>
+```
