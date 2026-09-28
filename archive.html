@@ -487,6 +487,13 @@
             }
 
 
+            body.modal-open main {
+                position: fixed;
+                top: calc(var(--scroll-lock, 0px) * -1);
+                left: 0;
+                right: 0;
+            }
+
             .carousel-modal-overlay {
                 position: absolute;
                 top: 0;
@@ -788,7 +795,10 @@ fetch('projects.json')
                     if (currentModal) {
                         currentModal.remove();
                     }
+                    const savedScrollY = window.scrollY;
+                    document.body.style.setProperty('--scroll-lock', `${savedScrollY}px`);
                     document.body.classList.add('modal-open');
+                    window.scrollTo(0, 0);
                     // Create overlay
                     const overlay = document.createElement('div');
                     overlay.className = 'carousel-modal-overlay';
@@ -889,6 +899,7 @@ fetch('projects.json')
                         modal.style.transition = 'opacity 0s linear';
                         if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
                         document.body.classList.remove('modal-open');
+                        window.scrollTo(0, savedScrollY);
                         overlay.style.animation = 'modalOverlayFadeOut 0.22s ease forwards';
                         setTimeout(() => {
                             overlay.remove();
