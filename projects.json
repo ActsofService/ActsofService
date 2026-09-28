@@ -47,9 +47,16 @@
     "image": "/images/uploads/1.-img_5923.jpg",
     "gallery": [
       {
-        "mediaType": "image",
+        "mediaType": "looping video",
         "video": "/images/uploads/olle_ljung_video_2.mp4",
         "poster": "/images/uploads/2.png"
+      },
+      {
+        "mediaType": "looping video",
+        "video": "/images/uploads/olle_ljung_video_2.mp4"
+      },
+      {
+        "mediaType": "image"
       }
     ],
     "date": "2026-09",
