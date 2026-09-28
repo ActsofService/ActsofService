@@ -126,6 +126,36 @@
             font-size: 8rem;
         }
         }
+
+        @media (max-width: 700px) {
+            body {
+                position: static;
+                height: auto;
+                min-height: 100%;
+                overflow: visible;
+            }
+
+            #bg-slideshow {
+                position: relative;
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+            }
+
+            #bg-slideshow img,
+            #bg-slideshow video {
+                flex-shrink: 0;
+            }
+
+            main {
+                flex: none;
+                padding-right: 0;
+                padding-top: 20px;
+                padding-bottom: 30vh;
+            }
+        }
     </style>
 </head>
 <body>
