@@ -44,7 +44,7 @@
     "title": "VIDEO TEST",
     "descriptionEnglish": "TEST",
     "descriptionSwedish": "TEST",
-    "image": "/images/uploads/2.png",
+    "image": "",
     "gallery": [
       {
         "mediaType": "looping video",
