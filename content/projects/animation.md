@@ -1,7 +1,8 @@
 ---
 title: Animation
-descriptionEnglish: Animation to music by Alvin Cronberg under Hans Wohlfarth,
-  in collaboration with the Royal College of Music.
+descriptionEnglish: "[Animation](https://vimeo.com/1033783167) to music by Alvin
+  Cronberg under Hans Wohlfarth, in collaboration with the Royal College of
+  Music."
 coverMediaType: video
 image: ""
 coverVideo: /images/uploads/1.mp4
