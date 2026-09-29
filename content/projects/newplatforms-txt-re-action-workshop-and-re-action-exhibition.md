@@ -37,7 +37,7 @@ gallery:
   - mediaType: image
     image: /images/uploads/5.-img_6030.jpg
 date: 2025-10
-commissioner: Beckmans College of Design
+commissioner: Beckmans
 category:
   - print
   - exhibition design
