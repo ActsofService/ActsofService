@@ -8,7 +8,7 @@ coverVideo: /images/uploads/olle_ljung_video_2.mp4
 gallery:
   - mediaType: video
     video: https://vimeo.com/901899552?fl=ip&fe=ec
-    poster: https://vimeo.com/901899552?fl=ip&fe=ec
+    poster: ""
 date: 2026-09
 favorite: false
 ---
