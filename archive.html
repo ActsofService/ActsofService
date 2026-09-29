@@ -77,6 +77,11 @@
         a:hover {
             color: #c5e364;
         }
+        .project-description-link {
+            font-size: 0.8rem;
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+        }
         main {
             margin: 0px 20px;
             padding: 100px 0;
@@ -606,6 +611,21 @@
 <script>
 let currentModal = null;
 
+// Let vertical mouse-wheel scrolling drive the horizontal project carousel
+// (desktop only - on mobile the carousel stacks vertically and scrolls normally).
+document.addEventListener('wheel', (e) => {
+    const carousel = e.target.closest('.project-images');
+    if (!carousel) return;
+    if (getComputedStyle(carousel).overflowX !== 'scroll') return;
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    // Bypass the carousel's CSS scroll-behavior: smooth for this - it fights
+    // rapid wheel events and makes the scroll feel laggy compared to native
+    // horizontal scrolling, which isn't subject to that CSS property.
+    carousel.style.scrollBehavior = 'auto';
+    carousel.scrollLeft += e.deltaY;
+    e.preventDefault();
+}, { passive: false });
+
 const archiveHeading = document.querySelector('header h1');
 const defaultArchiveHTML = archiveHeading ? archiveHeading.innerHTML : '';
 
@@ -832,7 +852,10 @@ fetch('projects.json')
                         .replace(/"/g, '&quot;')
                         .replace(/'/g, '&#039;');
 
+                    const normalizeLinkHref = (href) => /^(https?:|mailto:|tel:)/i.test(href) ? href : `https://${href}`;
+
                     const markdownToHtml = (value) => escapeHtml(value)
+                        .replace(/\[([^\]]+)\]\(([^\s)]+)\)/g, (match, label, href) => `<a href="${normalizeLinkHref(href)}" class="project-description-link" target="_blank" rel="noopener noreferrer">${label}</a>`)
                         .replace(/\t/g, '<br>')
                         .replace(/\r?\n/g, '<br>')
                         .replace(/\+\+(.+?)\+\+/g, '<u>$1</u>')
@@ -887,16 +910,6 @@ fetch('projects.json')
                         video.muted = true;
                         video.play().catch(() => {});
                     });
-
-                    const carouselTrack = modal.querySelector('[data-carousel]');
-                    const desktopLayoutQuery = window.matchMedia('(min-width: 701px)');
-                    if (carouselTrack) {
-                        carouselTrack.addEventListener('wheel', (e) => {
-                            if (!desktopLayoutQuery.matches) return;
-                            carouselTrack.scrollLeft += e.deltaY + e.deltaX;
-                            e.preventDefault();
-                        }, { passive: false });
-                    }
 
                     const descriptionElement = modal.querySelector('.project-description-slide');
                     const renderDescription = (language) => {
