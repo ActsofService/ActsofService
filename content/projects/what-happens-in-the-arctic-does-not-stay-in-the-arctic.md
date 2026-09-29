@@ -39,6 +39,8 @@ date: 2025-05
 commissioner: Svenskt Tenn
 category:
   - exhibition design
+  - print
+  - visual identity
 favorite: true
 link: https://beckmans.college/Arctic/
 ---
