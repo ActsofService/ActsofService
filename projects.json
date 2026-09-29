@@ -90,7 +90,9 @@
     ],
     "date": "2026-05",
     "commissioner": "",
-    "category": [],
+    "category": [
+      "print"
+    ],
     "favorite": false,
     "link": null,
     "body": "hej\n"
@@ -319,7 +321,9 @@
     ],
     "date": "2024-03",
     "commissioner": "",
-    "category": [],
+    "category": [
+      "video"
+    ],
     "favorite": false,
     "link": "https://vimeo.com/1033783167",
     "body": "hjjh\n"
