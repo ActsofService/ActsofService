@@ -78,7 +78,6 @@
             color: #c5e364;
         }
         .project-description-link {
-            font-size: 0.8rem;
             text-decoration: underline;
             text-underline-offset: 0.15em;
         }
@@ -663,6 +662,25 @@ const animateDescriptionWords = (container) => {
     });
 };
 
+// Only play a looping video once it's actually scrolled into view, and pause
+// it again once it isn't. On mobile the gallery carousel is a tall vertical
+// stack, so most slides sit off-screen when a project first opens; calling
+// play() on an off-screen video is unreliable, so autoplay is driven by
+// visibility instead.
+const playWhenVisible = (video) => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.play().catch(() => {});
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.1 });
+    observer.observe(video);
+    return observer;
+};
+
 fetch('projects.json')
     .then(res => res.json())
     .then(projects => {
@@ -815,7 +833,7 @@ fetch('projects.json')
             const coverMedia = div.querySelector('.project-cover img, .project-cover video');
             div.querySelectorAll('.project-cover video').forEach((video) => {
                 video.muted = true;
-                video.play().catch(() => {});
+                playWhenVisible(video);
             });
             if (coverMedia) {
                 div.addEventListener('click', () => {
@@ -826,6 +844,8 @@ fetch('projects.json')
                     if (currentModal) {
                         currentModal.remove();
                     }
+                    // Pause any cover videos playing in the background list
+                    document.querySelectorAll('.project-cover video').forEach((video) => video.pause());
                     const savedScrollY = window.scrollY;
                     document.body.style.setProperty('--scroll-lock', `${savedScrollY}px`);
                     document.body.classList.add('modal-open');
@@ -906,9 +926,9 @@ fetch('projects.json')
                     document.body.appendChild(overlay);
                     currentModal = overlay;
 
-                    modal.querySelectorAll('video[autoplay]').forEach((video) => {
+                    const galleryVideoObservers = Array.from(modal.querySelectorAll('video[autoplay]')).map((video) => {
                         video.muted = true;
-                        video.play().catch(() => {});
+                        return playWhenVisible(video);
                     });
 
                     const descriptionElement = modal.querySelector('.project-description-slide');
@@ -934,6 +954,9 @@ fetch('projects.json')
                         if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
                         document.body.classList.remove('modal-open');
                         window.scrollTo(0, savedScrollY);
+                        galleryVideoObservers.forEach((observer) => observer.disconnect());
+                        // Resume cover videos in the background list
+                        document.querySelectorAll('.project-cover video').forEach((video) => video.play().catch(() => {}));
                         overlay.style.animation = 'modalOverlayFadeOut 0.22s ease forwards';
                         setTimeout(() => {
                             overlay.remove();
