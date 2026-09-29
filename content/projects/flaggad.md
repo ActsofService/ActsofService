@@ -21,6 +21,8 @@ gallery:
   - mediaType: gif
     gif: /images/uploads/f1.gif
 date: 2026-05
+category:
+  - print
 favorite: false
 ---
 hej
