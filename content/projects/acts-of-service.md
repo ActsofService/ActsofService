@@ -29,8 +29,6 @@ gallery:
     image: /images/uploads/emmy_seeger_foto_1.jpg
   - mediaType: image
     image: /images/uploads/emmy_seeger_foto_2.jpg
-  - mediaType: image
-    image: /images/uploads/emmy_seeger_foto_3.jpg
   - mediaType: looping video
     video: /images/uploads/actsofservicetype_1.mp4
 date: 2026-05
