@@ -8,6 +8,8 @@ coverVideo: /images/uploads/1.mp4
 gallery:
   - mediaType: looping video
     video: /images/uploads/beginnning.mp4
+  - mediaType: looping video
+    video: /images/uploads/running.mp4
 date: 2024-03
 favorite: false
 ---
