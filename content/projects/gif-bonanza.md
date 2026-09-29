@@ -10,6 +10,9 @@ descriptionEnglish: >-
   the graduating show's campaign.
 
 
+  See the full campaign video [here](https://youtu.be/TUCXc2IjZaE?si=IB9FuWP8_28Kk26r).
+
+
   The campaign was created together with Linn Sehlstedt and Phoebe Crookes.
 descriptionSwedish: >-
   Examensutställningen är en plats att göra avtryck på, en chans att ta plats
