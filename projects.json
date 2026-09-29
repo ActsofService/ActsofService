@@ -53,7 +53,7 @@
       {
         "mediaType": "video",
         "video": "https://vimeo.com/901899552?fl=ip&fe=ec",
-        "poster": "https://vimeo.com/901899552?fl=ip&fe=ec"
+        "poster": ""
       }
     ],
     "date": "2026-09",
@@ -135,7 +135,9 @@
     "commissioner": "Beckmans, Konstfack & Malmstens",
     "category": [
       "exhibition design",
-      "print"
+      "print",
+      "visual identity",
+      "art direction"
     ],
     "favorite": true,
     "link": null,
