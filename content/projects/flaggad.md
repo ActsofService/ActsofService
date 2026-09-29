@@ -9,7 +9,8 @@ descriptionSwedish: >-
 
 
   Under tusentals år har flaggan haft som funktion att samla människor kring en symbol för att skapa en gemensam identitet. Den kan vara politisk, ideologisk, existentiell eller praktisk. Det handlar i hög grad om grafisk design, och flaggor är ett bra exempel på symbolers roll i samhället, makten de har och makten vi tillskriver dem.
-image: /images/uploads/molly_schedin_foto_3-1-.png
+coverMediaType: image
+image: /images/uploads/tq.png
 gallery:
   - mediaType: image
     image: /images/uploads/molly_schedin_foto_1.png
