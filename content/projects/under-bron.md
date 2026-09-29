@@ -1,5 +1,5 @@
 ---
-title: Under Bron
+title: 5EM x Skyddsrum @ Under Bron
 descriptionEnglish: |-
   Visuals for the collective S*kyddsrum* @ Under Bron.
 
