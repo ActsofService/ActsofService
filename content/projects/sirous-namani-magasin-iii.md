@@ -3,7 +3,7 @@ title: Sirous Namazi - Magasin III
 descriptionEnglish: >-
   Poster for an exhibition by artist Sirous Namazi at Magasin III during 2023
   and 2024. The design plays on memories and displays a quote by the artist
-  himself.
+  himself. Screenprinted on wrapper tissue.
 
 
   Poster made as a school project during Beckmans together with Ella Farestam.
