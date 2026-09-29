@@ -21,6 +21,7 @@ descriptionSwedish: Visuell identitet från andra året på Beckmans av Olle Lju
   vinyl, cd och kassett samt en designmanual. Spegel (Erling Swedenmark) har
   hjälpt till att förverkliga projektet och skapat musik för albumet.
 coverMediaType: image
+image: /images/uploads/helvetet_1.jpg
 gallery:
   - mediaType: image
 date: 2024-10
