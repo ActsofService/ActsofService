@@ -7,7 +7,7 @@ image: ""
 coverVideo: /images/uploads/1.mp4
 gallery:
   - mediaType: looping video
-    video: ""
+    video: /images/uploads/beginnning.mp4
 date: 2024-03
 favorite: false
 ---
