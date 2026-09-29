@@ -1,5 +1,7 @@
 ---
 title: Flaggad
+descriptionEnglish: "*Flaggad* is a visual studie of the relationship between
+  form, viewer, and context, using the flag as a medium."
 descriptionSwedish: >-
   Flaggad är en visuell studie av relationen mellan form, betraktare och kontext
   genom flaggan som medium.
