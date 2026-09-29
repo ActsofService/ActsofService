@@ -1,0 +1,24 @@
+---
+title: Sirous Namani - Magasin III
+descriptionEnglish: >-
+  Poster for an exhibition by artist Sirous Namazi at Magasin III during 2023
+  and 2024. The design plays on memories and displays a quote by the artist
+  himself.
+
+
+  Poster made as a school project during Beckmans together with Ella Farestam.
+coverMediaType: image
+image: /images/uploads/cov.jpg
+gallery:
+  - mediaType: image
+    image: /images/uploads/ver1.jpg
+  - mediaType: image
+    image: /images/uploads/p1070005-kopia-.jpg
+  - mediaType: image
+    image: /images/uploads/p1060895.jpg
+date: 2024-01
+category:
+  - print
+favorite: false
+---
+hej
