@@ -163,6 +163,10 @@
             display: none;
         }
 
+        .modal-close {
+            display: none;
+        }
+
         .carousel-modal-overlay {
             position: fixed;
             inset: 0;
@@ -549,6 +553,37 @@
 
             body.modal-open header h1 {
                 display: none;
+            }
+
+            .modal-close {
+                display: block;
+                position: fixed;
+                top: calc(20px + env(safe-area-inset-top, 0px));
+                left: 20px;
+                z-index: 1002;
+                width: 16px;
+                height: 16px;
+                padding: 0;
+                border: 0;
+                background: none;
+                cursor: pointer;
+            }
+
+            .modal-close span {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: currentColor;
+            }
+
+            .modal-close span:first-child {
+                transform: rotate(45deg);
+            }
+
+            .modal-close span:last-child {
+                transform: rotate(-45deg);
             }
 
             .description-title {
@@ -963,6 +998,18 @@ fetch('projects.json')
                             currentModal = null;
                         }, 220);
                     };
+
+                    // Mobile-only close button, top-left corner
+                    const closeButton = document.createElement('button');
+                    closeButton.type = 'button';
+                    closeButton.className = 'modal-close';
+                    closeButton.setAttribute('aria-label', 'Close');
+                    closeButton.innerHTML = '<span></span><span></span>';
+                    closeButton.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeModal();
+                    });
+                    overlay.appendChild(closeButton);
 
                     // Close modal on overlay click
                     overlay.addEventListener('click', (e) => {
