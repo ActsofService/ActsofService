@@ -888,6 +888,16 @@ fetch('projects.json')
                         video.play().catch(() => {});
                     });
 
+                    const carouselTrack = modal.querySelector('[data-carousel]');
+                    const desktopLayoutQuery = window.matchMedia('(min-width: 701px)');
+                    if (carouselTrack) {
+                        carouselTrack.addEventListener('wheel', (e) => {
+                            if (!desktopLayoutQuery.matches) return;
+                            carouselTrack.scrollLeft += e.deltaY + e.deltaX;
+                            e.preventDefault();
+                        }, { passive: false });
+                    }
+
                     const descriptionElement = modal.querySelector('.project-description-slide');
                     const renderDescription = (language) => {
                         selectedLanguage = language;
