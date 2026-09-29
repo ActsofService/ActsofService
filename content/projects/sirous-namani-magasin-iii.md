@@ -12,6 +12,8 @@ image: /images/uploads/ver1.jpg
 gallery:
   - mediaType: image
     image: /images/uploads/p1070005-kopia-.jpg
+  - mediaType: looping video
+    video: /images/uploads/ella_farestam_molly_schedin_post.mp4
   - mediaType: image
     image: /images/uploads/p1060895.jpg
 date: 2024-01
