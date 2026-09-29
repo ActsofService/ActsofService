@@ -18,6 +18,7 @@ gallery:
   - mediaType: image
     image: /images/uploads/img_6701.jpg
 date: 2025-01
+commissioner: Beckmans, Juice Studios
 category:
   - photography
   - print
