@@ -8,7 +8,7 @@ descriptionEnglish: >-
 
   Poster made as a school project during Beckmans together with Ella Farestam.
 coverMediaType: image
-image: /images/uploads/cov.jpg
+image: /images/uploads/cover.png
 gallery:
   - mediaType: image
     image: /images/uploads/ver1.jpg
