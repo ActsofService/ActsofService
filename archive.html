@@ -268,24 +268,14 @@
         }
 
         .project-cover .project-meta-grid {
-            display: flex;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 12px;
+            row-gap: 0;
             text-align: left;
-            align-items: flex-start;
-            justify-content: flex-end;
             font-family: "ABC Areal", sans-serif;
             font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 50;
             font-size: 0.8rem;
-            
-        }
-
-        .project-cover .project-meta-grid .meta-labels,
-        .project-cover .project-meta-grid .meta-values {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            width: auto;
-            
 
         }
 
@@ -462,11 +452,6 @@
                 justify-content: center;
                 text-align: left;
             }
-
-            .project-cover .project-meta-grid .meta-labels,
-            .project-cover .project-meta-grid .meta-values {
-                text-align: left;
-            }
         }
 
         @media (max-width: 700px) {
@@ -558,8 +543,8 @@
             .modal-close {
                 display: block;
                 position: absolute;
-                top: env(safe-area-inset-top, 0px);
-                left: 6px;
+                top: 10px;
+                left: 10px;
                 z-index: 1002;
                 width: 16px;
                 height: 16px;
@@ -812,7 +797,7 @@ fetch('projects.json')
                     : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right"></div></div>`;
 
                 // Insert meta fields (Date, Commissioner, Category) if provided by the CMS
-                const dateStr = p.date ? new Date(p.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', timeZone: 'UTC' }) : '';
+                const dateStr = p.date ? new Date(p.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', timeZone: 'UTC' }) : '';
                 const commissionerStr = p.commissioner || '';
                 const categoryValues = Array.isArray(p.category)
                     ? p.category
@@ -824,42 +809,27 @@ fetch('projects.json')
                     temp.innerHTML = coverHtml;
                     const right = temp.querySelector('.cover-info-right');
                     if (right) {
-                        // simple two-column container: left = labels, right = values
+                        // two-column grid: each label/value pair is its own row,
+                        // so a wrapping value pushes the next row down instead of
+                        // leaving the labels and values out of sync
                         const grid = document.createElement('div');
                         grid.className = 'project-meta-grid';
 
-                        const labels = document.createElement('div');
-                        labels.className = 'meta-labels';
-                        const values = document.createElement('div');
-                        values.className = 'meta-values';
+                        const addRow = (label, value) => {
+                            const lp = document.createElement('p');
+                            lp.className = 'meta-label';
+                            lp.textContent = label;
+                            grid.appendChild(lp);
+                            const vp = document.createElement('p');
+                            vp.className = 'meta-value';
+                            vp.textContent = value;
+                            grid.appendChild(vp);
+                        };
 
-                        if (dateStr) {
-                            const lp = document.createElement('p');
-                            lp.textContent = 'Date:';
-                            labels.appendChild(lp);
-                            const vp = document.createElement('p');
-                            vp.textContent = dateStr;
-                            values.appendChild(vp);
-                        }
-                        if (commissionerStr) {
-                            const lp = document.createElement('p');
-                            lp.textContent = 'Commissioner:';
-                            labels.appendChild(lp);
-                            const vp = document.createElement('p');
-                            vp.textContent = commissionerStr;
-                            values.appendChild(vp);
-                        }
-                        if (categoryStr) {
-                            const lp = document.createElement('p');
-                            lp.textContent = 'Category:';
-                            labels.appendChild(lp);
-                            const vp = document.createElement('p');
-                            vp.textContent = categoryStr;
-                            values.appendChild(vp);
-                        }
+                        if (dateStr) addRow('Date:', dateStr);
+                        if (commissionerStr) addRow('Commissioner:', commissionerStr);
+                        if (categoryStr) addRow('Category:', categoryStr);
 
-                        grid.appendChild(labels);
-                        grid.appendChild(values);
                         right.appendChild(grid);
                         coverHtml = temp.innerHTML;
                     }
