@@ -22,6 +22,7 @@ descriptionSwedish: >
   och varför det spelar roll för oss alla.
 
   What Happens In the Arctic Does Not Stay In the Arctic består av sju tolkningar av arktisk forskning, framtagna i dialog mellan studenter på Beckmans Designhögskola och forskare från Beijerinstitutet, i samarbete med Svenskt Tenn.
+coverMediaType: image
 image: /images/uploads/1.-svenskttennverni_select-12.jpg
 gallery:
   - mediaType: image
