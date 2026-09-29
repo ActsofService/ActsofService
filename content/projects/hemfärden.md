@@ -7,13 +7,14 @@ descriptionEnglish: >-
 
 
   Created together with Linn Sehlstedt, Olle Svensson and Stephanie Holmén.
-image: /images/uploads/501a9414.png
+coverMediaType: image
+image: /images/uploads/tidn2.jpg
 gallery:
   - mediaType: gif
     image: ""
-    gif: /images/uploads/2-3.gif
+    gif: /images/uploads/tidn.gif
   - mediaType: image
-    image: /images/uploads/501a9384.png
+    image: /images/uploads/tidn.jpg
   - mediaType: image
     image: /images/uploads/img_6701.jpg
 date: 2025-01
