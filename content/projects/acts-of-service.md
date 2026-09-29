@@ -26,6 +26,11 @@ coverMediaType: image
 image: /images/uploads/emmy_seeger_foto_4.jpg
 gallery:
   - mediaType: image
+    image: /images/uploads/emmy_seeger_foto_1.jpg
+  - mediaType: image
+    image: /images/uploads/emmy_seeger_foto_2.jpg
+  - mediaType: image
+    image: /images/uploads/emmy_seeger_foto_3.jpg
 date: 2026-05
 category:
   - print
