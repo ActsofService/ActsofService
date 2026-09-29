@@ -15,7 +15,7 @@ gallery:
   - mediaType: image
     image: /images/uploads/976edfbd-ae8a-4a38-90bf-aa26bb29b5d3.png
   - mediaType: looping video
-    video: /images/uploads/tillweb.mp4
+    video: /images/uploads/img_9514.mp4
   - mediaType: image
     video: ""
     image: /images/uploads/img_7327.png
