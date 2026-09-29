@@ -24,6 +24,16 @@ coverMediaType: image
 image: /images/uploads/helvetet_1.jpg
 gallery:
   - mediaType: image
+    image: /images/uploads/helvetet_2.jpg
+  - mediaType: image
+    image: /images/uploads/helvetet_3.jpg
+  - mediaType: image
+    image: /images/uploads/helvetet_4.jpg
+  - mediaType: image
+    image: /images/uploads/helvetet_5.jpg
+  - mediaType: image
+    image: /images/uploads/helvetet_7.jpg
+  - mediaType: image
 date: 2024-10
 commissioner: Beckmans
 category:
