@@ -24,6 +24,9 @@ descriptionSwedish: >-
   examensutställningens kampanj.
 
 
+  Se hela kampanj filmen [här](https://youtu.be/TUCXc2IjZaE?si=IB9FuWP8_28Kk26r).
+
+
   Kampanjen skapades tillsammans med Linn Sehlstedt och Phoebe Crookes.
 coverMediaType: video
 image: ""
