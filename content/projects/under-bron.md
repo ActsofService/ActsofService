@@ -9,7 +9,7 @@ descriptionSwedish: |-
 
   Skapat tillsammans med Phoebe Crookes och Linn Willebrand.
 coverMediaType: video
-coverVideo: /images/uploads/master-insta.mp4
+coverVideo: ""
 gallery:
   - mediaType: image
 date: 2025-11
