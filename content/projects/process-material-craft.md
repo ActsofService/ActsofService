@@ -21,7 +21,7 @@ descriptionSwedish: >
 
   Dokumentation: Jesper Smeding.
 coverMediaType: image
-image: /images/uploads/2.png
+image: /images/uploads/pmc2.png
 gallery:
   - mediaType: gif
     image: ""
