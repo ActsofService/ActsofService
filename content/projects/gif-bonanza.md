@@ -28,8 +28,9 @@ coverVideo: /images/uploads/avtryck_1.mp4
 gallery:
   - mediaType: image
     image: /images/uploads/filminspelning.jpg
-  - mediaType: image
-    gif: /images/uploads/kungsgatan_stående-1-1-.gif
+  - mediaType: looping video
+    gif: ""
+    video: /images/uploads/skärmar_1.mp4
   - mediaType: image
     gif: /images/uploads/august-1-2-.gif
   - mediaType: image
