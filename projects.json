@@ -12,8 +12,9 @@
         "image": "/images/uploads/filminspelning.jpg"
       },
       {
-        "mediaType": "image",
-        "gif": "/images/uploads/kungsgatan_stående-1-1-.gif"
+        "mediaType": "looping video",
+        "gif": "",
+        "video": "/images/uploads/skärmar_1.mp4"
       },
       {
         "mediaType": "image",
