@@ -13,6 +13,8 @@ gallery:
   - mediaType: looping video
     video: /images/uploads/atack.mp4
 date: 2024-03
+category:
+  - video
 favorite: false
 link: https://vimeo.com/1033783167
 ---
