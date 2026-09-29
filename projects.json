@@ -225,8 +225,9 @@
         "video": "/images/uploads/tillweb.mp4"
       },
       {
-        "mediaType": "looping video",
-        "video": "/images/uploads/sword_1.mp4"
+        "mediaType": "image",
+        "video": "",
+        "image": "/images/uploads/img_7327.png"
       }
     ],
     "date": "2025-08",
