@@ -10,6 +10,8 @@ gallery:
     video: /images/uploads/beginnning.mp4
   - mediaType: looping video
     video: /images/uploads/running.mp4
+  - mediaType: looping video
+    video: /images/uploads/atack.mp4
 date: 2024-03
 favorite: false
 ---
