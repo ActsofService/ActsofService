@@ -27,13 +27,13 @@ gallery:
     image: ""
     gif: /images/uploads/1.-main-poster_1080x1350.gif
   - mediaType: image
-    image: /images/uploads/3.png
+    image: /images/uploads/skylt.jpg
   - mediaType: image
-    image: /images/uploads/4.png
+    image: /images/uploads/grön.jpg
   - mediaType: image
-    image: /images/uploads/5.png
+    image: /images/uploads/4.jpg
   - mediaType: image
-    image: /images/uploads/6.png
+    image: /images/uploads/print.jpg
   - mediaType: image
     image: /images/uploads/7.jpg
 date: 2026-02
