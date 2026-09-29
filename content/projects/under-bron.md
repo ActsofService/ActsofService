@@ -8,7 +8,8 @@ descriptionSwedish: |-
   Visuals för kollektivet S*kyddsrum* @ Under Bron.
 
   Skapat tillsammans med Phoebe Crookes och Linn Willebrand.
-coverMediaType: image
+coverMediaType: video
+coverVideo: /images/uploads/master-insta.mp4
 gallery:
   - mediaType: image
 date: 2025-11
