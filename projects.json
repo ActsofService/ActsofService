@@ -102,7 +102,7 @@
     "title": "Flaggad",
     "descriptionEnglish": "*Flaggad* is a visual studie of the relationship between form, viewer, and context, using the flag as a medium.\n\nGraduation project by Molly Schedin",
     "descriptionSwedish": "Flaggad är en visuell studie av relationen mellan form, betraktare och kontext genom flaggan som medium.\n\nLänge har jag haft ett intresse för flaggor. Det visuella språket tilltalar mig som formgivare. Jag dras till de starka färgerna och grafiska formerna men även de begränsningarna som en flagga har. Det är fascinerande att ett tygstycke kan få en sådan komplex betydelse.\n\nUnder tusentals år har flaggan haft som funktion att samla människor kring en symbol för att skapa en gemensam identitet. Den kan vara politisk, ideologisk, existentiell eller praktisk. Det handlar i hög grad om grafisk design, och flaggor är ett bra exempel på symbolers roll i samhället, makten de har och makten vi tillskriver dem.",
-    "image": "/images/uploads/cover.png",
+    "image": "/images/uploads/tq.png",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
@@ -131,6 +131,40 @@
     "favorite": false,
     "link": null,
     "body": "hej\n"
+  },
+  {
+    "title": "It's Just Noise",
+    "descriptionEnglish": "*That Looks Auwful*\n\nI want to challenge a design culture that places a very high value on legibility. Clarity is, of course, often important, but through this project I want to show that ambiguity does not have to be a failure, and that other values such as interpretation, aesthetics, atmosphere, and allowing something to take time can also be given high priority.\n\nI have been inspired by the music genre *noise*, which makes use of sounds that are conventionally considered unwanted. In a similarly subversive way, I have deliberately introduced noise onto my typography.\n\nGraduation project by Olle",
+    "descriptionSwedish": "*That Looks Auwful*\n\nJag vill utmana en designkultur som värderar läsbarhet väldigt högt. Självklart är tydlighet ofta viktigt men jag vill med mitt projekt visa att det otydliga inte behöver vara ett misslyckande och att andra värderingar som tolkning, estetik, atmosfär  och att något får ta tid också kan prioriteras högt.\n\nJag har inspirerats av musikgenren *noise*. Genren använder sig av det ljud som konventionellt är oönskat brus. På ett subversivt sätt har jag adderat ett medvetet brus till min typografi.\n\nExamensprojekt av Olle",
+    "coverMediaType": "video",
+    "coverVideo": "/images/uploads/olle_ljung_video_2.mp4",
+    "gallery": [
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/olle_ljung_foto_1.png"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/olle_ljung_foto_3.png"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/olle_ljung_foto_4.png"
+      },
+      {
+        "mediaType": "gif",
+        "image": "/images/uploads/zine.gif"
+      }
+    ],
+    "date": "2026-05",
+    "commissioner": "Self-initiated",
+    "category": [
+      "print",
+      "other"
+    ],
+    "favorite": false,
+    "link": null,
+    "body": "It's Just Noise\n"
   },
   {
     "title": "Process, Material, Craft",
@@ -525,7 +559,7 @@
     "title": "Sirous Namazi - Magasin III",
     "descriptionEnglish": "Poster for an exhibition by artist Sirous Namazi at Magasin III during 2023 and 2024. The design plays on memories and displays a quote by the artist himself.\n\nPoster made as a school project during Beckmans together with Ella Farestam.",
     "descriptionSwedish": "",
-    "image": "/images/uploads/cov.jpg",
+    "image": "/images/uploads/cover.png",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
