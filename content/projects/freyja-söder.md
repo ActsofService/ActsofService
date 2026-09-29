@@ -13,10 +13,11 @@ descriptionSwedish: >-
 
 
   Vi ville lyfta fram våra konstnärliga uttryck genom att hämta inspiration från våra egna influenser och personliga 'arkiv'. Tillsammans flätar vi samman våra unika stilar till ett gemensamt projekt.
-image: /images/uploads/ny_freyja_gif.gif
+coverMediaType: image
+image: /images/uploads/freyja5.png
 gallery:
-  - mediaType: image
-    image: /images/uploads/freyja5.png
+  - mediaType: gif
+    image: /images/uploads/ny_freyja_gif.gif
 date: 2025-01
 commissioner: Freyja + Söder
 category:
