@@ -19,6 +19,8 @@ gallery:
   - mediaType: image
     video: ""
     image: /images/uploads/img_7327.png
+  - mediaType: looping video
+    video: /images/uploads/sword_1.mp4
 date: 2025-08
 category:
   - other
