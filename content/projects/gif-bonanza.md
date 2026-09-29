@@ -22,7 +22,9 @@ descriptionSwedish: >-
 
 
   Kampanjen skapades tillsammans med Linn Sehlstedt och Phoebe Crookes.
-image: /images/uploads/alla-1-.gif
+coverMediaType: video
+image: ""
+coverVideo: /images/uploads/avtryck_1.mp4
 gallery:
   - mediaType: image
     image: /images/uploads/filminspelning.jpg
