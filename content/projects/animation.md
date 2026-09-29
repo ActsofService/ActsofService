@@ -1,5 +1,5 @@
 ---
-title: Animation
+title: The Hunt
 descriptionEnglish: "[Animation](https://vimeo.com/1033783167) to music by Alvin
   Cronberg under Hans Wohlfarth, in collaboration with the Royal College of
   Music."
@@ -14,6 +14,7 @@ gallery:
   - mediaType: looping video
     video: /images/uploads/atack.mp4
 date: 2024-03
+commissioner: Beckmans, Tekniska museet
 category:
   - video
 favorite: false
