@@ -36,7 +36,7 @@ gallery:
   - mediaType: image
     image: /images/uploads/6.-skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-40-25.jpeg
 date: 2025-05
-commissioner: Svenskt Tenn
+commissioner: Beckmans, Svenskt Tenn
 category:
   - exhibition design
   - print
