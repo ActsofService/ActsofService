@@ -13,9 +13,9 @@ coverVideo: /images/uploads/ub_1.mp4
 gallery:
   - mediaType: looping video
     video: /images/uploads/img_0645.mov
-  - mediaType: video
+  - mediaType: looping video
     video: /images/uploads/img_0604.mov
-  - mediaType: video
+  - mediaType: looping video
     video: /images/uploads/img_0643.mov
 date: 2025-11
 commissioner: Skyddsrum, Under Bron
