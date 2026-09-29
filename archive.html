@@ -296,6 +296,20 @@
             cursor: inherit;
         }
 
+        .project-cover iframe {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            cursor: inherit;
+            /* A cross-origin iframe swallows clicks before they reach our
+               click-to-open handler on the cover; since this is just a
+               background loop with no player UI, let clicks pass through. */
+            pointer-events: none;
+        }
+
         .project-cover h3 {
             margin: 0;
             text-align: left;
@@ -337,6 +351,15 @@
             flex-shrink: 0;
             display: block;
             object-fit: contain;
+            background: #f4f4f4;
+        }
+        .project-video-embed {
+            height: 70vh;
+            width: auto;
+            aspect-ratio: 16 / 9;
+            flex-shrink: 0;
+            display: block;
+            border: 0;
             background: #f4f4f4;
         }
         .project-description-slide {
@@ -595,6 +618,13 @@
                 height: auto;
                 flex-shrink: 0;
             }
+
+            .project-video-embed {
+                width: 90vw;
+                max-width: 90vw;
+                height: auto;
+                flex-shrink: 0;
+            }
         }
 
 </style>
@@ -752,6 +782,14 @@ fetch('projects.json')
                 return `/images/uploads/${src}`;
             };
 
+            // CMS "Video" fields accept a pasted URL as well as an uploaded file.
+            // A Vimeo page URL isn't a playable video file, so it needs to be
+            // swapped for Vimeo's embeddable player URL instead of a <video src>.
+            const getVimeoId = (src) => {
+                const match = typeof src === 'string' && src.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+                return match ? match[1] : null;
+            };
+
             const getGalleryMedia = (project) => {
                 const media = [];
                 if (project.coverMediaType === 'video' && project.coverVideo) {
@@ -783,11 +821,14 @@ fetch('projects.json')
 
             // Cover image section
                 const coverIsVideo = p.coverMediaType === 'video' && p.coverVideo;
-                const coverMediaHtml = coverIsVideo
-                    ? `<video src="${resolveMediaSrc(p.coverVideo)}"${p.image ? ` poster="${resolveMediaSrc(p.image)}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`
-                    : p.image
-                        ? `<img src="${resolveMediaSrc(p.image)}" alt="${p.title}">`
-                        : '';
+                const coverVimeoId = coverIsVideo ? getVimeoId(resolveMediaSrc(p.coverVideo)) : null;
+                const coverMediaHtml = coverVimeoId
+                    ? `<iframe src="https://player.vimeo.com/video/${coverVimeoId}?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&portrait=0" allow="autoplay; fullscreen" title="${p.title}"></iframe>`
+                    : coverIsVideo
+                        ? `<video src="${resolveMediaSrc(p.coverVideo)}"${p.image ? ` poster="${resolveMediaSrc(p.image)}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`
+                        : p.image
+                            ? `<img src="${resolveMediaSrc(p.image)}" alt="${p.title}">`
+                            : '';
                 let coverHtml = coverMediaHtml
                     ? `<div class="project-cover">
                     <div class="cover-info-left"><h3>${p.title}</h3></div>
@@ -838,7 +879,7 @@ fetch('projects.json')
             div.innerHTML = coverHtml;
 
             // Add click event to the cover image to open modal
-            const coverMedia = div.querySelector('.project-cover img, .project-cover video');
+            const coverMedia = div.querySelector('.project-cover img, .project-cover video, .project-cover iframe');
             div.querySelectorAll('.project-cover video').forEach((video) => {
                 video.muted = true;
                 playWhenVisible(video);
@@ -910,6 +951,13 @@ fetch('projects.json')
 
                     const renderMediaSlide = (media) => {
                         if (!media || !media.src) return '';
+                        const vimeoId = media.type === 'video' ? getVimeoId(media.src) : null;
+                        if (vimeoId && media.loop) {
+                            return `<iframe class="project-video-embed" src="https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&portrait=0" allow="autoplay; fullscreen" title="${p.title}"></iframe>`;
+                        }
+                        if (vimeoId) {
+                            return `<iframe class="project-video-embed" src="https://player.vimeo.com/video/${vimeoId}?byline=0&title=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" title="${p.title}"></iframe>`;
+                        }
                         if (media.type === 'video' && media.loop) {
                             return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`;
                         }
