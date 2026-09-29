@@ -44,7 +44,7 @@ gallery:
   - mediaType: image
     image: /images/uploads/brev-innehåll.jpg
 date: 2026-09
-commissioner: Beckmans College of Design
+commissioner: Beckmans
 category:
   - art direction
   - exhibition design
