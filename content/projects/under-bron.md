@@ -9,7 +9,7 @@ descriptionSwedish: |-
 
   Skapat tillsammans med Phoebe Crookes och Linn Willebrand.
 coverMediaType: video
-coverVideo: ""
+coverVideo: /images/uploads/ub_1.mp4
 gallery:
   - mediaType: image
 date: 2025-11
