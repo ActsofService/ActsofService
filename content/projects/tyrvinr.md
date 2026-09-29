@@ -14,6 +14,8 @@ image: /images/uploads/136e9204-390f-4207-9298-302ccc7ebb8d.png
 gallery:
   - mediaType: image
     image: /images/uploads/976edfbd-ae8a-4a38-90bf-aa26bb29b5d3.png
+  - mediaType: looping video
+    video: /images/uploads/tillweb.mp4
 date: 2025-08
 category:
   - other
