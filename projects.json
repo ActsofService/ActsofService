@@ -156,11 +156,11 @@
         "video": "/images/uploads/img_0645.mov"
       },
       {
-        "mediaType": "video",
+        "mediaType": "looping video",
         "video": "/images/uploads/img_0604.mov"
       },
       {
-        "mediaType": "video",
+        "mediaType": "looping video",
         "video": "/images/uploads/img_0643.mov"
       }
     ],
