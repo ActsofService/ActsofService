@@ -33,6 +33,8 @@ gallery:
     image: /images/uploads/olle_ljung_foto_4.png
   - mediaType: gif
     image: /images/uploads/zine.gif
+  - mediaType: video
+    video: https://vimeo.com/1221501053?share=copy&fl=sv&fe=ci#t=0
 date: 2026-05
 commissioner: Self-initiated
 category:
