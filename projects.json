@@ -52,7 +52,7 @@
     "gallery": [
       {
         "mediaType": "video",
-        "video": "/images/uploads/olle_ljung_video_2.mp4",
+        "video": "https://vimeo.com/901899552?fl=ip&fe=ec",
         "poster": "https://vimeo.com/901899552?fl=ip&fe=ec"
       }
     ],
@@ -311,6 +311,10 @@
       {
         "mediaType": "looping video",
         "video": "/images/uploads/running.mp4"
+      },
+      {
+        "mediaType": "looping video",
+        "video": "/images/uploads/atack.mp4"
       }
     ],
     "date": "2024-03",
