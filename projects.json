@@ -73,7 +73,16 @@
     "coverVideo": "",
     "gallery": [
       {
-        "mediaType": "image"
+        "mediaType": "image",
+        "image": "/images/uploads/emmy_seeger_foto_1.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/emmy_seeger_foto_2.jpg"
+      },
+      {
+        "mediaType": "image",
+        "image": "/images/uploads/emmy_seeger_foto_3.jpg"
       }
     ],
     "date": "2026-05",
