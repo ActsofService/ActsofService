@@ -223,6 +223,10 @@
       {
         "mediaType": "looping video",
         "video": "/images/uploads/tillweb.mp4"
+      },
+      {
+        "mediaType": "looping video",
+        "video": "/images/uploads/sword_1.mp4"
       }
     ],
     "date": "2025-08",
