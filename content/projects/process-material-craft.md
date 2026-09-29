@@ -41,6 +41,8 @@ commissioner: Beckmans, Konstfack & Malmstens
 category:
   - exhibition design
   - print
+  - visual identity
+  - art direction
 favorite: true
 ---
 hej
