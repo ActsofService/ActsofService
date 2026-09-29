@@ -21,13 +21,13 @@ descriptionSwedish: >
 
   Dokumentation: Jesper Smeding.
 coverMediaType: image
-image: /images/uploads/pmc2.png
+image: /images/uploads/skylt.jpg
 gallery:
   - mediaType: gif
     image: ""
     gif: /images/uploads/1.-main-poster_1080x1350.gif
   - mediaType: image
-    image: /images/uploads/skylt.jpg
+    image: /images/uploads/2.png
   - mediaType: image
     image: /images/uploads/grön.jpg
   - mediaType: image
