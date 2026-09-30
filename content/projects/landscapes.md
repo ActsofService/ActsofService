@@ -16,6 +16,8 @@ coverMediaType: video
 image: ""
 coverVideo: /images/uploads/landscapes_1.mp4
 gallery:
+  - mediaType: video
+    video: https://vimeo.com/1231685067?share=copy&fl=sv&fe=ci#t=0
   - mediaType: image
     gif: /images/uploads/landscapes_2.gif
   - mediaType: image
