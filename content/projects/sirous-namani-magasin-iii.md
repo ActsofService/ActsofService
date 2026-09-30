@@ -6,7 +6,14 @@ descriptionEnglish: >-
   himself. Screenprinted on wrapper tissue.
 
 
-  Poster made as a school project during Beckmans together with Ella Farestam.
+  This project was made as a school project during Beckmans together with Ella Farestam.
+descriptionSwedish: >-
+  Poster för en utställning av konstnären Sirous Namazi på Magasin III under
+  2023 och 2024. Designen leker med minnen och visar ett citat av konstnären
+  själv. Screentryckt på silkespapper.
+
+
+  Projektet gjordes som ett skolprojekt på Beckmans tillsammans med Ella Farestam.
 coverMediaType: image
 image: /images/uploads/ver1.jpg
 gallery:
