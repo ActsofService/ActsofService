@@ -42,8 +42,8 @@
 }
 
 .screensaver-circle {
-  width: 2.35rem;  /* same size as the Foundry back button */
-  height: 2.35rem;
+  width: 4rem; 
+  height: 4rem;
   border-radius: 50%;
   position: absolute;
   opacity: 1;
@@ -54,7 +54,7 @@
 @media (max-width: 1000px) {
 
 .screensaver-circle {
-  width: 35px;
-  height: 35px;
+  width: 2.35rem; /* same size as the Foundry back button */
+  height: 2.35rem;
 }
         }

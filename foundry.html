@@ -461,10 +461,12 @@
       outline-offset: 3px;
     }
 
+    /* Same spot as the burger menu on the main page (top right).
+       Desktop: centered on the 32px burger, 20px from the top and right. */
     .back-link {
       position: fixed;
-      top: clamp(0.8rem, 2.5vw, 1.4rem);
-      left: clamp(0.8rem, 2.5vw, 1.4rem);
+      top: calc(20px + 32px / 2 - 2.35rem / 2);
+      right: calc(20px + 32px / 2 - 2.35rem / 2);
       z-index: 50;
       display: inline-flex;
       align-items: center;
@@ -495,10 +497,12 @@
       outline-offset: 3px;
     }
 
-    @media (hover: none) and (pointer: coarse) {
+    /* Mobile: exactly where the burger circle sits (20px from the top,
+       centered in the 45px margin beside the archive cover images) */
+    @media (max-width: 700px) {
       .back-link {
-        top: 0.7rem;
-        left: 0.7rem;
+        top: 20px;
+        right: calc(45px / 2 - 2.35rem / 2);
       }
     }
 
