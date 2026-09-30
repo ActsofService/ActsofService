@@ -30,9 +30,9 @@
 
             /* Font sizes */
             --size-display: 16rem;   /* big "Acts of service" title */
-            --size-large: 2.05rem;   /* menu, project title in the popup */
+            --size-large: 2.05rem;   /* project title in the popup */
             --size-body: 1.05rem;    /* running text */
-            --size-small: 0.8rem;    /* archive filters and project info */
+            --size-small: 0.8rem;    /* menu, archive filters and project info */
 
             /* Colors */
             --bg: #ffffff;
@@ -49,11 +49,24 @@
             /* Spacing */
             --gutter: 20px;            /* distance to the screen edges */
             --section-padding: 100px;  /* space above and below the archive */
+            --column-gap: 20px;        /* space between columns */
+
+            /* Archive columns: title | cover image | info.
+               The contact section lines its right column up with "info". */
+            --archive-width: 1200px;   /* max width of the project list */
+            --cover-width: 30vw;       /* width of the cover images */
+
+            /* Text buttons (burger menu links and archive filters) */
+            --button-gap: 0.15rem;     /* space between buttons in a column */
+            --button-row-gap: 0.8rem;  /* space between buttons in a row */
 
             /* Burger menu */
             --menu-size: 32px;         /* the burger button is a square this big */
             --menu-line: 2px;          /* thickness of the burger lines */
             --menu-bg: var(--bg);      /* background behind the open menu links */
+
+            /* Contact: names on the profile images */
+            --name-fade: 0.8s;         /* fade-out time after a tap (mobile) */
 
             /* Project popup */
             --popup-media-height: 70vh;
@@ -104,6 +117,27 @@
             color: inherit;
             font: inherit;
             cursor: pointer;
+        }
+
+        /* Text buttons: the burger menu links and the archive filters
+           share this look. Faded until hovered or active. */
+        .menu-links a,
+        #project-filters button {
+            font-size: var(--size-small);
+            font-variation-settings: var(--font-mono);
+            line-height: 1.1;
+            opacity: 0.45;
+        }
+        .menu-links a:hover,
+        #project-filters button:hover {
+            opacity: 1;
+            color: var(--hover);
+        }
+        .menu-links a.current,
+        #project-filters button.active {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
         }
 
         .page {
@@ -173,25 +207,38 @@
         .site-menu.open .menu-toggle span:nth-child(2) { opacity: 0; }
         .site-menu.open .menu-toggle span:nth-child(3) { bottom: 50%; margin-bottom: calc(var(--menu-line) / -2); transform: rotate(-45deg); }
 
+        /* Default: links open downwards in a column */
         .menu-links {
             display: none;
             position: absolute;
             top: calc(100% + 10px);
             right: 0;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: var(--button-gap);
             margin: 0;
             padding: 10px 0 10px 10px;
             list-style: none;
             background: var(--menu-bg);
-            font-size: var(--size-large);
-            line-height: 1;
-            text-align: right;
+            font-size: var(--size-small);
+            line-height: 1.1;
             white-space: nowrap;
         }
-        /* When the burger is near the bottom of the screen, open upwards */
-        .site-menu.opens-up .menu-links {
-            top: auto;
-            bottom: calc(100% + 10px);
+        .site-menu.open .menu-links {
+            display: flex;
         }
+
+        /* In the home area (burger at the bottom) links open to the left in a row */
+        .site-menu.opens-left .menu-links {
+            top: 50%;
+            right: calc(100% + 10px);
+            transform: translateY(-50%);
+            flex-direction: row;
+            align-items: center;
+            gap: var(--button-row-gap);
+            padding: 10px;
+        }
+
         /* Invisible bridge over the gap, so the menu stays open while the
            mouse moves from the burger to the links */
         .menu-links::before {
@@ -202,18 +249,14 @@
             top: -10px;
             height: 10px;
         }
-        .site-menu.opens-up .menu-links::before {
-            top: auto;
-            bottom: -10px;
+        .site-menu.opens-left .menu-links::before {
+            top: 0;
+            bottom: 0;
+            left: auto;
+            right: -10px;
+            width: 10px;
+            height: auto;
         }
-        .site-menu.open .menu-links {
-            display: block;
-        }
-        .menu-links a.current {
-            text-decoration: underline;
-            text-underline-offset: 0.15em;
-        }
-
 
         /* =====================================================================
            4. HOME
@@ -302,23 +345,13 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 0.15rem;
-            font-size: var(--size-small);
-            line-height: 1.1;
+            gap: var(--button-gap);
             transition: filter 0.28s ease;
-        }
-        #project-filters button {
-            opacity: 0.45;
-        }
-        #project-filters button.active {
-            opacity: 1;
-            text-decoration: underline;
-            text-underline-offset: 0.15em;
         }
 
         #projects-list {
             width: 100%;
-            max-width: 1200px;
+            max-width: var(--archive-width);
             justify-self: center;
             text-align: center;
             transition: filter 0.28s ease;
@@ -327,8 +360,8 @@
         /* Project cover: title | image | info */
         .project-cover {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 30vw) minmax(0, 1fr);
-            column-gap: 20px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, var(--cover-width)) minmax(0, 1fr);
+            column-gap: var(--column-gap);
             align-items: stretch;
             width: 100%;
             margin-bottom: 60px;
@@ -430,7 +463,7 @@
                 position: static;
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: 0.15rem 0.8rem;
+                gap: var(--button-gap) var(--button-row-gap);
                 padding-bottom: 20px;
             }
         }
@@ -676,10 +709,13 @@
            7. CONTACT
            ===================================================================== */
 
+        /* The right column starts exactly where the info column
+           (Date, Commissioner, Category) starts in the archive:
+           half the width + half a cover image + the column gap. */
         #contact {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 510px;
-            gap: 40px;
+            grid-template-columns: minmax(0, 1fr) calc(50% - var(--cover-width) / 2 - var(--column-gap));
+            gap: var(--column-gap);
             min-height: 100vh;
             min-height: 100svh;
             box-sizing: border-box;
@@ -690,10 +726,12 @@
             max-width: 510px;
         }
 
+        /* The three images share the full width of the left column */
         .profile-images {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--column-gap);
+            align-items: start;
             margin-top: 20px;
         }
         .profile-image {
@@ -702,8 +740,8 @@
         }
         .profile-image img {
             display: block;
-            width: auto;
-            height: 35vh;
+            width: 100%;
+            height: auto;
         }
 
         /* Right column, lines up with the profile images */
@@ -721,7 +759,8 @@
             left: 0;
             z-index: 9999;
             opacity: 0;
-            transform: translate(12px, 12px);
+            transform: translate(-50%, -50%); /* centered on the pointer */
+            color: var(--accent-contact);
             font-weight: 700;
             line-height: 1;
             white-space: nowrap;
@@ -730,6 +769,13 @@
         }
         .name-cursor.visible {
             opacity: 1;
+        }
+        /* Touch screens: the name stays where you tapped and fades out slowly */
+        .name-cursor.tapped {
+            position: absolute;
+        }
+        .name-cursor.fading {
+            transition: opacity var(--name-fade) ease;
         }
 
         @media (max-width: 1100px) {
@@ -744,14 +790,10 @@
 
         @media (max-width: 700px) {
             .profile-images {
-                flex-wrap: wrap;
                 gap: 10px;
             }
             .profile-image {
                 cursor: default;
-            }
-            .profile-image img {
-                height: 30vh;
             }
         }
     </style>
@@ -872,6 +914,9 @@ const jumpTo = (y) => window.scrollTo({ top: y, behavior: 'instant' });
 
 // Matches the mobile breakpoint in the CSS.
 const mobileLayout = window.matchMedia('(max-width: 700px)');
+
+// Computers with a mouse use hover (menu, contact names), touch screens use tap.
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
 
 
 /* ==========================================================================
@@ -1324,6 +1369,8 @@ projectsRequest
 
         filterContainer.querySelectorAll('[data-filter]').forEach(button => {
             button.addEventListener('click', () => {
+                // Jump straight to the top of the archive
+                jumpTo(document.getElementById('archive').offsetTop);
                 const filter = button.dataset.filter;
                 if (filter === 'all') {
                     activeMode = 'all';
@@ -1384,19 +1431,50 @@ fetch('contact.json')
         console.error('Could not load contact sections', error);
     });
 
+// With a mouse the name follows the pointer over an image. On a touch
+// screen, tapping an image shows the name for a few seconds.
 const nameCursor = document.getElementById('name-cursor');
+const NAME_SHOW_MS = 3000; // how long the name shows after a tap
+
+const showName = (profile) => {
+    nameCursor.textContent = profile.dataset.name;
+    nameCursor.classList.remove('fading');
+    nameCursor.classList.add('visible');
+};
+
+const placeName = (x, y) => {
+    nameCursor.style.left = x + 'px';
+    nameCursor.style.top = y + 'px';
+};
+
+let nameTimer = null;
 
 document.querySelectorAll('.profile-image').forEach(profile => {
     profile.addEventListener('mouseenter', () => {
-        nameCursor.textContent = profile.dataset.name;
-        nameCursor.classList.add('visible');
+        if (!canHover.matches) return;
+        nameCursor.classList.remove('tapped');
+        showName(profile);
     });
     profile.addEventListener('mousemove', (event) => {
-        nameCursor.style.left = event.clientX + 'px';
-        nameCursor.style.top = event.clientY + 'px';
+        if (canHover.matches) placeName(event.clientX, event.clientY);
     });
     profile.addEventListener('mouseleave', () => {
-        nameCursor.classList.remove('visible');
+        if (canHover.matches) nameCursor.classList.remove('visible');
+    });
+
+    profile.addEventListener('click', (event) => {
+        if (canHover.matches) return;
+        clearTimeout(nameTimer);
+        nameCursor.classList.add('tapped');
+        showName(profile);
+        // Keep the name inside the screen when tapping near an edge
+        const halfWidth = nameCursor.offsetWidth / 2 + 4;
+        const maxX = document.documentElement.clientWidth - halfWidth;
+        placeName(Math.min(Math.max(event.pageX, halfWidth), maxX), event.pageY);
+        nameTimer = setTimeout(() => {
+            nameCursor.classList.add('fading');
+            nameCursor.classList.remove('visible');
+        }, NAME_SHOW_MS);
     });
 });
 
@@ -1409,17 +1487,15 @@ const siteMenu = document.querySelector('.site-menu');
 const menuToggle = siteMenu.querySelector('.menu-toggle');
 const sectionLinks = siteMenu.querySelectorAll('[data-section-link]');
 
-// Computers with a mouse open the menu on hover, touch screens on tap.
-const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
-
 // While the page scrolls after clicking a link, the menu stays open
 // even though it moves away from under the mouse.
 let menuPinned = false;
 
-// Near the bottom of the screen (start position) the links open upwards
+// In the home area the burger sits near the bottom of the screen, and the
+// links open to the left of it instead of downwards
 const updateMenuDirection = () => {
     const buttonTop = menuToggle.getBoundingClientRect().top;
-    siteMenu.classList.toggle('opens-up', buttonTop > window.innerHeight / 2);
+    siteMenu.classList.toggle('opens-left', buttonTop > window.innerHeight / 2);
 };
 
 const setMenuOpen = (open) => {
