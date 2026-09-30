@@ -55,6 +55,8 @@
                The contact section lines its right column up with "info". */
             --archive-width: 1200px;   /* max width of the project list */
             --cover-width: 30vw;       /* width of the cover images */
+            --cover-margin-mobile: 45px; /* mobile: space on each side of the cover images
+                                            (the burger sits centered in it) */
 
             /* Text buttons (burger menu links and archive filters) */
             --button-gap: 0.15rem;     /* space between buttons in a column */
@@ -175,8 +177,9 @@
         }
 
         @media (max-width: 700px) {
+            /* Centered in the empty margin beside the archive cover images */
             .menu-track {
-                right: calc(var(--gutter) - 5px);
+                right: calc(var(--cover-margin-mobile) / 2 - var(--menu-size) / 2);
             }
         }
 
@@ -546,6 +549,13 @@
                 flex-wrap: wrap;
                 gap: var(--button-gap) var(--button-row-gap);
                 padding-bottom: 20px;
+            }
+            /* Cover images as wide as the screen allows, minus the margin */
+            .project-cover img,
+            .project-cover video,
+            .project-cover iframe {
+                width: calc(100vw - 2 * var(--cover-margin-mobile));
+                max-width: none;
             }
         }
 
@@ -967,13 +977,13 @@
                 </p>
 
                 <p>
-                    <a href="https://www.instagram.com/actsofservice/" target="_blank">@actsofservice</a>
+                    <a href="https://www.instagram.com/" target="_blank">@actsofservice</a>
                 </p>
 
                 <p>
-                    <a href="tel:+15551234567">Emmy Seeger +46 70 123 45 67</a><br>
-                    <a href="tel:+15551234567">Molly Schedin +46 70 123 45 67</a><br>
-                    <a href="tel:+15551234567">Olle Ljung +46 70 123 45 67</a>
+                    <a href="tel:+46760438370">Emmy Seeger +46 76 043 83 70</a><br>
+                    <a href="tel:+46725301300">Molly Schedin +46 72 530 13 00</a><br>
+                    <a href="tel:+46707996786">Olle Ljung +46 70 799 67 86</a>
                 </p>
 
             </div>
