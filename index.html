@@ -6,9 +6,14 @@
     <meta name="description" content="Acts of Service">
     <title>Acts of Service</title>
     <link rel="icon" type="image/svg+xml" href="aos-icon.svg">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="screensaver.css">
     <style>
+        /* =====================================================================
+           1. SETTINGS
+           Change the look of the whole site here. Everything below reads
+           these values, so one change here updates every place it is used.
+           ===================================================================== */
+
         @font-face {
             font-family: "ABC Areal";
             src: url("fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
@@ -16,48 +21,215 @@
             font-weight: 100 1000;
             font-display: swap;
         }
-    </style>
-    <style>
-        html, body {
-            height: 100%;
+
+        :root {
+            /* Fonts */
+            --font: "ABC Areal", sans-serif;
+            --font-regular: "slnt" 0, "DRKM" 0, "MONO" 0;   /* normal text */
+            --font-mono: "slnt" 0, "DRKM" 0, "MONO" 50;     /* archive lists and labels */
+
+            /* Font sizes */
+            --size-display: 16rem;   /* big "Acts of service" title */
+            --size-large: 2.05rem;   /* menu, project title in the popup */
+            --size-body: 1.05rem;    /* running text */
+            --size-small: 0.8rem;    /* archive filters and project info */
+
+            /* Colors */
+            --bg: #ffffff;
+            --ink: #000000;
+            --ink-muted: rgba(0, 0, 0, 0.5);
+            --media-placeholder: #f4f4f4;
+            --overlay: rgba(255, 255, 255, 0.5);
+
+            /* Accent (hover) color for each area */
+            --accent-home: #3de3f2;
+            --accent-archive: #c5e364;
+            --accent-contact: #f872be;
+
+            /* Spacing */
+            --gutter: 20px;            /* distance to the screen edges */
+            --section-padding: 100px;  /* space above and below the archive */
+
+            /* Burger menu */
+            --menu-size: 32px;         /* the burger button is a square this big */
+            --menu-line: 2px;          /* thickness of the burger lines */
+            --menu-bg: var(--bg);      /* background behind the open menu links */
+
+            /* Project popup */
+            --popup-media-height: 70vh;
+            --blur: 8px;               /* blur behind the open popup */
         }
+
+        @media (max-width: 1100px) {
+            :root {
+                --size-display: 8rem;
+                --size-large: 1.05rem;
+            }
+        }
+
+
+        /* =====================================================================
+           2. BASE
+           ===================================================================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: "ABC Areal", sans-serif;
-            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font);
+            font-variation-settings: var(--font-regular);
             font-weight: 400;
             font-style: normal;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            font-size: var(--size-body);
+            /* Hover color follows the area you are in (set per section below) */
+            --hover: var(--accent-home);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--hover);
+        }
+
+        button {
+            padding: 0;
+            border: 0;
+            background: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .page {
+            position: relative;
+        }
+
+        #home    { --hover: var(--accent-home); }
+        #archive { --hover: var(--accent-archive); }
+        #contact { --hover: var(--accent-contact); }
+
+
+        /* =====================================================================
+           3. BURGER MENU
+           The track runs down the full height of the page. The burger sits
+           at the bottom of the first screen, scrolls up with the page and
+           then sticks to the top right corner.
+           ===================================================================== */
+
+        .menu-track {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: var(--gutter);
+            z-index: 998;
+            padding-top: calc(100vh - var(--gutter) - var(--menu-size));
+            padding-top: calc(100svh - var(--gutter) - var(--menu-size));
+            pointer-events: none;
+        }
+
+        .site-menu {
+            position: sticky;
+            top: var(--gutter);
+            width: var(--menu-size);
+            height: var(--menu-size);
+            pointer-events: auto;
+            transition: filter 0.28s ease;
+        }
+
+        /* The menu takes the hover color of the area you are scrolled to */
+        body[data-section="home"] .site-menu    { --hover: var(--accent-home); }
+        body[data-section="archive"] .site-menu { --hover: var(--accent-archive); }
+        body[data-section="contact"] .site-menu { --hover: var(--accent-contact); }
+
+        .menu-toggle {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .menu-toggle span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: var(--menu-line);
+            background: currentColor;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .menu-toggle span:nth-child(1) { top: 20%; }
+        .menu-toggle span:nth-child(2) { top: 50%; margin-top: calc(var(--menu-line) / -2); }
+        .menu-toggle span:nth-child(3) { bottom: 20%; }
+        .menu-toggle:hover {
+            color: var(--hover);
+        }
+
+        /* Burger turns into an X when open */
+        .site-menu.open .menu-toggle span:nth-child(1) { top: 50%; margin-top: calc(var(--menu-line) / -2); transform: rotate(45deg); }
+        .site-menu.open .menu-toggle span:nth-child(2) { opacity: 0; }
+        .site-menu.open .menu-toggle span:nth-child(3) { bottom: 50%; margin-bottom: calc(var(--menu-line) / -2); transform: rotate(-45deg); }
+
+        .menu-links {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            margin: 0;
+            padding: 10px 0 10px 10px;
+            list-style: none;
+            background: var(--menu-bg);
+            font-size: var(--size-large);
+            line-height: 1;
+            text-align: right;
+            white-space: nowrap;
+        }
+        /* When the burger is near the bottom of the screen, open upwards */
+        .site-menu.opens-up .menu-links {
+            top: auto;
+            bottom: calc(100% + 10px);
+        }
+        /* Invisible bridge over the gap, so the menu stays open while the
+           mouse moves from the burger to the links */
+        .menu-links::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -10px;
+            height: 10px;
+        }
+        .site-menu.opens-up .menu-links::before {
+            top: auto;
+            bottom: -10px;
+        }
+        .site-menu.open .menu-links {
+            display: block;
+        }
+        .menu-links a.current {
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+        }
+
+
+        /* =====================================================================
+           4. HOME
+           ===================================================================== */
+
+        #home {
+            position: relative;
+            height: 100vh;
+            height: 100svh;
             overflow: hidden;
         }
 
-        footer {
-            position: fixed;
-            left: 20px;
-            right: 20px;
-            bottom: 0;
-            z-index: 10;
-            margin: 0;
-            font-family: "ABC Areal", sans-serif;
-            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            font-weight: 400;
-            line-height: 60%;
-            font-size: 2.05rem;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
         #bg-slideshow {
-            position: fixed;
+            position: absolute;
             top: 0;
             right: 0;
-            z-index: 0;
             pointer-events: none;
         }
         #bg-slideshow img,
@@ -65,112 +237,648 @@
             display: block;
             width: auto;
             height: 85vh;
-            align-items: right;
         }
         #bg-slideshow [hidden] {
             display: none;
         }
-        header, main {
-            position: relative;
-            z-index: 1;
-        }
 
-        main {
-            margin: 0px 20px;
-            padding-right: calc(100% - 450px);
-            text-align: left;
-            flex: 1;
-            font-size: 1.05rem;
-        }
-        .titel {
-            font-size: 16rem;
-            font-family: "ABC Areal", sans-serif;
-            font-variation-settings: "slnt" 0, "DRKM" 0, "MONO" 0;
-            font-kerning: normal;
-            letter-spacing: -0.125em;
-            color:#3de3f2;
-            font-weight: 1000;
-            line-height: 60%;
-            width: calc(100vw - 40px);
-            padding-right: -500px;
-            position:fixed;
+        .home-title {
+            position: absolute;
             bottom: 15vh;
             left: 0;
-            z-index: 0;
-        }
-        .titel p {
+            width: calc(100vw - 2 * var(--gutter));
             margin: 0;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        a:hover {
-            color:#3de3f2;
+            color: var(--accent-home);
+            font-size: var(--size-display);
+            font-weight: 1000;
+            font-kerning: normal;
+            letter-spacing: -0.125em;
+            line-height: 60%;
         }
 
         @media (max-width: 1100px) {
-        footer {
-                font-size: 1.05rem;
+            .home-title {
+                left: 7px;
             }
-            footer::before {
-                content: "";
-                position: absolute;
-                top: 0.8em;
-                left: -20px;
-                right: -20px;
-                height: 1em;
-                background: #ffffff;
-                z-index: -1;
-            }
-        .titel {
-            font-size: 8rem;
-            left: 7px
-        }
         }
 
         @media (max-width: 700px) {
             #bg-slideshow {
-                position: fixed;
-                top: 0;
-                right: 0;
                 width: 100vw;
-                height: auto;
             }
-
             #bg-slideshow img,
             #bg-slideshow video {
                 width: 100%;
                 height: auto;
             }
+        }
 
-            main {
-                flex: none;
-                padding-right: 0;
-                padding-top: 60px;
+
+        /* =====================================================================
+           5. ARCHIVE
+           ===================================================================== */
+
+        #archive {
+            padding: var(--section-padding) var(--gutter);
+            font-variation-settings: var(--font-mono);
+        }
+
+        /* Filters and project list share one grid cell, so the sticky
+           filters float on the left without pushing the list down. */
+        .archive-layout {
+            display: grid;
+        }
+        #project-filters,
+        #projects-list {
+            grid-area: 1 / 1;
+        }
+
+        #project-filters {
+            position: sticky;
+            top: var(--gutter);
+            z-index: 1;
+            align-self: start;
+            justify-self: start;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.15rem;
+            font-size: var(--size-small);
+            line-height: 1.1;
+            transition: filter 0.28s ease;
+        }
+        #project-filters button {
+            opacity: 0.45;
+        }
+        #project-filters button.active {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+        }
+
+        #projects-list {
+            width: 100%;
+            max-width: 1200px;
+            justify-self: center;
+            text-align: center;
+            transition: filter 0.28s ease;
+        }
+
+        /* Project cover: title | image | info */
+        .project-cover {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 30vw) minmax(0, 1fr);
+            column-gap: 20px;
+            align-items: stretch;
+            width: 100%;
+            margin-bottom: 60px;
+            font-size: var(--size-small);
+            cursor: pointer;
+        }
+        .project-cover h3 {
+            margin: 0;
+            font-size: inherit;
+            font-weight: 400;
+            line-height: 1;
+            text-align: left;
+        }
+        .project-cover .cover-info-left,
+        .project-cover .cover-info-right {
+            display: flex;
+            height: 100%;
+        }
+        .project-cover .cover-info-left {
+            justify-content: flex-end;
+            text-align: right;
+        }
+        .project-cover .cover-info-right {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 6px;
+            text-align: left;
+        }
+        .project-cover .project-meta-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 12px;
+            text-align: left;
+        }
+        .project-cover .project-meta-grid p {
+            margin: 0;
+            opacity: 0.85;
+        }
+        .project-cover img,
+        .project-cover video,
+        .project-cover iframe {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            cursor: inherit;
+        }
+        .project-cover img,
+        .project-cover video {
+            height: auto;
+        }
+        .project-cover iframe {
+            aspect-ratio: 16 / 9;
+            border: 0;
+            /* A cross-origin iframe swallows clicks before they reach our
+               click-to-open handler on the cover; since this is just a
+               background loop with no player UI, let clicks pass through. */
+            pointer-events: none;
+        }
+
+        @media (max-width: 1100px) {
+            #projects-list {
+                max-width: 700px;
+            }
+            .project-cover {
+                grid-template-columns: minmax(0, 1fr);
+                row-gap: 10px;
+            }
+            .project-cover .cover-info-left {
+                order: 1;
+                justify-content: center;
+                text-align: center;
+            }
+            .project-cover img,
+            .project-cover video {
+                order: 2;
+                width: min(70vw, 500px);
+            }
+            .project-cover .cover-info-right {
+                order: 3;
+                padding-right: 20px;
+                text-align: center;
+            }
+            .project-cover .project-meta-grid {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 700px) {
+            #archive {
+                padding: var(--gutter) var(--gutter) 80px;
+            }
+            /* On mobile the filters sit above the list and scroll away */
+            .archive-layout {
+                display: block;
+            }
+            #project-filters {
+                position: static;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.15rem 0.8rem;
+                padding-bottom: 20px;
+            }
+        }
+
+
+        /* =====================================================================
+           6. PROJECT POPUP (opens when you click a project in the archive)
+           ===================================================================== */
+
+        /* Project title shown top left while a popup is open */
+        .archive-heading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1001;
+            padding-top: env(safe-area-inset-top, 0px);
+            font-size: var(--size-large);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .archive-heading h1 {
+            margin: var(--gutter) 0 0 var(--gutter);
+            font: inherit;
+        }
+
+        /* Blur the page behind the popup */
+        body.modal-open #projects-list,
+        body.modal-open #project-filters,
+        body.modal-open .site-menu {
+            filter: blur(var(--blur));
+        }
+
+        .carousel-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            background-color: var(--overlay);
+            opacity: 0;
+            animation: modalOverlayFadeIn 0.28s ease forwards;
+        }
+        @keyframes modalOverlayFadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        @keyframes modalOverlayFadeOut {
+            from { opacity: 1; }
+            to   { opacity: 0; }
+        }
+
+        .carousel-modal {
+            position: relative;
+            z-index: 1000;
+            width: 100vw;
+            max-height: 100vh;
+            max-height: 100dvh;
+            text-align: left;
+            font-variation-settings: var(--font-mono);
+        }
+
+        /* Horizontal image carousel */
+        .project-images {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            justify-content: safe center;
+            padding: 8px 30vw 8px 0;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            /* Hide scrollbar while keeping functionality */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .project-images::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-img,
+        .project-video {
+            display: block;
+            flex-shrink: 0;
+            width: auto;
+            height: var(--popup-media-height);
+            object-fit: contain;
+            background: var(--media-placeholder);
+        }
+        .project-video-embed {
+            display: block;
+            flex-shrink: 0;
+            width: min(calc(var(--popup-media-height) * 16 / 9), 90vw);
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            background: var(--media-placeholder);
+        }
+
+        /* Description: the first slide of the carousel */
+        .project-description-slide {
+            position: relative;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            width: 370px;
+            height: var(--popup-media-height);
+            padding: 1.4rem 0 0 20px;
+            font-variation-settings: var(--font-regular);
+            font-size: var(--size-body);
+            white-space: normal;
+        }
+        .description-title {
+            display: none;
+        }
+        .project-description-link {
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+        }
+        .project-description-word {
+            display: inline; /* allow text-decoration to cross words and wrap per line */
+            opacity: 0;
+            transition: opacity 0.04s ease;
+        }
+        .project-description-word.visible {
+            opacity: 1;
+        }
+
+        .description-language-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            display: flex;
+            gap: 0.2em;
+            align-items: baseline;
+            line-height: 1;
+            white-space: nowrap;
+            font-variation-settings: var(--font-mono);
+        }
+        .description-language-toggle button {
+            color: var(--ink-muted);
+            line-height: inherit;
+        }
+        .description-language-toggle button.active {
+            color: var(--ink);
+        }
+
+        /* Close button (mobile only) */
+        .modal-close {
+            display: none;
+        }
+
+        @media (min-width: 701px) {
+            /* Stop the page behind the popup from scrolling */
+            body.modal-open {
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 700px) {
+            /* Freeze the page where it was and let the popup scroll instead */
+            body.modal-open .page {
+                position: fixed;
+                top: calc(var(--scroll-lock, 0px) * -1);
+                left: 0;
+                right: 0;
+            }
+            body.modal-open .archive-heading h1 {
+                display: none;
+            }
+            .carousel-modal-overlay {
+                position: absolute;
+                bottom: auto;
+                align-items: flex-start;
+                box-sizing: border-box;
+                min-height: 100vh;
+                min-height: 100dvh;
+                padding-top: env(safe-area-inset-top, 0px);
+                padding-bottom: env(safe-area-inset-bottom, 0px);
+                overflow: visible;
+            }
+            .carousel-modal {
+                width: 100%;
+            }
+            .carousel-modal .project-images {
+                flex-direction: column;
+                align-items: center;
+                padding: 8px 0 30px;
+                overflow-x: hidden;
+                overflow-y: visible;
+            }
+            .project-img,
+            .project-video,
+            .project-video-embed {
+                width: 90vw;
+                max-width: 90vw;
+                height: auto;
+            }
+            .project-description-slide {
+                width: 90vw;
+                height: auto;
+                padding: 20px 20px 0;
+            }
+            .description-title {
+                display: block;
+                margin: 0 0 1rem;
+                font-size: 2.05rem;
+                font-weight: 400;
+                line-height: 1;
+            }
+            .description-language-toggle {
+                position: static;
+                justify-content: flex-end;
+                margin: 0 0 1rem;
+            }
+            .modal-close {
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 1002;
+                width: 16px;
+                height: 16px;
+                color: var(--ink);
+                -webkit-appearance: none;
+                appearance: none;
+            }
+            .modal-close span {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: currentColor;
+            }
+            .modal-close span:first-child { transform: rotate(45deg); }
+            .modal-close span:last-child  { transform: rotate(-45deg); }
+        }
+
+
+        /* =====================================================================
+           7. CONTACT
+           ===================================================================== */
+
+        #contact {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 510px;
+            gap: 40px;
+            min-height: 100vh;
+            min-height: 100svh;
+            box-sizing: border-box;
+            padding: 0 var(--gutter) var(--gutter);
+        }
+
+        .contact-intro {
+            max-width: 510px;
+        }
+
+        .profile-images {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .profile-image {
+            display: block;
+            cursor: none;
+        }
+        .profile-image img {
+            display: block;
+            width: auto;
+            height: 35vh;
+        }
+
+        /* Right column, lines up with the profile images */
+        .contact-extra {
+            padding-top: var(--size-body);
+        }
+        .contact-heading {
+            font-weight: 700;
+        }
+
+        /* Name that follows the mouse over the profile images */
+        .name-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            opacity: 0;
+            transform: translate(12px, 12px);
+            font-weight: 700;
+            line-height: 1;
+            white-space: nowrap;
+            pointer-events: none;
+            transition: opacity 0.1s ease;
+        }
+        .name-cursor.visible {
+            opacity: 1;
+        }
+
+        @media (max-width: 1100px) {
+            #contact {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .contact-extra {
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .profile-images {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .profile-image {
+                cursor: default;
+            }
+            .profile-image img {
+                height: 30vh;
             }
         }
     </style>
 </head>
-<body>
-    <div id="bg-slideshow" aria-hidden="true"><img alt=""><video muted loop playsinline disablepictureinpicture hidden></video></div>
-    <header>
+<body data-section="home">
 
+    <!-- Project title shown while a project popup is open -->
+    <header class="archive-heading">
+        <h1></h1>
     </header>
-    <main>
-        <div class="titel"> <p>Acts of service</p></div>
-    </main>
-    <footer>
-            <p><a href="index.html">Home</a></p>
-            <p><a href="archive.html">Archive</a></p>
-            <p><a href="contact.html">Contact</a></p>
-            <p><a href="foundry.html">Foundry</a></p>
 
-    </footer>
+    <div class="page">
+
+        <!-- ============================ MENU ============================ -->
+        <div class="menu-track">
+            <nav class="site-menu" aria-label="Main menu">
+                <button type="button" class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="menu-links">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="menu-links" id="menu-links">
+                    <li><a href="#home" data-section-link="home">Home</a></li>
+                    <li><a href="#archive" data-section-link="archive">Archive</a></li>
+                    <li><a href="#contact" data-section-link="contact">Contact</a></li>
+                    <li><a href="foundry.html">Foundry</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- ============================ HOME ============================ -->
+        <section id="home">
+            <div id="bg-slideshow" aria-hidden="true"><img alt=""><video muted loop playsinline disablepictureinpicture hidden></video></div>
+            <p class="home-title">Acts of service</p>
+        </section>
+
+        <!-- =========================== ARCHIVE =========================== -->
+        <section id="archive">
+            <div class="archive-layout">
+                <nav id="project-filters" aria-label="Filter projects">
+                    <button type="button" data-filter="all" class="active">All</button>
+                    <button type="button" data-filter="art direction">Art direction</button>
+                    <button type="button" data-filter="visual identity">Visual identity</button>
+                    <button type="button" data-filter="print">Print</button>
+                    <button type="button" data-filter="web">Web</button>
+                    <button type="button" data-filter="photography">Photography</button>
+                    <button type="button" data-filter="video">Video</button>
+                    <button type="button" data-filter="exhibition design">Exhibition design</button>
+                    <button type="button" data-filter="other">Other</button>
+                </nav>
+                <div id="projects-list">
+                    <p>Loading projects…</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================== CONTACT =========================== -->
+        <section id="contact">
+
+            <!-- Left column -->
+            <div class="contact-content">
+
+                <p class="contact-intro">
+                    Our love language is acts of service, meaning we show care through thoughtful, practical actions that make life a bit easier.
+                    <br><br>
+                    We see our design practice in much the same way. Design, to us, is an act of service: a process of communication, research, questioning and making. We design with care, responding to the specific needs, context and people behind each project rather than applying a predefined style or formula.
+                    <br><br>
+                    For us, design is a form of care. An ongoing practice of paying attention, figuring things out, and making something useful out of what we find.
+                </p>
+
+                <div class="profile-images">
+                    <div class="profile-image" data-name="EMMY">
+                        <img src="images/uploads/Emmy_profil.png" alt="Emmy">
+                    </div>
+                    <div class="profile-image" data-name="OLLE">
+                        <img src="images/uploads/Olle_profil.png" alt="Olle">
+                    </div>
+                    <div class="profile-image" data-name="MOLLY">
+                        <img src="images/uploads/Molly_profil.png" alt="Molly">
+                    </div>
+                </div>
+
+                <p>
+                    Contact us at
+                    <a href="mailto:studio@actsofservice.se">studio@actsofservice.se</a>
+                </p>
+
+                <p>
+                    <a href="https://www.instagram.com/actsofservice/" target="_blank">@actsofservice</a>
+                </p>
+
+                <p>
+                    <a href="tel:+15551234567">Emmy Seeger +46 70 123 45 67</a><br>
+                    <a href="tel:+15551234567">Molly Schedin +46 70 123 45 67</a><br>
+                    <a href="tel:+15551234567">Olle Ljung +46 70 123 45 67</a>
+                </p>
+
+            </div>
+
+            <!-- Right column, filled from contact.json -->
+            <div class="contact-extra" id="contact-sections"></div>
+
+        </section>
+
+    </div>
+
+    <div class="name-cursor" id="name-cursor"></div>
+
 <script src="screensaver.js"></script>
 <script>
-fetch('projects.json')
-    .then(res => res.json())
+/* ==========================================================================
+   SHARED
+   ========================================================================== */
+
+// Both the home slideshow and the archive use projects.json, so load it once.
+const projectsRequest = fetch('projects.json').then(res => res.json());
+
+// Scroll without the smooth animation (used when opening/closing a popup).
+const jumpTo = (y) => window.scrollTo({ top: y, behavior: 'instant' });
+
+// Matches the mobile breakpoint in the CSS.
+const mobileLayout = window.matchMedia('(max-width: 700px)');
+
+
+/* ==========================================================================
+   HOME: background slideshow
+   ========================================================================== */
+
+projectsRequest
     .then(projects => {
         const resolveSrc = (src) => (!src || /^(https?:|data:|\/)/.test(src)) ? src : `/images/uploads/${src}`;
         const items = projects.map(p => (p.coverMediaType === 'video' && p.coverVideo)
@@ -212,6 +920,585 @@ fetch('projects.json')
         if (items.length > 1) setInterval(show, 4000);
     })
     .catch(err => console.error('Could not load projects.json', err));
+
+
+/* ==========================================================================
+   ARCHIVE: project list, filters and popup
+   ========================================================================== */
+
+let currentModal = null;
+
+// Let vertical mouse-wheel scrolling drive the horizontal project carousel
+// (desktop only - on mobile the carousel stacks vertically and scrolls normally).
+document.addEventListener('wheel', (e) => {
+    const carousel = e.target.closest('.project-images');
+    if (!carousel) return;
+    if (getComputedStyle(carousel).overflowX !== 'scroll') return;
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    // Bypass the carousel's CSS scroll-behavior: smooth for this - it fights
+    // rapid wheel events and makes the scroll feel laggy compared to native
+    // horizontal scrolling, which isn't subject to that CSS property.
+    carousel.style.scrollBehavior = 'auto';
+    carousel.scrollLeft += e.deltaY;
+    e.preventDefault();
+}, { passive: false });
+
+const archiveHeading = document.querySelector('.archive-heading h1');
+const defaultArchiveHTML = archiveHeading ? archiveHeading.innerHTML : '';
+
+const wrapWordsInNode = (root) => {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    const textNodes = [];
+    let current;
+    while ((current = walker.nextNode())) {
+        textNodes.push(current);
+    }
+    textNodes.forEach((textNode) => {
+        const parts = textNode.textContent.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+        parts.forEach((part) => {
+            if (part === '') return;
+            if (/^\s+$/.test(part)) {
+                fragment.appendChild(document.createTextNode(part));
+            } else {
+                const span = document.createElement('span');
+                span.className = 'project-description-word';
+                span.textContent = part;
+                fragment.appendChild(span);
+            }
+        });
+        textNode.replaceWith(fragment);
+    });
+};
+
+const animateDescriptionWords = (container) => {
+    const words = container.querySelectorAll('.project-description-word');
+    words.forEach((word, index) => {
+        setTimeout(() => {
+            word.classList.add('visible');
+        }, index * 15);
+    });
+};
+
+// Only play a looping video once it's actually scrolled into view, and pause
+// it again once it isn't. On mobile the gallery carousel is a tall vertical
+// stack, so most slides sit off-screen when a project first opens; calling
+// play() on an off-screen video is unreliable, so autoplay is driven by
+// visibility instead.
+const playWhenVisible = (video) => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.play().catch(() => {});
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.1 });
+    observer.observe(video);
+    return observer;
+};
+
+projectsRequest
+    .then(projects => {
+        const container = document.getElementById('projects-list');
+        container.innerHTML = '';
+
+        if (!projects.length) {
+            container.innerHTML = '<p>No projects yet — add one in the CMS.</p>';
+            return;
+        }
+
+        const projectOrder = [...projects].sort((a, b) => {
+            const aFavorite = a.favorite === true || a.favorite === 'true';
+            const bFavorite = b.favorite === true || b.favorite === 'true';
+            if (aFavorite !== bFavorite) return aFavorite ? -1 : 1;
+            const dateA = a.date ? new Date(a.date).getTime() : 0;
+            const dateB = b.date ? new Date(b.date).getTime() : 0;
+            return dateB - dateA;
+        });
+        const filterContainer = document.getElementById('project-filters');
+        let activeMode = 'all';
+        let activeCategory = null;
+
+        const renderProjects = () => {
+            container.innerHTML = '';
+            const visibleProjects = activeMode === 'all'
+                ? projectOrder
+                : projectOrder.filter(project => {
+                    const categories = Array.isArray(project.category)
+                        ? project.category
+                        : project.category ? [project.category] : [];
+                    return categories.some(category => String(category).toLowerCase() === activeCategory);
+                });
+
+            if (!visibleProjects.length) {
+                container.innerHTML = '<p>No projects matches these filters yet</p>';
+                return;
+            }
+
+            visibleProjects.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'project collapsed';
+
+            const resolveMediaSrc = (src) => {
+                if (!src || /^(https?:|data:|\/)/.test(src)) return src;
+                return `/images/uploads/${src}`;
+            };
+
+            // CMS "Video" fields accept a pasted URL as well as an uploaded file.
+            // A Vimeo page URL isn't a playable video file, so it needs to be
+            // swapped for Vimeo's embeddable player URL instead of a <video src>.
+            const getVimeoId = (src) => {
+                const match = typeof src === 'string' && src.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+                return match ? match[1] : null;
+            };
+
+            const getGalleryMedia = (project) => {
+                const media = [];
+                if (project.coverMediaType === 'video' && project.coverVideo) {
+                    media.push({ type: 'video', loop: true, src: resolveMediaSrc(project.coverVideo), poster: resolveMediaSrc(project.image) });
+                } else if (project.image) {
+                    media.push({ type: 'image', src: resolveMediaSrc(project.image) });
+                }
+
+                if (Array.isArray(project.gallery)) {
+                    project.gallery.forEach(item => {
+                        if (!item) return;
+                        if (typeof item === 'string') {
+                            media.push({ type: 'image', src: resolveMediaSrc(item) });
+                            return;
+                        }
+
+                        const mediaType = (item.mediaType || '').toLowerCase();
+
+                        if (item.image) media.push({ type: mediaType === 'gif' ? 'gif' : 'image', src: resolveMediaSrc(item.image) });
+                        if (item.gif) media.push({ type: 'gif', src: resolveMediaSrc(item.gif) });
+                        if (item.video) media.push({ type: 'video', loop: mediaType === 'looping video', src: resolveMediaSrc(item.video), poster: resolveMediaSrc(item.poster) });
+                    });
+                }
+
+                return media;
+            };
+
+            const galleryMedia = getGalleryMedia(p);
+
+            // Cover image section
+                const coverIsVideo = p.coverMediaType === 'video' && p.coverVideo;
+                const coverVimeoId = coverIsVideo ? getVimeoId(resolveMediaSrc(p.coverVideo)) : null;
+                const coverMediaHtml = coverVimeoId
+                    ? `<iframe src="https://player.vimeo.com/video/${coverVimeoId}?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&portrait=0" allow="autoplay; fullscreen" title="${p.title}"></iframe>`
+                    : coverIsVideo
+                        ? `<video src="${resolveMediaSrc(p.coverVideo)}"${p.image ? ` poster="${resolveMediaSrc(p.image)}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`
+                        : p.image
+                            ? `<img src="${resolveMediaSrc(p.image)}" alt="${p.title}">`
+                            : '';
+                let coverHtml = coverMediaHtml
+                    ? `<div class="project-cover">
+                    <div class="cover-info-left"><h3>${p.title}</h3></div>
+                    ${coverMediaHtml}
+                    <div class="cover-info-right"></div>
+                       </div>`
+                    : `<div class="project-cover"><div class="cover-info-left"><h3>${p.title}</h3></div><div class="cover-info-right"></div></div>`;
+
+                // Insert meta fields (Date, Commissioner, Category) if provided by the CMS
+                const dateStr = p.date ? new Date(p.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', timeZone: 'UTC' }) : '';
+                const commissionerStr = p.commissioner || '';
+                const categoryValues = Array.isArray(p.category)
+                    ? p.category
+                    : p.category ? [p.category] : [];
+                const categoryStr = categoryValues.join(', ');
+
+                if (dateStr || commissionerStr || categoryStr) {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = coverHtml;
+                    const right = temp.querySelector('.cover-info-right');
+                    if (right) {
+                        // two-column grid: each label/value pair is its own row,
+                        // so a wrapping value pushes the next row down instead of
+                        // leaving the labels and values out of sync
+                        const grid = document.createElement('div');
+                        grid.className = 'project-meta-grid';
+
+                        const addRow = (label, value) => {
+                            const lp = document.createElement('p');
+                            lp.className = 'meta-label';
+                            lp.textContent = label;
+                            grid.appendChild(lp);
+                            const vp = document.createElement('p');
+                            vp.className = 'meta-value';
+                            vp.textContent = value;
+                            grid.appendChild(vp);
+                        };
+
+                        if (dateStr) addRow('Date:', dateStr);
+                        if (commissionerStr) addRow('Commissioner:', commissionerStr);
+                        if (categoryStr) addRow('Category:', categoryStr);
+
+                        right.appendChild(grid);
+                        coverHtml = temp.innerHTML;
+                    }
+                }
+
+            div.innerHTML = coverHtml;
+
+            // Add click event to the cover image to open modal
+            const coverMedia = div.querySelector('.project-cover img, .project-cover video, .project-cover iframe');
+            div.querySelectorAll('.project-cover video').forEach((video) => {
+                video.muted = true;
+                playWhenVisible(video);
+            });
+            if (coverMedia) {
+                div.addEventListener('click', () => {
+
+                    archiveHeading.innerHTML = p.title || '';
+
+                    // Close any existing modal
+                    if (currentModal) {
+                        currentModal.remove();
+                    }
+                    // Pause any cover videos playing in the background list
+                    document.querySelectorAll('.project-cover video').forEach((video) => video.pause());
+                    const savedScrollY = window.scrollY;
+                    document.body.style.setProperty('--scroll-lock', `${savedScrollY}px`);
+                    document.body.classList.add('modal-open');
+                    // On mobile the page is frozen in place (see CSS) and the popup
+                    // scrolls from the top. On desktop the page just stays where it is.
+                    const lockedMobile = mobileLayout.matches;
+                    if (lockedMobile) jumpTo(0);
+                    // Create overlay
+                    const overlay = document.createElement('div');
+                    overlay.className = 'carousel-modal-overlay';
+
+                    // Create modal
+                    const modal = document.createElement('div');
+                    modal.className = 'carousel-modal';
+
+                    // Carousel section with description as first slide
+                    const descriptions = {
+                        ENG: p.descriptionEnglish || p.description || '',
+                        SWE: p.descriptionSwedish || p.descriptionEnglish || p.description || ''
+                    };
+                    let selectedLanguage = 'ENG';
+
+                    const escapeHtml = (value) => value
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#039;');
+
+                    const normalizeLinkHref = (href) => /^(https?:|mailto:|tel:)/i.test(href) ? href : `https://${href}`;
+
+                    const markdownToHtml = (value) => escapeHtml(value)
+                        .replace(/\[([^\]]+)\]\(([^\s)]+)\)/g, (match, label, href) => `<a href="${normalizeLinkHref(href)}" class="project-description-link" target="_blank" rel="noopener noreferrer">${label}</a>`)
+                        .replace(/\t/g, '<br>')
+                        .replace(/\r?\n/g, '<br>')
+                        .replace(/\+\+(.+?)\+\+/g, '<u>$1</u>')
+                        .replace(/~~(.+?)~~/g, '<s>$1</s>')
+                        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+                    const createDescriptionMarkup = (language) => {
+                        const descriptionHtml = markdownToHtml(descriptions[language]);
+                        const temp = document.createElement('div');
+                        temp.innerHTML = descriptionHtml;
+                        wrapWordsInNode(temp);
+
+                        return `<h2 class="description-title">${p.title || ''}</h2><div class="description-language-toggle" aria-label="Description language">
+                            <button type="button" class="${language === 'ENG' ? 'active' : ''}" data-language="ENG" aria-pressed="${language === 'ENG'}">ENG</button>
+                            <span class="language-slash">/</span>
+                            <button type="button" class="${language === 'SWE' ? 'active' : ''}" data-language="SWE" aria-pressed="${language === 'SWE'}">SWE</button>
+                        </div><span class="desc-highlight">${temp.innerHTML}</span>`;
+                    };
+
+                    const descriptionSlide = descriptions.ENG || descriptions.SWE
+                        ? `<div class="project-description-slide">${createDescriptionMarkup(selectedLanguage)}</div>`
+                        : '';
+
+                    const renderMediaSlide = (media) => {
+                        if (!media || !media.src) return '';
+                        const vimeoId = media.type === 'video' ? getVimeoId(media.src) : null;
+                        if (vimeoId && media.loop) {
+                            return `<iframe class="project-video-embed" src="https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&portrait=0" allow="autoplay; fullscreen" title="${p.title}"></iframe>`;
+                        }
+                        if (vimeoId) {
+                            return `<iframe class="project-video-embed" src="https://player.vimeo.com/video/${vimeoId}?byline=0&title=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" title="${p.title}"></iframe>`;
+                        }
+                        if (media.type === 'video' && media.loop) {
+                            return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`;
+                        }
+                        if (media.type === 'video') {
+                            return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} controls playsinline muted loop></video>`;
+                        }
+                        return `<img class="project-img" src="${media.src}" alt="${p.title}">`;
+                    };
+
+                    const carouselHtml = galleryMedia.length > 0 || descriptions.ENG || descriptions.SWE
+                        ? `<div class="project-images" data-carousel>
+                            ${descriptionSlide}
+                            ${galleryMedia.map(renderMediaSlide).join('')}
+                           </div>`
+                        : '';
+
+                    modal.innerHTML = `
+                        ${carouselHtml}
+                    `;
+
+                    overlay.appendChild(modal);
+                    document.body.appendChild(overlay);
+                    currentModal = overlay;
+
+                    const galleryVideoObservers = Array.from(modal.querySelectorAll('video[autoplay]')).map((video) => {
+                        video.muted = true;
+                        return playWhenVisible(video);
+                    });
+
+                    const descriptionElement = modal.querySelector('.project-description-slide');
+                    const renderDescription = (language) => {
+                        selectedLanguage = language;
+                        descriptionElement.innerHTML = createDescriptionMarkup(language);
+                        descriptionElement.querySelectorAll('[data-language]').forEach((button) => {
+                            button.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                renderDescription(button.dataset.language);
+                            });
+                        });
+                        animateDescriptionWords(descriptionElement);
+                    };
+
+                    if (descriptionElement) {
+                        renderDescription('ENG');
+                    }
+
+                    const closeModal = () => {
+                        modal.style.opacity = '0';
+                        modal.style.transition = 'opacity 0s linear';
+                        if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
+                        document.body.classList.remove('modal-open');
+                        if (lockedMobile) jumpTo(savedScrollY);
+                        galleryVideoObservers.forEach((observer) => observer.disconnect());
+                        // Resume cover videos in the background list
+                        document.querySelectorAll('.project-cover video').forEach((video) => video.play().catch(() => {}));
+                        overlay.style.animation = 'modalOverlayFadeOut 0.22s ease forwards';
+                        setTimeout(() => {
+                            overlay.remove();
+                            currentModal = null;
+                        }, 220);
+                    };
+
+                    // Mobile-only close button, top-left corner
+                    const closeButton = document.createElement('button');
+                    closeButton.type = 'button';
+                    closeButton.className = 'modal-close';
+                    closeButton.setAttribute('aria-label', 'Close');
+                    closeButton.innerHTML = '<span></span><span></span>';
+                    closeButton.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeModal();
+                    });
+                    overlay.appendChild(closeButton);
+
+                    // Close modal on overlay click
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay) {
+                            closeModal();
+                        }
+                    });
+
+                    // Close modal on any click inside (except links)
+                    modal.addEventListener('click', (e) => {
+                        if (e.target.tagName !== 'A') {
+                            closeModal();
+                            document.querySelectorAll('.project-cover h3').forEach((title) => {
+                                title.classList.remove('fading');
+                            });
+                        }
+                    });
+                });
+            }
+
+            container.appendChild(div);
+            });
+        };
+
+        filterContainer.querySelectorAll('[data-filter]').forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                if (filter === 'all') {
+                    activeMode = 'all';
+                    activeCategory = null;
+                } else {
+                    activeMode = 'categories';
+                    activeCategory = activeCategory === filter ? null : filter;
+                    if (!activeCategory) activeMode = 'all';
+                }
+
+                filterContainer.querySelectorAll('button').forEach(item => {
+                    const itemFilter = item.dataset.filter;
+                    const isActive = itemFilter === activeMode || (activeMode === 'categories' && itemFilter === activeCategory);
+                    item.classList.toggle('active', isActive);
+                });
+                renderProjects();
+            });
+        });
+
+        renderProjects();
+    })
+    .catch(err => {
+        console.error('Could not load projects.json', err);
+        document.getElementById('projects-list').innerHTML =
+            '<p>Could not load projects right now.</p>';
+    });
+
+
+/* ==========================================================================
+   CONTACT: sections from contact.json and the name cursor
+   ========================================================================== */
+
+const escapeContactText = (value) => String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+fetch('contact.json')
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('contact-sections');
+
+        container.innerHTML = (data.sections || []).map(section => {
+            const separator = section.format === 'comma' ? ', ' : '<br>';
+            const entries = (section.entries || [])
+                .map(escapeContactText)
+                .join(separator);
+
+            return `<p>
+                <span class="contact-heading">${escapeContactText(section.title)}</span><br>
+                <span class="contact-section-entries">${entries}</span>
+            </p>`;
+        }).join('');
+    })
+    .catch(error => {
+        console.error('Could not load contact sections', error);
+    });
+
+const nameCursor = document.getElementById('name-cursor');
+
+document.querySelectorAll('.profile-image').forEach(profile => {
+    profile.addEventListener('mouseenter', () => {
+        nameCursor.textContent = profile.dataset.name;
+        nameCursor.classList.add('visible');
+    });
+    profile.addEventListener('mousemove', (event) => {
+        nameCursor.style.left = event.clientX + 'px';
+        nameCursor.style.top = event.clientY + 'px';
+    });
+    profile.addEventListener('mouseleave', () => {
+        nameCursor.classList.remove('visible');
+    });
+});
+
+
+/* ==========================================================================
+   MENU: open/close and scrolling to each area
+   ========================================================================== */
+
+const siteMenu = document.querySelector('.site-menu');
+const menuToggle = siteMenu.querySelector('.menu-toggle');
+const sectionLinks = siteMenu.querySelectorAll('[data-section-link]');
+
+// Computers with a mouse open the menu on hover, touch screens on tap.
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+// While the page scrolls after clicking a link, the menu stays open
+// even though it moves away from under the mouse.
+let menuPinned = false;
+
+// Near the bottom of the screen (start position) the links open upwards
+const updateMenuDirection = () => {
+    const buttonTop = menuToggle.getBoundingClientRect().top;
+    siteMenu.classList.toggle('opens-up', buttonTop > window.innerHeight / 2);
+};
+
+const setMenuOpen = (open) => {
+    if (open) updateMenuDirection();
+    siteMenu.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+};
+
+window.addEventListener('scroll', () => {
+    if (siteMenu.classList.contains('open')) updateMenuDirection();
+}, { passive: true });
+
+// Hover: open when the mouse reaches the menu, close when it moves away
+siteMenu.addEventListener('mouseenter', () => {
+    if (canHover.matches) setMenuOpen(true);
+});
+document.addEventListener('mousemove', (e) => {
+    if (!canHover.matches || menuPinned || siteMenu.contains(e.target)) return;
+    setMenuOpen(false);
+});
+
+// Tap: the burger toggles the menu (with a mouse it is already open)
+menuToggle.addEventListener('click', () => {
+    if (canHover.matches) return;
+    setMenuOpen(!siteMenu.classList.contains('open'));
+});
+
+sectionLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (!canHover.matches) {
+            setMenuOpen(false);
+            return;
+        }
+        // Keep the menu open until the scroll has finished
+        menuPinned = true;
+        const unpin = () => { menuPinned = false; };
+        window.addEventListener('scrollend', unpin, { once: true });
+        setTimeout(unpin, 1500); // for browsers without scrollend
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!siteMenu.contains(e.target)) setMenuOpen(false);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenuOpen(false);
+});
+
+// Keep track of which area is in the middle of the screen: marks the
+// current menu link and gives the menu that area's hover color.
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        document.body.dataset.section = id;
+        sectionLinks.forEach(link => {
+            link.classList.toggle('current', link.dataset.sectionLink === id);
+        });
+    });
+}, { rootMargin: '-50% 0px -50% 0px' });
+
+document.querySelectorAll('.page > section').forEach(section => sectionObserver.observe(section));
+
+// Old links like archive.html / contact.html redirect to index.html#archive
+// or #contact. The archive grows as projects and images load, so keep the
+// page on the linked area until the visitor starts scrolling themselves.
+const initialTarget = location.hash && document.querySelector(location.hash);
+if (initialTarget && initialTarget.id !== 'home') {
+    let visitorScrolled = false;
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(type => {
+        window.addEventListener(type, () => { visitorScrolled = true; }, { once: true, passive: true });
+    });
+    const keepOnTarget = () => {
+        if (!visitorScrolled) jumpTo(initialTarget.getBoundingClientRect().top + window.scrollY);
+    };
+    projectsRequest.then(() => requestAnimationFrame(keepOnTarget)).catch(() => {});
+    window.addEventListener('load', keepOnTarget);
+}
 </script>
 </body>
 </html>
