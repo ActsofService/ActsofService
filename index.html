@@ -63,7 +63,7 @@
             /* Burger menu */
             --menu-size: 32px;         /* the burger button is a square this big */
             --menu-line: 2px;          /* thickness of the burger lines */
-            --menu-bg: var(--bg);      /* background behind the open menu links */
+            --menu-bg: transparent;    /* background behind the open menu links */
 
             /* Contact: names on the profile images */
             --name-fade: 0.8s;         /* fade-out time after a tap (mobile) */
@@ -165,6 +165,12 @@
             padding-top: calc(100vh - var(--gutter) - var(--menu-size));
             padding-top: calc(100svh - var(--gutter) - var(--menu-size));
             pointer-events: none;
+        }
+
+        @media (max-width: 700px) {
+            .menu-track {
+                right: calc(var(--gutter) - 5px);
+            }
         }
 
         .site-menu {
@@ -415,7 +421,7 @@
             height: auto;
         }
         .project-cover iframe {
-            aspect-ratio: 16 / 9;
+            aspect-ratio: var(--ratio, 16 / 9);   /* the video's own shape, set by the script */
             border: 0;
             /* A cross-origin iframe swallows clicks before they reach our
                click-to-open handler on the cover; since this is just a
@@ -489,11 +495,17 @@
             font: inherit;
         }
 
-        /* Blur the page behind the popup */
-        body.modal-open #projects-list,
-        body.modal-open #project-filters,
-        body.modal-open .site-menu {
-            filter: blur(var(--blur));
+        /* Blurs the whole site behind the popup. It reaches past the screen
+           edges so it also covers the iPhone notch and toolbar areas. */
+        .modal-backdrop {
+            position: fixed;
+            inset: -100px;
+            z-index: 999;
+            background-color: var(--overlay);
+            -webkit-backdrop-filter: blur(var(--blur));
+            backdrop-filter: blur(var(--blur));
+            opacity: 0;
+            animation: modalOverlayFadeIn 0.28s ease forwards;
         }
 
         .carousel-modal-overlay {
@@ -504,7 +516,6 @@
             align-items: center;
             justify-content: center;
             width: 100vw;
-            background-color: var(--overlay);
             opacity: 0;
             animation: modalOverlayFadeIn 0.28s ease forwards;
         }
@@ -554,14 +565,15 @@
             object-fit: contain;
             background: var(--media-placeholder);
         }
+        /* Vimeo/YouTube player: same height as the images, width from the
+           video's own shape (--ratio is set by the script) */
         .project-video-embed {
             display: block;
             flex-shrink: 0;
-            width: min(calc(var(--popup-media-height) * 16 / 9), 90vw);
+            width: min(calc(var(--popup-media-height) * var(--ratio, 16 / 9)), 90vw);
             height: auto;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: var(--ratio, 16 / 9);
             border: 0;
-            background: var(--media-placeholder);
         }
 
         /* Description: the first slide of the carousel */
@@ -1030,6 +1042,66 @@ const animateDescriptionWords = (container) => {
 // stack, so most slides sit off-screen when a project first opens; calling
 // play() on an off-screen video is unreliable, so autoplay is driven by
 // visibility instead.
+// CMS "Video" fields accept a pasted Vimeo or YouTube link as well as an
+// uploaded file. A page link isn't a playable video file, so it's swapped
+// for that site's embeddable player. `loop` gives a silent, looping
+// background video without player controls.
+const getVideoEmbed = (src, loop) => {
+    if (typeof src !== 'string') return null;
+
+    const vimeo = src.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([0-9a-f]+))?/);
+    if (vimeo) {
+        const [, id, hash] = vimeo;
+        const params = (hash ? `h=${hash}&` : '') + (loop
+            ? 'background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&portrait=0'
+            : 'byline=0&title=0&portrait=0');
+        return {
+            src: `https://player.vimeo.com/video/${id}?${params}`,
+            sizeUrl: `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(src)}`,
+            ratio: '16 / 9'
+        };
+    }
+
+    const youtube = src.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
+    if (youtube) {
+        const id = youtube[1];
+        const params = loop
+            ? `autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0`
+            : 'playsinline=1&rel=0';
+        // YouTube doesn't report the real size of Shorts, but they are always upright
+        const isShort = src.includes('/shorts/');
+        return {
+            src: `https://www.youtube-nocookie.com/embed/${id}?${params}`,
+            sizeUrl: isShort ? null : `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(src)}`,
+            ratio: isShort ? '9 / 16' : '16 / 9'
+        };
+    }
+
+    return null;
+};
+
+const embedHtml = (embed, className, title, loop) => `<iframe${className ? ` class="${className}"` : ''} src="${embed.src}"`
+    + (embed.sizeUrl ? ` data-size-url="${embed.sizeUrl}"` : '')
+    + ` style="--ratio: ${embed.ratio}"`
+    + ` allow="autoplay; fullscreen; encrypted-media${loop ? '' : '; picture-in-picture'}" title="${title}"></iframe>`;
+
+// Give each embedded player the shape of its video (asked from Vimeo/YouTube),
+// so there are no empty bars around it. Until the answer arrives it's 16:9.
+const videoSizes = new Map();
+const fitEmbeds = (root) => {
+    root.querySelectorAll('iframe[data-size-url]').forEach(iframe => {
+        const url = iframe.dataset.sizeUrl;
+        if (!videoSizes.has(url)) {
+            videoSizes.set(url, fetch(url).then(res => res.ok ? res.json() : null).catch(() => null));
+        }
+        videoSizes.get(url).then(info => {
+            if (info && info.width && info.height) {
+                iframe.style.setProperty('--ratio', `${info.width} / ${info.height}`);
+            }
+        });
+    });
+};
+
 const playWhenVisible = (video) => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -1091,14 +1163,6 @@ projectsRequest
                 return `/images/uploads/${src}`;
             };
 
-            // CMS "Video" fields accept a pasted URL as well as an uploaded file.
-            // A Vimeo page URL isn't a playable video file, so it needs to be
-            // swapped for Vimeo's embeddable player URL instead of a <video src>.
-            const getVimeoId = (src) => {
-                const match = typeof src === 'string' && src.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-                return match ? match[1] : null;
-            };
-
             const getGalleryMedia = (project) => {
                 const media = [];
                 if (project.coverMediaType === 'video' && project.coverVideo) {
@@ -1130,9 +1194,9 @@ projectsRequest
 
             // Cover image section
                 const coverIsVideo = p.coverMediaType === 'video' && p.coverVideo;
-                const coverVimeoId = coverIsVideo ? getVimeoId(resolveMediaSrc(p.coverVideo)) : null;
-                const coverMediaHtml = coverVimeoId
-                    ? `<iframe src="https://player.vimeo.com/video/${coverVimeoId}?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&portrait=0" allow="autoplay; fullscreen" title="${p.title}"></iframe>`
+                const coverEmbed = coverIsVideo ? getVideoEmbed(resolveMediaSrc(p.coverVideo), true) : null;
+                const coverMediaHtml = coverEmbed
+                    ? embedHtml(coverEmbed, '', p.title, true)
                     : coverIsVideo
                         ? `<video src="${resolveMediaSrc(p.coverVideo)}"${p.image ? ` poster="${resolveMediaSrc(p.image)}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`
                         : p.image
@@ -1186,6 +1250,7 @@ projectsRequest
                 }
 
             div.innerHTML = coverHtml;
+            fitEmbeds(div);
 
             // Add click event to the cover image to open modal
             const coverMedia = div.querySelector('.project-cover img, .project-cover video, .project-cover iframe');
@@ -1202,6 +1267,10 @@ projectsRequest
                     if (currentModal) {
                         currentModal.remove();
                     }
+                    document.querySelectorAll('.modal-backdrop').forEach((el) => el.remove());
+                    const backdrop = document.createElement('div');
+                    backdrop.className = 'modal-backdrop';
+                    document.body.appendChild(backdrop);
                     // Pause any cover videos playing in the background list
                     document.querySelectorAll('.project-cover video').forEach((video) => video.pause());
                     const savedScrollY = window.scrollY;
@@ -1263,12 +1332,9 @@ projectsRequest
 
                     const renderMediaSlide = (media) => {
                         if (!media || !media.src) return '';
-                        const vimeoId = media.type === 'video' ? getVimeoId(media.src) : null;
-                        if (vimeoId && media.loop) {
-                            return `<iframe class="project-video-embed" src="https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&portrait=0" allow="autoplay; fullscreen" title="${p.title}"></iframe>`;
-                        }
-                        if (vimeoId) {
-                            return `<iframe class="project-video-embed" src="https://player.vimeo.com/video/${vimeoId}?byline=0&title=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" title="${p.title}"></iframe>`;
+                        const embed = media.type === 'video' ? getVideoEmbed(media.src, media.loop) : null;
+                        if (embed) {
+                            return embedHtml(embed, 'project-video-embed', p.title, media.loop);
                         }
                         if (media.type === 'video' && media.loop) {
                             return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} autoplay muted loop playsinline disablepictureinpicture></video>`;
@@ -1293,6 +1359,8 @@ projectsRequest
                     overlay.appendChild(modal);
                     document.body.appendChild(overlay);
                     currentModal = overlay;
+
+                    fitEmbeds(modal);
 
                     const galleryVideoObservers = Array.from(modal.querySelectorAll('video[autoplay]')).map((video) => {
                         video.muted = true;
@@ -1326,8 +1394,10 @@ projectsRequest
                         // Resume cover videos in the background list
                         document.querySelectorAll('.project-cover video').forEach((video) => video.play().catch(() => {}));
                         overlay.style.animation = 'modalOverlayFadeOut 0.22s ease forwards';
+                        backdrop.style.animation = 'modalOverlayFadeOut 0.22s ease forwards';
                         setTimeout(() => {
                             overlay.remove();
+                            backdrop.remove();
                             currentModal = null;
                         }, 220);
                     };
@@ -1369,8 +1439,9 @@ projectsRequest
 
         filterContainer.querySelectorAll('[data-filter]').forEach(button => {
             button.addEventListener('click', () => {
-                // Jump straight to the top of the archive
-                jumpTo(document.getElementById('archive').offsetTop);
+                // Desktop: jump straight to the top of the archive
+                // (on mobile the filters are already at the top of it)
+                if (!mobileLayout.matches) jumpTo(document.getElementById('archive').offsetTop);
                 const filter = button.dataset.filter;
                 if (filter === 'all') {
                     activeMode = 'all';
@@ -1505,7 +1576,10 @@ const setMenuOpen = (open) => {
 };
 
 window.addEventListener('scroll', () => {
-    if (siteMenu.classList.contains('open')) updateMenuDirection();
+    if (!siteMenu.classList.contains('open')) return;
+    // Touch screens: scrolling closes the menu
+    if (!canHover.matches) setMenuOpen(false);
+    else updateMenuDirection();
 }, { passive: true });
 
 // Hover: open when the mouse reaches the menu, close when it moves away
