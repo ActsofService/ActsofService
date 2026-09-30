@@ -7,6 +7,13 @@ descriptionEnglish: >-
 
 
   Created together with Linn Sehlstedt, Olle Svensson and Stephanie Holmén.
+descriptionSwedish: >-
+  Hemfärden är ett magasin om fotografen Adam Ahmed Pihlgren och de fotografier
+  han tog under sin resa till Etiopien. Magasinet utforskar frågor kring
+  identitet och arv.
+
+
+  Skapat tillsammans med Linn Sehlstedt, Olle Svensson och Stephanie Holmén.
 coverMediaType: image
 image: /images/uploads/tidn2.jpg
 gallery:
