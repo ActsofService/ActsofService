@@ -8,7 +8,16 @@ descriptionEnglish: >-
   earth, a reminder of the battle, and the guilt that followed.
 
 
-  Artwork displayed at PLX Tjärö 2025, a music and art festival at Tjärö, Blekinge.
+  Artwork displayed at PLX 2025, a music and art festival at Tjärö, Blekinge.
+descriptionSwedish: >-
+  Tyrvinr – ett mytologiskt svärd bundet av både magi och en förbannelse.
+  Svärdet kan inte brytas, klyver sten och järn och är garanterat att segra i
+  strid. Men varje gång klingan lämnar sin skida måste ett liv tas. Handlingen
+  frigör också tre onda gärningar. Nu vilar svärdet neddrivet i marken, som en
+  påminnelse om striden och skulden som följde.
+
+
+  Verket visades på PLX 2025, en musik- och konstfestival på Tjärö i Blekinge.
 coverMediaType: image
 image: /images/uploads/136e9204-390f-4207-9298-302ccc7ebb8d.png
 gallery:
