@@ -64,6 +64,13 @@
             --menu-size: 32px;         /* the burger button is a square this big */
             --menu-line: 2px;          /* thickness of the burger lines */
             --menu-bg: transparent;    /* background behind the open menu links */
+            /* Mobile burger circle/pill (its color follows the area: see
+               "body[data-section=...]" rules in the burger menu section) */
+            --menu-pill-size: 2.35rem;       /* circle diameter, same as the Foundry back button */
+            --menu-pill-line-width: 16px;    /* width of the three lines */
+            --menu-pill-line-spacing: 5px;   /* distance between the lines */
+            --menu-pill-speed: 0.35s;        /* how fast the pill grows */
+            --menu-pill-fade: 0.6s;          /* how fast it changes color between areas */
 
             /* Contact: names on the profile images */
             --name-fade: 0.8s;         /* fade-out time after a tap (mobile) */
@@ -183,9 +190,10 @@
         }
 
         /* The menu takes the hover color of the area you are scrolled to */
-        body[data-section="home"] .site-menu    { --hover: var(--accent-home); }
-        body[data-section="archive"] .site-menu { --hover: var(--accent-archive); }
-        body[data-section="contact"] .site-menu { --hover: var(--accent-contact); }
+        /* (also sets the mobile pill color: home blue, archive green, contact pink) */
+        body[data-section="home"] .site-menu    { --hover: var(--accent-home);    --menu-pill-color: var(--accent-home); }
+        body[data-section="archive"] .site-menu { --hover: var(--accent-archive); --menu-pill-color: var(--accent-archive); }
+        body[data-section="contact"] .site-menu { --hover: var(--accent-contact); --menu-pill-color: var(--accent-contact); }
 
         .menu-toggle {
             position: relative;
@@ -263,6 +271,73 @@
             width: 10px;
             height: auto;
         }
+
+        /* ---- Mobile burger: a colored circle that grows into a pill ----
+           The pill keeps its round ends (border-radius = half the height)
+           and only gets wider, so the circle is "split" and a rectangle
+           grows in between. It always opens to the left. */
+        @media (max-width: 700px) {
+            :root {
+                --menu-size: var(--menu-pill-size);
+            }
+            .site-menu::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: var(--menu-size);
+                height: var(--menu-size);
+                border-radius: calc(var(--menu-size) / 2);
+                background: var(--menu-pill-color);
+                transition: width var(--menu-pill-speed) ease,
+                            background-color var(--menu-pill-fade) ease;
+            }
+            .site-menu.open::before {
+                width: var(--menu-pill-open-width, var(--menu-size));
+            }
+
+            /* Burger lines inside the circle */
+            .menu-toggle span {
+                left: calc(50% - var(--menu-pill-line-width) / 2);
+                width: var(--menu-pill-line-width);
+            }
+            .menu-toggle span:nth-child(1) { top: calc(50% - var(--menu-pill-line-spacing) - var(--menu-line) / 2); }
+            .menu-toggle span:nth-child(3) { bottom: calc(50% - var(--menu-pill-line-spacing) - var(--menu-line) / 2); }
+
+            /* Only black on hover/tap, since the pill is already colored */
+            .menu-toggle:hover,
+            .menu-links a:hover {
+                color: var(--ink);
+            }
+
+            /* Links sit inside the pill, left of the burger */
+            .menu-links,
+            .site-menu.opens-left .menu-links {
+                display: flex;
+                top: 0;
+                right: var(--menu-size);
+                height: var(--menu-size);
+                transform: none;
+                flex-direction: row;
+                align-items: center;
+                gap: var(--button-row-gap);
+                padding: 0 0 0 12px;
+                background: none;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.1s ease, visibility 0s linear 0.1s;
+            }
+            .site-menu.open .menu-links {
+                opacity: 1;
+                visibility: visible;
+                /* fade in once the pill has mostly grown */
+                transition: opacity 0.2s ease calc(var(--menu-pill-speed) * 0.6);
+            }
+            .menu-links::before {
+                display: none;
+            }
+        }
+
 
         /* =====================================================================
            4. HOME
@@ -1564,13 +1639,24 @@ let menuPinned = false;
 
 // In the home area the burger sits near the bottom of the screen, and the
 // links open to the left of it instead of downwards
+// (On mobile it always opens to the left, inside the green pill.)
 const updateMenuDirection = () => {
     const buttonTop = menuToggle.getBoundingClientRect().top;
-    siteMenu.classList.toggle('opens-left', buttonTop > window.innerHeight / 2);
+    siteMenu.classList.toggle('opens-left', mobileLayout.matches || buttonTop > window.innerHeight / 2);
+};
+
+// Mobile: the pill grows exactly wide enough to fit the links and the burger
+const menuLinks = siteMenu.querySelector('.menu-links');
+const sizeMenuPill = () => {
+    const width = menuLinks.offsetWidth + menuToggle.offsetWidth + 8;
+    siteMenu.style.setProperty('--menu-pill-open-width', `${width}px`);
 };
 
 const setMenuOpen = (open) => {
-    if (open) updateMenuDirection();
+    if (open) {
+        updateMenuDirection();
+        if (mobileLayout.matches) sizeMenuPill();
+    }
     siteMenu.classList.toggle('open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
 };
