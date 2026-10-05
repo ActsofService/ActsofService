@@ -43,6 +43,8 @@ gallery:
     image: /images/uploads/vepa.jpg
   - mediaType: image
     image: /images/uploads/brev-innehåll.jpg
+  - mediaType: video
+    video: https://youtu.be/TUCXc2IjZaE?si=Kq2F0CLr6yQ3j4Jx
 date: 2026-09
 commissioner: Beckmans
 category:
