@@ -157,6 +157,47 @@
         #archive { --hover: var(--accent-archive); }
         #contact { --hover: var(--accent-contact); }
 
+        /* The pointer takes the color of the area you are in.
+           Touch screens keep the normal cursor. */
+        .site-cursor {
+            display: none;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .has-custom-cursor,
+            .has-custom-cursor * {
+                cursor: none !important;
+            }
+            .site-cursor {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10000;
+                width: 17px;
+                height: 22px;
+                overflow: visible;
+                color: var(--accent-home);
+                opacity: 0;
+                pointer-events: none;
+                transition: color var(--menu-pill-fade) ease, opacity 0.15s ease;
+            }
+            .site-cursor.is-on {
+                opacity: 1;
+            }
+            .site-cursor.is-hidden {
+                opacity: 0;
+            }
+            body[data-section="home"] .site-cursor    { color: var(--accent-home); }
+            body[data-section="archive"] .site-cursor { color: var(--accent-archive); }
+            body[data-section="contact"] .site-cursor { color: var(--accent-contact); }
+            .site-cursor path {
+                fill: currentColor;
+                stroke: #000;
+                stroke-width: 1;
+                stroke-linejoin: round;
+            }
+        }
+
 
         /* =====================================================================
            3. BURGER MENU
@@ -802,7 +843,7 @@
         }
 
 
-     /* =====================================================================
+        /* =====================================================================
            7. CONTACT
            ===================================================================== */
 
@@ -821,15 +862,17 @@
 
         .contact-intro {
             max-width: 510px;
+            margin: 20px 0 0;
         }
 
-        /* The three images share the full width of the left column */
+        /* The three images share the full width of the left column.
+           They sit at the top so they line up with "Clients". */
         .profile-images {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: var(--column-gap);
             align-items: start;
-            margin-top: 20px;
+            margin: 0;
         }
         .profile-image {
             display: block;
@@ -841,12 +884,26 @@
             height: auto;
         }
 
-        /* Right column, lines up with the profile images */
+        /* Right column: the lists, then the contact details directly under them. */
         .contact-extra {
-            padding-top: var(--size-body);
+            display: flex;
+            flex-direction: column;
+        }
+        /* Drop the browser's top margin so "Clients" starts level with the images */
+        #contact-sections > p:first-child {
+            margin-top: 0;
         }
         .contact-heading {
             font-weight: 700;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            margin-top: 1.5em;
+        }
+        .contact-details p {
+            margin: 0;
         }
 
         /* Name that follows the mouse over the profile images */
@@ -879,9 +936,6 @@
             #contact {
                 grid-template-columns: 1fr;
                 gap: 20px;
-            }
-            .contact-extra {
-                padding-top: 0;
             }
         }
 
@@ -948,16 +1002,8 @@
         <!-- =========================== CONTACT =========================== -->
         <section id="contact">
 
-            <!-- Left column -->
+            <!-- Left column: images on top, in line with "Clients", text below -->
             <div class="contact-content">
-
-                <p class="contact-intro">
-                    Our love language is acts of service, meaning we show care through thoughtful, practical actions that make life a bit easier.
-                    <br><br>
-                    We see our design practice in much the same way. Design, to us, is an act of service: a process of communication, research, questioning and making. We design with care, responding to the specific needs, context and people behind each project rather than applying a predefined style or formula.
-                    <br><br>
-                    For us, design is a form of care. An ongoing practice of paying attention, figuring things out, and making something useful out of what we find.
-                </p>
 
                 <div class="profile-images">
                     <div class="profile-image" data-name="EMMY">
@@ -971,29 +1017,45 @@
                     </div>
                 </div>
 
-                <p>
-                    Contact us at
-                    <a href="mailto:studio@actsofservice.se">studio@actsofservice.se</a>
-                </p>
-
-                <p>
-                    <a href="https://www.instagram.com/" target="_blank">@actsofservice</a>
-                </p>
-
-                <p>
-                    <a href="tel:+46760438370">Emmy Seeger +46 76 043 83 70</a><br>
-                    <a href="tel:+46725301300">Molly Schedin +46 72 530 13 00</a><br>
-                    <a href="tel:+46707996786">Olle Ljung +46 70 799 67 86</a>
+                <p class="contact-intro">
+                    Our love language is acts of service, meaning we show care through thoughtful, practical actions that make life a bit easier.
+                    <br><br>
+                    We see our design practice in much the same way. Design, to us, is an act of service: a process of communication, research, questioning and making. We design with care, responding to the specific needs, context and people behind each project rather than applying a predefined style or formula.
+                    <br><br>
+                    For us, design is a form of care. An ongoing practice of paying attention, figuring things out, and making something useful out of what we find.
                 </p>
 
             </div>
 
-            <!-- Right column, filled from contact.json -->
-            <div class="contact-extra" id="contact-sections"></div>
+            <!-- Right column: lists from contact.json, contact details at the bottom -->
+            <div class="contact-extra">
+                <div id="contact-sections"></div>
+
+                <div class="contact-details">
+                    <p>
+                        Contact us at
+                        <a href="mailto:studio@actsofservice.se">studio@actsofservice.se</a>
+                    </p>
+
+                    <p>
+                        <a href="https://www.instagram.com/" target="_blank">@actsofservice</a>
+                    </p>
+
+                    <p>
+                        <a href="tel:+46760438370">Emmy Seeger +46 76 043 83 70</a><br>
+                        <a href="tel:+46725301300">Molly Schedin +46 72 530 13 00</a><br>
+                        <a href="tel:+46707996786">Olle Ljung +46 70 799 67 86</a>
+                    </p>
+                </div>
+            </div>
 
         </section>
 
     </div>
+
+    <svg class="site-cursor" id="site-cursor" viewBox="0 0 17 22" aria-hidden="true">
+        <path d="M1.5 1.5 L1.5 16.5 L5.2 12.7 L8.4 19.5 L11.2 18.2 L8 11.4 L13.2 11.2 Z"/>
+    </svg>
 
     <div class="name-cursor" id="name-cursor"></div>
 
@@ -1014,6 +1076,23 @@ const mobileLayout = window.matchMedia('(max-width: 700px)');
 
 // Computers with a mouse use hover (menu, contact names), touch screens use tap.
 const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+// Colored pointer. Its color follows body[data-section] in the CSS.
+const siteCursor = document.getElementById('site-cursor');
+const syncCustomCursor = () => {
+    document.documentElement.classList.toggle('has-custom-cursor', canHover.matches);
+};
+syncCustomCursor();
+canHover.addEventListener('change', syncCustomCursor);
+window.addEventListener('pointermove', (event) => {
+    if (!canHover.matches) return;
+    siteCursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+    siteCursor.classList.add('is-on');
+    siteCursor.classList.remove('is-hidden');
+});
+document.addEventListener('pointerleave', (event) => {
+    if (!event.relatedTarget) siteCursor.classList.add('is-hidden');
+});
 
 
 /* ==========================================================================
