@@ -853,16 +853,29 @@
         #contact {
             display: grid;
             grid-template-columns: minmax(0, 1fr) calc(50% - var(--cover-width) / 2 - var(--column-gap));
-            gap: var(--column-gap);
+            grid-template-rows: auto auto;
+            column-gap: var(--column-gap);
+            row-gap: 20px;
+            align-content: start;
             min-height: 100vh;
             min-height: 100svh;
             box-sizing: border-box;
             padding: 0 var(--gutter) var(--gutter);
         }
 
+        /* The two columns share the same rows, so the paragraph and the
+           contact details start on the same line under the images. */
+        .contact-content,
+        .contact-extra {
+            display: grid;
+            grid-template-rows: subgrid;
+            grid-row: span 2;
+            align-items: start;
+        }
+
         .contact-intro {
             max-width: 510px;
-            margin: 20px 0 0;
+            margin: 0;
         }
 
         /* The three images share the full width of the left column.
@@ -884,11 +897,6 @@
             height: auto;
         }
 
-        /* Right column: the lists, then the contact details directly under them. */
-        .contact-extra {
-            display: flex;
-            flex-direction: column;
-        }
         /* Drop the browser's top margin so "Clients" starts level with the images */
         #contact-sections > p:first-child {
             margin-top: 0;
@@ -900,7 +908,7 @@
             display: flex;
             flex-direction: column;
             gap: 1em;
-            margin-top: 1.5em;
+            margin: 0;
         }
         .contact-details p {
             margin: 0;
@@ -935,6 +943,14 @@
         @media (max-width: 1100px) {
             #contact {
                 grid-template-columns: 1fr;
+                grid-template-rows: none;
+                gap: 20px;
+            }
+            .contact-content,
+            .contact-extra {
+                display: flex;
+                flex-direction: column;
+                grid-row: auto;
                 gap: 20px;
             }
         }
