@@ -802,7 +802,7 @@
         }
 
 
-        /* =====================================================================
+     /* =====================================================================
            7. CONTACT
            ===================================================================== */
 
@@ -819,38 +819,22 @@
             padding: 0 var(--gutter) var(--gutter);
         }
 
-        /* Arrange the left column vertically */
-        .contact-content {
-            display: flex;
-            flex-direction: column;
+        .contact-intro {
+            max-width: 510px;
         }
 
-        /* The three images share the full width of the left column
-           and appear above the introduction */
+        /* The three images share the full width of the left column */
         .profile-images {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: var(--column-gap);
             align-items: start;
             margin-top: 20px;
-            order: 1;
         }
-
-        .contact-intro {
-            max-width: 510px;
-            order: 2;
-        }
-
-        /* Contact details appear below the introduction */
-        .contact-content > p:not(.contact-intro) {
-            order: 3;
-        }
-
         .profile-image {
             display: block;
             cursor: none;
         }
-
         .profile-image img {
             display: block;
             width: 100%;
@@ -861,7 +845,6 @@
         .contact-extra {
             padding-top: var(--size-body);
         }
-
         .contact-heading {
             font-weight: 700;
         }
@@ -873,7 +856,7 @@
             left: 0;
             z-index: 9999;
             opacity: 0;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* centered on the pointer */
             color: var(--accent-contact);
             font-weight: 700;
             line-height: 1;
@@ -881,16 +864,13 @@
             pointer-events: none;
             transition: opacity 0.1s ease;
         }
-
         .name-cursor.visible {
             opacity: 1;
         }
-
         /* Touch screens: the name stays where you tapped and fades out slowly */
         .name-cursor.tapped {
             position: absolute;
         }
-
         .name-cursor.fading {
             transition: opacity var(--name-fade) ease;
         }
@@ -900,7 +880,6 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-
             .contact-extra {
                 padding-top: 0;
             }
@@ -910,7 +889,6 @@
             .profile-images {
                 gap: 10px;
             }
-
             .profile-image {
                 cursor: default;
             }
