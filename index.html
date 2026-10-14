@@ -917,6 +917,11 @@
         .contact-details p {
             margin: 0;
         }
+        .contact-phones {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55em;
+        }
 
         /* Name that follows the mouse over the profile images */
         .name-cursor {
@@ -1057,11 +1062,11 @@
                         <a href="https://www.instagram.com/" target="_blank">@actsofservice</a>
                     </p>
 
-                    <p>
-                        <a href="tel:+46760438370">Emmy Seeger +46 76 043 83 70</a><br>
-                        <a href="tel:+46725301300">Molly Schedin +46 72 530 13 00</a><br>
-                        <a href="tel:+46707996786">Olle Ljung +46 70 799 67 86</a>
-                    </p>
+                    <div class="contact-phones">
+                        <p><a href="tel:+46760438370">Emmy Seeger +46 76 043 83 70</a></p>
+                        <p><a href="tel:+46725301300">Molly Schedin +46 72 530 13 00</a></p>
+                        <p><a href="tel:+46707996786">Olle Ljung +46 70 799 67 86</a></p>
+                    </div>
                 </div>
 
             </div>
