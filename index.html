@@ -560,6 +560,13 @@
         .project-cover video {
             height: auto;
         }
+        /* Safari puts a big play button on videos when it blocks autoplay
+           (e.g. in Low Power Mode). Hide it on the autoplaying videos so the
+           thumbnail just shows as an image until the video can play. */
+        video:not([controls])::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none;
+        }
         .project-cover iframe {
             aspect-ratio: var(--ratio, 16 / 9);   /* the video's own shape, set by the script */
             border: 0;
@@ -1419,6 +1426,22 @@ const playWhenVisible = (video) => {
     observer.observe(video);
     return observer;
 };
+
+// Some browsers (e.g. Safari in Low Power Mode) block autoplay until the
+// visitor has clicked or tapped once. Start the visible videos on the first
+// click, tap or key press anywhere, not just on the video itself.
+const isOnScreen = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.width > 0 && rect.bottom > 0 && rect.top < window.innerHeight
+        && rect.right > 0 && rect.left < window.innerWidth;
+};
+const startBlockedVideos = () => {
+    ['pointerdown', 'keydown'].forEach(type => document.removeEventListener(type, startBlockedVideos, true));
+    document.querySelectorAll('video[autoplay], #bg-slideshow video:not([hidden])').forEach(video => {
+        if (video.paused && isOnScreen(video)) video.play().catch(() => {});
+    });
+};
+['pointerdown', 'keydown'].forEach(type => document.addEventListener(type, startBlockedVideos, true));
 
 projectsRequest
     .then(projects => {
