@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'content/projects/**'
+      - 'images/uploads/**'
+      - 'scripts/**'
 
 jobs:
   build:
@@ -18,14 +20,16 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install gray-matter
+      - run: npm install gray-matter sharp
+
+      - run: node scripts/build-thumbnails.js
 
       - run: node scripts/build-projects.js
 
-      - name: Commit projects.json
+      - name: Commit projects.json and thumbnails
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add projects.json
-          git diff --staged --quiet || git commit -m "Update projects.json"
+          git add projects.json images/thumbs
+          git diff --staged --quiet || git commit -m "Update projects.json and thumbnails"
           git push

@@ -4,6 +4,12 @@ const matter = require('gray-matter');
 
 const projectsDir = path.join(__dirname, '../content/projects');
 const outFile = path.join(__dirname, '../projects.json');
+const thumbsManifestFile = path.join(__dirname, '../images/thumbs/manifest.json');
+
+// Thumbnails made by build-thumbnails.js, keyed by cover image path.
+const thumbs = fs.existsSync(thumbsManifestFile)
+  ? JSON.parse(fs.readFileSync(thumbsManifestFile, 'utf8'))
+  : {};
 
 const files = fs.existsSync(projectsDir)
   ? fs.readdirSync(projectsDir).filter(f => f.endsWith('.md'))
@@ -17,6 +23,7 @@ const projects = files.map(filename => {
     descriptionEnglish: data.descriptionEnglish || data.description || '',
     descriptionSwedish: data.descriptionSwedish || '',
     image: data.image,
+    thumbnail: (data.image && thumbs[data.image.normalize('NFC')] || {}).thumbnail || '',
     coverMediaType: data.coverMediaType || 'image',
     coverVideo: data.coverVideo || '',
     gallery: data.gallery || [],
