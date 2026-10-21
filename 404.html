@@ -21,8 +21,8 @@
         }
 
         :root {
-            --font-mono: "slnt" 0, "DRKM" 0, "MONO" 50;
-            --size-large: 2.05rem;
+            --font-mono: "slnt" 0, "DRKM" 0, "MONO" 50;   /* semi mono, as in the archive */
+            --size-404: clamp(8rem, 32vw, 26rem);           /* the big "404" */
             --size-body: 1.05rem;
             --bg: #ffffff;
             --ink: #000000;
@@ -36,10 +36,13 @@
             margin: 0;
         }
 
+        /* Everything centered on the screen */
         body {
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 0 var(--gutter);
+            text-align: center;
             background: var(--bg);
             color: var(--ink);
             font-family: "ABC Areal", sans-serif;
@@ -57,8 +60,10 @@
             margin: 0 0 0.4em;
         }
 
-        .code {
-            font-size: var(--size-large);
+        main .code {
+            margin: 0 0 0.1em;
+            font-size: var(--size-404);
+            line-height: 0.8;
         }
 
         a {
