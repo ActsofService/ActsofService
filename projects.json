@@ -3,37 +3,57 @@
     "title": "Avtryck: Graduation Identity",
     "descriptionEnglish": "The graduating show is a place to make a mark (avtryck), a chance to take place and position one self for the future with competence and self-assertion. We have made the choice to portray this year's theme with a seal as a stamp of quality and with a signet ring as a symbol for belonging and community: We are the graduating bachelor class at Beckmans College of Design 2026. The seal is a ceremonial and bold/daring way to make one's mark with and is the soul of the graduating show's campaign.\n\nSee the full campaign video [here](https://youtu.be/TUCXc2IjZaE?si=IB9FuWP8_28Kk26r).\n\nThe campaign was created together with Linn Sehlstedt and Phoebe Crookes.",
     "descriptionSwedish": "Examensutställningen är en plats att göra avtryck på, en chans att ta plats och positionera sig själv inför framtiden med kompetens och självsäkerhet. Vi har valt att gestalta årets tema med ett sigill som en kvalitetsstämpel och med en signetring som en symbol för tillhörighet och gemenskap: Vi är den examinerande kandidatklassen på Beckmans Designhögskola 2026. Sigillet är ett högtidligt och djärvt sätt att göra sitt avtryck på och är själva själen i examensutställningens kampanj.\n\nSe hela kampanj filmen [här](https://youtu.be/TUCXc2IjZaE?si=IB9FuWP8_28Kk26r).\n\nKampanjen skapades tillsammans med Linn Sehlstedt och Phoebe Crookes.",
+    "summary": "The graduating show is a place to make a mark (avtryck), a chance to take place and position one self for the future with competence and self-assertion. We…",
     "image": "",
     "thumbnail": "/images/thumbs/avtryck-1-bb39f724.webp",
+    "shareImage": "/images/thumbs/avtryck-1-bb39f724-share.jpg",
     "coverMediaType": "video",
-    "coverVideo": "/images/uploads/avtryck_1.mp4",
+    "coverVideo": "/images/optimized/avtryck-1-bb39f724.mp4",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/filminspelning.jpg"
+        "image": "/images/optimized/filminspelning-213dde09.webp"
       },
       {
         "mediaType": "looping video",
         "gif": "",
-        "video": "/images/uploads/skärmar_1.mp4"
+        "video": "/images/optimized/skarmar-1-ec21ffc7.mp4"
       },
       {
         "mediaType": "image",
-        "gif": "/images/uploads/august-1-2-.gif"
+        "gif": "/images/optimized/august-1-2-7ea2e6ef.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/vepa.jpg"
+        "image": "/images/optimized/vepa-77bf2512.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/brev-innehåll.jpg"
+        "image": "/images/optimized/brev-innehall-e9ebc7a0.webp"
       },
       {
         "mediaType": "video",
         "video": "https://youtu.be/TUCXc2IjZaE?si=Kq2F0CLr6yQ3j4Jx"
       }
     ],
+    "sizes": {
+      "/images/optimized/filminspelning-213dde09.webp": [
+        1600,
+        2400
+      ],
+      "/images/optimized/august-1-2-7ea2e6ef.webp": [
+        480,
+        270
+      ],
+      "/images/optimized/vepa-77bf2512.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/brev-innehall-e9ebc7a0.webp": [
+        2400,
+        1600
+      ]
+    },
     "date": "2026-09",
     "commissioner": "Beckmans",
     "category": [
@@ -46,30 +66,47 @@
     ],
     "favorite": true,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "avtryck-graduation-identity"
   },
   {
     "title": "Acts of Service",
     "descriptionEnglish": "*Acts of Service* is a typeface family built from traces of service work. Through ornament, repetition, and documentation, the project explores labor as a typographic form.\n\nMost aspects of service work are made to disappear again. Stains are wiped away, movements are repeated, and surfaces are restored. Drawing from personal experiences of restaurant work, *Acts of Service* examines service labor as a form of relational, embodied, and collective knowledge.\n\nThrough the documentation of traces from restaurant environments, a typeface family has emerged in which ornament is used as a method rather than decoration. The typefaces are based on actions that usually disappear without leaving visible marks behind.\n\nGraduation project by Emmy Seeger",
     "descriptionSwedish": "*Acts of Service*, en typsnittsfamilj byggd på spår av servicearbete. Genom ornament, repetition och dokumentation undersöks arbete som typografisk form.\n\nDet mesta inom servicearbete är gjort för att försvinna igen. Fläckar torkas bort, rörelser upprepas och ytor återställs. Med utgångspunkt i egna erfarenheter av restaurangarbete undersöker *Acts of Service* servicearbete som en form av relationell, kroppslig och kollektiv kunskap. Genom dokumentation av spår från restaurangmiljöer har en typsnittsfamilj vuxit fram där ornament används som metod snarare än dekoration. Typsnitten bygger på handlingar som vanligtvis försvinner utan att lämna tydliga avtryck efter sig.\n\nExamensprojekt av Emmy Seeger",
-    "image": "/images/uploads/emmy_seeger_foto_4.jpg",
+    "summary": "Acts of Service is a typeface family built from traces of service work. Through ornament, repetition, and documentation, the project explores labor as a…",
+    "image": "/images/optimized/emmy-seeger-foto-4-f8aa7369.webp",
     "thumbnail": "/images/thumbs/emmy-seeger-foto-4-f8aa7369.webp",
+    "shareImage": "/images/thumbs/emmy-seeger-foto-4-f8aa7369-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/emmy_seeger_foto_1.jpg"
+        "image": "/images/optimized/emmy-seeger-foto-1-44891ac6.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/emmy_seeger_foto_2.jpg"
+        "image": "/images/optimized/emmy-seeger-foto-2-a2efdce6.webp"
       },
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/actsofservicetype_1.mp4"
+        "video": "/images/optimized/actsofservicetype-1-9ae81ca9.mp4"
       }
     ],
+    "sizes": {
+      "/images/optimized/emmy-seeger-foto-4-f8aa7369.webp": [
+        1920,
+        2400
+      ],
+      "/images/optimized/emmy-seeger-foto-1-44891ac6.webp": [
+        1920,
+        2400
+      ],
+      "/images/optimized/emmy-seeger-foto-2-a2efdce6.webp": [
+        1920,
+        2400
+      ]
+    },
     "date": "2026-05",
     "commissioner": "",
     "category": [
@@ -77,34 +114,59 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "acts-of-service"
   },
   {
     "title": "Flaggad",
     "descriptionEnglish": "*Flaggad* is a visual study of the relationship between form, viewer, and context through the flag as a medium.\n\nI have long been interested in flags. Their visual language appeals to me as a designer. I am drawn to their bold colours and graphic forms, but also to the limitations inherent to the flag as a medium. There is something fascinating about how a piece of fabric can carry such complex meaning.\n\nFor thousands of years, flags have served to bring people together around a symbol, creating a sense of shared identity. A flag can be political, ideological, existential, or practical. It is, to a great extent, a matter of graphic design, and flags are a powerful example of the role symbols play in society, the power they hold, and the power we attribute to them.\n\nGraduation project by Molly Schedin",
     "descriptionSwedish": "*Flaggad* är en visuell studie av relationen mellan form, betraktare och kontext genom flaggan som medium.\n\nLänge har jag haft ett intresse för flaggor. Det visuella språket tilltalar mig som formgivare. Jag dras till de starka färgerna och grafiska formerna men även de begränsningarna som en flagga har. Det är fascinerande att ett tygstycke kan få en sådan komplex betydelse.\n\nUnder tusentals år har flaggan haft som funktion att samla människor kring en symbol för att skapa en gemensam identitet. Den kan vara politisk, ideologisk, existentiell eller praktisk. Det handlar i hög grad om grafisk design, och flaggor är ett bra exempel på symbolers roll i samhället, makten de har och makten vi tillskriver dem.\n\nExamensprojekt av Molly Schedin",
-    "image": "/images/uploads/tq.png",
+    "summary": "Flaggad is a visual study of the relationship between form, viewer, and context through the flag as a medium. I have long been interested in flags. Their…",
+    "image": "/images/optimized/tq-0ad49eab.webp",
     "thumbnail": "/images/thumbs/tq-0ad49eab.webp",
+    "shareImage": "/images/thumbs/tq-0ad49eab-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/molly_schedin_foto_1.png"
+        "image": "/images/optimized/molly-schedin-foto-1-32ac3215.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/molly_schedin_foto_4.png"
+        "image": "/images/optimized/molly-schedin-foto-4-cccabd17.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/molly_schedin_foto_2-1-.png"
+        "image": "/images/optimized/molly-schedin-foto-2-1-5f5c6c64.webp"
       },
       {
         "mediaType": "gif",
-        "gif": "/images/uploads/f1.gif"
+        "gif": "/images/optimized/f1-b72cc36a.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/tq-0ad49eab.webp": [
+        1885,
+        1767
+      ],
+      "/images/optimized/molly-schedin-foto-1-32ac3215.webp": [
+        1890,
+        2362
+      ],
+      "/images/optimized/molly-schedin-foto-4-cccabd17.webp": [
+        1890,
+        2362
+      ],
+      "/images/optimized/molly-schedin-foto-2-1-5f5c6c64.webp": [
+        1890,
+        2362
+      ],
+      "/images/optimized/f1-b72cc36a.webp": [
+        1500,
+        1600
+      ]
+    },
     "date": "2026-05",
     "commissioner": "",
     "category": [
@@ -112,37 +174,58 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "flaggad"
   },
   {
     "title": "It's Just Noise",
     "descriptionEnglish": "*That Looks Auwful*\n\nI want to challenge a design culture that places a very high value on legibility. Clarity is, of course, often important, but through this project I want to show that ambiguity does not have to be a failure, and that other values such as interpretation, aesthetics, atmosphere, and allowing something to take time can also be given high priority.\n\nI have been inspired by the music genre *noise*, which makes use of sounds that are conventionally considered unwanted. In a similarly subversive way, I have deliberately introduced noise onto my typography.\n\nGraduation project by Olle",
     "descriptionSwedish": "*That Looks Auwful*\n\nJag vill utmana en designkultur som värderar läsbarhet väldigt högt. Självklart är tydlighet ofta viktigt men jag vill med mitt projekt visa att det otydliga inte behöver vara ett misslyckande och att andra värderingar som tolkning, estetik, atmosfär  och att något får ta tid också kan prioriteras högt.\n\nJag har inspirerats av musikgenren *noise*. Genren använder sig av det ljud som konventionellt är oönskat brus. På ett subversivt sätt har jag adderat ett medvetet brus till min typografi.\n\nExamensprojekt av Olle",
+    "summary": "That Looks Auwful I want to challenge a design culture that places a very high value on legibility. Clarity is, of course, often important, but through this…",
     "thumbnail": "/images/thumbs/olle-ljung-video-2-1368e6d0.webp",
+    "shareImage": "/images/thumbs/olle-ljung-video-2-1368e6d0-share.jpg",
     "coverMediaType": "video",
-    "coverVideo": "/images/uploads/olle_ljung_video_2.mp4",
+    "coverVideo": "/images/optimized/olle-ljung-video-2-1368e6d0.mp4",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/olle_ljung_foto_1.png"
+        "image": "/images/optimized/olle-ljung-foto-1-bc42b866.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/olle_ljung_foto_3.png"
+        "image": "/images/optimized/olle-ljung-foto-3-088cfbf2.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/olle_ljung_foto_4.png"
+        "image": "/images/optimized/olle-ljung-foto-4-7dd6faf7.webp"
       },
       {
         "mediaType": "gif",
-        "image": "/images/uploads/zine.gif"
+        "image": "/images/optimized/zine-a65d0543.webp"
       },
       {
         "mediaType": "video",
         "video": "https://vimeo.com/1221501053?share=copy&fl=sv&fe=ci#t=0"
       }
     ],
+    "sizes": {
+      "/images/optimized/olle-ljung-foto-1-bc42b866.webp": [
+        1080,
+        1350
+      ],
+      "/images/optimized/olle-ljung-foto-3-088cfbf2.webp": [
+        1080,
+        1350
+      ],
+      "/images/optimized/olle-ljung-foto-4-7dd6faf7.webp": [
+        1080,
+        1350
+      ],
+      "/images/optimized/zine-a65d0543.webp": [
+        1080,
+        1350
+      ]
+    },
     "date": "2026-05",
     "commissioner": "Self-initiated",
     "category": [
@@ -151,43 +234,76 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "It's Just Noise\n"
+    "body": "It's Just Noise\n",
+    "slug": "its-just-noise"
   },
   {
     "title": "Process, Material, Craft",
     "descriptionEnglish": "Process, Material, Craft - studies in furniture, interior and objects, a three-part exhibition with Beckmans, Konstfack and Malmstens at Moderna Dansteatern. Posters, signage, catalogue, invitation and social media.\nCreated together with Edda Eliasson, Mika Hyvönen, and Olle Svensson\nPhotographer: Madeleine Sjöberg\nDocumentation: Jesper Smeding.\n",
     "descriptionSwedish": "Process, Material, Hantverk – studier inom möbler, inredning och objekt, en tredelad utställning med Beckmans, Konstfack och Malmstens på Moderna Dansteatern. Affischer, skyltning, katalog, inbjudan och sociala medier.\nSkapad tillsammans med Edda Eliasson, Mika Hyvönen och Olle Svensson\nFotograf: Madeleine Sjöberg\nDokumentation: Jesper Smeding.\n",
-    "image": "/images/uploads/skylt.jpg",
+    "summary": "Process, Material, Craft - studies in furniture, interior and objects, a three-part exhibition with Beckmans, Konstfack and Malmstens at Moderna…",
+    "image": "/images/optimized/skylt-7f7140cc.webp",
     "thumbnail": "/images/thumbs/skylt-7f7140cc.webp",
+    "shareImage": "/images/thumbs/skylt-7f7140cc-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "gif",
         "image": "",
-        "gif": "/images/uploads/1.-main-poster_1080x1350.gif"
+        "gif": "/images/optimized/1-main-poster-1080x1350-6324357a.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/2.png"
+        "image": "/images/optimized/2-e1c08729.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/grön.jpg"
+        "image": "/images/optimized/gron-fbc531a1.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/4.jpg"
+        "image": "/images/optimized/4-9e7f1bc7.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/print.jpg"
+        "image": "/images/optimized/print-acb72762.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/7.jpg"
+        "image": "/images/optimized/7-21e46464.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/skylt-7f7140cc.webp": [
+        1998,
+        2286
+      ],
+      "/images/optimized/1-main-poster-1080x1350-6324357a.webp": [
+        1080,
+        1350
+      ],
+      "/images/optimized/2-e1c08729.webp": [
+        1800,
+        2400
+      ],
+      "/images/optimized/gron-fbc531a1.webp": [
+        1080,
+        1350
+      ],
+      "/images/optimized/4-9e7f1bc7.webp": [
+        1080,
+        1350
+      ],
+      "/images/optimized/print-acb72762.webp": [
+        1080,
+        1350
+      ],
+      "/images/optimized/7-21e46464.webp": [
+        1080,
+        1350
+      ]
+    },
     "date": "2026-02",
     "commissioner": "Beckmans, Konstfack & Malmstens",
     "category": [
@@ -198,29 +314,33 @@
     ],
     "favorite": true,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "process-material-craft"
   },
   {
     "title": "5EM x Skyddsrum @ Under Bron",
     "descriptionEnglish": "Visuals for the collective S*kyddsrum* @ Under Bron.\n\nCreated with Phoebe Crookes and Linn Willebrand.",
     "descriptionSwedish": "Visuals för kollektivet S*kyddsrum* @ Under Bron.\n\nSkapat tillsammans med Phoebe Crookes och Linn Willebrand.",
+    "summary": "Visuals for the collective Skyddsrum @ Under Bron. Created with Phoebe Crookes and Linn Willebrand.",
     "thumbnail": "/images/thumbs/ub-1-8d7f62b5.webp",
+    "shareImage": "/images/thumbs/ub-1-8d7f62b5-share.jpg",
     "coverMediaType": "video",
-    "coverVideo": "/images/uploads/ub_1.mp4",
+    "coverVideo": "/images/optimized/ub-1-8d7f62b5.mp4",
     "gallery": [
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/img_0645.mov"
+        "video": "/images/optimized/img-0645-f3f996e9.mp4"
       },
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/img_0604.mov"
+        "video": "/images/optimized/img-0604-ae246bc0.mp4"
       },
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/img_0643.mov"
+        "video": "/images/optimized/img-0643-7f294311.mp4"
       }
     ],
+    "sizes": {},
     "date": "2025-11",
     "commissioner": "Skyddsrum, Under Bron",
     "category": [
@@ -228,34 +348,59 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "5em-x-skyddsrum-under-bron"
   },
   {
     "title": "New Platforms",
     "descriptionEnglish": "\"The current state of established digital platforms and its influence on visual communication is under scrutiny by us students, teachers and human beings. Because frankly, we're disappointed with the current state of affairs.\"\n\n\nThree parts created for New Platforms, an design festival at Beckmans Collage of Design.\nNewPlatforms.txt is a publication made to broaden the subject of alternative and new possible platforms. We learn more about this subject through invited writers, who each bring an interesting point of view. Re:action Workshop is a workshop presented as an analogue internet platform. Re:action Exhibition is the result of a workshop our class completed together. To achieve less pressure and a unified expression, we wanted to use limited tools and shapes. From these thoughts came the idea of Re:action Workshop.\n\n\nCreated together with Phoebe Crookes and Hanna Hedberg\nDocumentation: Jonas Hermlin",
     "descriptionSwedish": "\"Det nuvarande tillståndet hos etablerade digitala plattformar och dess inverkan på visuell kommunikation granskas av oss studenter, lärare och människor. För helt ärligt, vi är besvikna på hur läget ser ut just nu.\"\nTre delar skapade för New Platforms, en designfestival på Beckmans Designhögskola.\nNewPlatforms.txt är en publikation gjord för att bredda ämnet kring alternativa och nya möjliga plattformar. Vi lär oss mer om ämnet genom inbjudna skribenter, som var och en bidrar med ett intressant perspektiv. Re:action Workshop är en workshop presenterad som en analog internetplattform, där man lekfullt kan engagera sig, skapa och reagera på sin omgivning. Re:action Exhibition är resultatet av en workshop som vår klass genomförde tillsammans. Vi ville visa vår kollektiva kreativitet och minska prestationspressen. För att uppnå mindre press och ett enat uttryck ville vi använda begränsade verktyg och former. Ur dessa tankar föddes idén till Re:action Workshop.\nSkapad tillsammans med Phoebe Crookes och Hanna Hedberg\nDokumentation: Jonas Hermlin\n",
-    "image": "/images/uploads/1.-img_5923.jpg",
+    "summary": "\"The current state of established digital platforms and its influence on visual communication is under scrutiny by us students, teachers and human beings.…",
+    "image": "/images/optimized/1-img-5923-bb7dfd82.webp",
     "thumbnail": "/images/thumbs/1-img-5923-bb7dfd82.webp",
+    "shareImage": "/images/thumbs/1-img-5923-bb7dfd82-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/2.-img_5947.jpg"
+        "image": "/images/optimized/2-img-5947-c5994dde.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/3.img_5740.jpg"
+        "image": "/images/optimized/3-img-5740-7965e8fc.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/4.-img_5936.jpg"
+        "image": "/images/optimized/4-img-5936-71714341.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/5.-img_6030.jpg"
+        "image": "/images/optimized/5-img-6030-db4ce841.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/1-img-5923-bb7dfd82.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/2-img-5947-c5994dde.webp": [
+        1600,
+        2400
+      ],
+      "/images/optimized/3-img-5740-7965e8fc.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/4-img-5936-71714341.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/5-img-6030-db4ce841.webp": [
+        1600,
+        2400
+      ]
+    },
     "date": "2025-10",
     "commissioner": "Beckmans College of Design",
     "category": [
@@ -264,35 +409,52 @@
     ],
     "favorite": true,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "new-platforms"
   },
   {
     "title": "Tyrvinr ",
     "descriptionEnglish": "Tyrvinr  - a mythological sword bound by both magic and a curse. The sword cannot be broken, cleaves through stone and iron, and is guaranteed to win in battle. But every time the blade leaves its sheath, a life must be claimed. The act also unleashes three evil deeds. Now the sword rests driven into the earth, a reminder of the battle, and the guilt that followed.\n\nArtwork displayed at PLX 2025, a music and art festival at Tjärö, Blekinge.",
     "descriptionSwedish": "Tyrvinr – ett mytologiskt svärd bundet av både magi och en förbannelse. Svärdet kan inte brytas, klyver sten och järn och är garanterat att segra i strid. Men varje gång klingan lämnar sin skida måste ett liv tas. Handlingen frigör också tre onda gärningar. Nu vilar svärdet neddrivet i marken, som en påminnelse om striden och skulden som följde.\n\nVerket visades på PLX 2025, en musik- och konstfestival på Tjärö i Blekinge.",
-    "image": "/images/uploads/136e9204-390f-4207-9298-302ccc7ebb8d.png",
+    "summary": "Tyrvinr - a mythological sword bound by both magic and a curse. The sword cannot be broken, cleaves through stone and iron, and is guaranteed to win in…",
+    "image": "/images/optimized/136e9204-390f-4207-9298-302ccc7ebb8d-f5b05fda.webp",
     "thumbnail": "/images/thumbs/136e9204-390f-4207-9298-302ccc7ebb8d-f5b05fda.webp",
+    "shareImage": "/images/thumbs/136e9204-390f-4207-9298-302ccc7ebb8d-f5b05fda-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/976edfbd-ae8a-4a38-90bf-aa26bb29b5d3.png"
+        "image": "/images/optimized/976edfbd-ae8a-4a38-90bf-aa26bb29b5d3-7a147856.webp"
       },
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/img_9514.mp4"
+        "video": "/images/optimized/img-9514-ca9e9fa2.mp4"
       },
       {
         "mediaType": "image",
         "video": "",
-        "image": "/images/uploads/img_7327.png"
+        "image": "/images/optimized/img-7327-cdb68dbe.webp"
       },
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/sword_1.mp4"
+        "video": "/images/optimized/sword-1-aee2cab5.mp4"
       }
     ],
+    "sizes": {
+      "/images/optimized/136e9204-390f-4207-9298-302ccc7ebb8d-f5b05fda.webp": [
+        1107,
+        1361
+      ],
+      "/images/optimized/976edfbd-ae8a-4a38-90bf-aa26bb29b5d3-7a147856.webp": [
+        1536,
+        2048
+      ],
+      "/images/optimized/img-7327-cdb68dbe.webp": [
+        1536,
+        2048
+      ]
+    },
     "date": "2025-08",
     "commissioner": "",
     "category": [
@@ -301,14 +463,17 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "tyrvinr"
   },
   {
     "title": "Trubadur av rätta ullen - Per Hellberg",
     "descriptionEnglish": "Album cover for the street troubadour Per Hellbergs debutalbum *Trubadur av Rätta Ullen.* \n\nStockholm’s subway system refers to itself as “the world’s longest art gallery” and Per Anders Ture Hallberg has become a permanent fixture. With an undying optimism in the classic mould of a troubadour, Per extols stories of all walks of life, if you’ll lend him your ear. / Plx Records 2026",
     "descriptionSwedish": "",
+    "summary": "Album cover for the street troubadour Per Hellbergs debutalbum Trubadur av Rätta Ullen. Stockholm’s subway system refers to itself as “the world’s longest…",
     "image": "/images/uploads/3db29dff74f8336e0ceacdf5e39880e5.jpeg",
     "thumbnail": "/images/thumbs/3db29dff74f8336e0ceacdf5e39880e5-61733554.webp",
+    "shareImage": "/images/thumbs/3db29dff74f8336e0ceacdf5e39880e5-61733554-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
@@ -317,43 +482,78 @@
         "video": "https://vimeo.com/1232951119"
       }
     ],
+    "sizes": {
+      "/images/uploads/3db29dff74f8336e0ceacdf5e39880e5.jpeg": [
+        1280,
+        1280
+      ]
+    },
     "date": "2025-07",
     "commissioner": "",
     "category": [],
     "favorite": false,
     "link": null,
-    "body": "gehn\n"
+    "body": "gehn\n",
+    "slug": "trubadur-av-ratta-ullen-per-hellberg"
   },
   {
     "title": "What Happens In the Arctic Does Not Stay In the Arctic",
     "descriptionEnglish": "What's happening in the Arctic right now is part of a larger, circular context. The consequences of our actions, in turn, circle back to us. Through nature's cycles, our impact, and the polar circle that surrounds the Arctic, we highlight how everything is connected and how nothing exists in isolation. The rapid climate changes are forcing people in the Arctic to adapt in order to preserve their communities – something we all must do. With this exhibition, we visualise how different parts of the Arctic are affected by climate change – and why it matters to all of us.\nWhat Happens In the Arctic Does Not Stay In the Arctic consists of seven interpretations of Arctic research, developed in dialogue between students at Beckmans College of Design and researchers from the Beijer Institute, in collaboration with Svenskt Tenn.\n",
     "descriptionSwedish": "Det som händer i Arktis just nu är en del av ett större, cirkulärt sammanhang. Konsekvenserna av våra handlingar återvänder i sin tur till oss. Genom naturens kretslopp, vår påverkan och den polcirkel som omger Arktis belyser vi hur allt hänger samman och hur ingenting existerar isolerat. De snabba klimatförändringarna tvingar människorna i Arktis att anpassa sig för att bevara sina samhällen – något vi alla måste göra. Med den här utställningen visualiserar vi hur olika delar av Arktis påverkas av klimatförändringarna – och varför det spelar roll för oss alla.\nWhat Happens In the Arctic Does Not Stay In the Arctic består av sju tolkningar av arktisk forskning, framtagna i dialog mellan studenter på Beckmans Designhögskola och forskare från Beijerinstitutet, i samarbete med Svenskt Tenn.\n",
-    "image": "/images/uploads/1.-svenskttennverni_select-12.jpg",
+    "summary": "What's happening in the Arctic right now is part of a larger, circular context. The consequences of our actions, in turn, circle back to us. Through…",
+    "image": "/images/optimized/1-svenskttennverni-select-12-adb561dc.webp",
     "thumbnail": "/images/thumbs/1-svenskttennverni-select-12-adb561dc.webp",
+    "shareImage": "/images/thumbs/1-svenskttennverni-select-12-adb561dc-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/2.-svenskttennverni_select-17.jpg"
+        "image": "/images/optimized/2-svenskttennverni-select-17-79bf980b.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/3.-svenskttennverni_select-01.jpg"
+        "image": "/images/optimized/3-svenskttennverni-select-01-becaa8d2.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/4.-skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-37-17.jpeg"
+        "image": "/images/optimized/4-skannat-molly-schedin-edu-beckmans-se-2026-03-11-15-37-17-ddd00876.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/5.-svenskttennverni_select-20.jpg"
+        "image": "/images/optimized/5-svenskttennverni-select-20-1e6d6e8e.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/6.-skannat_molly.schedin-edu.beckmans.se_2026-03-11-15-40-25.jpeg"
+        "image": "/images/optimized/6-skannat-molly-schedin-edu-beckmans-se-2026-03-11-15-40-25-b75fe5be.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/1-svenskttennverni-select-12-adb561dc.webp": [
+        1988,
+        2225
+      ],
+      "/images/optimized/2-svenskttennverni-select-17-79bf980b.webp": [
+        1760,
+        2400
+      ],
+      "/images/optimized/3-svenskttennverni-select-01-becaa8d2.webp": [
+        1911,
+        2400
+      ],
+      "/images/optimized/4-skannat-molly-schedin-edu-beckmans-se-2026-03-11-15-37-17-ddd00876.webp": [
+        2400,
+        1694
+      ],
+      "/images/optimized/5-svenskttennverni-select-20-1e6d6e8e.webp": [
+        1572,
+        2400
+      ],
+      "/images/optimized/6-skannat-molly-schedin-edu-beckmans-se-2026-03-11-15-40-25-b75fe5be.webp": [
+        2400,
+        1694
+      ]
+    },
     "date": "2025-05",
     "commissioner": "Beckmans, Svenskt Tenn",
     "category": [
@@ -363,30 +563,51 @@
     ],
     "favorite": true,
     "link": "https://beckmans.college/Arctic/",
-    "body": "hej HEJ\n"
+    "body": "hej HEJ\n",
+    "slug": "what-happens-in-the-arctic-does-not-stay-in-the-arctic"
   },
   {
     "title": "Oändlig väntan",
     "descriptionEnglish": "A stackable stool inspired by a queue ticket.\n\nWhat does it feel like to be in a particular situation, and what does that feeling look like? Through a piece of furniture, we have given physical form to the feeling of waiting in line; a frustrating system that is at the same time reassuring.\n\nDesign collaboration: Celine Skolleborg, Ella Farestam and Olle Ljung",
     "descriptionSwedish": "En stapelbar pall inspirerad av en kölapp.\n\nVad är känslan av att vara i en specifik situation och hur ser den ut? Med en möbel har vi förkroppsligat känslan av att köa; ett frustrerande system som samtidigt är betryggande.\n\nDesignsamarbete: Celine Skolleborg, Ella Farestam och Olle Ljung",
-    "image": "/images/uploads/pall_1.png",
+    "summary": "A stackable stool inspired by a queue ticket. What does it feel like to be in a particular situation, and what does that feeling look like? Through a piece…",
+    "image": "/images/optimized/pall-1-6ed356e6.webp",
     "thumbnail": "/images/thumbs/pall-1-6ed356e6.webp",
+    "shareImage": "/images/thumbs/pall-1-6ed356e6-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/pall_2.png"
+        "image": "/images/optimized/pall-2-778369ca.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/pall_3.2.png"
+        "image": "/images/optimized/pall-3-2-dbf3a7c1.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/pall_4.2.png"
+        "image": "/images/optimized/pall-4-2-f94bd162.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/pall-1-6ed356e6.webp": [
+        1600,
+        2400
+      ],
+      "/images/optimized/pall-2-778369ca.webp": [
+        1600,
+        2400
+      ],
+      "/images/optimized/pall-3-2-dbf3a7c1.webp": [
+        1600,
+        2400
+      ],
+      "/images/optimized/pall-4-2-f94bd162.webp": [
+        1600,
+        2400
+      ]
+    },
     "date": "2025-02",
     "commissioner": "Self initiated",
     "category": [
@@ -394,30 +615,51 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "Oändlig väntan\n"
+    "body": "Oändlig väntan\n",
+    "slug": "oandlig-vantan"
   },
   {
     "title": "Essence of Emina",
     "descriptionEnglish": "Emina Iman is a creative whose art and expression revolve around freedom, individuality, presence, and creativity. By exploring the specific qualities that define us, she highlights what connects us through dance, imagery, poetry, and conversation.\n\nSecond-year project at Beckmans in collaboration with Juice Studios, Edda Eliasson, and Wilma Reichardt.",
     "descriptionSwedish": "Emina Iman är en kreatör vars konst och uttryck kretsar kring frihet, individualitet, pondus och kreativitet. Genom att fördjupa sig i det specifika som definierar oss, lyfter hon fram det som förenar oss genom dans, bild, poesi och samtal.\n\nProjekt andra året på Beckmans i samarbete med Juice Studios, Edda Eliasson och Wilma Reichardt.",
+    "summary": "Emina Iman is a creative whose art and expression revolve around freedom, individuality, presence, and creativity. By exploring the specific qualities that…",
     "image": "/images/uploads/juicexbeckmans_webb-1-.jpg",
     "thumbnail": "/images/thumbs/juicexbeckmans-webb-1-208b47ee.webp",
+    "shareImage": "/images/thumbs/juicexbeckmans-webb-1-208b47ee-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "gif": "/images/uploads/Olle_Essence.gif"
+        "gif": "/images/optimized/olle-essence-78b68ff3.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/fotograf_24.png"
+        "image": "/images/optimized/fotograf-24-03f4af34.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/essence1-1-.gif"
+        "image": "/images/optimized/essence1-1-ae641146.webp"
       }
     ],
+    "sizes": {
+      "/images/uploads/juicexbeckmans_webb-1-.jpg": [
+        1782,
+        1140
+      ],
+      "/images/optimized/olle-essence-78b68ff3.webp": [
+        1600,
+        1200
+      ],
+      "/images/optimized/fotograf-24-03f4af34.webp": [
+        1417,
+        2126
+      ],
+      "/images/optimized/essence1-1-ae641146.webp": [
+        1600,
+        1131
+      ]
+    },
     "date": "2025-01",
     "commissioner": "Beckmans, Juice Studios",
     "category": [
@@ -425,22 +667,35 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "essence-of-emina"
   },
   {
     "title": "Freyja + Söder",
     "descriptionEnglish": "A commission for Freyja restaurant. The brief was to create a new menu, drinks menu, text cards and note holders, guided by the idea of *personal expression*.\n\nWe wanted to highlight our individual artistic expressions by drawing inspiration from our own influences and personal “archives”. Together, we weave our distinct styles into a shared visual language and a collaborative project.",
     "descriptionSwedish": "Uppdrag för Freyja restaurang. Brief: Att skapa en ny meny till Freyja samt drinkmeny, textkort och nothållare, med ingång *personligt uttryck*. \n\nVi ville lyfta fram våra konstnärliga uttryck genom att hämta inspiration från våra egna influenser och personliga 'arkiv'. Tillsammans flätar vi samman våra unika stilar till ett gemensamt projekt.",
-    "image": "/images/uploads/freyja5.png",
+    "summary": "A commission for Freyja restaurant. The brief was to create a new menu, drinks menu, text cards and note holders, guided by the idea of personal expression.…",
+    "image": "/images/optimized/freyja5-5d4f96fe.webp",
     "thumbnail": "/images/thumbs/freyja5-5d4f96fe.webp",
+    "shareImage": "/images/thumbs/freyja5-5d4f96fe-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "gif",
-        "image": "/images/uploads/ny_freyja_gif.gif"
+        "image": "/images/optimized/ny-freyja-gif-c19b122b.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/freyja5-5d4f96fe.webp": [
+        2350,
+        2350
+      ],
+      "/images/optimized/ny-freyja-gif-c19b122b.webp": [
+        1309,
+        1309
+      ]
+    },
     "date": "2025-01",
     "commissioner": "Freyja + Söder",
     "category": [
@@ -448,31 +703,52 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "freyja-soder"
   },
   {
     "title": "Hemfärden ",
     "descriptionEnglish": "Hemfärden is a magazine about photographer Adam Ahmed Pihlgren the photos he took on his trip to Ethiopia. The magazine is about exploring identity and heritage.\n\nCreated together with Linn Sehlstedt, Olle Svensson and Stephanie Holmén.",
     "descriptionSwedish": "Hemfärden är ett magasin om fotografen Adam Ahmed Pihlgren och de fotografier han tog under sin resa till Etiopien. Magasinet utforskar frågor kring identitet och arv.\n\nSkapat tillsammans med Linn Sehlstedt, Olle Svensson och Stephanie Holmén.",
-    "image": "/images/uploads/tidn2.jpg",
+    "summary": "Hemfärden is a magazine about photographer Adam Ahmed Pihlgren the photos he took on his trip to Ethiopia. The magazine is about exploring identity and…",
+    "image": "/images/optimized/tidn2-797a5a73.webp",
     "thumbnail": "/images/thumbs/tidn2-797a5a73.webp",
+    "shareImage": "/images/thumbs/tidn2-797a5a73-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "gif",
         "image": "",
-        "gif": "/images/uploads/tidn.gif"
+        "gif": "/images/optimized/tidn-8d07a8df.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/tidn.jpg"
+        "image": "/images/optimized/tidn-32340741.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/img_6701.jpg"
+        "image": "/images/optimized/img-6701-23ffd996.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/tidn2-797a5a73.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/tidn-8d07a8df.webp": [
+        1600,
+        1154
+      ],
+      "/images/optimized/tidn-32340741.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/img-6701-23ffd996.webp": [
+        1511,
+        2232
+      ]
+    },
     "date": "2025-01",
     "commissioner": "Beckmans, Juice Studios",
     "category": [
@@ -481,53 +757,94 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "hemfarden"
   },
   {
     "title": "Helvete",
     "descriptionEnglish": "A visual identity project from Olle Ljung’s second year at Beckmans. The brief was to reimagine the visual identity of a discontinued company and reconsider what its purpose could be today.\n\nOlle chose to reimagine the infamous Norwegian black metal record store “Helvete”, which was open during the 1990s and became associated with violence and controversy. He transformed it from a record store and meeting place into an electronic music album project.\n\nThe project explores and reflects on Helvete’s complex history while also creating a tribute to the cultural significance of the place. Olle developed a logo, artwork for vinyl, CD and cassette, as well as a design manual. Spegel (Erling Swedenmark) contributed to the project by producing the music for the album.",
     "descriptionSwedish": "Visuell identitet från andra året på Beckmans av Olle Ljung. Uppgiften var att göra om en visuell identitet från ett nedlagt företag och tänka om vad företagets nya syfte kunde vara idag. Olles idé var att göra om den omtalade norska black metal-skivbutiken “Helvete” som var öppen på 90-talet som var förknippad med våld och kontroverser, från en skivbutik och mötesplats till ett elektroniskt musikalbum projekt. Han ville utforska och reflektera över Helvetes komplexa historia, och samtidigt skapa en hyllning till platsens kulturella betydelse. Han har skapat en logga, ett omslag för vinyl, cd och kassett samt en designmanual. Spegel (Erling Swedenmark) har hjälpt till att förverkliga projektet och skapat musik för albumet.",
-    "image": "/images/uploads/helvetet_1.jpg",
+    "summary": "A visual identity project from Olle Ljung’s second year at Beckmans. The brief was to reimagine the visual identity of a discontinued company and reconsider…",
+    "image": "/images/optimized/helvetet-1-1fc718d5.webp",
     "thumbnail": "/images/thumbs/helvetet-1-1fc718d5.webp",
+    "shareImage": "/images/thumbs/helvetet-1-1fc718d5-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_2.jpg"
+        "image": "/images/optimized/helvetet-2-4019302b.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_3.jpg"
+        "image": "/images/optimized/helvetet-3-f0c6f9ac.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_4.jpg"
+        "image": "/images/optimized/helvetet-4-f514bc5f.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_5.jpg"
+        "image": "/images/optimized/helvetet-5-546c0fb4.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_7.jpg"
+        "image": "/images/optimized/helvetet-7-ea43f8fd.webp"
       },
       {
         "mediaType": "image"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_8.jpg"
+        "image": "/images/optimized/helvetet-8-345de4bc.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_10.jpg"
+        "image": "/images/optimized/helvetet-10-9adb6944.webp"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/helvetet_11.jpg"
+        "image": "/images/optimized/helvetet-11-e14a048b.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/helvetet-1-1fc718d5.webp": [
+        2400,
+        1533
+      ],
+      "/images/optimized/helvetet-2-4019302b.webp": [
+        2400,
+        1800
+      ],
+      "/images/optimized/helvetet-3-f0c6f9ac.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/helvetet-4-f514bc5f.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/helvetet-5-546c0fb4.webp": [
+        2400,
+        1600
+      ],
+      "/images/optimized/helvetet-7-ea43f8fd.webp": [
+        2400,
+        1695
+      ],
+      "/images/optimized/helvetet-8-345de4bc.webp": [
+        1714,
+        2400
+      ],
+      "/images/optimized/helvetet-10-9adb6944.webp": [
+        2400,
+        1695
+      ],
+      "/images/optimized/helvetet-11-e14a048b.webp": [
+        1714,
+        2400
+      ]
+    },
     "date": "2024-10",
     "commissioner": "Beckmans",
     "category": [
@@ -537,20 +854,23 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "helvete"
   },
   {
     "title": "The Hunt",
     "descriptionEnglish": "[Animation](https://vimeo.com/1033783167) to music by Alvin Cronberg under Hans Wohlfarth, in collaboration with the Royal College of Music.",
     "descriptionSwedish": "",
+    "summary": "Animation to music by Alvin Cronberg under Hans Wohlfarth, in collaboration with the Royal College of Music.",
     "image": "",
     "thumbnail": "/images/thumbs/1-2b8e5a00.webp",
+    "shareImage": "/images/thumbs/1-2b8e5a00-share.jpg",
     "coverMediaType": "video",
-    "coverVideo": "/images/uploads/1.mp4",
+    "coverVideo": "/images/optimized/1-2b8e5a00.mp4",
     "gallery": [
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/beginnning.mp4"
+        "video": "/images/optimized/beginnning-6a5f0b93.mp4"
       },
       {
         "mediaType": "looping video",
@@ -561,6 +881,7 @@
         "video": "/images/uploads/atack.mp4"
       }
     ],
+    "sizes": {},
     "date": "2024-03",
     "commissioner": "Beckmans, Tekniska museet",
     "category": [
@@ -568,16 +889,19 @@
     ],
     "favorite": false,
     "link": "https://vimeo.com/1033783167",
-    "body": "hjjh\n"
+    "body": "hjjh\n",
+    "slug": "the-hunt"
   },
   {
     "title": "Landscapes",
     "descriptionEnglish": "An electronic track produced by Vilmar Janson became a classic knight-and-dragon drama. With no limitations on the content, we drew inspiration from the music and from each other. The result was a 3D-animated [video](https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK) presented at Wisdome at the National Museum of Science and Technology. In collaboration with the Royal College of Music, working in a group with Phoebe Crookes.",
     "descriptionSwedish": "En elektronisk låt producerad av Vilmar Janson blev till ett klassiskt riddare-och-drake-drama. Utan begränsningar för innehållet hämtade vi inspiration från musiken och varandra. Resultatet blev en 3D-animerad [video](https://youtu.be/ztcvyoTOVKQ?si=szZBBf_6NgyUkeuK) som visades i Wisdome på Tekniska museet. I samarbete med Kungliga musikhögskolan, i grupp med Phoebe Crookes.",
+    "summary": "An electronic track produced by Vilmar Janson became a classic knight-and-dragon drama. With no limitations on the content, we drew inspiration from the…",
     "image": "",
     "thumbnail": "/images/thumbs/landscapes-1-8dc839d8.webp",
+    "shareImage": "/images/thumbs/landscapes-1-8dc839d8-share.jpg",
     "coverMediaType": "video",
-    "coverVideo": "/images/uploads/landscapes_1.mp4",
+    "coverVideo": "/images/optimized/landscapes-1-8dc839d8.mp4",
     "gallery": [
       {
         "mediaType": "video",
@@ -585,21 +909,35 @@
       },
       {
         "mediaType": "image",
-        "gif": "/images/uploads/landscapes_2.gif"
+        "gif": "/images/optimized/landscapes-2-b724674a.webp"
       },
       {
         "mediaType": "image",
-        "gif": "/images/uploads/landscapes_4.gif"
+        "gif": "/images/optimized/landscapes-4-ec51c651.webp"
       },
       {
         "mediaType": "image",
-        "gif": "/images/uploads/landscapes_5-1-.gif"
+        "gif": "/images/optimized/landscapes-5-1-9a9c2163.webp"
       },
       {
         "mediaType": "image",
         "poster": ""
       }
     ],
+    "sizes": {
+      "/images/optimized/landscapes-2-b724674a.webp": [
+        640,
+        360
+      ],
+      "/images/optimized/landscapes-4-ec51c651.webp": [
+        640,
+        360
+      ],
+      "/images/optimized/landscapes-5-1-9a9c2163.webp": [
+        640,
+        360
+      ]
+    },
     "date": "2024-03",
     "commissioner": "Beckmans, Tekniska Museet",
     "category": [
@@ -607,30 +945,47 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "landscapes"
   },
   {
     "title": "Sirous Namazi - Magasin III",
     "descriptionEnglish": "Poster for an exhibition by artist Sirous Namazi at Magasin III during 2023 and 2024. The design plays on memories and displays a quote by the artist himself. Screenprinted on wrapper tissue.\n\nThis project was made as a school project during Beckmans together with Ella Farestam.",
     "descriptionSwedish": "Poster för en utställning av konstnären Sirous Namazi på Magasin III under 2023 och 2024. Designen leker med minnen och visar ett citat av konstnären själv. Screentryckt på silkespapper.\n\nProjektet gjordes som ett skolprojekt på Beckmans tillsammans med Ella Farestam.",
-    "image": "/images/uploads/ver1.jpg",
+    "summary": "Poster for an exhibition by artist Sirous Namazi at Magasin III during 2023 and 2024. The design plays on memories and displays a quote by the artist…",
+    "image": "/images/optimized/ver1-96887a84.webp",
     "thumbnail": "/images/thumbs/ver1-96887a84.webp",
+    "shareImage": "/images/thumbs/ver1-96887a84-share.jpg",
     "coverMediaType": "image",
     "coverVideo": "",
     "gallery": [
       {
         "mediaType": "image",
-        "image": "/images/uploads/p1070005-kopia-.jpg"
+        "image": "/images/optimized/p1070005-kopia-488cb17f.webp"
       },
       {
         "mediaType": "looping video",
-        "video": "/images/uploads/ella_farestam_molly_schedin_post.mp4"
+        "video": "/images/optimized/ella-farestam-molly-schedin-post-da7cc4d9.mp4"
       },
       {
         "mediaType": "image",
-        "image": "/images/uploads/p1060895.jpg"
+        "image": "/images/optimized/p1060895-f52b86e9.webp"
       }
     ],
+    "sizes": {
+      "/images/optimized/ver1-96887a84.webp": [
+        1680,
+        2400
+      ],
+      "/images/optimized/p1070005-kopia-488cb17f.webp": [
+        1802,
+        2400
+      ],
+      "/images/optimized/p1060895-f52b86e9.webp": [
+        2400,
+        1802
+      ]
+    },
     "date": "2024-01",
     "commissioner": "",
     "category": [
@@ -638,6 +993,7 @@
     ],
     "favorite": false,
     "link": null,
-    "body": "hej\n"
+    "body": "hej\n",
+    "slug": "sirous-namazi-magasin-iii"
   }
 ]

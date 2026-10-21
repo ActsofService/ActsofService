@@ -1,4 +1,9 @@
 (function(){
+  // <script src="/screensaver.js" data-autostart> (the 404 page): the dots
+  // start right away and keep coming, without the white overlay, so the page
+  // stays readable and clickable.
+  const AUTOSTART = document.currentScript && 'autostart' in document.currentScript.dataset;
+  const AUTOSTART_SPAWN_MS = 600; // a new dot this often (ms) in autostart mode
   const INACTIVITY_MS = 50000; // 1 minute (ms)
   const FADE_OUT_MS = 4000; // match CSS screensaverFadeOut duration (ms)
   const CIRCLE_SIZE = 65; // px (doubled)
@@ -149,6 +154,18 @@
       hideScreensaver();
     }
     resetTimer();
+  }
+
+  if (AUTOSTART) {
+    const start = () => {
+      circlesContainer = createCirclesContainer();
+      document.body.appendChild(circlesContainer);
+      spawnCircle();
+      circleInterval = setInterval(spawnCircle, AUTOSTART_SPAWN_MS);
+    };
+    if (document.readyState === 'loading') window.addEventListener('DOMContentLoaded', start);
+    else start();
+    return;
   }
 
   const events = ['mousemove','mousedown','keydown','touchstart','wheel','pointerdown','pointermove'];

@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Acts of Service">
     <title>Acts of Service</title>
-    <link rel="icon" type="image/svg+xml" href="aos-icon.svg">
-    <link rel="stylesheet" href="screensaver.css">
+    <!-- Description and link preview (shown by search engines and when the
+         link is shared). Project pages get their own values, see
+         scripts/build-pages.js. -->
+    <meta name="description" content="Acts of Service is a design studio run by Emmy Seeger, Molly Schedin and Olle Ljung, working with art direction, visual identity, print, web and photography.">
+    <link rel="canonical" href="https://actsofservice.se/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Acts of Service">
+    <meta property="og:title" content="Acts of Service">
+    <meta property="og:description" content="Acts of Service is a design studio run by Emmy Seeger, Molly Schedin and Olle Ljung, working with art direction, visual identity, print, web and photography.">
+    <meta property="og:url" content="https://actsofservice.se/">
+    <meta property="og:image" content="https://actsofservice.se/images/share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="/aos-icon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/screensaver.css">
+    <!-- Visitor statistics (goatcounter.com): no cookies, no banner needed -->
+    <script data-goatcounter="https://actsofservice.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <style>
         /* =====================================================================
            1. SETTINGS
@@ -16,7 +32,7 @@
 
         @font-face {
             font-family: "ABC Areal";
-            src: url("fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
+            src: url("/fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
             font-style: normal;
             font-weight: 100 1000;
             font-display: swap;
@@ -1036,7 +1052,7 @@
                     <li><a href="#home" data-section-link="home">Home</a></li>
                     <li><a href="#archive" data-section-link="archive">Archive</a></li>
                     <li><a href="#contact" data-section-link="contact">Contact</a></li>
-                    <li><a href="foundry.html">Foundry</a></li>
+                    <li><a href="/foundry.html">Foundry</a></li>
                 </ul>
             </nav>
         </div>
@@ -1075,13 +1091,13 @@
 
                 <div class="profile-images">
                     <div class="profile-image" data-name="EMMY">
-                        <img src="images/uploads/Emmy_profil.png" alt="Emmy">
+                        <img src="/images/profiles/emmy.webp" width="800" height="1120" loading="lazy" alt="Emmy">
                     </div>
                     <div class="profile-image" data-name="OLLE">
-                        <img src="images/uploads/Olle_profil.png" alt="Olle">
+                        <img src="/images/profiles/olle.webp" width="800" height="1119" loading="lazy" alt="Olle">
                     </div>
                     <div class="profile-image" data-name="MOLLY">
-                        <img src="images/uploads/Molly_profil.png" alt="Molly">
+                        <img src="/images/profiles/molly.webp" width="800" height="1120" loading="lazy" alt="Molly">
                     </div>
                 </div>
 
@@ -1139,18 +1155,19 @@
 
     <div class="name-cursor" id="name-cursor"></div>
 
-<script src="screensaver.js"></script>
+<script src="/screensaver.js"></script>
 <script>
 /* ==========================================================================
    SHARED
    ========================================================================== */
 
 // Both the home slideshow and the archive use projects.json, so load it once.
-const projectsRequest = fetch('projects.json').then(res => res.json());
+const projectsRequest = fetch('/projects.json').then(res => res.json());
 
 // Shows the small thumbnail first, then swaps in the full image once it
 // has finished loading. Used for img tags with a data-full-src attribute.
-const swapInFullImage = (img) => {
+// The full image is only fetched when the thumbnail gets close to the screen.
+const loadFullImage = (img) => {
     const fullSrc = img.dataset.fullSrc;
     if (!fullSrc) return;
     const loader = new Image();
@@ -1159,6 +1176,16 @@ const swapInFullImage = (img) => {
         delete img.dataset.fullSrc;
     };
     loader.src = fullSrc;
+};
+const fullImageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        loadFullImage(entry.target);
+    });
+}, { rootMargin: '800px 0px' });
+const swapInFullImage = (img) => {
+    if (img.dataset.fullSrc) fullImageObserver.observe(img);
 };
 
 // Scroll without the smooth animation (used when opening/closing a popup).
@@ -1314,6 +1341,19 @@ projectsRequest
    ========================================================================== */
 
 let currentModal = null;
+let closeCurrentModal = null; // closes the open project popup
+
+// Every project has its own address, e.g. actsofservice.se/helvete/
+// (the pages are made by scripts/build-pages.js when the site is published).
+// (On a project page the <title> is the project's, so use the site name.)
+const defaultTitle = document.querySelector('meta[property="og:site_name"]').content;
+const projectSlugFromPath = () => decodeURIComponent(location.pathname)
+    .replace(/index\.html$/, '').replace(/^\/+|\/+$/g, '');
+let openedFromSite = false;     // the popup's address was added to the history by the site
+let openingFromAddress = false; // the popup is opened because of the address
+const countVisit = (path, title) => {
+    if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path, title });
+};
 
 // Let vertical mouse-wheel scrolling drive the horizontal project carousel
 // (desktop only - on mobile the carousel stacks vertically and scrolls normally).
@@ -1523,6 +1563,7 @@ projectsRequest
             visibleProjects.forEach(p => {
             const div = document.createElement('div');
             div.className = 'project collapsed';
+            div.dataset.slug = p.slug || '';
 
             const resolveMediaSrc = (src) => {
                 if (!src || /^(https?:|data:|\/)/.test(src)) return src;
@@ -1712,7 +1753,11 @@ projectsRequest
                         if (media.type === 'video') {
                             return `<video class="project-video" src="${media.src}"${media.poster ? ` poster="${media.poster}"` : ''} controls playsinline muted loop></video>`;
                         }
-                        return `<img class="project-img" src="${media.src}" alt="${p.title}">`;
+                        // The size lets the image take its space before it has loaded,
+                        // so images further along aren't all fetched straight away.
+                        const size = p.sizes && p.sizes[media.src];
+                        const sizeAttrs = size ? ` width="${size[0]}" height="${size[1]}"` : '';
+                        return `<img class="project-img" src="${media.src}"${sizeAttrs} loading="lazy" decoding="async" alt="${p.title}">`;
                     };
 
                     const carouselHtml = galleryMedia.length > 0 || descriptions.ENG || descriptions.SWE
@@ -1729,6 +1774,14 @@ projectsRequest
                     overlay.appendChild(modal);
                     document.body.appendChild(overlay);
                     currentModal = overlay;
+
+                    // Give the open project its own address and page title
+                    document.title = `${p.title} – Acts of Service`;
+                    if (!openingFromAddress && p.slug && projectSlugFromPath() !== p.slug) {
+                        history.pushState({ project: p.slug }, '', `/${p.slug}/`);
+                        openedFromSite = true;
+                        countVisit(`/${p.slug}/`, p.title);
+                    }
 
                     fitEmbeds(modal);
 
@@ -1755,7 +1808,18 @@ projectsRequest
                         renderDescription('ENG');
                     }
 
-                    const closeModal = () => {
+                    let closed = false;
+                    // fromHistory: closed by the back button, so leave the address alone
+                    const closeModal = (fromHistory) => {
+                        if (closed) return;
+                        closed = true;
+                        if (closeCurrentModal === closeModal) closeCurrentModal = null;
+                        document.title = defaultTitle;
+                        if (fromHistory !== true && projectSlugFromPath()) {
+                            if (openedFromSite) history.back();
+                            else history.replaceState(null, '', '/');
+                        }
+                        openedFromSite = false;
                         modal.style.opacity = '0';
                         modal.style.transition = 'opacity 0s linear';
                         if (archiveHeading) archiveHeading.innerHTML = defaultArchiveHTML;
@@ -1772,6 +1836,8 @@ projectsRequest
                             currentModal = null;
                         }, 220);
                     };
+
+                    closeCurrentModal = closeModal;
 
                     // Mobile-only close button, top-left corner
                     const closeButton = document.createElement('button');
@@ -1833,6 +1899,36 @@ projectsRequest
         });
 
         renderProjects();
+
+        // Open the project whose address this is (and follow back/forward)
+        const openProjectFromAddress = (slug) => {
+            const find = () => container.querySelector(`.project[data-slug="${CSS.escape(slug)}"]`);
+            let div = find();
+            if (!div && activeMode !== 'all') {
+                filterContainer.querySelector('[data-filter="all"]').click();
+                div = find();
+            }
+            if (!div) {
+                history.replaceState(null, '', '/');
+                return;
+            }
+            if (closeCurrentModal) closeCurrentModal(true);
+            // Place the archive at the project, so closing the popup lands there
+            jumpTo(div.getBoundingClientRect().top + window.scrollY - window.innerHeight / 4);
+            openingFromAddress = true;
+            openedFromSite = false;
+            div.click();
+            openingFromAddress = false;
+        };
+
+        const initialSlug = projectSlugFromPath();
+        if (initialSlug) openProjectFromAddress(initialSlug);
+
+        window.addEventListener('popstate', () => {
+            const slug = projectSlugFromPath();
+            if (slug) openProjectFromAddress(slug);
+            else if (closeCurrentModal) closeCurrentModal(true);
+        });
     })
     .catch(err => {
         console.error('Could not load projects.json', err);
@@ -1852,7 +1948,7 @@ const escapeContactText = (value) => String(value)
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 
-fetch('contact.json')
+fetch('/contact.json')
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('contact-sections');
@@ -1999,6 +2095,7 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') setMenuOpen(false);
+    if (e.key === 'Escape' && closeCurrentModal) closeCurrentModal();
 });
 
 // Keep track of which area is in the middle of the screen: marks the

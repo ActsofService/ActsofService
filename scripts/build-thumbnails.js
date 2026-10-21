@@ -2,6 +2,7 @@
 // it first and swap in the full image or video once that has loaded.
 // Made from the Cover Image, or from the first frame of the Cover Video when
 // there is no Cover Image.
+// It also makes a 1200×630 share image, shown when a project's link is shared.
 // Thumbnails go in images/thumbs/ and build-projects.js adds them to projects.json.
 
 const fs = require('fs');
@@ -20,6 +21,9 @@ const WIDTHS = [1200, 1000, 800, 640, 480, 400, 320];
 // Below this quality the image looks blocky, so a smaller width is used instead.
 const MIN_QUALITY = 30;
 const MAX_QUALITY = 80;
+// Share image for link previews (Instagram, iMessage, Slack, LinkedIn...)
+const SHARE_WIDTH = 1200;
+const SHARE_HEIGHT = 630;
 
 const root = path.join(__dirname, '..');
 const projectsDir = path.join(root, 'content/projects');
@@ -98,7 +102,7 @@ const main = async () => {
   fs.mkdirSync(thumbsDir, { recursive: true });
   const manifest = fs.existsSync(manifestFile) ? JSON.parse(fs.readFileSync(manifestFile, 'utf8')) : {};
   const nextManifest = {};
-  const settings = JSON.stringify({ TARGET_KB, MAX_KB, WIDTHS, MIN_QUALITY, MAX_QUALITY });
+  const settings = JSON.stringify({ TARGET_KB, MAX_KB, WIDTHS, MIN_QUALITY, MAX_QUALITY, SHARE_WIDTH, SHARE_HEIGHT });
 
   const files = fs.readdirSync(projectsDir).filter(f => f.endsWith('.md'));
   for (const filename of files) {
@@ -138,14 +142,21 @@ const main = async () => {
     const buffer = await makeThumbnail(input);
     fs.writeFileSync(output, buffer);
     const { width, height } = await sharp(buffer).metadata();
-    nextManifest[key] = { thumbnail: `/images/thumbs/${name}`, hash: sourceHash };
+    const shareName = name.replace(/\.webp$/, '-share.jpg');
+    await sharp(input)
+      .rotate()
+      .resize(SHARE_WIDTH, SHARE_HEIGHT, { fit: 'cover' })
+      .flatten({ background: '#ffffff' })
+      .jpeg({ quality: 82, mozjpeg: true })
+      .toFile(path.join(thumbsDir, shareName));
+    nextManifest[key] = { thumbnail: `/images/thumbs/${name}`, share: `/images/thumbs/${shareName}`, hash: sourceHash };
     console.log(`✓ ${filename}${fromVideo ? ' (video frame)' : ''}: ${width}×${height}, ${(buffer.length / 1024).toFixed(1)} KB`);
   }
 
   // Remove thumbnails whose cover is no longer used.
-  const keep = new Set(Object.values(nextManifest).map(entry => path.basename(entry.thumbnail)));
+  const keep = new Set(Object.values(nextManifest).flatMap(entry => [entry.thumbnail, entry.share].filter(Boolean).map(f => path.basename(f))));
   for (const file of fs.readdirSync(thumbsDir)) {
-    if (file.endsWith('.webp') && !keep.has(file)) fs.unlinkSync(path.join(thumbsDir, file));
+    if (/\.(webp|jpg)$/.test(file) && !keep.has(file)) fs.unlinkSync(path.join(thumbsDir, file));
   }
 
   fs.writeFileSync(manifestFile, JSON.stringify(nextManifest, null, 2) + '\n');

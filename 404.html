@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="robots" content="noindex">
+    <title>Page not found – Acts of Service</title>
+    <link rel="icon" type="image/svg+xml" href="/aos-icon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/screensaver.css">
+    <!-- Visitor statistics: shows which broken links people arrive from -->
+    <script data-goatcounter="https://actsofservice.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <style>
+        /* Same font and colors as the main site (see index.html) */
+        @font-face {
+            font-family: "ABC Areal";
+            src: url("/fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 100 1000;
+            font-display: swap;
+        }
+
+        :root {
+            --font-mono: "slnt" 0, "DRKM" 0, "MONO" 50;
+            --size-large: 2.05rem;
+            --size-body: 1.05rem;
+            --bg: #ffffff;
+            --ink: #000000;
+            --accent: #3de3f2;
+            --gutter: 20px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            padding: 0 var(--gutter);
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "ABC Areal", sans-serif;
+            font-variation-settings: var(--font-mono);
+            font-size: var(--size-body);
+            line-height: 1.3;
+        }
+
+        /* Above the screensaver dots, so the text stays readable */
+        main {
+            position: relative;
+            z-index: 100001;
+        }
+        main p {
+            margin: 0 0 0.4em;
+        }
+
+        .code {
+            font-size: var(--size-large);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <p class="code">404</p>
+        <p>This page doesn't exist.</p>
+        <p><a href="/">Go to Acts of Service →</a></p>
+    </main>
+
+    <!-- The screensaver dots, starting right away -->
+    <script src="/screensaver.js" data-autostart></script>
+</body>
+</html>

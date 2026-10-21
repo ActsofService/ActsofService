@@ -1,74 +1,92 @@
 {
   "/images/uploads/emmy_seeger_foto_4.jpg": {
     "thumbnail": "/images/thumbs/emmy-seeger-foto-4-f8aa7369.webp",
-    "hash": "2509903af8d91e85fe613d113f33ed52a0601728"
+    "share": "/images/thumbs/emmy-seeger-foto-4-f8aa7369-share.jpg",
+    "hash": "538f365d19c865502eb653dc02d20b4c6b763d8a"
   },
   "/images/uploads/1.mp4": {
     "thumbnail": "/images/thumbs/1-2b8e5a00.webp",
-    "hash": "70781e35a6201b3c40557d33e4b1d2bd7c0bc722"
+    "share": "/images/thumbs/1-2b8e5a00-share.jpg",
+    "hash": "9eaabf66f8015790344602390c4952c050a63e24"
   },
   "/images/uploads/juicexbeckmans_webb-1-.jpg": {
     "thumbnail": "/images/thumbs/juicexbeckmans-webb-1-208b47ee.webp",
-    "hash": "4e5ea27a630c376a53fb400a51a85ed12013accc"
+    "share": "/images/thumbs/juicexbeckmans-webb-1-208b47ee-share.jpg",
+    "hash": "0d3b69c5e581f0901e92c7142ae9066e0077f3f4"
   },
   "/images/uploads/tq.png": {
     "thumbnail": "/images/thumbs/tq-0ad49eab.webp",
-    "hash": "feb760fe1d2b0be19bbfba987a69d622c525b19e"
+    "share": "/images/thumbs/tq-0ad49eab-share.jpg",
+    "hash": "745f037198cf281b5612100b8faf2496252760bb"
   },
   "/images/uploads/freyja5.png": {
     "thumbnail": "/images/thumbs/freyja5-5d4f96fe.webp",
-    "hash": "28cbeaa776f4fee2e6b2f062216becc387722381"
+    "share": "/images/thumbs/freyja5-5d4f96fe-share.jpg",
+    "hash": "a33481aa6f1ce5827003969d76fcee4940ed100c"
   },
   "/images/uploads/avtryck_1.mp4": {
     "thumbnail": "/images/thumbs/avtryck-1-bb39f724.webp",
-    "hash": "fbe2dd0e437f89cd26ab9342eaba9d635e0448a3"
+    "share": "/images/thumbs/avtryck-1-bb39f724-share.jpg",
+    "hash": "6246211a189d8efb5b594209957dc4f7f274c215"
   },
   "/images/uploads/helvetet_1.jpg": {
     "thumbnail": "/images/thumbs/helvetet-1-1fc718d5.webp",
-    "hash": "ab6bd3aaa1c0d11ae53538b5665f79ba6f3a5099"
+    "share": "/images/thumbs/helvetet-1-1fc718d5-share.jpg",
+    "hash": "c1ff8a8c2bc4af04aaacb7d801652105d0570557"
   },
   "/images/uploads/tidn2.jpg": {
     "thumbnail": "/images/thumbs/tidn2-797a5a73.webp",
-    "hash": "3a1a3d68ee443ebc58d7b7b21f2caf4e92c5f22e"
+    "share": "/images/thumbs/tidn2-797a5a73-share.jpg",
+    "hash": "509003506db04491f7f36925558d0387d0b78a47"
   },
   "/images/uploads/olle_ljung_video_2.mp4": {
     "thumbnail": "/images/thumbs/olle-ljung-video-2-1368e6d0.webp",
-    "hash": "a24b7896e45da241787f88223fee9b6d77159e0c"
+    "share": "/images/thumbs/olle-ljung-video-2-1368e6d0-share.jpg",
+    "hash": "df5af7e493118fedff3d0bebf10a88289c7d246f"
   },
   "/images/uploads/landscapes_1.mp4": {
     "thumbnail": "/images/thumbs/landscapes-1-8dc839d8.webp",
-    "hash": "116e275b0323b8183dbe999f71e6cc1ebda80381"
+    "share": "/images/thumbs/landscapes-1-8dc839d8-share.jpg",
+    "hash": "2d067699f2b8fa18c045e1095407408dcc39219e"
   },
   "/images/uploads/1.-img_5923.jpg": {
     "thumbnail": "/images/thumbs/1-img-5923-bb7dfd82.webp",
-    "hash": "dd427b585e6a9e0ca09ebd48829c75db84fe4e32"
+    "share": "/images/thumbs/1-img-5923-bb7dfd82-share.jpg",
+    "hash": "6ec1c82574127df71a527ef60ec0fdd83c2bfdc1"
   },
   "/images/uploads/pall_1.png": {
     "thumbnail": "/images/thumbs/pall-1-6ed356e6.webp",
-    "hash": "8dd9e23edfa211933f732386bce77361fc4ad1da"
+    "share": "/images/thumbs/pall-1-6ed356e6-share.jpg",
+    "hash": "1aab8c99125ec4d71d32ac260e3a3858c02f7136"
   },
   "/images/uploads/skylt.jpg": {
     "thumbnail": "/images/thumbs/skylt-7f7140cc.webp",
-    "hash": "9fdafd8ccf846027e9711f9b61cfdc63da4e11f0"
+    "share": "/images/thumbs/skylt-7f7140cc-share.jpg",
+    "hash": "d8869a6b58710dbdfdefda5c593b118285eadb20"
   },
   "/images/uploads/ver1.jpg": {
     "thumbnail": "/images/thumbs/ver1-96887a84.webp",
-    "hash": "088fc8476320b7952f7f176330c6d13fd2f5228d"
+    "share": "/images/thumbs/ver1-96887a84-share.jpg",
+    "hash": "4fd18e0847c68e3931001a46ccfd6ac66a61a97a"
   },
   "/images/uploads/3db29dff74f8336e0ceacdf5e39880e5.jpeg": {
     "thumbnail": "/images/thumbs/3db29dff74f8336e0ceacdf5e39880e5-61733554.webp",
-    "hash": "d99fa64e06f822ebaf05d985e62e8c168e8ae453"
+    "share": "/images/thumbs/3db29dff74f8336e0ceacdf5e39880e5-61733554-share.jpg",
+    "hash": "e9c1aaf1551f893d76248e8fad5cb055656a0d2e"
   },
   "/images/uploads/136e9204-390f-4207-9298-302ccc7ebb8d.png": {
     "thumbnail": "/images/thumbs/136e9204-390f-4207-9298-302ccc7ebb8d-f5b05fda.webp",
-    "hash": "3f9941418ebd7b103ce9f864cd8ccb7e86270e12"
+    "share": "/images/thumbs/136e9204-390f-4207-9298-302ccc7ebb8d-f5b05fda-share.jpg",
+    "hash": "dcfe3ab27463cf406bb039d7e4e87c2e4ca715ed"
   },
   "/images/uploads/ub_1.mp4": {
     "thumbnail": "/images/thumbs/ub-1-8d7f62b5.webp",
-    "hash": "3b7336cc032c601d306d42c0937359cf753bd334"
+    "share": "/images/thumbs/ub-1-8d7f62b5-share.jpg",
+    "hash": "763d96b8ca23bb2f9f4243a6ff63227793c418d9"
   },
   "/images/uploads/1.-svenskttennverni_select-12.jpg": {
     "thumbnail": "/images/thumbs/1-svenskttennverni-select-12-adb561dc.webp",
-    "hash": "c26a66c5a101e02488cb8457b749e37186d438a9"
+    "share": "/images/thumbs/1-svenskttennverni-select-12-adb561dc-share.jpg",
+    "hash": "b39cc1990c56ee6a2673fc63921c312b3907a1f5"
   }
 }
