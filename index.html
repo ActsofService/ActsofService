@@ -112,7 +112,9 @@
 
             /* Archive columns: title | cover image | info.
                The contact section lines its right column up with "info". */
-            --archive-width: 1200px;   /* max width of the project list */
+            --archive-width: 1200px;   /* width of the project list (on screens that fit it) */
+            --archive-margin: 120px;   /* on wider screens the list grows and keeps
+                                          this much space to each screen edge */
             --cover-width: 30vw;       /* width of the cover images */
             --cover-margin-mobile: 45px; /* mobile: space on each side of the cover images
                                             (the burger sits centered in it) */
@@ -564,7 +566,7 @@
 
         #projects-list {
             width: 100%;
-            max-width: var(--archive-width);
+            max-width: max(var(--archive-width), calc(100vw - 2 * var(--archive-margin)));
             justify-self: center;
             text-align: center;
             transition: filter 0.28s ease;
