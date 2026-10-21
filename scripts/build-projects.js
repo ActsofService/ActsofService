@@ -6,10 +6,11 @@ const projectsDir = path.join(__dirname, '../content/projects');
 const outFile = path.join(__dirname, '../projects.json');
 const thumbsManifestFile = path.join(__dirname, '../images/thumbs/manifest.json');
 
-// Thumbnails made by build-thumbnails.js, keyed by cover image path.
+// Thumbnails made by build-thumbnails.js, keyed by cover image or video path.
 const thumbs = fs.existsSync(thumbsManifestFile)
   ? JSON.parse(fs.readFileSync(thumbsManifestFile, 'utf8'))
   : {};
+const thumbnailFor = (src) => (typeof src === 'string' && src && thumbs[src.normalize('NFC')] || {}).thumbnail;
 
 const files = fs.existsSync(projectsDir)
   ? fs.readdirSync(projectsDir).filter(f => f.endsWith('.md'))
@@ -18,13 +19,15 @@ const files = fs.existsSync(projectsDir)
 const projects = files.map(filename => {
   const raw = fs.readFileSync(path.join(projectsDir, filename), 'utf8');
   const { data, content } = matter(raw);
+  // A Cover Video always wins; a Cover Image next to it is only its thumbnail.
+  const coverMediaType = data.coverVideo ? 'video' : (data.coverMediaType || 'image');
   return {
     title: data.title,
     descriptionEnglish: data.descriptionEnglish || data.description || '',
     descriptionSwedish: data.descriptionSwedish || '',
     image: data.image,
-    thumbnail: (data.image && thumbs[data.image.normalize('NFC')] || {}).thumbnail || '',
-    coverMediaType: data.coverMediaType || 'image',
+    thumbnail: thumbnailFor(data.image) || thumbnailFor(data.coverVideo) || '',
+    coverMediaType,
     coverVideo: data.coverVideo || '',
     gallery: data.gallery || [],
     date: data.date,

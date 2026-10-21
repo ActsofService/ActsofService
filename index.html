@@ -1218,7 +1218,7 @@ projectsRequest
     .then(projects => {
         const resolveSrc = (src) => (!src || /^(https?:|data:|\/)/.test(src)) ? src : `/images/uploads/${src}`;
         const items = projects.map(p => (p.coverMediaType === 'video' && p.coverVideo)
-            ? { type: 'video', src: resolveSrc(p.coverVideo) }
+            ? { type: 'video', src: resolveSrc(p.coverVideo), thumb: resolveSrc(p.thumbnail) }
             : { type: 'image', src: resolveSrc(p.image), thumb: resolveSrc(p.thumbnail) }
         ).filter(item => item.src);
         if (!items.length) return;
@@ -1233,8 +1233,11 @@ projectsRequest
             const thisShow = ++currentShow;
             index = (index + 1) % items.length;
             if (item.type === 'video') {
+                let videoReady = false;
                 video.oncanplay = () => {
                     video.oncanplay = null;
+                    if (thisShow !== currentShow) return;
+                    videoReady = true;
                     img.hidden = true;
                     video.hidden = false;
                     video.play().catch(() => {});
@@ -1242,6 +1245,17 @@ projectsRequest
                 video.src = item.src;
                 video.muted = true;
                 video.load();
+                // Thumbnail while the video loads (if there is one)
+                if (item.thumb) {
+                    const loader = new Image();
+                    loader.onload = () => {
+                        if (thisShow !== currentShow || videoReady) return;
+                        img.src = item.thumb;
+                        img.hidden = false;
+                        video.hidden = true;
+                    };
+                    loader.src = item.thumb;
+                }
             } else {
                 // Thumbnail first (if there is one), then the full image
                 const firstSrc = item.thumb || item.src;
@@ -1456,7 +1470,7 @@ projectsRequest
             const getGalleryMedia = (project) => {
                 const media = [];
                 if (project.coverMediaType === 'video' && project.coverVideo) {
-                    media.push({ type: 'video', loop: true, src: resolveMediaSrc(project.coverVideo), poster: resolveMediaSrc(project.image) });
+                    media.push({ type: 'video', loop: true, src: resolveMediaSrc(project.coverVideo), poster: resolveMediaSrc(project.thumbnail || project.image) });
                 } else if (project.image) {
                     media.push({ type: 'image', src: resolveMediaSrc(project.image) });
                 }

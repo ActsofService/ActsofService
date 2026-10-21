@@ -33,8 +33,8 @@ collections:
         buttons: ["bold", "italic", "link", "quote", "bulleted-list", "numbered-list"]
         pattern: ['^[\s\S]{0,1140}$', 'Maximum 1,140 characters, including spaces.']
         hint: "Use the toolbar for bold and italic. Use ++text++ for underline and ~~text~~ for strikethrough. Tabs become line breaks in the archive."
-      - { label: "Cover Media Type", name: "coverMediaType", widget: "select", options: ["image", "gif", "video"], default: "image", hint: "image and gif use the Cover Image field. video uses the Cover Video field and plays muted on loop." }
-      - { label: "Cover Image", name: "image", widget: "image", required: false, hint: "Cover for Media Type image or gif. For video it is used as a preview while the video loads." }
+      - { label: "Cover Media Type", name: "coverMediaType", widget: "select", options: ["image", "gif", "video"], default: "image", hint: "image and gif use the Cover Image field. video uses the Cover Video field and plays muted on loop. If a Cover Video is uploaded, the cover is always the video." }
+      - { label: "Cover Image", name: "image", widget: "image", required: false, hint: "Cover for Media Type image or gif. For video it is only shown as a preview while the video loads; leave it empty to use the video's first frame. A small thumbnail is made automatically." }
       - { label: "Cover Video", name: "coverVideo", widget: "file", required: false, hint: "Only used when Cover Media Type is video. Use an MP4." }
       - label: "Gallery"
         name: "gallery"

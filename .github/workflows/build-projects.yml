@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install gray-matter sharp
+      - run: npm install gray-matter sharp ffmpeg-static
 
       - run: node scripts/build-thumbnails.js
 

@@ -1,12 +1,16 @@
-// Makes a small WebP thumbnail of every project's Cover Image, so the site can
-// show it first and swap in the full image once that has loaded.
+// Makes a small WebP thumbnail for every project's cover, so the site can show
+// it first and swap in the full image or video once that has loaded.
+// Made from the Cover Image, or from the first frame of the Cover Video when
+// there is no Cover Image.
 // Thumbnails go in images/thumbs/ and build-projects.js adds them to projects.json.
 
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 const matter = require('gray-matter');
 const sharp = require('sharp');
+const ffmpegPath = require('ffmpeg-static');
 
 // Each thumbnail aims for TARGET_KB and is never bigger than MAX_KB.
 const TARGET_KB = 15;
@@ -35,7 +39,7 @@ const findFile = (publicPath) => {
 // "/images/uploads/grön bild.JPG" -> "gron-bild-1a2b3c4d.webp"
 const thumbName = (publicPath) => {
   const base = path.basename(publicPath, path.extname(publicPath))
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'image';
   const hash = crypto.createHash('sha1').update(publicPath.normalize('NFC')).digest('hex').slice(0, 8);
   return `${base}-${hash}.webp`;
@@ -70,6 +74,13 @@ const bestAtWidth = async (input, width, maxBytes) => {
   return best;
 };
 
+// First frame of a video as a PNG, the same frame the video starts on.
+const firstFrame = (videoFile) => execFileSync(ffmpegPath, [
+  '-v', 'error', '-i', videoFile, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'
+], { maxBuffer: 256 * 1024 * 1024 });
+
+const isLocal = (src) => typeof src === 'string' && src !== '' && !/^(https?:|data:)/.test(src);
+
 const makeThumbnail = async (input) => {
   const { width: sourceWidth } = await sharp(input).metadata();
   const widths = [...new Set(WIDTHS.map(w => Math.min(w, sourceWidth)))];
@@ -92,34 +103,46 @@ const main = async () => {
   const files = fs.readdirSync(projectsDir).filter(f => f.endsWith('.md'));
   for (const filename of files) {
     const { data } = matter(fs.readFileSync(path.join(projectsDir, filename), 'utf8'));
-    const image = data.image;
-    if (!image || /^(https?:|data:)/.test(image)) continue;
+    // The Cover Image if there is one, otherwise the Cover Video.
+    const source = isLocal(data.image) ? data.image : isLocal(data.coverVideo) ? data.coverVideo : null;
+    if (!source) continue;
+    const fromVideo = source === data.coverVideo;
 
-    const input = findFile(image);
-    if (!input) {
-      console.warn(`! ${filename}: cover image not found (${image})`);
+    const file = findFile(source);
+    if (!file) {
+      console.warn(`! ${filename}: cover ${fromVideo ? 'video' : 'image'} not found (${source})`);
       continue;
     }
 
-    const key = image.normalize('NFC');
-    const name = thumbName(image);
+    const key = source.normalize('NFC');
+    const name = thumbName(source);
     const output = path.join(thumbsDir, name);
-    const sourceHash = crypto.createHash('sha1').update(fs.readFileSync(input)).update(settings).digest('hex');
+    const sourceHash = crypto.createHash('sha1').update(fs.readFileSync(file)).update(settings).digest('hex');
 
-    // Skip images that haven't changed since last time.
+    // Skip covers that haven't changed since last time.
     if (manifest[key] && manifest[key].hash === sourceHash && fs.existsSync(output)) {
       nextManifest[key] = manifest[key];
       continue;
+    }
+
+    let input = file;
+    if (fromVideo) {
+      try {
+        input = firstFrame(file);
+      } catch (error) {
+        console.warn(`! ${filename}: could not read a frame from ${source}`);
+        continue;
+      }
     }
 
     const buffer = await makeThumbnail(input);
     fs.writeFileSync(output, buffer);
     const { width, height } = await sharp(buffer).metadata();
     nextManifest[key] = { thumbnail: `/images/thumbs/${name}`, hash: sourceHash };
-    console.log(`✓ ${filename}: ${width}×${height}, ${(buffer.length / 1024).toFixed(1)} KB`);
+    console.log(`✓ ${filename}${fromVideo ? ' (video frame)' : ''}: ${width}×${height}, ${(buffer.length / 1024).toFixed(1)} KB`);
   }
 
-  // Remove thumbnails whose cover image is no longer used.
+  // Remove thumbnails whose cover is no longer used.
   const keep = new Set(Object.values(nextManifest).map(entry => path.basename(entry.thumbnail)));
   for (const file of fs.readdirSync(thumbsDir)) {
     if (file.endsWith('.webp') && !keep.has(file)) fs.unlinkSync(path.join(thumbsDir, file));
