@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ActsofService/ActsofService
   branch: main
+  # Netlify is only used for the GitHub login (OAuth), not for hosting
+  base_url: https://api.netlify.com
+  site_domain: acts-of-service.netlify.app
 
 locale: "en"
 
