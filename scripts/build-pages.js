@@ -1,8 +1,8 @@
 // Runs when the site is published (see .github/workflows/static.yml).
 // Makes a page for every project, e.g. /helvete/index.html, so each project
 // has its own address. The page is a copy of index.html with the project's
-// own title, description and share image; the site's script then opens the
-// project. Also writes sitemap.xml for search engines.
+// own title, description, share image and facts for search engines; the
+// site's script then opens the project. Also writes sitemap.xml.
 // The pages are only made for publishing and are not saved in the repo.
 
 const fs = require('fs');
@@ -22,6 +22,7 @@ const setValue = (html, pattern, value) => {
   return html.replace(pattern, (match, before, after) => `${before}${escapeAttr(value)}${after}`);
 };
 
+const homeTitle = (template.match(/<title>([^<]*)<\/title>/) || [])[1] || 'Acts of Service';
 const urls = [`${SITE}/`];
 
 for (const project of projects) {
@@ -31,7 +32,25 @@ for (const project of projects) {
   const description = project.summary || `${project.title} by Acts of Service.`;
   const image = project.shareImage ? `${SITE}${project.shareImage}` : `${SITE}/images/share.png`;
 
+  // Facts about the project for search engines (schema.org)
+  const work = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.title,
+    description,
+    url,
+    image,
+    creator: { '@id': `${SITE}/#studio` },
+    ...(project.date ? { dateCreated: String(project.date).slice(0, 7) } : {}),
+    ...(project.commissioner ? { sourceOrganization: { '@type': 'Organization', name: project.commissioner } } : {}),
+    ...(project.category && project.category.length ? { keywords: project.category.join(', ') } : {})
+  };
+  const workJson = JSON.stringify(work).replace(/</g, '\\u003c');
+
   let html = template;
+  // The title to go back to when the popup closes (see defaultTitle in index.html)
+  html = html.replace('<html lang="en">', `<html lang="en" data-home-title="${escapeAttr(homeTitle)}">`);
+  html = html.replace('</head>', `    <script type="application/ld+json">${workJson}</script>\n</head>`);
   html = setValue(html, /(<title>)[^<]*(<\/title>)/, title);
   html = setValue(html, /(<meta name="description" content=")[^"]*(">)/, description);
   html = setValue(html, /(<link rel="canonical" href=")[^"]*(">)/, url);
