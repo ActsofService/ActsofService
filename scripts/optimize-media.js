@@ -3,6 +3,9 @@
 // images/uploads are never changed; the web versions go in images/optimized/
 // and build-projects.js points projects.json at them.
 // A media item is skipped when its "Optimize" checkbox in the CMS is unticked.
+// GIFs are always left as they are: their dithered pixels get visibly smeared
+// in a lighter format (and lossless WebP is bigger than the GIF), and unlike
+// videos, GIFs still animate when a browser blocks autoplay.
 
 const fs = require('fs');
 const path = require('path');
@@ -17,9 +20,6 @@ const ffmpegPath = require('ffmpeg-static');
 const MAX_IMAGE_SIZE = 2400;
 const PHOTO_QUALITY = 85;    // JPG sources
 const GRAPHIC_QUALITY = 90;  // PNG sources: often flat colors and text
-// GIFs: animated WebP
-const MAX_GIF_SIZE = 1600;
-const GIF_QUALITY = 85;
 // Videos: H.264 MP4, plays everywhere. Lower CRF = better quality and bigger
 // files; 20 looks the same as the original for these kinds of videos.
 const MAX_VIDEO_SIZE = 1920;
@@ -87,13 +87,6 @@ const optimizeImage = async (file, out) => {
     .toFile(out);
 };
 
-const optimizeGif = async (file, out) => {
-  await sharp(file, { animated: true, limitInputPixels: false })
-    .resize({ width: MAX_GIF_SIZE, height: MAX_GIF_SIZE, fit: 'inside', withoutEnlargement: true })
-    .webp({ quality: GIF_QUALITY, effort: 4 })
-    .toFile(out);
-};
-
 const optimizeVideo = (file, out, silent) => {
   const fit = `scale='if(gte(iw,ih),min(${MAX_VIDEO_SIZE},iw),-2)':'if(gte(iw,ih),-2,min(${MAX_VIDEO_SIZE},ih))'`;
   execFileSync(ffmpegPath, [
@@ -125,7 +118,12 @@ const main = async () => {
   fs.mkdirSync(outDir, { recursive: true });
   const manifest = fs.existsSync(manifestFile) ? JSON.parse(fs.readFileSync(manifestFile, 'utf8')) : {};
   const nextManifest = {};
-  const settings = JSON.stringify({ MAX_IMAGE_SIZE, PHOTO_QUALITY, GRAPHIC_QUALITY, MAX_GIF_SIZE, GIF_QUALITY, MAX_VIDEO_SIZE, VIDEO_CRF, MIN_SAVING });
+  // Changing a setting only remakes the kind of media it applies to.
+  const settings = {
+    image: JSON.stringify({ MAX_IMAGE_SIZE, PHOTO_QUALITY, GRAPHIC_QUALITY, MIN_SAVING }),
+    gif: 'original',
+    video: JSON.stringify({ MAX_VIDEO_SIZE, VIDEO_CRF, MIN_SAVING })
+  };
   let before = 0, after = 0;
 
   for (const [key, { src, silent }] of collectMedia()) {
@@ -140,7 +138,7 @@ const main = async () => {
     const ext = kind === 'video' ? '.mp4' : '.webp';
     const name = outputBase(src) + ext;
     const out = path.join(outDir, name);
-    const hash = crypto.createHash('sha1').update(fs.readFileSync(file)).update(settings).update(String(silent)).digest('hex');
+    const hash = crypto.createHash('sha1').update(fs.readFileSync(file)).update(settings[kind]).update(String(silent)).digest('hex');
 
     // Skip media that hasn't changed since last time.
     const previous = manifest[key];
@@ -154,9 +152,16 @@ const main = async () => {
       continue;
     }
 
+    // GIFs keep the original; only their size is noted
+    if (kind === 'gif') {
+      nextManifest[key] = { optimized: null, hash, size: await imageSize(file) };
+      before += size;
+      after += size;
+      continue;
+    }
+
     try {
       if (kind === 'image') await optimizeImage(file, out);
-      if (kind === 'gif') await optimizeGif(file, out);
       if (kind === 'video') optimizeVideo(file, out, silent);
     } catch (error) {
       console.warn(`! could not optimize ${src}: ${String(error.stderr || error.message).trim().split('\n')[0]}`);

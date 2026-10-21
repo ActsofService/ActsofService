@@ -21,7 +21,7 @@
       },
       {
         "mediaType": "image",
-        "gif": "/images/optimized/august-1-2-7ea2e6ef.webp"
+        "gif": "/images/uploads/august-1-2-.gif"
       },
       {
         "mediaType": "image",
@@ -41,7 +41,7 @@
         1600,
         2400
       ],
-      "/images/optimized/august-1-2-7ea2e6ef.webp": [
+      "/images/uploads/august-1-2-.gif": [
         480,
         270
       ],
@@ -142,7 +142,7 @@
       },
       {
         "mediaType": "gif",
-        "gif": "/images/optimized/f1-b72cc36a.webp"
+        "gif": "/images/uploads/f1.gif"
       }
     ],
     "sizes": {
@@ -162,9 +162,9 @@
         1890,
         2362
       ],
-      "/images/optimized/f1-b72cc36a.webp": [
-        1500,
-        1600
+      "/images/uploads/f1.gif": [
+        2160,
+        2304
       ]
     },
     "date": "2026-05",
@@ -201,7 +201,7 @@
       },
       {
         "mediaType": "gif",
-        "image": "/images/optimized/zine-a65d0543.webp"
+        "image": "/images/uploads/zine.gif"
       },
       {
         "mediaType": "video",
@@ -221,7 +221,7 @@
         1080,
         1350
       ],
-      "/images/optimized/zine-a65d0543.webp": [
+      "/images/uploads/zine.gif": [
         1080,
         1350
       ]
@@ -251,7 +251,7 @@
       {
         "mediaType": "gif",
         "image": "",
-        "gif": "/images/optimized/1-main-poster-1080x1350-6324357a.webp"
+        "gif": "/images/uploads/1.-main-poster_1080x1350.gif"
       },
       {
         "mediaType": "image",
@@ -279,7 +279,7 @@
         1998,
         2286
       ],
-      "/images/optimized/1-main-poster-1080x1350-6324357a.webp": [
+      "/images/uploads/1.-main-poster_1080x1350.gif": [
         1080,
         1350
       ],
@@ -631,7 +631,7 @@
     "gallery": [
       {
         "mediaType": "image",
-        "gif": "/images/optimized/olle-essence-78b68ff3.webp"
+        "gif": "/images/uploads/Olle_Essence.gif"
       },
       {
         "mediaType": "image",
@@ -639,7 +639,7 @@
       },
       {
         "mediaType": "image",
-        "image": "/images/optimized/essence1-1-ae641146.webp"
+        "image": "/images/uploads/essence1-1-.gif"
       }
     ],
     "sizes": {
@@ -647,17 +647,17 @@
         1782,
         1140
       ],
-      "/images/optimized/olle-essence-78b68ff3.webp": [
-        1600,
-        1200
+      "/images/uploads/Olle_Essence.gif": [
+        2500,
+        1875
       ],
       "/images/optimized/fotograf-24-03f4af34.webp": [
         1417,
         2126
       ],
-      "/images/optimized/essence1-1-ae641146.webp": [
-        1600,
-        1131
+      "/images/uploads/essence1-1-.gif": [
+        2631,
+        1860
       ]
     },
     "date": "2025-01",
@@ -683,7 +683,7 @@
     "gallery": [
       {
         "mediaType": "gif",
-        "image": "/images/optimized/ny-freyja-gif-c19b122b.webp"
+        "image": "/images/uploads/ny_freyja_gif.gif"
       }
     ],
     "sizes": {
@@ -691,7 +691,7 @@
         2350,
         2350
       ],
-      "/images/optimized/ny-freyja-gif-c19b122b.webp": [
+      "/images/uploads/ny_freyja_gif.gif": [
         1309,
         1309
       ]
@@ -720,7 +720,7 @@
       {
         "mediaType": "gif",
         "image": "",
-        "gif": "/images/optimized/tidn-8d07a8df.webp"
+        "gif": "/images/uploads/tidn.gif"
       },
       {
         "mediaType": "image",
@@ -736,9 +736,9 @@
         2400,
         1600
       ],
-      "/images/optimized/tidn-8d07a8df.webp": [
-        1600,
-        1154
+      "/images/uploads/tidn.gif": [
+        3000,
+        2164
       ],
       "/images/optimized/tidn-32340741.webp": [
         2400,
@@ -909,15 +909,15 @@
       },
       {
         "mediaType": "image",
-        "gif": "/images/optimized/landscapes-2-b724674a.webp"
+        "gif": "/images/uploads/landscapes_2.gif"
       },
       {
         "mediaType": "image",
-        "gif": "/images/optimized/landscapes-4-ec51c651.webp"
+        "gif": "/images/uploads/landscapes_4.gif"
       },
       {
         "mediaType": "image",
-        "gif": "/images/optimized/landscapes-5-1-9a9c2163.webp"
+        "gif": "/images/uploads/landscapes_5-1-.gif"
       },
       {
         "mediaType": "image",
@@ -925,15 +925,15 @@
       }
     ],
     "sizes": {
-      "/images/optimized/landscapes-2-b724674a.webp": [
+      "/images/uploads/landscapes_2.gif": [
         640,
         360
       ],
-      "/images/optimized/landscapes-4-ec51c651.webp": [
+      "/images/uploads/landscapes_4.gif": [
         640,
         360
       ],
-      "/images/optimized/landscapes-5-1-9a9c2163.webp": [
+      "/images/uploads/landscapes_5-1-.gif": [
         640,
         360
       ]

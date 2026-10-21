@@ -47,7 +47,7 @@ collections:
           - { label: "GIF", name: "gif", widget: "image", required: false, hint: "Use the image picker for a GIF so the CMS can show its preview." }
           - { label: "Video", name: "video", widget: "file", required: false, hint: "Used for both Media Types \"video\" (with player controls) and \"looping video\" (autoplays, muted, loops forever, no controls - like a GIF). Use an MP4." }
           - { label: "Video Preview Image", name: "poster", widget: "image", required: false, hint: "Optional thumbnail shown in the CMS workflow and on the archive before the video plays." }
-          - { label: "Optimize", name: "optimize", widget: "boolean", default: true, required: false, hint: "Makes a lighter web version so the site loads faster, without visible quality loss. Untick to show the original file as it is." }
+          - { label: "Optimize", name: "optimize", widget: "boolean", default: true, required: false, hint: "Makes a lighter web version so the site loads faster, without visible quality loss. Untick to show the original file as it is. GIFs are always shown as they are." }
       - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM", time_format: false, picker_utc: true }
       - { label: "Commissioner", name: "commissioner", widget: "string", required: false }
       - label: "Category"
