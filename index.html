@@ -430,6 +430,12 @@
         #bg-slideshow [hidden] {
             display: none;
         }
+        #bg-slideshow video.waiting {   /* invisible until it really plays */
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+        }
 
         .home-title {
             position: absolute;
@@ -542,6 +548,7 @@
         }
         .project-cover img,
         .project-cover video,
+        .project-cover .video-frame,
         .project-cover iframe {
             display: block;
             width: 100%;
@@ -553,12 +560,23 @@
         .project-cover video {
             height: auto;
         }
-        /* Safari puts a big play button on videos when it blocks autoplay
-           (e.g. in Low Power Mode). Hide it on the autoplaying videos so the
-           thumbnail just shows as an image until the video can play. */
-        video:not([controls])::-webkit-media-controls-start-playback-button {
-            display: none !important;
-            -webkit-appearance: none;
+        /* An autoplaying video stays invisible over its thumbnail until it
+           really plays. Safari can block autoplay (e.g. in Low Power Mode) and
+           then covers the video with a big play button that can't be styled
+           away, so visitors see the thumbnail instead. */
+        .video-frame {
+            position: relative;
+        }
+        .video-frame > video.waiting {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+        }
+        .project-images .video-frame {
+            flex-shrink: 0;
         }
         .project-cover iframe {
             aspect-ratio: var(--ratio, 16 / 9);   /* the video's own shape, set by the script */
@@ -583,7 +601,8 @@
                 text-align: center;
             }
             .project-cover img,
-            .project-cover video {
+            .project-cover video,
+            .project-cover .video-frame {
                 order: 2;
                 width: min(70vw, 500px);
             }
@@ -615,6 +634,7 @@
             /* Cover images as wide as the screen allows, minus the margin */
             .project-cover img,
             .project-cover video,
+            .project-cover .video-frame,
             .project-cover iframe {
                 width: calc(100vw - 2 * var(--cover-margin-mobile));
                 max-width: none;
@@ -1233,14 +1253,21 @@ projectsRequest
             const thisShow = ++currentShow;
             index = (index + 1) % items.length;
             if (item.type === 'video') {
-                let videoReady = false;
+                // The video stays invisible over the current picture until it
+                // really plays, so a blocked autoplay never shows a play button.
+                let playing = false;
+                video.classList.add('waiting');
+                video.hidden = false;
                 video.oncanplay = () => {
                     video.oncanplay = null;
+                    if (thisShow === currentShow) video.play().catch(() => {});
+                };
+                video.onplaying = () => {
+                    video.onplaying = null;
                     if (thisShow !== currentShow) return;
-                    videoReady = true;
+                    playing = true;
+                    video.classList.remove('waiting');
                     img.hidden = true;
-                    video.hidden = false;
-                    video.play().catch(() => {});
                 };
                 video.src = item.src;
                 video.muted = true;
@@ -1249,10 +1276,9 @@ projectsRequest
                 if (item.thumb) {
                     const loader = new Image();
                     loader.onload = () => {
-                        if (thisShow !== currentShow || videoReady) return;
+                        if (thisShow !== currentShow || playing) return;
                         img.src = item.thumb;
                         img.hidden = false;
-                        video.hidden = true;
                     };
                     loader.src = item.thumb;
                 }
@@ -1420,6 +1446,26 @@ const playWhenVisible = (video) => {
     return observer;
 };
 
+// Puts an autoplaying video invisibly over its thumbnail (the poster) until it
+// really plays, so a blocked autoplay shows the thumbnail and not Safari's
+// play button. See .video-frame in the CSS.
+const showThumbnailUntilPlaying = (video, thumbClass) => {
+    if (!video.poster) return;
+    const frame = document.createElement('div');
+    frame.className = 'video-frame';
+    const thumb = document.createElement('img');
+    thumb.src = video.poster;
+    thumb.alt = '';
+    if (thumbClass) thumb.className = thumbClass;
+    video.before(frame);
+    frame.append(thumb, video);
+    video.classList.add('waiting');
+    video.addEventListener('playing', () => {
+        video.classList.remove('waiting');
+        thumb.remove();
+    }, { once: true });
+};
+
 // Some browsers (e.g. Safari in Low Power Mode) block autoplay until the
 // visitor has clicked or tapped once. Start the visible videos on the first
 // click, tap or key press anywhere, not just on the video itself.
@@ -1579,6 +1625,7 @@ projectsRequest
             const coverMedia = div.querySelector('.project-cover img, .project-cover video, .project-cover iframe');
             div.querySelectorAll('.project-cover video').forEach((video) => {
                 video.muted = true;
+                showThumbnailUntilPlaying(video);
                 playWhenVisible(video);
             });
             if (coverMedia) {
@@ -1687,6 +1734,7 @@ projectsRequest
 
                     const galleryVideoObservers = Array.from(modal.querySelectorAll('video[autoplay]')).map((video) => {
                         video.muted = true;
+                        showThumbnailUntilPlaying(video, 'project-img');
                         return playWhenVisible(video);
                     });
 
