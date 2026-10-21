@@ -3,6 +3,10 @@
     "thumbnail": "/images/thumbs/emmy-seeger-foto-4-f8aa7369.webp",
     "hash": "2509903af8d91e85fe613d113f33ed52a0601728"
   },
+  "/images/uploads/1.mp4": {
+    "thumbnail": "/images/thumbs/1-2b8e5a00.webp",
+    "hash": "70781e35a6201b3c40557d33e4b1d2bd7c0bc722"
+  },
   "/images/uploads/juicexbeckmans_webb-1-.jpg": {
     "thumbnail": "/images/thumbs/juicexbeckmans-webb-1-208b47ee.webp",
     "hash": "4e5ea27a630c376a53fb400a51a85ed12013accc"
@@ -15,6 +19,10 @@
     "thumbnail": "/images/thumbs/freyja5-5d4f96fe.webp",
     "hash": "28cbeaa776f4fee2e6b2f062216becc387722381"
   },
+  "/images/uploads/avtryck_1.mp4": {
+    "thumbnail": "/images/thumbs/avtryck-1-bb39f724.webp",
+    "hash": "fbe2dd0e437f89cd26ab9342eaba9d635e0448a3"
+  },
   "/images/uploads/helvetet_1.jpg": {
     "thumbnail": "/images/thumbs/helvetet-1-1fc718d5.webp",
     "hash": "ab6bd3aaa1c0d11ae53538b5665f79ba6f3a5099"
@@ -22,6 +30,14 @@
   "/images/uploads/tidn2.jpg": {
     "thumbnail": "/images/thumbs/tidn2-797a5a73.webp",
     "hash": "3a1a3d68ee443ebc58d7b7b21f2caf4e92c5f22e"
+  },
+  "/images/uploads/olle_ljung_video_2.mp4": {
+    "thumbnail": "/images/thumbs/olle-ljung-video-2-1368e6d0.webp",
+    "hash": "a24b7896e45da241787f88223fee9b6d77159e0c"
+  },
+  "/images/uploads/landscapes_1.mp4": {
+    "thumbnail": "/images/thumbs/landscapes-1-8dc839d8.webp",
+    "hash": "116e275b0323b8183dbe999f71e6cc1ebda80381"
   },
   "/images/uploads/1.-img_5923.jpg": {
     "thumbnail": "/images/thumbs/1-img-5923-bb7dfd82.webp",
@@ -46,6 +62,10 @@
   "/images/uploads/136e9204-390f-4207-9298-302ccc7ebb8d.png": {
     "thumbnail": "/images/thumbs/136e9204-390f-4207-9298-302ccc7ebb8d-f5b05fda.webp",
     "hash": "3f9941418ebd7b103ce9f864cd8ccb7e86270e12"
+  },
+  "/images/uploads/ub_1.mp4": {
+    "thumbnail": "/images/thumbs/ub-1-8d7f62b5.webp",
+    "hash": "3b7336cc032c601d306d42c0937359cf753bd334"
   },
   "/images/uploads/1.-svenskttennverni_select-12.jpg": {
     "thumbnail": "/images/thumbs/1-svenskttennverni-select-12-adb561dc.webp",
