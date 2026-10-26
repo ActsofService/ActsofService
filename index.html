@@ -88,7 +88,8 @@
             --font-mono: "slnt" 0, "DRKM" 0, "MONO" 50;     /* archive lists and labels */
 
             /* Font sizes */
-            --logo-width: 55vw;      /* width of the logo on the home page */
+            --logo-width: 36.85vw;   /* width of the logo on the home page */
+            --logo-bottom: 11.25vh;  /* space between the logo and the bottom of the screen */
             --size-large: 2.05rem;   /* project title in the popup */
             --size-body: 1.05rem;    /* running text */
             --size-small: 0.8rem;    /* menu, archive filters and project info */
@@ -145,7 +146,7 @@
 
         @media (max-width: 1100px) {
             :root {
-                --logo-width: calc(100vw - 2 * var(--gutter));
+                --logo-width: calc((100vw - 2 * var(--gutter)) * 0.67);
                 --size-large: 1.05rem;
             }
         }
@@ -500,7 +501,7 @@
 
         .home-title {
             position: absolute;
-            bottom: 15vh;
+            bottom: var(--logo-bottom);
             left: var(--gutter);
             margin: 0;
             color: var(--ink);   /* the logo takes this color */
